@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Create Next App</title>
+        <title>Ekaterinburg Map</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
