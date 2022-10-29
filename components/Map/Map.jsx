@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import L from "leaflet";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import classNames from "classnames/bind";
@@ -13,7 +13,10 @@ import "leaflet/dist/leaflet.css";
 const cn = classNames.bind(styles);
 
 function Map() {
-  const position = [56.838011, 60.597465];
+  const centerPosition = [56.838011, 60.597465];
+
+  const [positionsData, setPositionsData] = useState([]);
+  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   useEffect(() => {
     (async function init() {
@@ -25,20 +28,48 @@ function Map() {
     })();
   }, []);
 
+  const req = new XMLHttpRequest();
+
+  req.addEventListener("load", () => {
+    if (isDataLoaded){
+      return;
+    }
+    setIsDataLoaded(true);
+    setPositionsData(JSON.parse(req.responseText));
+  });
+
+  req.open("GET", "https://map.ekaterinburg.design/api/map");
+  req.send();
+
   return (
     <MapContainer
-      center={position}
+      center={centerPosition}
       scrollWheelZoom
       attributionControl={null}
       zoom={13}
       className={cn(styles.Map)}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Marker position={position}>
-        <Popup>Popup test</Popup>
-      </Marker>
+      <Markers positionsData={positionsData}/>
     </MapContainer>
   );
+}
+
+function Markers(positionsData){
+  const markers = [];
+  console.log(positionsData);
+  //too strange thing that data saves to prop that called like parent object
+  for (const p of positionsData.positionsData){
+    const parsedCoords = p.coords.split(", ").map(x => Number(x));
+    
+    markers.push(
+      <Marker position={parsedCoords}>
+        <Popup>{p.name}</Popup>
+      </Marker>
+    );
+  }
+
+  return markers;
 }
 
 export default Map;
