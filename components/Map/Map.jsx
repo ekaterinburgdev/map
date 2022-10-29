@@ -31,7 +31,7 @@ function Map() {
   const req = new XMLHttpRequest();
 
   req.addEventListener("load", () => {
-    if (isDataLoaded){
+    if (isDataLoaded) {
       return;
     }
     setIsDataLoaded(true);
@@ -50,18 +50,15 @@ function Map() {
       className={cn(styles.Map)}
     >
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <Markers positionsData={positionsData}/>
+      <Markers positionsData={positionsData} />
     </MapContainer>
   );
 }
 
-function Markers(positionsData){
+function Markers(positionsData) {
   const markers = [];
-  console.log(positionsData);
-  //too strange thing that data saves to prop that called like parent object
-  for (const p of positionsData.positionsData){
-    const parsedCoords = p.coords.split(", ").map(x => Number(x));
-    
+  for (const p of positionsData.positionsData) {
+    const parsedCoords = p.coords.split(", ").map((x) => Number(x));
     markers.push(
       <Marker position={parsedCoords}>
         <Popup>{p.name}</Popup>

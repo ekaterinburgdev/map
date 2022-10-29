@@ -29,6 +29,8 @@
       {
         "ignoreFunctionalComponents": true
       }
-    ]
+    ],
+    "array-callback-return": "off",
+    "no-restricted-syntax": "off"
   }
 }
