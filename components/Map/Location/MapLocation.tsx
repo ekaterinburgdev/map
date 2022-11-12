@@ -28,9 +28,5 @@ export function MapLocation() {
         };
     }, [map]);
 
-    return (
-        <Marker position={position || COORDS_EKATERINBURG}>
-            <Popup>Your location</Popup>
-        </Marker>
-    );
+    return null;
 }
