@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,
     swcMinify: true,
     eslint: {
-        dirs: ['pages', 'components', 'api']
+        dirs: ['pages', 'components', 'api', 'common']
     }
 };
 
