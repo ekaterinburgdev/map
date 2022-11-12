@@ -5,6 +5,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Iset Sans', sans-serif;
+    background: black;
 }
 
 a {
@@ -29,4 +30,13 @@ body {
         color: white;
         background: black;
     }
+}
+
+/* TODO Tile server with black Open Street Map */
+.leaflet-tile-pane {
+    filter: invert(1) sepia(1) saturate(.2) hue-rotate(270deg) brightness(.7) contrast(1.1);
+}
+
+.leaflet-container {
+    background: none !important;
 }
