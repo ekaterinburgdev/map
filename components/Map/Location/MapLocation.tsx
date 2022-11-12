@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useMapEvents, Marker, Popup } from 'react-leaflet';
+import { useEffect, useState } from 'react';
+import { useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
-
-import { COORDS_EKATERINBURG } from 'common/constants/coords';
 
 export function MapLocation() {
     const [position, setPosition] = useState<L.LatLng | null>(null);
