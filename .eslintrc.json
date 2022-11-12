@@ -1,33 +1,25 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": [
-    "plugin:react/recommended",
-    "plugin:@next/next/recommended",
-    "airbnb",
-    "prettier"
-  ],
+  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react", "prettier"],
   "rules": {
-    "prettier/prettier": "error",
-    "react/react-in-jsx-scope": "off",
+    "indent": ["error", 4],
+    "no-console": ["error", { "allow": ["error"] }],
+
+    "@typescript-eslint/indent": ["error", 4],
+
+    "react/jsx-indent": ["error", 4],
+    "react/jsx-indent-props": ["error", 4],
     "react/jsx-props-no-spreading": "off",
-    "react/forbid-prop-types": "off",
-    "react/jsx-filename-extension": "off",
-    "react/require-default-props": [
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+
+    "import/extensions": ["error", "never", { "svg": "always", "json": "always", "css": "always" }],
+    "import/prefer-default-export": "off",
+    "import/order": [
       "error",
       {
-        "ignoreFunctionalComponents": true
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
     ]
   }
