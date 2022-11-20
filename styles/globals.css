@@ -35,6 +35,10 @@ body {
 /* TODO Tile server with black Open Street Map */
 .leaflet-tile-pane {
     filter: invert(1) sepia(1) saturate(.2) hue-rotate(270deg) brightness(.7) contrast(1.1);
+
+    /* Improve map perfomance with `filter` */
+    transform: translateZ(0);
+    pointer-events: none;
 }
 
 .leaflet-container {
