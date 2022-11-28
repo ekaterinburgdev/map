@@ -38,6 +38,7 @@ function Map() {
     if (isOknDataLoaded) {
       return;
     }
+    console.log(reqOkn.responseText);
     setIsOknDataLoaded(true);
     setOknPositionsData(JSON.parse(reqOkn.responseText));
   });
@@ -49,7 +50,7 @@ function Map() {
     if (isHousesLoaded) {
       return;
     }
-    // console.log(reqHouses.responseText);
+    console.log(reqHouses.responseText);
     setIsHousesLoaded(true);
     setHousesPositionsData(JSON.parse(reqHouses.responseText));
   });
@@ -91,6 +92,7 @@ function OknMarkers(oknPositionsData) {
     !oknPositionsData.oknPositionsData.data
   )
     return;
+  console.log("render okns");
   for (const p of oknPositionsData.oknPositionsData.data) {
     const coords = p.attributes.geometry.coordinates;
     markers.push(
@@ -111,6 +113,7 @@ function HousesMarkers(housesPositionsData) {
     !housesPositionsData.housesPositionsData.data
   )
     return;
+  console.log("render houses");
   for (const p of housesPositionsData.housesPositionsData.data) {
     const coords = p.attributes.geometry.coordinates;
     markers.push(
