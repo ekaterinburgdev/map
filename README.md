@@ -2,7 +2,7 @@
 
 Map for Ekaterinburg urbanists
 
-**[map.ekaterinburg.dev](https://map.ekaterinburg.dev)**
+**[map.ekaterinburg.io](https://map.ekaterinburg.io)**
 
 ## Tools
 
