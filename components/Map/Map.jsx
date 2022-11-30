@@ -18,10 +18,15 @@ function Map() {
 
   const [oknPositionsData, setOknPositionsData] = useState([]);
   const [isOknDataLoaded, setIsOknDataLoaded] = useState(false);
+  const [isOknVisible, setIsOknVisible] = useState(true);
 
   const [housesPositionsData, setHousesPositionsData] = useState([]);
   const [isHousesLoaded, setIsHousesLoaded] = useState(false);
   const [isHousesVisible, setIsHousesVisible] = useState(true);
+
+  const [dtpsPositionsData, setDtpsPositionsData] = useState([]);
+  const [isDtpsLoaded, setIsDtpsLoaded] = useState(false);
+  const [isDtpsVisible, setIsDtpsVisible] = useState(true);
 
   useEffect(() => {
     (async function init() {
@@ -38,7 +43,6 @@ function Map() {
     if (isOknDataLoaded) {
       return;
     }
-    console.log(reqOkn.responseText);
     setIsOknDataLoaded(true);
     setOknPositionsData(JSON.parse(reqOkn.responseText));
   });
@@ -50,7 +54,6 @@ function Map() {
     if (isHousesLoaded) {
       return;
     }
-    console.log(reqHouses.responseText);
     setIsHousesLoaded(true);
     setHousesPositionsData(JSON.parse(reqHouses.responseText));
   });
@@ -60,13 +63,30 @@ function Map() {
   );
   reqHouses.send();
 
+  const reqDtps = new XMLHttpRequest();
+  reqHouses.addEventListener("load", () => {
+    if (isDtpsLoaded) {
+      return;
+    }
+    setIsDtpsLoaded(true);
+    setDtpsPositionsData(JSON.parse(reqDtps.responseText));
+  });
+  reqDtps.open("GET", "http://51.178.191.76:1337/api/dtps?populate=geometry");
+  reqDtps.send();
+
   return (
     <span>
       <button
         className="bbb"
         onClick={() => setIsHousesVisible(!isHousesVisible)}
       >
-        Click me!
+        Houses
+      </button>
+      <button className="bbb" onClick={() => setIsOknVisible(!isOknVisible)}>
+        Okns
+      </button>
+      <button className="bbb" onClick={() => setIsDtpsVisible(!isDtpsVisible)}>
+        Dtps
       </button>
       <MapContainer
         center={centerPosition}
@@ -79,7 +99,12 @@ function Map() {
         {isHousesVisible ? (
           <HousesMarkers housesPositionsData={housesPositionsData} />
         ) : null}
-        <OknMarkers oknPositionsData={oknPositionsData} />
+        {isOknVisible ? (
+          <OknMarkers oknPositionsData={oknPositionsData} />
+        ) : null}
+        {isDtpsVisible ? (
+          <DtpsMarkers dtpsPositionsData={dtpsPositionsData} />
+        ) : null}
       </MapContainer>
     </span>
   );
@@ -92,7 +117,6 @@ function OknMarkers(oknPositionsData) {
     !oknPositionsData.oknPositionsData.data
   )
     return;
-  console.log("render okns");
   for (const p of oknPositionsData.oknPositionsData.data) {
     const coords = p.attributes.geometry.coordinates;
     markers.push(
@@ -113,12 +137,31 @@ function HousesMarkers(housesPositionsData) {
     !housesPositionsData.housesPositionsData.data
   )
     return;
-  console.log("render houses");
   for (const p of housesPositionsData.housesPositionsData.data) {
     const coords = p.attributes.geometry.coordinates;
     markers.push(
       <Marker position={[coords[1], coords[0]]}>
         <Popup>house</Popup>
+      </Marker>
+    );
+  }
+
+  // eslint-disable-next-line consistent-return
+  return markers;
+}
+
+function DtpsMarkers(dtpsPositionsData) {
+  const markers = [];
+  if (
+    !dtpsPositionsData.dtpsPositionsData ||
+    !dtpsPositionsData.dtpsPositionsData.data
+  )
+    return;
+  for (const p of dtpsPositionsData.dtpsPositionsData.data) {
+    const coords = p.attributes.geometry.coordinates;
+    markers.push(
+      <Marker position={[coords[1], coords[0]]}>
+        <Popup>dtp</Popup>
       </Marker>
     );
   }
