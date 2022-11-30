@@ -77,7 +77,10 @@ function Map() {
     setIsDtpsLoaded(true);
     setDtpsPositionsData(JSON.parse(reqDtps.responseText));
   });
-  reqDtps.open("GET", "http://51.178.191.76:1337/api/dtps?populate=geometry");
+  reqDtps.open(
+    "GET",
+    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/dtps?populate=geometry`
+  );
   reqDtps.send();
 
   return (
