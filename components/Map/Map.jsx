@@ -11,6 +11,9 @@ import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 import styles from "./Map.module.css";
 import "leaflet/dist/leaflet.css";
 
+const CORS_HTTPS_PROXY =
+  "https://allorigins.hexlet.app/raw?disableCache=true&url=";
+
 const cn = classNames.bind(styles);
 
 function Map() {
@@ -46,7 +49,10 @@ function Map() {
     setIsOknDataLoaded(true);
     setOknPositionsData(JSON.parse(reqOkn.responseText));
   });
-  reqOkn.open("GET", "http://51.178.191.76:1337/api/okns?populate=geometry");
+  reqOkn.open(
+    "GET",
+    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/okns?populate=geometry`
+  );
   reqOkn.send();
 
   const reqHouses = new XMLHttpRequest();
@@ -59,7 +65,7 @@ function Map() {
   });
   reqHouses.open(
     "GET",
-    "http://51.178.191.76:1337/api/house?populate=geometry"
+    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/house?populate=geometry`
   );
   reqHouses.send();
 
