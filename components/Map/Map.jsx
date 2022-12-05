@@ -6,13 +6,9 @@ import classNames from "classnames/bind";
 
 import iconRetinaUrl from "leaflet/dist/images/marker-icon-2x.png";
 import iconUrl from "leaflet/dist/images/marker-icon.png";
-import shadowUrl from "leaflet/dist/images/marker-shadow.png";
 
 import styles from "./Map.module.css";
 import "leaflet/dist/leaflet.css";
-
-const CORS_HTTPS_PROXY =
-  "https://allorigins.hexlet.app/raw?disableCache=true&url=";
 
 const cn = classNames.bind(styles);
 
@@ -20,15 +16,12 @@ function Map() {
   const centerPosition = [56.838011, 60.597465];
 
   const [oknPositionsData, setOknPositionsData] = useState([]);
-  const [isOknDataLoaded, setIsOknDataLoaded] = useState(false);
   const [isOknVisible, setIsOknVisible] = useState(true);
 
   const [housesPositionsData, setHousesPositionsData] = useState([]);
-  const [isHousesLoaded, setIsHousesLoaded] = useState(false);
   const [isHousesVisible, setIsHousesVisible] = useState(true);
 
   const [dtpsPositionsData, setDtpsPositionsData] = useState([]);
-  const [isDtpsLoaded, setIsDtpsLoaded] = useState(false);
   const [isDtpsVisible, setIsDtpsVisible] = useState(true);
 
   useEffect(() => {
@@ -36,66 +29,42 @@ function Map() {
       L.Icon.Default.mergeOptions({
         iconRetinaUrl: iconRetinaUrl.src,
         iconUrl: iconUrl.src,
-        shadowUrl: shadowUrl.src,
+        shadowUrl: "",
       });
     })();
+
+    fetch(
+      "https://map-api.ekaterinburg.io/api/okns?populate=geometry&pagination[pageSize]=600"
+    )
+      .then((response) => response.json())
+      .then((data) => setOknPositionsData(data));
+
+    fetch(
+      "https://map-api.ekaterinburg.io/api/dtps?populate=geometry&pagination[pageSize]=3000"
+    )
+      .then((response) => response.json())
+      .then((data) => setDtpsPositionsData(data));
+
+    fetch(
+      "https://map-api.ekaterinburg.io/api/house?populate=geometry&pagination[pageSize]=3000"
+    )
+      .then((response) => response.json())
+      .then((data) => setHousesPositionsData(data));
   }, []);
-
-  const reqOkn = new XMLHttpRequest();
-  reqOkn.addEventListener("load", () => {
-    if (isOknDataLoaded) {
-      return;
-    }
-    setIsOknDataLoaded(true);
-    setOknPositionsData(JSON.parse(reqOkn.responseText));
-  });
-  reqOkn.open(
-    "GET",
-    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/okns?populate=geometry`
-  );
-  reqOkn.send();
-
-  const reqHouses = new XMLHttpRequest();
-  reqHouses.addEventListener("load", () => {
-    if (isHousesLoaded) {
-      return;
-    }
-    setIsHousesLoaded(true);
-    setHousesPositionsData(JSON.parse(reqHouses.responseText));
-  });
-  reqHouses.open(
-    "GET",
-    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/house?populate=geometry`
-  );
-  reqHouses.send();
-
-  const reqDtps = new XMLHttpRequest();
-  reqHouses.addEventListener("load", () => {
-    if (isDtpsLoaded) {
-      return;
-    }
-    setIsDtpsLoaded(true);
-    setDtpsPositionsData(JSON.parse(reqDtps.responseText));
-  });
-  reqDtps.open(
-    "GET",
-    `${CORS_HTTPS_PROXY}http://51.178.191.76:1337/api/dtps?populate=geometry`
-  );
-  reqDtps.send();
 
   return (
     <span>
+      <button className="bbb" onClick={() => setIsOknVisible(!isOknVisible)}>
+        Okns <br /> (600/759)
+      </button>
+      <button className="bbb" onClick={() => setIsDtpsVisible(!isDtpsVisible)}>
+        Dtps (3000/7922)
+      </button>
       <button
         className="bbb"
         onClick={() => setIsHousesVisible(!isHousesVisible)}
       >
-        Houses
-      </button>
-      <button className="bbb" onClick={() => setIsOknVisible(!isOknVisible)}>
-        Okns
-      </button>
-      <button className="bbb" onClick={() => setIsDtpsVisible(!isDtpsVisible)}>
-        Dtps
+        Houses (3000/7837)
       </button>
       <MapContainer
         center={centerPosition}
@@ -105,15 +74,11 @@ function Map() {
         className={cn(styles.Map)}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        {isHousesVisible ? (
+        {isHousesVisible && (
           <HousesMarkers housesPositionsData={housesPositionsData} />
-        ) : null}
-        {isOknVisible ? (
-          <OknMarkers oknPositionsData={oknPositionsData} />
-        ) : null}
-        {isDtpsVisible ? (
-          <DtpsMarkers dtpsPositionsData={dtpsPositionsData} />
-        ) : null}
+        )}
+        {isOknVisible && <OknMarkers oknPositionsData={oknPositionsData} />}
+        {isDtpsVisible && <DtpsMarkers dtpsPositionsData={dtpsPositionsData} />}
       </MapContainer>
     </span>
   );
