@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import type { LatLngExpression } from 'leaflet';
 
 export enum MapItemType {

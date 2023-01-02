@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="541b9518-eb46-41ba-973f-979e0c3e55c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/constants/coords.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/coords.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/types/map-item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/map-item.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/types/requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/requests.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map/Location/MapLocation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Location/MapLocation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map/Marker/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/hocs/withMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/hocs/withMap.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
