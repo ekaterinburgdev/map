@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import L from 'leaflet';
 import {MapContainer, ScaleControl, TileLayer} from 'react-leaflet';
 import classNames from 'classnames/bind';
@@ -20,6 +20,7 @@ const cn = classNames.bind(styles);
 
 function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
+    const [okns, setOkns] = useState<any>();
 
     useEffect(() => {
         (async function init() {
@@ -30,6 +31,13 @@ function MapMainContainer() {
             });
         }());
     }, []);
+    
+    useEffect(() => {
+        // load okns
+        fetch("https://map-api.ekaterinburg.io/api/okns?populate=geometry,data&pagination[pageSize]=60")
+            .then(async (x) => JSON.parse(await x.text()).data)
+            .then((x) => setOkns(x));
+    }, [])
 
     return (
         <MapContainer
@@ -44,8 +52,16 @@ function MapMainContainer() {
             <ScaleControl position="topright" />
 
             <MapLocation />
-            <Marker id={"1"} name={"a"} type={MapItemType.Светофор}
-                    x={60} y={60} preview={null} isOpen={false} openPopup={(x) => {}} closePopup={() => {}}></Marker>
+            {okns && okns.map((x) => {
+                let preview = x.attributes.data.img.split(",")[0].slice(8, -1) ?? null;
+                return <Marker id={x.id} name={x.attributes.data.name} type={MapItemType["Таблички ОКН"]}
+                        x={x.attributes.geometry.coordinates[1]}
+                        y={x.attributes.geometry.coordinates[0]}
+                        preview={preview}
+                        isOpen={false}
+                        openPopup={(t) => {alert(x.attributes.data.name)}}
+                        closePopup={() => {}}/>
+            })}
         </MapContainer>
     );
 }
