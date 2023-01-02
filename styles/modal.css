@@ -1,0 +1,37 @@
+.react-modal-sheet-container,
+.react-modal-sheet-header,
+.react-modal-sheet-content {
+  background-color: #000 !important; 
+}
+
+.react-modal-sheet-backdrop {
+  border: none;
+}
+
+.react-modal-sheet-header,
+.react-modal-sheet-container,
+.react-modal-sheet-content {
+  border-radius: 10px 10px 0 0 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .react-modal-sheet-container {
+    width: 400px !important;
+    height: calc(90vh - 2vw)  !important;
+    right: .5vw !important;
+    left: auto !important;
+    top: .5vw !important;
+  }
+
+  .react-modal-sheet-header,
+  .react-modal-sheet-container,
+  .react-modal-sheet-content {
+    border-radius: 12px !important;
+  }
+
+  .react-modal-sheet-header,
+  .react-modal-sheet-drag-indicator,
+  .react-modal-sheet-backdrop {
+    display: none !important;
+  }
+}
