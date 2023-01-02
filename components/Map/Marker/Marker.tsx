@@ -35,7 +35,7 @@ function Placemark({
         const style = `
             width:${size}px;
             height:${size}px;
-            color:orange;
+            color:${MARKER_COLOR[MapItemType[type]]};
         `;
 
         const className = classNames(styles.marker, {
