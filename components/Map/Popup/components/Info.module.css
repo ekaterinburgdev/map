@@ -1,0 +1,20 @@
+.info {
+    margin-left: -1px;
+}
+
+.info__type {
+    font-size: 12px;
+    line-height: 1;
+    padding: 8px 10px 6px;
+    display: inline-block;
+    border-radius: 100px;
+    border: 1px solid currentColor;
+    color: gray;
+}
+
+.info__description {
+    font-size: 16px;
+    line-height: 1.2;
+    margin-top: 16px;
+    margin-left: 4px;
+}
