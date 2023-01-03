@@ -17,6 +17,8 @@ import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
 import {Marker} from "../Marker";
 import {MapItemType} from "../../../common/types/map-item";
+import {Popup} from "../Popup";
+import {Filter} from "../../Filter/Filter";
 
 const cn = classNames.bind(styles);
 
@@ -42,29 +44,33 @@ function MapMainContainer() {
     }, [])
 
     return (
-        <MapContainer
-            center={position}
-            scrollWheelZoom
-            attributionControl={null}
-            zoom={16}
-            className={cn(styles.Map)}
-        >
-            <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
+        <>
+            <Popup/>
+            <Filter showHeading={true}></Filter>
+            <MapContainer
+                center={position}
+                scrollWheelZoom
+                attributionControl={null}
+                zoom={16}
+                className={cn(styles.Map)}
+            >
+                <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
 
-            <ScaleControl position="topright" />
+                <ScaleControl position="topright" />
 
-            <MapLocation />
-            {okns && okns.map((x) => {
-                let preview = x.attributes.data.img.split(",")[0].slice(8, -1) ?? null;
-                return <Marker id={x.id} name={x.attributes.data.name} type={MapItemType["Таблички ОКН"]}
-                        x={x.attributes.geometry.coordinates[1]}
-                        y={x.attributes.geometry.coordinates[0]}
-                        preview={preview}
-                        isOpen={false}
-                        openPopup={(t) => {alert(x.attributes.data.name)}}
-                        closePopup={() => {}}/>
-            })}
-        </MapContainer>
+                <MapLocation />
+                {okns && okns.map((x) => {
+                    let preview = x.attributes.data.img.split(",")[0].slice(8, -1) ?? null;
+                    return <Marker id={x.id} name={x.attributes.data.name} type={MapItemType["Таблички ОКН"]}
+                                   x={x.attributes.geometry.coordinates[1]}
+                                   y={x.attributes.geometry.coordinates[0]}
+                                   preview={preview}
+                                   isOpen={false}
+                                   openPopup={(t) => {alert(x.attributes.data.name)}}
+                                   closePopup={() => {}}/>
+                })}
+            </MapContainer>
+        </>
     );
 }
 

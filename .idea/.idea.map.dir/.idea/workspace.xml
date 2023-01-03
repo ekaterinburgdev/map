@@ -3,20 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="541b9518-eb46-41ba-973f-979e0c3e55c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants/coords.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/coords.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/types/map-item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/map-item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/types/requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/requests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Location/MapLocation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Location/MapLocation.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Marker/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/hocs/withMap.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/hocs/withMap.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,16 +25,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\study\\map\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "nodejs_package_manager_path": "pnpm",
+    "ts.external.directory.path": "C:\\study\\map\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
