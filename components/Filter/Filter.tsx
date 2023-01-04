@@ -1,10 +1,10 @@
-/* eslint-disable @next/next/no-img-element */
+﻿/* eslint-disable @next/next/no-img-element */
 import React, { useContext, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { groupBy } from 'lodash';
 
 import { MARKER_FILTER_COLOR } from 'common/constants/colors';
-import { MapItem } from 'common/types/map-item';
+import {MapItem, MapItemType} from 'common/types/map-item';
 import { MapContext } from 'components/Map/providers/MapProvider';
 
 import styles from './Filter.module.css';
@@ -25,10 +25,10 @@ export function Filter({ showHeading = true }: Props) {
 
     const filters = useMemo(
         () => allMarksTypes.map((type) => ({
-            name: type,
+            name: MapItemType[type],
             count: itemsByType[type].length,
             checked: selectedMarksTypes.includes(type),
-            color: MARKER_FILTER_COLOR[type],
+            color: MARKER_FILTER_COLOR[MapItemType[type]],
         })).sort((a, b) => b.count - a.count),
         [allMarksTypes, selectedMarksTypes, itemsByType],
     );

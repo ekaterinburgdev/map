@@ -1,75 +1,89 @@
-/* eslint-disable */
-
-import React, {useEffect, useMemo, useState} from 'react';
+import React, { useContext, useEffect, useMemo } from 'react';
 import L from 'leaflet';
-import {MapContainer, ScaleControl, TileLayer} from 'react-leaflet';
-import classNames from 'classnames/bind';
+import { MapContainer, TileLayer } from 'react-leaflet';
 
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-import {COORDS_EKATERINBURG} from 'common/constants/coords';
+import { Filter } from 'components/Filter/Filter';
+import { COORDS_EKATERINBURG } from 'common/constants/coords';
+import { MapItem } from 'common/types/map-item';
+import { checkIsMobile } from 'common/isMobile';
 
-import {MapLocation} from 'components/Map/Location/MapLocation';
+import { Copyright } from 'components/Copyright/Copyright';
+import { Marker } from '../Marker';
+import { MapContext } from '../providers/MapProvider';
+import { Popup } from '../Popup';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
-import {Marker} from "../Marker";
-import {MapItemType} from "../../../common/types/map-item";
-import {Popup} from "../Popup";
-import {Filter} from "../../Filter/Filter";
 
-const cn = classNames.bind(styles);
+const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
-function MapMainContainer() {
+interface Props {
+    placemarksData: MapItem[];
+    // eslint-disable-next-line react/require-default-props
+    showFilterHeading?: boolean;
+}
+
+function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
     const position: [number, number] = COORDS_EKATERINBURG;
-    const [okns, setOkns] = useState<any>();
+    const {
+        placemarks, popup, selectedMarksTypes, savePlacemarks, openPopup, closePopup,
+    } = useContext(MapContext);
 
     useEffect(() => {
-        (async function init() {
+        async function init() {
             L.Icon.Default.mergeOptions({
                 iconRetinaUrl: iconRetinaUrl.src,
                 iconUrl: iconUrl.src,
                 shadowUrl: shadowUrl.src,
             });
-        }());
-    }, []);
-    
-    useEffect(() => {
-        // load okns
-        fetch("https://map-api.ekaterinburg.io/api/okns?populate=geometry,data&pagination[pageSize]=60")
-            .then(async (x) => JSON.parse(await x.text()).data)
-            .then((x) => setOkns(x));
-    }, [])
+
+            savePlacemarks(placemarksData);
+        }
+
+        init();
+    }, [savePlacemarks, placemarksData]);
+
+    const selectedMarks: (MapItem & { isOpen: boolean })[] = useMemo(
+        () => placemarks
+            .filter((mark) => selectedMarksTypes.includes(mark.type))
+            .map((m) => ({ ...m, isOpen: m.id === popup?.id })),
+        [placemarks, selectedMarksTypes, popup?.id],
+    );
 
     return (
         <>
-            <Popup/>
-            <Filter showHeading={true}></Filter>
+            <Popup />
+            <Filter showHeading={showFilterHeading} />
             <MapContainer
                 center={position}
                 scrollWheelZoom
-                attributionControl={null}
-                zoom={16}
-                className={cn(styles.Map)}
+                attributionControl={false}
+                zoomControl={false}
+                zoom={DEFAULT_ZOOM}
+                className={styles.Map}
             >
                 <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
-
-                <ScaleControl position="topright" />
-
-                <MapLocation />
-                {okns && okns.map((x) => {
-                    let preview = x.attributes.data.img.split(",")[0].slice(8, -1) ?? null;
-                    return <Marker id={x.id} name={x.attributes.data.name} type={MapItemType["Таблички ОКН"]}
-                                   x={x.attributes.geometry.coordinates[1]}
-                                   y={x.attributes.geometry.coordinates[0]}
-                                   preview={preview}
-                                   isOpen={false}
-                                   openPopup={(t) => {alert(x.attributes.data.name)}}
-                                   closePopup={() => {}}/>
-                })}
+                {selectedMarks.map((placemark) => (
+                    <Marker
+                        key={placemark.id}
+                        id={placemark.id}
+                        type={placemark.type}
+                        name={placemark.name}
+                        x={placemark.coords[0]}
+                        y={placemark.coords[1]}
+                        preview={placemark?.preview?.s?.src || null}
+                        isOpen={placemark.isOpen}
+                        openPopup={openPopup}
+                        closePopup={closePopup}
+                    />
+                ))}
             </MapContainer>
+
+            <Copyright />
         </>
     );
 }

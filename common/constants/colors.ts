@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export const MARKER_COLOR = {
     'Логотипы и айдентика': '#00b400',
     'Навигационные стелы': '#ffd400 ',
