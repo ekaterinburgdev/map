@@ -1,0 +1,17 @@
+.copyright {
+    position: fixed;
+    z-index: 1000;
+    font-size: .5vw;
+    color: rgba(255,255,255,.8);
+    right: 0;
+    bottom: 1px;
+    background: rgba(0,0,0,.5);
+    margin-right: .25vw;
+}
+
+@media screen and (max-width: 768px) {
+    .copyright {
+        font-size: 2vw;
+        margin-right: .5vw;
+    }
+}
