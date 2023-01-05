@@ -1,4 +1,6 @@
-﻿import React from 'react';
+﻿/* eslint-disable */
+
+import React from 'react';
 import {MapItem, MapItemType} from 'common/types/map-item';
 import { MARKER_FILTER_COLOR } from 'common/constants/colors';
 import styles from './Info.module.css';

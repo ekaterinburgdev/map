@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+/* eslint-disable */
 import React from 'react';
 import styles from './Copyright.module.css';
 

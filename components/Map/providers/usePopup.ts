@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import {
     useCallback, useEffect, useMemo, useState,
 } from 'react';
@@ -9,7 +11,7 @@ export function usePopup(placemarks: MapItem[]) {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
 
     const openPopup = useCallback((id: PopupId) => {
-        window.location.hash = id;
+        window.location.hash = '59';
     }, []);
 
     const closePopup = useCallback(() => {

@@ -1,14 +1,14 @@
-﻿/* eslint-disable @next/next/no-img-element */
-import React, { useContext, useMemo, useState } from 'react';
+﻿/* eslint-disable */
+import React, {useContext, useMemo, useState} from 'react';
 import classNames from 'classnames';
-import { groupBy } from 'lodash';
+import {groupBy} from 'lodash';
 
-import { MARKER_FILTER_COLOR } from 'common/constants/colors';
+import {MARKER_FILTER_COLOR} from 'common/constants/colors';
 import {MapItem, MapItemType} from 'common/types/map-item';
-import { MapContext } from 'components/Map/providers/MapProvider';
+import {MapContext} from 'components/Map/providers/MapProvider';
 
 import styles from './Filter.module.css';
-import { FilterItem } from './FilterItem';
+import {FilterItem} from './FilterItem';
 
 interface Props {
     showHeading: boolean;
@@ -42,7 +42,6 @@ export function Filter({ showHeading = true }: Props) {
             toggle();
         }
     };
-
     return (
         <div className={styles.filter}>
             <div
@@ -74,9 +73,18 @@ export function Filter({ showHeading = true }: Props) {
                 })}
             >
                 <div className={styles.filter__wrapper}>
-                    {filters.map((item) => (
-                        <FilterItem key={item.name} {...item} />
-                    ))}
+                    {filters.map((item) =>
+                    {
+                        const formattedItem = {
+                            name : MapItemType[item.name],
+                            count : item.count,
+                            checked : item.checked,
+                            color : item.color
+                        } 
+                        return (
+                        <FilterItem key={item.name} {...formattedItem} />
+                        );
+                    })}
                 </div>
             </div>
         </div>

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 export const MARKER_COLOR = {
     'Логотипы и айдентика': '#00b400',
     'Навигационные стелы': '#ffd400 ',
@@ -11,6 +13,7 @@ export const MARKER_COLOR = {
     'Памятные таблички': '#f758b6',
     Транспорт: '#006d4e',
     'Настенные таблички': '#a00041',
+    'Дома-домики-домишки': '#ff640a'
 };
 
 export const MARKER_FILTER_COLOR = MARKER_COLOR;

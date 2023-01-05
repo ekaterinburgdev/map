@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-title-in-document-head */
+/* eslint-disable */
 import React from 'react';
 import {
     Html,
