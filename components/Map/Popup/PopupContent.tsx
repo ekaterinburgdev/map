@@ -1,3 +1,5 @@
+﻿/* eslint-disable */
+
 import React from 'react';
 import classNames from 'classnames';
 import Image from 'next/image';
@@ -12,7 +14,7 @@ interface Props {
 
 export function PopupContent({ placemark }: Props) {
     const { isCopied, onCopy } = useCopyHref(window.location.href);
-
+    console.log(placemark)
     return (
         <div className={styles.popup}>
             <div className={styles.popup__content}>

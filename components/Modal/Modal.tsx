@@ -1,3 +1,5 @@
+﻿/* eslint-disable */
+
 /* eslint-disable @next/next/no-img-element */
 import React, { ReactNode, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
@@ -12,8 +14,8 @@ interface Props {
 }
 
 export function Modal({
-    isOpen, close, size = 0.8, children,
-}: Props) {
+                          isOpen, close, size = 0.8, children,
+                      }: Props) {
     useEffect(() => {
         const onKeyup = (e: KeyboardEvent) => {
             if (isOpen && e.key === 'Escape') {

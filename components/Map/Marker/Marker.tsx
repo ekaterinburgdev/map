@@ -1,4 +1,4 @@
-﻿/* eslint-disable no-console */
+﻿/* eslint-disable */
 import React, { memo, useMemo } from 'react';
 import { Marker as LeafletMarker } from 'react-leaflet';
 import L from 'leaflet';

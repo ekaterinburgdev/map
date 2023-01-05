@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import React, { useContext, useMemo } from 'react';
 import { Modal } from 'components/Modal';
 import { checkIsMobile } from 'common/isMobile';
@@ -6,6 +8,8 @@ import { PopupContent } from './PopupContent';
 
 export function Popup() {
     const { popup, closePopup } = useContext(MapContext);
+    
+    // console.log(closePopup)
 
     const size = useMemo(() => {
         const mobileSize = popup?.images?.length ? 0.85 : 0.50;
