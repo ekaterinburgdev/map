@@ -2,37 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="541b9518-eb46-41ba-973f-979e0c3e55c0" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.map.dir/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants/colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/colors.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/constants/coords.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/constants/coords.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/getNotionGUID.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/getNotionGUID.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/isMobile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/isMobile.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/types/map-item.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/map-item.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/types/requests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/common/types/requests.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Copyright/Copyright.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Copyright/Copyright.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Filter/Filter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Filter/Filter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Filter/FilterItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Filter/FilterItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer/Footer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/MainContainer/MapMainContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/Marker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Marker/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Marker/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Popup/Popup.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Popup/Popup.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Map/Popup/PopupContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Popup/PopupContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Popup/components/Info.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Popup/components/Info.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/Popup/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/Popup/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/MapProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/Map/providers/usePopup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modal/Modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Modal/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Modal/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/helpers/copy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/helpers/copy.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/helpers/useCopyHref.ts" beforeDir="false" afterPath="$PROJECT_DIR$/components/helpers/useCopyHref.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/api/map.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/map.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/widget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/pages/widget.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/api/dataRepository.ts" beforeDir="false" afterPath="$PROJECT_DIR$/pages/api/dataRepository.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +52,7 @@
       <workItem from="1672837246423" duration="725000" />
       <workItem from="1672837995242" duration="4516000" />
       <workItem from="1672936129242" duration="4502000" />
+      <workItem from="1673369997780" duration="4558000" />
     </task>
     <servers />
   </component>
