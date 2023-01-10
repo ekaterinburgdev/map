@@ -14,7 +14,6 @@ interface Props {
 
 export function PopupContent({ placemark }: Props) {
     const { isCopied, onCopy } = useCopyHref(window.location.href);
-    console.log(placemark)
     return (
         <div className={styles.popup}>
             <div className={styles.popup__content}>

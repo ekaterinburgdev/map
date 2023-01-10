@@ -11,14 +11,14 @@ export function usePopup(placemarks: MapItem[]) {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
 
     const openPopup = useCallback((id: PopupId) => {
-        window.location.hash = '59';
+        window.location.hash = id;
     }, []);
 
     const closePopup = useCallback(() => {
         window.location.hash = '';
     }, []);
 
-    const popup = useMemo(() => placemarks.find((p) => p.id === popupId), [placemarks, popupId]);
+    const popup = useMemo(() => placemarks.find((p) => p.id.toString() === popupId), [placemarks, popupId]);
 
     useEffect(() => {
         function onHashChange() {
