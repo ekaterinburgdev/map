@@ -1,0 +1,14 @@
+.axis {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    font-size: 14px;
+    line-height: 18px;
+    column-gap: 1px;
+    margin: 0 -15px;
+    color: var(--histogram-color-active);
+}
+
+.axis__item:not(.axis__item_active) {
+    color: var(--histogram-color-disabled);
+}

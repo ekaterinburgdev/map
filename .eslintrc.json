@@ -17,6 +17,8 @@
     "react/require-default-props": "off",
     "react/jsx-no-useless-fragment": "off",
 
+    "object-curly-newline": "off",
+
     "import/extensions": ["error", "never", { "svg": "always", "json": "always", "css": "always" }],
     "import/prefer-default-export": "off",
     "import/order": [

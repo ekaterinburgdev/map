@@ -1,0 +1,7 @@
+:root {
+    --histogram-color-active: white;
+    --histogram-color-disabled: #2c3a5e;
+
+    --histogram-thumb-color-active: white;
+    --histogram-thumb-color-disabled: #55647d;
+}

@@ -1,0 +1,72 @@
+.slider {
+    position: relative;
+}
+
+.slider__track,
+.slider__range {
+    height: 2px;
+}
+
+.slider__track {
+    position: absolute;
+    background-color: var(--histogram-thumb-color-disabled);
+    width: 100%;
+    z-index: 1;
+}
+
+.slider__range {
+    position: absolute;
+    background-color: var(--histogram-thumb-color-active);
+    z-index: 2;
+}
+
+/* Removing the default appearance */
+.thumb,
+.thumb::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.thumb {
+    pointer-events: none;
+    position: absolute;
+    height: 0;
+}
+
+.thumb_zindex_3 {
+    z-index: 3;
+}
+
+.thumb_zindex_4 {
+    z-index: 4;
+}
+
+.thumb_zindex_5 {
+    z-index: 5;
+}
+
+/* For Chrome browsers */
+.thumb::-webkit-slider-thumb {
+    background-color: var(--histogram-thumb-color-active);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-bottom: 2px;
+    pointer-events: all;
+    position: relative;
+}
+
+/* For Firefox browsers */
+.thumb::-moz-range-thumb {
+    background-color: var(--histogram-thumb-color-active);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-bottom: 2px;
+    pointer-events: all;
+    position: relative;
+}

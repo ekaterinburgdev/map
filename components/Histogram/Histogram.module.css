@@ -1,0 +1,11 @@
+.histogram {
+    margin: 100px;
+}
+
+.histogram__range {
+    margin-top: 1px;
+}
+
+.histogram__axis {
+    margin-top: 8px;
+}
