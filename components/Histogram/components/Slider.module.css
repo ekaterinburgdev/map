@@ -33,11 +33,11 @@
     height: 0;
 }
 
-.thumb_zindex_3 {
+.thumb_left {
     z-index: 3;
 }
 
-.thumb_zindex_4 {
+.thumb_right {
     z-index: 4;
 }
 

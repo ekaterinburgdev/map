@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import histogramStyles from './Histogram.module.css';
+import histogramStyles from './RangeHistogram.module.css';
 import { Slider } from './components/Slider';
 import { BarChart } from './components/BarChart';
 import { Axis } from './components/Axis';
-import { HistogramData, Range } from './types';
+import { HistogramData, HistogramDatum, Range } from './types';
 
 interface Props {
     data: HistogramData;
@@ -24,7 +24,12 @@ export function Histogram({
 }: Props) {
     const min = Math.min(...data.map((d) => d.from));
     const max = Math.max(...data.map((d) => d.to));
-    const [range, setRange] = useState<Range>({ min, max });
+    const [range, setRange] = useState<Range>({
+        min: defaultMin || min,
+        max: defaultMax || max,
+    });
+
+    const onClickItem = (item: HistogramDatum) => setRange({ min: item.from, max: item.to });
 
     useEffect(() => {
         onChange?.(range);
@@ -32,19 +37,19 @@ export function Histogram({
 
     return (
         <div className={histogramStyles.histogram} style={{ width }}>
-            <BarChart data={data} range={range} height={height} />
+            <BarChart data={data} range={range} height={height} onClickItem={onClickItem} />
             <div className={histogramStyles.histogram__range}>
                 <Slider
                     width={width}
                     min={min}
                     max={max}
-                    currentMin={defaultMin || min}
-                    currentMax={defaultMax || max}
+                    currentMin={range.min}
+                    currentMax={range.max}
                     onChange={setRange}
                 />
             </div>
             <div className={histogramStyles.histogram__axis}>
-                <Axis data={data} range={range} />
+                <Axis data={data} range={range} onClickItem={onClickItem} />
             </div>
         </div>
     );

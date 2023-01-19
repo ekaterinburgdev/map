@@ -9,6 +9,19 @@
     color: var(--histogram-color-active);
 }
 
+.axis__item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.axis__item:hover {
+    opacity: 0.8;
+}
+
 .axis__item:not(.axis__item_active) {
     color: var(--histogram-color-disabled);
+}
+
+.axis__item:not(.axis__item_active):hover {
+    color: var(--histogram-color-active);
 }
