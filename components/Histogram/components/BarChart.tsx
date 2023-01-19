@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { getPercent } from '../utils';
-import { HistogramData, HistogramDatum, Range } from '../types';
+import { HistogramData, MinMax, Range } from '../types';
 import barchartStyles from './BarChart.module.css';
 
 interface Props {
     data: HistogramData;
-    range: Range;
+    range: MinMax;
     height: number;
-    onClickItem?: (item: HistogramDatum) => void;
+    onSelect?: (item: Range) => void;
 }
 
-export function BarChart({ data, range, height, onClickItem }: Props) {
+export function BarChart({ data, range, height, onSelect }: Props) {
     const max = Math.max(...data.map((item) => item.value));
 
     const items = data.map((item) => ({
@@ -20,16 +20,43 @@ export function BarChart({ data, range, height, onClickItem }: Props) {
         isActive: item.from >= range.min && item.to <= range.max,
     }));
 
+    const selected = useRef(false);
+
+    const onMouseDown = (item) => {
+        selected.current = true;
+        onSelect(item);
+    };
+
+    const onMouseEnter = (item) => {
+        if (selected.current === true) {
+            onSelect({
+                from: Math.min(range.min, item.from),
+                to: Math.max(range.max, item.to),
+            });
+        }
+    };
+
+    const onMouseUp = () => {
+        selected.current = false;
+    };
+
+    useEffect(() => {
+        window.addEventListener('mouseup', onMouseUp);
+
+        return () => window.removeEventListener('mouseup', onMouseUp);
+    }, []);
+
     return (
         <div className={barchartStyles.barchart} style={{ height }}>
             {items.map((item) => (
                 <div
                     aria-hidden
                     key={item.from}
-                    onClick={() => onClickItem?.(item)}
-                    onKeyUp={() => onClickItem?.(item)}
-                    className={classnames({
-                        [barchartStyles.barchart__item]: true,
+                    onClick={() => onSelect?.(item)}
+                    onKeyUp={() => onSelect?.(item)}
+                    onMouseDown={() => onMouseDown(item)}
+                    onMouseEnter={() => onMouseEnter(item)}
+                    className={classnames(barchartStyles.barchart__item, {
                         [barchartStyles.barchart__item_active]: item.isActive,
                     })}
                     style={{

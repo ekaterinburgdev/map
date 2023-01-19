@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import React from 'react';
-import { HistogramData, HistogramDatum, Range } from '../types';
+import { HistogramData, HistogramDatum, MinMax } from '../types';
 import axisStyles from './Axis.module.css';
 
 interface Props {
     data: HistogramData;
-    range: Range;
-    onClickItem?: (item: { from: HistogramDatum['from']; to: HistogramDatum['to'] }) => void;
+    range: MinMax;
+    onSelect?: (item: { from: HistogramDatum['from']; to: HistogramDatum['to'] }) => void;
 }
 
-export function Axis({ data, range, onClickItem }: Props) {
+export function Axis({ data, range, onSelect }: Props) {
     const lastItem = data[data.length - 1];
     const labels = data
         .map((item) => ({
@@ -23,9 +23,9 @@ export function Axis({ data, range, onClickItem }: Props) {
 
     const onClick = (from: number) => {
         if (from === lastItem.to) {
-            onClickItem?.(lastItem);
+            onSelect?.(lastItem);
         } else {
-            onClickItem?.({ from, to: from + 1 });
+            onSelect?.({ from, to: from + 1 });
         }
     };
 

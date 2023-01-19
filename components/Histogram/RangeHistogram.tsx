@@ -3,11 +3,11 @@ import histogramStyles from './RangeHistogram.module.css';
 import { Slider } from './components/Slider';
 import { BarChart } from './components/BarChart';
 import { Axis } from './components/Axis';
-import { HistogramData, HistogramDatum, Range } from './types';
+import { HistogramData, MinMax, Range } from './types';
 
 interface Props {
     data: HistogramData;
-    onChange: (range: Range) => void;
+    onChange: (range: MinMax) => void;
     width?: number;
     height?: number;
     defaultMin?: number;
@@ -24,12 +24,12 @@ export function Histogram({
 }: Props) {
     const min = Math.min(...data.map((d) => d.from));
     const max = Math.max(...data.map((d) => d.to));
-    const [range, setRange] = useState<Range>({
+    const [range, setRange] = useState<MinMax>({
         min: defaultMin || min,
         max: defaultMax || max,
     });
 
-    const onClickItem = (item: HistogramDatum) => setRange({ min: item.from, max: item.to });
+    const onSelect = ({ from, to }: Range) => setRange({ min: from, max: to });
 
     useEffect(() => {
         onChange?.(range);
@@ -37,7 +37,7 @@ export function Histogram({
 
     return (
         <div className={histogramStyles.histogram} style={{ width }}>
-            <BarChart data={data} range={range} height={height} onClickItem={onClickItem} />
+            <BarChart data={data} range={range} height={height} onSelect={onSelect} />
             <div className={histogramStyles.histogram__range}>
                 <Slider
                     width={width}
@@ -49,7 +49,7 @@ export function Histogram({
                 />
             </div>
             <div className={histogramStyles.histogram__axis}>
-                <Axis data={data} range={range} onClickItem={onClickItem} />
+                <Axis data={data} range={range} onSelect={onSelect} />
             </div>
         </div>
     );

@@ -1,5 +1,6 @@
 .histogram {
     margin: 100px;
+    user-select: none;
 }
 
 .histogram__range {

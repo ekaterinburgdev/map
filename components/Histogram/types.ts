@@ -7,4 +7,6 @@ export interface HistogramDatum {
 
 export type HistogramData = HistogramDatum[];
 
-export type Range = { min: number; max: number };
+export type Range = { from: number; to: number };
+
+export type MinMax = { min: number; max: number };

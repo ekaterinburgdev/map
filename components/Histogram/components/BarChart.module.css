@@ -13,15 +13,15 @@
     width: 100%;
     background-color: currentColor;
     transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.barchart__item:hover {
+    opacity: 0.8;
 }
 
 .barchart__item:not(.barchart__item_active) {
     background-color: var(--histogram-color-disabled);
-    cursor: pointer;
-}
-
-.barchart__item:not(.barchart__item_active):hover {
-    opacity: 0.8;
 }
 
 .barchart__item:not(.barchart__item_active) .barchart__label {
