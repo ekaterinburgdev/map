@@ -42,16 +42,7 @@ function Placemark({
             [styles.marker_open]: isOpen,
         });
 
-        if (preview) {
-            return `<img
-                src="${preview}"
-                class="${className}"
-                style="${style}"
-                alt="${name}"
-            />`;
-        }
-
-        return `<div class="${className}" style="${style}" />`;
+        return `<div class="${className}" style="${style}"></div>`;
     }, [isOpen, name, preview, size, type]);
 
     const icon = new L.DivIcon({
