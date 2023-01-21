@@ -1,5 +1,5 @@
 ﻿import {LineType} from "./lineType";
-import {getDataJsonByUrl, StrapiBasePath} from "../dataHelpers";
+import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
 
 
 export class Lines{
@@ -17,10 +17,10 @@ export class Lines{
         const prefix = this.getLinePrefix(type);
         switch (type) {
             case LineType.RedLine || LineType.BlueLine:
-                return [(await getDataJsonByUrl(StrapiBasePath + `/${prefix}-line-lines?populate=geometry`))
+                return [(await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-line-lines?populate=geometry`))
                     .data[0].attributes.geometry.coordinates];
             case LineType.PurpleLine:
-                return (await getDataJsonByUrl(StrapiBasePath + `/${prefix}-line-lines?populate=geometry`))
+                return (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-line-lines?populate=geometry`))
                     .data.map(x => x.attributes.geometry[0].coordinates);
             default:
                 throw new Error(`Unknown line type: ${type}`);
@@ -30,12 +30,12 @@ export class Lines{
     public async getLineObjects(type: LineType){
         const prefix = this.getLinePrefix(type);
         const totalCount = (await this.getObjectsCountByLine(type)).count;
-        return (await getDataJsonByUrl(StrapiBasePath + `/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`)).data;
+        return (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`)).data;
     }
     
     private async getObjectsCountByLine(type: LineType){
         const prefix = this.getLinePrefix(type);
-        return {line: prefix, count: (await getDataJsonByUrl(StrapiBasePath + `/${prefix}-lines?&pagination[pageSize]=1`)).meta.pagination.total}
+        return {line: prefix, count: (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-lines?&pagination[pageSize]=1`)).meta.pagination.total}
     }
     
     private getLinePrefix(type: LineType){

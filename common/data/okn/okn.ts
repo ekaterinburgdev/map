@@ -1,5 +1,5 @@
 ﻿import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
-import {getDataJsonByUrl, getTotalObjectsCount, StrapiBasePath} from "../dataHelpers";
+import {getDataJsonByUrl, getTotalObjectsCount, StrapiBaseUrl} from "../dataHelpers";
 
 export class Okn{
     private oknObjectInputData?: any;
@@ -7,7 +7,7 @@ export class Okn{
     private oknSecurityZoneInputData?: any;
     
     public async getObjecById(id: string){
-        return await getDataJsonByUrl(StrapiBasePath + `/okn-objects/${id}`);
+        return await getDataJsonByUrl(StrapiBaseUrl + `/okn-objects/${id}`);
     }
 
     public async getObjectBySignificanceType(type: OknObjectSignificanceType){
@@ -48,23 +48,23 @@ export class Okn{
     }
     
     private async getAndSaveOknObject(){
-        const totalCount = getTotalObjectsCount(StrapiBasePath + "/okn-objects");
+        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-objects");
         this.oknObjectInputData =
-            await getDataJsonByUrl(StrapiBasePath +
+            await getDataJsonByUrl(StrapiBaseUrl +
                 `/okn-objects?populate=geometry,data,borders&pagination[pageSize]=${totalCount}`);
     }
     
     private async getAndSaveOknProtectZone(){
-        const totalCount = getTotalObjectsCount(StrapiBasePath + "/okn-protect-zones");
+        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-protect-zones");
         this.oknProtectZoneInputData = 
-            await getDataJsonByUrl(StrapiBasePath +
+            await getDataJsonByUrl(StrapiBaseUrl +
                 `/okn-protect-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`);
     }
     
     private async getAndSaveOknSecurityZone(){
-        const totalCount = getTotalObjectsCount(StrapiBasePath + "/okn-security-zones");
+        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-security-zones");
         this.oknSecurityZoneInputData =
-            await getDataJsonByUrl(StrapiBasePath +
+            await getDataJsonByUrl(StrapiBaseUrl +
                 `/okn-security-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`);
     }
 }

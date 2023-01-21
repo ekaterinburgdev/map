@@ -1,4 +1,4 @@
-﻿export const StrapiBasePath = "https://map-api.ekaterinburg.io/api";
+﻿export const StrapiBaseUrl = "https://map-api.ekaterinburg.io/api";
 
 export async function getDataJsonByUrl(url: string){
     return await fetch(url)
