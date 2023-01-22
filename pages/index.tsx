@@ -1,10 +1,10 @@
 /* eslint-disable */
 
-import React, {useEffect, useState} from 'react';
-import {Map} from 'components/Map';
-import {Footer} from 'components/Footer/Footer';
-import {MapContextProvider} from 'components/Map/providers/MapProvider';
-import {getAllPlacemarks} from "./api/dataRepository";
+import React, { useEffect, useState } from 'react';
+import { Map } from 'components/UI/Map';
+import { Footer } from 'components/Footer/Footer';
+import { MapContextProvider } from 'components/UI/Map/providers/MapProvider';
+import { getAllPlacemarks } from "./api/dataRepository";
 
 export default function Home() {
     const [placemarks, setPlacemarks] = useState([]);

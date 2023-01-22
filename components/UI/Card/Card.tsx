@@ -3,10 +3,10 @@
 import React, { useContext, useMemo } from 'react';
 import { Modal } from 'components/Modal';
 import { checkIsMobile } from 'common/isMobile';
-import { MapContext } from '../providers/MapProvider';
-import { PopupContent } from './PopupContent';
+import { MapContext } from '../Map/providers/MapProvider';
+import { CardContent } from './CardContent';
 
-export function Popup() {
+export function Card() {
     const { popup, closePopup } = useContext(MapContext);
     
     // console.log(closePopup)
@@ -20,7 +20,7 @@ export function Popup() {
 
     return (
         <Modal size={size} isOpen={!!popup} close={closePopup}>
-            <PopupContent placemark={popup} />
+            <CardContent placemark={popup} />
         </Modal>
     );
 }

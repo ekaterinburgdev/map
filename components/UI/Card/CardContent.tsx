@@ -5,14 +5,15 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { useCopyHref } from 'components/helpers/useCopyHref';
 import { MapItem } from 'common/types/map-item';
-import styles from './Popup.module.css';
 import { Info } from './components/Info';
+
+import styles from './Card.module.css';
 
 interface Props {
     placemark: MapItem;
 }
 
-export function PopupContent({ placemark }: Props) {
+export function CardContent({ placemark }: Props) {
     const { isCopied, onCopy } = useCopyHref(window.location.href);
     return (
         <div className={styles.popup}>
