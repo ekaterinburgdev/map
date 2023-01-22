@@ -1,4 +1,5 @@
-﻿export enum OknObjectSignificanceType{
+﻿/* eslint-disable */
+export enum OknObjectSignificanceType{
     Municipal='Местного (муниципального) значения',
     Regional='Регионального значения',
     Federal='Федерального значения'

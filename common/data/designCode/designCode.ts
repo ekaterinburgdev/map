@@ -1,4 +1,4 @@
-﻿
+﻿/* eslint-disable */
 
 export class DesignCode {
     private filtersNames?: string[];

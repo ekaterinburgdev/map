@@ -1,4 +1,5 @@
-﻿import {LineType} from "./lineType";
+﻿/* eslint-disable */
+import {LineType} from "./lineType";
 import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
 
 

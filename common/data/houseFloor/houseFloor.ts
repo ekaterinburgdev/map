@@ -1,4 +1,5 @@
-﻿import {HouseBase} from "../houseBase";
+﻿/* eslint-disable */
+import {HouseBase} from "../houseBase";
 
 
 export class HouseFloor extends HouseBase{

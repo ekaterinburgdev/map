@@ -1,4 +1,6 @@
-﻿export enum DtpParticipantType{
+﻿/* eslint-disable */
+
+export enum DtpParticipantType{
     Pedestrians='Пешеходы',
     Cyclists='Велосипедисты',
     Motorcyclists='Мотоциклисты',

@@ -1,4 +1,6 @@
-﻿import {DtpSeverityType} from "./dtpSeverityType";
+﻿/* eslint-disable */
+
+import {DtpSeverityType} from "./dtpSeverityType";
 import {CanGetById} from "../canGetById";
 import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
 

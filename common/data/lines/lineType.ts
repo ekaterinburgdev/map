@@ -1,4 +1,4 @@
-﻿
+﻿/* eslint-disable */
 
 export enum LineType{
     RedLine='Красная линия',

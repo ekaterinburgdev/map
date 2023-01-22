@@ -1,4 +1,5 @@
-﻿import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
+﻿/* eslint-disable */
+import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
 import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
 import {CanGetById} from "../canGetById";
 
