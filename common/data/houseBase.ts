@@ -1,13 +1,14 @@
-﻿import {getDataJsonByUrl, getTotalObjectsCount, StrapiBaseUrl} from "./dataHelpers";
+﻿import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "./dataHelpers";
+import {CanGetById} from "./canGetById";
 
 
-export class HouseBase{
-    public async getObject(id: string){
-        return await getDataJsonByUrl(StrapiBaseUrl + `/house/${id}`);
+export class HouseBase extends CanGetById{
+    public override async getObject(id: string): Promise<any> {
+        return super.getObject(id, "/house");
     }
 
     public async getObjectsPolygonsByRange(from: string, to: string, filterName: string){
-        const totalCount = await getTotalObjectsCount(StrapiBaseUrl + "/house");
+        const totalCount = await getObjectsTotalCount(StrapiBaseUrl + "/house");
         return (await getDataJsonByUrl(StrapiBaseUrl +
             `/house?populate=borders&filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}&pagination[pageSize]=${totalCount}`))
             .data.map(x => x.attributes.borders?.coordinates);

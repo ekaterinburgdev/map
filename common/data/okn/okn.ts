@@ -1,71 +1,36 @@
 ﻿import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
-import {getDataJsonByUrl, getTotalObjectsCount, StrapiBaseUrl} from "../dataHelpers";
+import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
+import {CanGetById} from "../canGetById";
 
-export class Okn{
-    private oknObjectInputData?: any;
-    private oknProtectZoneInputData?: any;
-    private oknSecurityZoneInputData?: any;
-    
-    public async getObjecById(id: string){
-        return await getDataJsonByUrl(StrapiBaseUrl + `/okn-objects/${id}`);
+export class Okn extends CanGetById{
+    public override async getObject(id: string): Promise<any> {
+        return super.getObject(id, "/okn-objects");
     }
 
     public async getObjectBySignificanceType(type: OknObjectSignificanceType){
-        if (!this.oknObjectInputData)
-            await this.getAndSaveOknObject();
-        
-        const result = [];
-        for (const e of this.oknObjectInputData.data){
-            if (e.attributes.category === type){
-                result.push(e);
-            }
-        }
-        return result;
+        const totalCount = await getObjectsTotalCount(StrapiBaseUrl + "/okn-objects");
+        return (await getDataJsonByUrl(StrapiBaseUrl +
+            `/okn-objects?filter[category][$eq]=${type}&populate=data,geometry&pagination[pageSize]=${totalCount}`)).data
     }
 
     public async getAreasByType(type: OknAreaType){
+        const totalCount = await getObjectsTotalCount(StrapiBaseUrl + "/okn-objects");
         switch (type) {
             case OknAreaType.ObjectZone:
-                if (!this.oknObjectInputData)
-                    await this.getAndSaveOknObject();
-                const result = [];
-                for (const e of this.oknObjectInputData.data){
-                    if (e.attributes.borders)
-                        result.push(e.attributes.borders.coordinates);
-                }
-                return result;
+                return (await getDataJsonByUrl(StrapiBaseUrl +
+                    `/okn-objects?populate=geometry,data,borders&pagination[pageSize]=${totalCount}`))
+                    .data.map(x => x.attributes?.borders?.coordinates);
             case OknAreaType.ProtectZone:
-                if (!this.oknProtectZoneInputData)
-                    await this.getAndSaveOknProtectZone();
-                return this.oknProtectZoneInputData.data.map(x => x.attributes.geometry.coordinates[0]);
+                return (await getDataJsonByUrl(StrapiBaseUrl +
+                    `/okn-protect-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`))
+                    .data.map(x => x.attributes.geometry.coordinates[0]);
             case OknAreaType.SecurityZone:
-                if (!this.oknSecurityZoneInputData)
-                    await this.getAndSaveOknSecurityZone();
-                return this.oknSecurityZoneInputData.data.map(x => x.attributes.geometry.coordinates[0]);
+                return (await getDataJsonByUrl(StrapiBaseUrl +
+                    `/okn-security-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`))
+                    .data.map(x => x.attributes.geometry.coordinates[0]);
             default:
                 throw new Error(`Unknown okn type: ${type}`);
         }
-    }
-    
-    private async getAndSaveOknObject(){
-        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-objects");
-        this.oknObjectInputData =
-            await getDataJsonByUrl(StrapiBaseUrl +
-                `/okn-objects?populate=geometry,data,borders&pagination[pageSize]=${totalCount}`);
-    }
-    
-    private async getAndSaveOknProtectZone(){
-        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-protect-zones");
-        this.oknProtectZoneInputData = 
-            await getDataJsonByUrl(StrapiBaseUrl +
-                `/okn-protect-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`);
-    }
-    
-    private async getAndSaveOknSecurityZone(){
-        const totalCount = getTotalObjectsCount(StrapiBaseUrl + "/okn-security-zones");
-        this.oknSecurityZoneInputData =
-            await getDataJsonByUrl(StrapiBaseUrl +
-                `/okn-security-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`);
     }
 }
 

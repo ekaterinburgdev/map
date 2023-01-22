@@ -3,8 +3,6 @@ import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
 
 
 export class Lines{
-     
-    
     public async getFilters(){
         return [
             await this.getObjectsCountByLine(LineType.BlueLine),

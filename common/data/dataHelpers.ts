@@ -5,7 +5,7 @@ export async function getDataJsonByUrl(url: string){
         .then(x => x.json());
 }
 
-export async function getTotalObjectsCount(urlWithoutParams: string){
+export async function getObjectsTotalCount(urlWithoutParams: string){
     return (await getDataJsonByUrl(`${urlWithoutParams}?pagination[pageSize]=1`))
         .meta.pagination.total;
 }
