@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { useContext, useEffect, useMemo } from 'react';
 import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
@@ -9,12 +7,10 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import { Filter } from 'components/Filter/Filter';
-import { LinesMapData } from 'components/Model/Lines/MapData';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
-import { MapItem } from 'common/types/map-item';
+import { MapItem, MapItemType } from 'common/types/map-item';
 import { checkIsMobile } from 'common/isMobile';
-import { MapItemType } from 'common/types/map-item';
-import { MARKER_COLOR } from 'common/constants/colors'
+import { MARKER_COLOR } from 'common/constants/colors';
 
 import { Copyright } from 'components/Copyright/Copyright';
 import { Point } from '../Point';
@@ -61,8 +57,8 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
 
     return (
         <>
-            {/* <Card />
-            <Filter showHeading={showFilterHeading} /> */}
+            <Card />
+            <Filter showHeading={showFilterHeading} />
             <MapContainer
                 center={position}
                 scrollWheelZoom
@@ -72,7 +68,7 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
                 className={styles.Map}
             >
                 <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
-                {/* {selectedMarks.map((placemark) => (
+                {selectedMarks.map((placemark) => (
                     <Point
                         key={placemark.id}
                         id={placemark.id}
@@ -83,8 +79,7 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
                         openPopup={openPopup}
                         closePopup={closePopup}
                     />
-                ))} */}
-            <LinesMapData data={{}} />
+                ))}
             </MapContainer>
             <Copyright />
         </>
