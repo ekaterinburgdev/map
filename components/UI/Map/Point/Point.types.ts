@@ -5,7 +5,7 @@ import { IMapContext } from '../providers/MapProvider';
 export enum Sizes {
     S = 's',
     M = 'm',
-};
+}
 
 export interface PointProps {
     position: L.LatLngExpression;

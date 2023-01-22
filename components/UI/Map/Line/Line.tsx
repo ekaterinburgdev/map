@@ -3,7 +3,7 @@ import { Polyline } from 'react-leaflet';
 
 import { LineProps } from './Line.types';
 
-export const Line = ({ color, positions }: LineProps) => {
+export function Line({ color, positions }: LineProps) {
     return (
         <Polyline
             positions={positions}
@@ -13,4 +13,4 @@ export const Line = ({ color, positions }: LineProps) => {
             }}
         />
     );
-};
+}
