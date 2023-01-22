@@ -9,7 +9,6 @@ import {
 
 export default function Document() {
     const siteUrl = 'https://map.ekaterinburg.design/';
-    const siteTitle = 'Карта объектов Дизайн-кода Екатеринбурга';
     const siteDescription = 'Сколько всего команда «Дизайн-кода» сделала для Екб — все объекты на одной карте.';
     const ogTitle = 'Дизайн-код Екатеринбурга в жизни';
     const ogImage = `${siteUrl}og-preview.jpg`;
@@ -17,7 +16,6 @@ export default function Document() {
     return (
         <Html lang="ru">
             <Head>
-                <title>{siteTitle}</title>
                 <meta name="theme-color" content="#000000" />
                 <meta name="description" content={siteDescription} />
 

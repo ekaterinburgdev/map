@@ -2,6 +2,8 @@
 
 import React from 'react';
 
+import Head from 'next/head';
+
 import 'styles/globals.css';
 
 type AppProps<PropsType extends object> = {
@@ -10,7 +12,16 @@ type AppProps<PropsType extends object> = {
 };
 
 function App({ Component, pageProps }: AppProps<any>) {
-    return <Component {...pageProps} />;
+    const siteTitle = 'Карта объектов Дизайн-кода Екатеринбурга';
+
+    return (
+        <>
+            <Head>
+                <title>{siteTitle}</title>
+            </Head>
+            <Component {...pageProps} />
+        </>
+    );
 }
 
 export default App;

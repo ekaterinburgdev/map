@@ -1,8 +1,8 @@
 /* eslint-disable */
 
 import React, {useEffect, useState} from 'react';
-import { Map } from 'components/Map';
-import { MapContextProvider } from 'components/Map/providers/MapProvider';
+import { Map } from 'components/UI/Map';
+import { MapContextProvider } from 'components/UI/Map/providers/MapProvider';
 import {getAllPlacemarks} from "./api/dataRepository";
 
 export default function Widget() {

@@ -9,14 +9,17 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import { Filter } from 'components/Filter/Filter';
+import { LinesMapData } from 'components/Model/Lines/MapData';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { MapItem } from 'common/types/map-item';
 import { checkIsMobile } from 'common/isMobile';
+import { MapItemType } from 'common/types/map-item';
+import { MARKER_COLOR } from 'common/constants/colors'
 
 import { Copyright } from 'components/Copyright/Copyright';
-import { Marker } from '../Marker';
+import { Point } from '../Point';
 import { MapContext } from '../providers/MapProvider';
-import { Popup } from '../Popup';
+import { Card } from '../../Card';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
@@ -58,8 +61,8 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
 
     return (
         <>
-            <Popup />
-            <Filter showHeading={showFilterHeading} />
+            {/* <Card />
+            <Filter showHeading={showFilterHeading} /> */}
             <MapContainer
                 center={position}
                 scrollWheelZoom
@@ -69,22 +72,20 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
                 className={styles.Map}
             >
                 <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
-                {selectedMarks.map((placemark) => (
-                    <Marker
+                {/* {selectedMarks.map((placemark) => (
+                    <Point
                         key={placemark.id}
                         id={placemark.id}
-                        type={placemark.type}
-                        name={placemark.name}
-                        x={placemark.coords[0]}
-                        y={placemark.coords[1]}
+                        color={MARKER_COLOR[MapItemType[placemark.type]]}
+                        position={placemark.coords}
                         preview={placemark?.preview?.s?.src || null}
                         isOpen={placemark.isOpen}
                         openPopup={openPopup}
                         closePopup={closePopup}
                     />
-                ))}
+                ))} */}
+            <LinesMapData data={{}} />
             </MapContainer>
-
             <Copyright />
         </>
     );
