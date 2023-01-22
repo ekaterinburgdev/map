@@ -6,16 +6,12 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
-import { Filter } from 'components/Filter/Filter';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { MapItem, MapItemType } from 'common/types/map-item';
 import { checkIsMobile } from 'common/isMobile';
 import { MARKER_COLOR } from 'common/constants/colors';
-
-import { Copyright } from 'components/Copyright/Copyright';
 import { Point } from '../Point';
 import { MapContext } from '../providers/MapProvider';
-import { Card } from '../../Card';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
@@ -24,11 +20,9 @@ const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
 interface Props {
     placemarksData: MapItem[];
-    // eslint-disable-next-line react/require-default-props
-    showFilterHeading?: boolean;
 }
 
-function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
+function MapMainContainer({ placemarksData }: Props) {
     const position: [number, number] = COORDS_EKATERINBURG;
     const {
         placemarks, popup, selectedMarksTypes, savePlacemarks, openPopup, closePopup,
@@ -56,33 +50,27 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
     );
 
     return (
-        <>
-            <Card />
-            <Filter showHeading={showFilterHeading} />
-            <MapContainer
-                center={position}
-                scrollWheelZoom
-                attributionControl={false}
-                zoomControl={false}
-                zoom={DEFAULT_ZOOM}
-                className={styles.Map}
-            >
-                <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
-                {selectedMarks.map((placemark) => (
-                    <Point
-                        key={placemark.id}
-                        id={placemark.id}
-                        color={MARKER_COLOR[MapItemType[placemark.type]]}
-                        position={placemark.coords}
-                        preview={placemark?.preview?.s?.src || null}
-                        isOpen={placemark.isOpen}
-                        openPopup={openPopup}
-                        closePopup={closePopup}
-                    />
-                ))}
-            </MapContainer>
-            <Copyright />
-        </>
+        <MapContainer
+            center={position}
+            scrollWheelZoom
+            attributionControl={false}
+            zoomControl={false}
+            zoom={DEFAULT_ZOOM}
+            className={styles.Map}
+        >
+            <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
+            {selectedMarks.map((placemark) => (
+                <Point
+                    key={placemark.id}
+                    id={placemark.id}
+                    color={MARKER_COLOR[MapItemType[placemark.type]]}
+                    position={placemark.coords}
+                    isOpen={placemark.isOpen}
+                    openPopup={openPopup}
+                    closePopup={closePopup}
+                />
+            ))}
+        </MapContainer>
     );
 }
 

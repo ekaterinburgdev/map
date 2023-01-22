@@ -10,7 +10,6 @@ import styles from './Point.module.css';
 
 function PointComponent({
     position,
-    preview,
     isOpen,
     openPopup,
     closePopup,
@@ -44,7 +43,7 @@ function PointComponent({
         });
 
         return `<div class="${className}" style="${style}"></div>`;
-    }, [isOpen, preview, size, color, sizeNumber]);
+    }, [isOpen, size, color, sizeNumber]);
 
     const icon = new L.DivIcon({
         popupAnchor: [0, -5],
