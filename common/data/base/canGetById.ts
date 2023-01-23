@@ -1,5 +1,5 @@
 ﻿/* eslint-disable */
-import {getDataJsonByUrl, StrapiBaseUrl} from "./dataHelpers";
+import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
 
 
 export class CanGetById{

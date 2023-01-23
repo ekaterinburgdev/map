@@ -1,14 +1,16 @@
 ﻿/* eslint-disable */
 
+import {DesigCodeObject} from "./desigCodeModels";
+
 export class DesignCode {
     private filtersNames?: string[];
     private readonly objectsIdsByType: Map<string, string[]>
-    private readonly objectById: Map<string, any>;
+    private readonly objectById: Map<string, DesigCodeObject>;
     private inputData?: any;
     
     constructor() {
         this.objectsIdsByType = new Map<string, string[]>();
-        this.objectById = new Map<string, any>();
+        this.objectById = new Map<string, DesigCodeObject>();
     }
     
     public async getFilters(): Promise<string[]> {
@@ -29,7 +31,7 @@ export class DesignCode {
         return this.filtersNames;
     }
     
-    public async getObjects(type: string): Promise<string[]> {
+    public async getObjectsIds(type: string): Promise<string[]> {
         if (this.objectsIdsByType[type])
             return this.objectsIdsByType[type];
         
@@ -46,7 +48,7 @@ export class DesignCode {
         return resultIds;
     }
     
-    public async getObject(id: string): Promise<any>{
+    public async getObject(id: string): Promise<DesigCodeObject>{
         if (this.objectById[id])
             return this.objectById[id];
 

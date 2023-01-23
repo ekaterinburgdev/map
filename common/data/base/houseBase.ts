@@ -1,5 +1,5 @@
 ﻿/* eslint-disable */
-import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "./dataHelpers";
+import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
 import {CanGetById} from "./canGetById";
 
 

@@ -1,7 +1,7 @@
 ﻿/* eslint-disable */
 
 import {DtpSeverityType} from "./dtpSeverityType";
-import {CanGetById} from "../canGetById";
+import {CanGetById} from "../base/canGetById";
 import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
 
 

@@ -1,7 +1,7 @@
 ﻿/* eslint-disable */
 import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
 import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
-import {CanGetById} from "../canGetById";
+import {CanGetById} from "../base/canGetById";
 
 export class Okn extends CanGetById{
     public override async getObject(id: string): Promise<any> {
