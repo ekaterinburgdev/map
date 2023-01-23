@@ -1,16 +1,16 @@
 ﻿/* eslint-disable */
 
-import {DesigCodeObject} from "./desigCodeModels";
+import {DesignCodeObject} from "./designCodeObject";
 
 export class DesignCode {
     private filtersNames?: string[];
     private readonly objectsIdsByType: Map<string, string[]>
-    private readonly objectById: Map<string, DesigCodeObject>;
+    private readonly objectById: Map<string, DesignCodeObject>;
     private inputData?: any;
     
     constructor() {
         this.objectsIdsByType = new Map<string, string[]>();
-        this.objectById = new Map<string, DesigCodeObject>();
+        this.objectById = new Map<string, DesignCodeObject>();
     }
     
     public async getFilters(): Promise<string[]> {
@@ -48,7 +48,7 @@ export class DesignCode {
         return resultIds;
     }
     
-    public async getObject(id: string): Promise<DesigCodeObject>{
+    public async getObject(id: string): Promise<DesignCodeObject>{
         if (this.objectById[id])
             return this.objectById[id];
 

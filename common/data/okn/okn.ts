@@ -2,19 +2,25 @@
 import {OknAreaType, OknObjectSignificanceType} from "./oknConstants";
 import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
 import {CanGetById} from "../base/canGetById";
+import {OknObject, OknObjectWithGeometry} from "./oknObject";
+import {Area} from "../base/objectsBase";
 
 export class Okn extends CanGetById{
-    public override async getObject(id: string): Promise<any> {
-        return super.getObject(id, "/okn-objects");
+    public override async getObject(id: string): Promise<OknObject> {
+        return super.getObject(id, "/okn-objects")
+            .then(x => {
+                x.attributes.img = x.attributes?.img.split("','")[0].slice(8);
+                return x;
+            });
     }
 
-    public async getObjectBySignificanceType(type: OknObjectSignificanceType){
+    public async getObjectsBySignificanceType(type: OknObjectSignificanceType): Promise<OknObjectWithGeometry[]>{
         const totalCount = await getObjectsTotalCount(StrapiBaseUrl + "/okn-objects");
         return (await getDataJsonByUrl(StrapiBaseUrl +
             `/okn-objects?filter[category][$eq]=${type}&populate=data,geometry&pagination[pageSize]=${totalCount}`)).data
     }
 
-    public async getAreasByType(type: OknAreaType){
+    public async getAreaByType(type: OknAreaType): Promise<Area | undefined>{
         const totalCount = await getObjectsTotalCount(StrapiBaseUrl + "/okn-objects");
         switch (type) {
             case OknAreaType.ObjectZone:
