@@ -13,9 +13,7 @@ interface FilterItemProps {
     color: string;
 }
 
-export function FilterItem({
-                               name, count, checked, color,
-                           }: FilterItemProps) {
+export function FilterItem({ name, count, checked, color }: FilterItemProps) {
     const { selectedMarksTypes, filterMarks } = useContext(MapContext);
 
     const onChange = (e) => {
@@ -36,7 +34,7 @@ export function FilterItem({
                 onChange={onChange}
             />
             <span className={styles.filteritem__caption} style={{ color }}>
-                <span className={styles['filteritem__caption-label']}>{MapItemType[name]}</span>
+                <span className={styles['filteritem__caption-label']}>{name}</span>
                 <span className={styles['filteritem__caption-counter']}>{count}</span>
             </span>
         </label>

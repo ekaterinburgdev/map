@@ -7,7 +7,7 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
-import { MapItem, MapItemType } from 'common/types/map-item';
+import { MapItem } from 'common/types/map-item';
 import { checkIsMobile } from 'common/isMobile';
 import { MARKER_COLOR } from 'common/constants/colors';
 import { Point } from '../Point';
@@ -58,18 +58,20 @@ function MapMainContainer({ placemarksData }: Props) {
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
         >
-            <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
-            {selectedMarks.map((placemark) => (
-                <Point
-                    key={placemark.id}
-                    id={placemark.id}
-                    color={MARKER_COLOR[MapItemType[placemark.type]]}
-                    position={placemark.coords}
-                    isOpen={placemark.isOpen}
-                    openPopup={openPopup}
-                    closePopup={closePopup}
-                />
-            ))}
+            <TileLayer url="https://tiles.ekaterinburg.io/styles/basic/{z}/{x}/{y}@2x.png" />
+                {selectedMarks.map((placemark) => (
+                    <Point
+                        key={placemark.type + placemark.id}
+                        id={placemark.id}
+                        type={placemark.type}
+                        color={MARKER_COLOR[placemark.type]}
+                        position={placemark.coords}
+                        preview={null}
+                        isOpen={placemark.isOpen}
+                        openPopup={openPopup}
+                        closePopup={closePopup}
+                    />
+                ))}
         </MapContainer>
     );
 }

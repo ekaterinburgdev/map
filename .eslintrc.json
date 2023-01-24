@@ -4,7 +4,7 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "indent": ["error", 4],
+    "indent": ["error", 4, { "SwitchCase": 1 }],
     "no-console": ["error", { "allow": ["error"] }],
     "no-param-reassign": ["error", { "props": false }],
 
@@ -14,6 +14,7 @@
     "react/jsx-indent-props": ["error", 4],
     "react/jsx-props-no-spreading": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/require-default-props": "off",
 
     "import/extensions": ["error", "never", { "svg": "always", "json": "always", "css": "always" }],
     "import/prefer-default-export": "off",
@@ -23,7 +24,9 @@
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
     ],
-    "linebreak-style": "off"
+
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off"
   },
   "ignorePatterns": ["next.config.js"]
 }

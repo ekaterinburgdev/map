@@ -1,0 +1,15 @@
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.info__name {
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.info__text {
+    font-size: 16px;
+    line-height: 20px;
+}

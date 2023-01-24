@@ -1,14 +1,15 @@
 ﻿/* eslint-disable */
-import React, {useContext, useMemo, useState} from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import {groupBy} from 'lodash';
+import { groupBy } from 'lodash';
 
-import {MARKER_FILTER_COLOR} from 'common/constants/colors';
-import {MapItem, MapItemType} from 'common/types/map-item';
-import {MapContext} from 'components/UI/Map/providers/MapProvider';
+import { MARKER_FILTER_COLOR } from 'common/constants/colors';
+import { MapItem } from 'common/types/map-item';
+import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
 import styles from './Filter.module.css';
-import {FilterItem} from './FilterItem';
+import { FilterItem } from './FilterItem';
+import { NAME_BY_TYPE } from 'common/constants/names';
 
 
 export function Filter() {
@@ -21,12 +22,15 @@ export function Filter() {
     );
 
     const filters = useMemo(
-        () => allMarksTypes.map((type) => ({
-            name: MapItemType[type],
-            count: itemsByType[type].length,
-            checked: selectedMarksTypes.includes(type),
-            color: MARKER_FILTER_COLOR[MapItemType[type]],
-        })).sort((a, b) => b.count - a.count),
+        () =>
+            allMarksTypes
+                .map((type) => ({
+                    name: NAME_BY_TYPE[type],
+                    count: itemsByType[type].length,
+                    checked: selectedMarksTypes.includes(type),
+                    color: MARKER_FILTER_COLOR[type],
+                }))
+                .sort((a, b) => b.count - a.count),
         [allMarksTypes, selectedMarksTypes, itemsByType],
     );
 
@@ -69,17 +73,14 @@ export function Filter() {
                 })}
             >
                 <div className={styles.filter__wrapper}>
-                    {filters.map((item) =>
-                    {
+                    {filters.map((item) => {
                         const formattedItem = {
-                            name : MapItemType[item.name],
-                            count : item.count,
-                            checked : item.checked,
-                            color : item.color
-                        } 
-                        return (
-                        <FilterItem key={item.name} {...formattedItem} />
-                        );
+                            name: item.name,
+                            count: item.count,
+                            checked: item.checked,
+                            color: item.color,
+                        };
+                        return <FilterItem key={item.name} {...formattedItem} />;
                     })}
                 </div>
             </div>

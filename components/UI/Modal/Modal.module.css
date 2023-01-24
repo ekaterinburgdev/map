@@ -14,11 +14,10 @@
     transition: all .15s ease-out;
     line-height: 1;
     cursor: pointer;
-    color: rgba(255,255,255,.5);
+    color: #fff;
 }
 
 .close:hover {
-    color: rgba(255,255,255,1);
     background-color: #000;
     transform: scale(1.3);
 }

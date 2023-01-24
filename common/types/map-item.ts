@@ -2,22 +2,6 @@
 
 import type { LatLngExpression } from 'leaflet';
 
-export enum MapItemType {
-    'Логотипы и айдентика',
-    'Навигационные стелы',
-    'Таблички ОКН',
-    'Таблички ЧО',
-    'Обычные адресные таблички',
-    'Фризы остановок',
-    'Светофор',
-    'Исторические адресные таблички',
-    'Уличная мебель',
-    'Памятные таблички',
-    'Транспорт',
-    'Настенные таблички',
-    'Дома-домики-домишки'
-}
-
 export type MapItemImageSize = {
     width: number;
     height: number;
@@ -25,9 +9,8 @@ export type MapItemImageSize = {
 };
 
 export type MapItemImage = {
-    id: string;
-    m: MapItemImageSize;
-    s: MapItemImageSize;
+    title: string;
+    url: string;
 };
 
 export type MapItem = {
@@ -36,8 +19,24 @@ export type MapItem = {
     type: MapItemType;
     coords: LatLngExpression;
     street: string;
-    date?: number;
+    date?: string;
     description: string;
     images: MapItemImage[];
-    preview: MapItemImage;
+    preview?: MapItemImage;
+    address?: string;
+    oknNumber?: string;
+    isExist?: string;
+    condition?: string;
+    company?: string;
+    wearTear?: string;
+    series?: string;
+    floors?: string;
 };
+
+export enum MapItemType {
+    DesignCode = 'design-code',
+    DTP = 'dtp',
+    Houses = 'houses',
+    Lines = 'lines',
+    OKN = 'okn',
+}

@@ -16,12 +16,13 @@ function PointComponent({
     color,
     size = Sizes.M,
     id,
+    type,
 }: PointProps) {
     const onClick = () => {
         if (isOpen) {
             closePopup();
         } else {
-            openPopup(id);
+            openPopup(id, type);
         }
     };
 
