@@ -1,4 +1,4 @@
-﻿export enum OknObjectSignificanceType {
+export enum OknObjectSignificanceType {
     Municipal = 'Местного (муниципального) значения',
     Regional = 'Регионального значения',
     Federal = 'Федерального значения',

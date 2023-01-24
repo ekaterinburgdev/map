@@ -1,4 +1,4 @@
-﻿import { OknObjectSignificanceType } from './oknConstants';
+import { OknObjectSignificanceType } from './oknConstants';
 
 export interface OknObject {
     id: string;

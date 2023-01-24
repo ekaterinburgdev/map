@@ -1,4 +1,4 @@
-﻿export const STRAPI_BASE_URL = 'https://map-api.ekaterinburg.io/api';
+export const STRAPI_BASE_URL = 'https://map-api.ekaterinburg.io/api';
 
 export async function fetchAPI(url: string) {
     const response = await fetch(url);

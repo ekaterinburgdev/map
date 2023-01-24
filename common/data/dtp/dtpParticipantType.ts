@@ -1,4 +1,4 @@
-﻿export enum DtpParticipantType {
+export enum DtpParticipantType {
     Pedestrians = 'Пешеходы',
     Cyclists = 'Велосипедисты',
     Motorcyclists = 'Мотоциклисты',

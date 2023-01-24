@@ -1,4 +1,4 @@
-﻿/* eslint-disable class-methods-use-this */
+/* eslint-disable class-methods-use-this */
 import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
 import { canGetById } from '../base/canGetById';
 import { Area } from '../base/objectsBase';

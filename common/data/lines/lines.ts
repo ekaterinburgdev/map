@@ -1,6 +1,5 @@
-﻿import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
+import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
 import { LineType } from './lineType';
-
 
 function getLinePrefix(type: LineType) {
     let prefix;

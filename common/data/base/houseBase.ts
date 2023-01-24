@@ -1,4 +1,4 @@
-﻿import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
+import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
 import { canGetById } from './canGetById';
 
 export const houseBase = {

@@ -1,4 +1,4 @@
-﻿import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
+import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
 
 export const canGetById = {
     async getObject(id: string, tableRelativeUrl: string) {

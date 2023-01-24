@@ -1,4 +1,4 @@
-﻿/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-restricted-syntax */
 import { canGetById } from '../base/canGetById';
 import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
 import { DtpSeverityType } from './dtpSeverityType';

@@ -1,4 +1,4 @@
-﻿import { houseBase, HouseObject } from '../base/houseBase';
+import { houseBase, HouseObject } from '../base/houseBase';
 
 export const houseFloor = {
     async getObject(id: string): Promise<HouseObject> {

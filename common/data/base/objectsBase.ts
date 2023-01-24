@@ -1,4 +1,4 @@
-﻿export interface Image {
+export interface Image {
     id: string;
     s: ImageParameters;
     m?: ImageParameters;
