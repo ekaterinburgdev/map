@@ -5,26 +5,16 @@ import { Line } from 'components/UI/Map/Line/Line';
 import { Point, Sizes } from 'components/UI/Map/Point';
 
 import { MapItemType } from 'common/types/map-item';
-import { RED_LINE_MOCK } from './red-line-mock';
 
 export type LinesMapDataProps = {
     data: {
-        lines?: { positions: PolylineProps['positions']; color: string }[];
-        points?: { position: [number, number]; color: string; id: string }[];
+        lines: { positions: PolylineProps['positions']; color: string }[];
+        points: { position: [number, number]; color: string; id: string }[];
     };
 };
 
 export function LinesMapData({ data }: LinesMapDataProps) {
-    const {
-        lines = [{ positions: [RED_LINE_MOCK], color: '#E31E24' }],
-        points = [
-            {
-                position: [56.83508212290889, 60.61074932672987],
-                color: '#E31E24',
-                id: '123',
-            },
-        ],
-    } = data;
+    const { lines, points } = data;
 
     return (
         <>
