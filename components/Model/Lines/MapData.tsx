@@ -4,6 +4,7 @@ import { PolylineProps } from 'react-leaflet';
 import { Line } from 'components/UI/Map/Line/Line';
 import { Point, Sizes } from 'components/UI/Map/Point';
 
+import { MapItemType } from 'common/types/map-item';
 import { RED_LINE_MOCK } from './red-line-mock';
 
 export type LinesMapDataProps = {
@@ -15,35 +16,32 @@ export type LinesMapDataProps = {
 
 export function LinesMapData({ data }: LinesMapDataProps) {
     const {
-        lines =
-        [{ positions: [RED_LINE_MOCK], color: '#E31E24' }],
-        points = [{
-            position: [
-                56.83508212290889,
-                60.61074932672987,
-            ],
-            color: '#E31E24',
-            id: '123',
-        }],
+        lines = [{ positions: [RED_LINE_MOCK], color: '#E31E24' }],
+        points = [
+            {
+                position: [56.83508212290889, 60.61074932672987],
+                color: '#E31E24',
+                id: '123',
+            },
+        ],
     } = data;
 
     return (
         <>
-            {lines.map(
+            {lines.map((line, idx) => (
                 // eslint-disable-next-line react/no-array-index-key
-                (line, idx) => <Line positions={line.positions} color={line.color} key={idx} />,
-            )}
-            {points.map(
-                (point) => (
-                    <Point
-                        id={point.id}
-                        position={point.position}
-                        color={point.color}
-                        size={Sizes.S}
-                        key={String(point.position)}
-                    />
-                ),
-            )}
+                <Line positions={line.positions} color={line.color} key={idx} />
+            ))}
+            {points.map((point) => (
+                <Point
+                    id={point.id}
+                    position={point.position}
+                    color={point.color}
+                    size={Sizes.S}
+                    key={String(point.position)}
+                    type={MapItemType.Lines}
+                />
+            ))}
         </>
     );
 }
