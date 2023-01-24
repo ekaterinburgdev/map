@@ -1,12 +1,11 @@
-﻿/* eslint-disable */
-export const StrapiBaseUrl = "https://map-api.ekaterinburg.io/api";
+﻿export const STRAPI_BASE_URL = 'https://map-api.ekaterinburg.io/api';
 
-export async function getDataJsonByUrl(url: string){
-    return await fetch(url)
-        .then(x => x.json());
+export async function fetchAPI(url: string) {
+    const response = await fetch(url);
+    return response.json();
 }
 
-export async function getObjectsTotalCount(urlWithoutParams: string){
-    return (await getDataJsonByUrl(`${urlWithoutParams}?pagination[pageSize]=1`))
+export async function getObjectsTotalCount(urlWithoutParams: string) {
+    return (await fetchAPI(`${urlWithoutParams}?pagination[pageSize]=1`))
         .meta.pagination.total;
 }

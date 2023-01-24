@@ -1,71 +1,56 @@
-﻿/* eslint-disable */
+/* eslint-disable no-restricted-syntax,no-continue */
+import { fetchAPI } from '../dataHelpers';
+import { DesignCodeObject } from './designCodeObject';
 
-import {DesignCodeObject} from "./designCodeObject";
+let filtersNames;
+let inputData;
+const objectsIdsByType = new Map<string, string[]>();
+const objectById = new Map<string, DesignCodeObject>();
 
-export class DesignCode {
-    private filtersNames?: string[];
-    private readonly objectsIdsByType: Map<string, string[]>
-    private readonly objectById: Map<string, DesignCodeObject>;
-    private inputData?: any;
-    
-    constructor() {
-        this.objectsIdsByType = new Map<string, string[]>();
-        this.objectById = new Map<string, DesignCodeObject>();
-    }
-    
-    public async getFilters(): Promise<string[]> {
-        if (this.filtersNames)
-            return this.filtersNames;
-        
-        if (!this.inputData)
-            await this.getAndSaveData();
-        
+async function getAndSaveData() {
+    inputData = await fetchAPI('https://map.ekaterinburg.design/api/map');
+}
+
+export const designCode = {
+    async getFilters(): Promise<string[]> {
+        if (filtersNames) return filtersNames;
+
+        if (!inputData) await getAndSaveData();
+
         const set = new Set<string>();
-        
-        for (const e of this.inputData){
-            if (!e.type)
-                continue;
+
+        for (const e of inputData) {
+            if (!e.type) continue;
             set.add(e.type);
         }
-        this.filtersNames = Array.from(set);
-        return this.filtersNames;
-    }
-    
-    public async getObjectsIds(type: string): Promise<string[]> {
-        if (this.objectsIdsByType[type])
-            return this.objectsIdsByType[type];
-        
-        if(!this.inputData)
-            await this.getAndSaveData();
-            
-        const resultIds = [];
-        for (const e of this.inputData){
-            if (e.type === type)
-                resultIds.push(e.id);
-        }
-        
-        this.objectsIdsByType[type] = resultIds;
-        return resultIds;
-    }
-    
-    public async getObject(id: string): Promise<DesignCodeObject>{
-        if (this.objectById[id])
-            return this.objectById[id];
+        filtersNames = Array.from(set);
+        return filtersNames;
+    },
 
-        if(!this.inputData)
-            await this.getAndSaveData();
-        
-        for (const e of this.inputData){
-            if (e.id !== id)
-                continue;
-            this.objectById[id] = e;
+    async getObjectsIds(type: string): Promise<string[]> {
+        if (objectsIdsByType[type]) return objectsIdsByType[type];
+
+        if (!inputData) await getAndSaveData();
+
+        const resultIds = [];
+        for (const e of this.inputData) {
+            if (e.type === type) resultIds.push(e.id);
+        }
+
+        objectsIdsByType[type] = resultIds;
+        return resultIds;
+    },
+
+    // eslint-disable-next-line consistent-return
+    async getObject(id: string): Promise<DesignCodeObject> {
+        if (objectById[id]) return objectById[id];
+
+        if (!inputData) await getAndSaveData();
+
+        for (const e of inputData) {
+            if (e.id !== id) continue;
+            objectById[id] = e;
             return e;
         }
-    }
-    
-    private async getAndSaveData() {
-        await fetch("https://map.ekaterinburg.design/api/map")
-            .then(x => x.json())
-            .then(x => this.inputData = x);
-    }
-}
+    },
+};

@@ -1,18 +1,36 @@
-﻿/* eslint-disable */
+﻿/* eslint-disable no-restricted-syntax */
+import { canGetById } from '../base/canGetById';
+import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
+import { DtpSeverityType } from './dtpSeverityType';
+import { DtpParticipantType } from './dtpParticipantType';
 
-import {DtpSeverityType} from "./dtpSeverityType";
-import {CanGetById} from "../base/canGetById";
-import {getDataJsonByUrl, getObjectsTotalCount, StrapiBaseUrl} from "../dataHelpers";
+let inputData;
+const objectsByParticipants = new Map<DtpParticipantType, any[]>();
 
+export const dtp = {
+    async getObject(id: string) {
+        return canGetById.getObject(id, '/dtps');
+    },
+    async getObjectsBySeverity(type: DtpSeverityType) {
+        const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/dtps`);
+        return (await fetchAPI(
+            `${STRAPI_BASE_URL}/dtps?filters[severity][$eq]=${type}&populate=data,geometry&pagination[pageSize]=${totalCount}`,
+        )).data;
+    },
+    async getObjectsByParticipants(type: DtpParticipantType) {
+        if (objectsByParticipants[type]) return objectsByParticipants[type];
 
-export class Dtp extends CanGetById{
-    public override async getObject(id: string): Promise<any> {
-        return super.getObject(id, "/dtps");
-    }
+        if (!inputData) {
+            const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/dtps`);
+            inputData = (await fetchAPI(`${STRAPI_BASE_URL}/dtps?populate=data,geometry&pagination[pageSize]=${totalCount}`)).data;
+        }
 
-    public async getObjectsBySeverity(type: DtpSeverityType){
-        const totalCount = await getObjectsTotalCount("/dtps");
-        return (await getDataJsonByUrl(StrapiBaseUrl +
-            `/dtps?filters[severity][$eq]=${type}&populate=data,geometry&pagination[pageSize]=${totalCount}`)).data;
-    }
-}
+        const result = [];
+
+        for (const e of inputData) {
+            if (Array.from(e.attributes?.participant_categories).includes(type)) result.push(e);
+        }
+        objectsByParticipants[type] = result;
+        return result;
+    },
+};

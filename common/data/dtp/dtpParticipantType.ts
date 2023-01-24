@@ -1,9 +1,7 @@
-﻿/* eslint-disable */
-
-export enum DtpParticipantType{
-    Pedestrians='Пешеходы',
-    Cyclists='Велосипедисты',
-    Motorcyclists='Мотоциклисты',
-    PublicTransport='Общественный транспорт',
-    Children='Дети'
+﻿export enum DtpParticipantType {
+    Pedestrians = 'Пешеходы',
+    Cyclists = 'Велосипедисты',
+    Motorcyclists = 'Мотоциклисты',
+    PublicTransport = 'Общественный транспорт',
+    Children = 'Дети',
 }

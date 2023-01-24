@@ -1,26 +1,24 @@
-﻿/* eslint-disable */
-
-export interface Image{
+﻿export interface Image {
     id: string;
     s: ImageParameters;
     m?: ImageParameters;
 }
 
-export interface ImageParameters{
+export interface ImageParameters {
     width: string;
     height: string;
     src: string;
 }
 
-export interface Point{
+export interface Point {
     lat: string,
     lng: string,
 }
 
-export interface Zone{
+export interface Zone {
     polyline: Point[];
-} 
+}
 
-export interface Area{
+export interface Area {
     zones: Zone[];
 }

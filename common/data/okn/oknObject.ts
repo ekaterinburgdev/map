@@ -1,17 +1,16 @@
-﻿/* eslint-disable */
-import {OknObjectSignificanceType} from "./oknConstants";
+﻿import { OknObjectSignificanceType } from './oknConstants';
 
-export interface OknObject{
+export interface OknObject {
     id: string;
     attributes: OknAttributes;
 }
 
-export interface OknObjectWithGeometry{
+export interface OknObjectWithGeometry {
     id: string;
     attributes: OknAttributesWithGeometry;
 }
 
-export interface OknAttributes{
+export interface OknAttributes {
     name: string;
     address: string;
     createdAt: Date;
@@ -27,11 +26,11 @@ export interface OknAttributes{
     CoordinatesHash: string;
 }
 
-export interface OknAttributesWithGeometry extends OknAttributes{
+export interface OknAttributesWithGeometry extends OknAttributes {
     geometry: OknGeometry;
 }
 
-export interface OknGeometry{
+export interface OknGeometry {
     id: string;
     coordinates: [lat: number, lng: number];
     type?: string;

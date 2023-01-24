@@ -1,57 +1,50 @@
-﻿/* eslint-disable */
-import {LineType} from "./lineType";
-import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
+﻿import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
+import { LineType } from './lineType';
 
 
-export class Lines{
-    public async getFilters(){
-        return [
-            await this.getObjectsCountByLine(LineType.BlueLine),
-            await this.getObjectsCountByLine(LineType.RedLine),
-            await this.getObjectsCountByLine(LineType.PurpleLine)
-        ];
+function getLinePrefix(type: LineType) {
+    let prefix;
+    if (type === LineType.RedLine) {
+        prefix = 'red';
+    } else if (type === LineType.BlueLine) {
+        prefix = 'blue';
+    } else if (type === LineType.PurpleLine) {
+        prefix = 'pink';
+    } else {
+        throw new Error(`Unknown line type: ${type}`);
     }
-    
-    public async getLinePolylines(type: LineType){
-        const prefix = this.getLinePrefix(type);
-        switch (type) {
-            case LineType.RedLine || LineType.BlueLine:
-                return [(await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-line-lines?populate=geometry`))
-                    .data[0].attributes.geometry.coordinates];
-            case LineType.PurpleLine:
-                return (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-line-lines?populate=geometry`))
-                    .data.map(x => x.attributes.geometry[0].coordinates);
-            default:
-                throw new Error(`Unknown line type: ${type}`);
-        }
-    }
-    
-    public async getLineObjects(type: LineType){
-        const prefix = this.getLinePrefix(type);
-        const totalCount = (await this.getObjectsCountByLine(type)).count;
-        return (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`)).data;
-    }
-    
-    private async getObjectsCountByLine(type: LineType){
-        const prefix = this.getLinePrefix(type);
-        return {line: prefix, count: (await getDataJsonByUrl(StrapiBaseUrl + `/${prefix}-lines?&pagination[pageSize]=1`)).meta.pagination.total}
-    }
-    
-    private getLinePrefix(type: LineType){
-        let prefix;
-        switch (type) {
-            case LineType.RedLine:
-                prefix = "red";
-                break
-            case LineType.BlueLine:
-                prefix = "blue";
-                break
-            case LineType.PurpleLine:
-                prefix = "pink";
-                break
-            default:
-                throw new Error(`Unknown line type: ${type}`);
-        }
-        return prefix;
-    }
+    return prefix;
 }
+
+async function getObjectsCountByLine(type: LineType) {
+    const prefix = getLinePrefix(type);
+    return { line: prefix, count: (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-lines?&pagination[pageSize]=1`)).meta.pagination.total };
+}
+
+export const lines = {
+    async getFilters() {
+        return [
+            await getObjectsCountByLine(LineType.BlueLine),
+            await getObjectsCountByLine(LineType.RedLine),
+            await getObjectsCountByLine(LineType.PurpleLine),
+        ];
+    },
+
+    async getLinePolylines(type: LineType) {
+        const prefix = getLinePrefix(type);
+        if (type === LineType.RedLine || LineType.BlueLine) {
+            return [(await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`))
+                .data[0].attributes.geometry.coordinates];
+        } if (type === LineType.PurpleLine) {
+            return (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`))
+                .data.map((x) => x.attributes.geometry[0].coordinates);
+        }
+        throw new Error(`Unknown line type: ${type}`);
+    },
+
+    async getLineObjects(type: LineType) {
+        const prefix = getLinePrefix(type);
+        const totalCount = (await getObjectsCountByLine(type)).count;
+        return (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`)).data;
+    },
+};

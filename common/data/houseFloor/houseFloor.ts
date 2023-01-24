@@ -1,11 +1,12 @@
-﻿/* eslint-disable */
-import {HouseBase} from "../base/houseBase";
+﻿import { houseBase, HouseObject } from '../base/houseBase';
 
+export const houseFloor = {
+    async getObject(id: string): Promise<HouseObject> {
+        return houseBase.getObject(id);
+    },
+    houseFloors: () => ['1', '3', '5', '9', '12', '16', '21', '25', '31', '52'],
 
-export class HouseFloor extends HouseBase{
-    public static HouseFloors = ["1", "3", "5", "9", "12", "16", "21", "25", "31", "52"];
-
-    public override async getObjectsPolygonsByRange(from: string, to: string){
-        return super.getObjectsPolygonsByRange(from, to, "Floor");
-    }
-}
+    async getObjectsPolygonsByRange(from: string, to: string) {
+        return houseBase.getObjectsPolygonsByRange(from, to, 'Floor');
+    },
+};

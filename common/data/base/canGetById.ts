@@ -1,9 +1,7 @@
-﻿/* eslint-disable */
-import {getDataJsonByUrl, StrapiBaseUrl} from "../dataHelpers";
+﻿import { fetchAPI, STRAPI_BASE_URL } from '../dataHelpers';
 
-
-export class CanGetById{
-    public async getObject(id: string, tableRelativeUrl: string){
-        return (await getDataJsonByUrl(StrapiBaseUrl + `${tableRelativeUrl}/${id}`)).data;
-    }
-}
+export const canGetById = {
+    async getObject(id: string, tableRelativeUrl: string) {
+        return (await fetchAPI(`${STRAPI_BASE_URL}${tableRelativeUrl}/${id}`)).data;
+    },
+};

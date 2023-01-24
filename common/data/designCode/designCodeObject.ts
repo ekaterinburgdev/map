@@ -1,5 +1,4 @@
-﻿/* eslint-disable */
-import {Image} from "../base/objectsBase";
+﻿import { Image } from '../base/objectsBase';
 
 export interface DesignCodeObject {
     id: string;
