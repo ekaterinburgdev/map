@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import React, { useContext, useMemo } from 'react';
-import { Modal } from 'components/Modal';
+import { Modal } from 'components/UI/Modal';
 import { checkIsMobile } from 'common/isMobile';
 import { MapContext } from '../Map/providers/MapProvider';
 import { CardContent } from './CardContent';

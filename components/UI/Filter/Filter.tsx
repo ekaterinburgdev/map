@@ -10,11 +10,8 @@ import {MapContext} from 'components/UI/Map/providers/MapProvider';
 import styles from './Filter.module.css';
 import {FilterItem} from './FilterItem';
 
-interface Props {
-    showHeading: boolean;
-}
 
-export function Filter({ showHeading = true }: Props) {
+export function Filter() {
     const [isOpen, setOpen] = useState(false);
     const { placemarks, allMarksTypes, selectedMarksTypes } = useContext(MapContext);
 
@@ -52,8 +49,7 @@ export function Filter({ showHeading = true }: Props) {
                 onKeyUp={onKeyUp}
             >
                 <div>
-                    {showHeading
-                    && <h1 className={styles.filter__header}>Карта объектов дизайн-кода</h1>}
+                    <h1 className={styles.filter__header}>Карта объектов дизайн-кода</h1>
                     <div className={styles.filter__counter}>
                         <span>Всего </span>
                         {count}
