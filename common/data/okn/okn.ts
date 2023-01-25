@@ -10,7 +10,7 @@ export const okn = {
         return canGetById.getObject(id, '/okn-objects')
             .then((x) => {
                 // eslint-disable-next-line no-param-reassign
-                x.attributes.img = x.attributes?.img.split("','")[0].slice(8);
+                x.attributes.img = JSON.parse(x.attributes?.img.replaceAll("'", '"'));
                 return x;
             });
     },
@@ -31,11 +31,11 @@ export const okn = {
         } if (type === OknAreaType.ProtectZone) {
             return (await fetchAPI(`${STRAPI_BASE_URL
             }/okn-protect-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`))
-                .data.map((x) => x.attributes.geometry.coordinates[0]);
+                .data.map((x) => x.attributes.geometry.coordinates);
         } if (type === OknAreaType.SecurityZone) {
             return (await fetchAPI(`${STRAPI_BASE_URL
             }/okn-security-zones?populate=geometry,data&pagination[pageSize]=${totalCount}`))
-                .data.map((x) => x.attributes.geometry.coordinates[0]);
+                .data.map((x) => x.attributes.geometry.coordinates);
         }
         throw new Error(`Unknown okn type: ${type}`);
     },

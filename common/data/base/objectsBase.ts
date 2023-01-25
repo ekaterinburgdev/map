@@ -10,10 +10,9 @@ export interface ImageParameters {
     src: string;
 }
 
-export interface Point {
-    lat: string,
-    lng: string,
-}
+export type Point = [
+    string, string,
+]
 
 export interface Zone {
     polyline: Point[];

@@ -19,7 +19,7 @@ export interface OknAttributes {
     date: string;
     type: string;
     category: OknObjectSignificanceType;
-    img?: string;
+    img?: any;
     document: string;
     isExist?: string;
     comment?: string;
