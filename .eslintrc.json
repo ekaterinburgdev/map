@@ -22,8 +22,8 @@
       {
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
-    ]
+    ],
+    "linebreak-style": "off"
   },
-  "ignorePatterns": ["next.config.js"],
-  "linebreak-style": "off",
+  "ignorePatterns": ["next.config.js"]
 }

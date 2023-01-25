@@ -15,7 +15,6 @@ import { MapContext } from '../providers/MapProvider';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
-import {okn} from "../../../common/data/okn/okn";
 
 const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
