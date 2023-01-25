@@ -6,6 +6,7 @@
   "rules": {
     "indent": ["error", 4],
     "no-console": ["error", { "allow": ["error"] }],
+    "no-param-reassign": ["error", { "props": false }],
 
     "@typescript-eslint/indent": ["error", 4],
 
@@ -21,7 +22,8 @@
       {
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
-    ], 
-    "linebreak-style": "off"
-  }
+    ]
+  },
+  "ignorePatterns": ["next.config.js"],
+  "linebreak-style": "off",
 }

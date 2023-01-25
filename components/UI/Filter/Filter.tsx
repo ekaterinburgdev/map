@@ -5,16 +5,13 @@ import {groupBy} from 'lodash';
 
 import {MARKER_FILTER_COLOR} from 'common/constants/colors';
 import {MapItem, MapItemType} from 'common/types/map-item';
-import {MapContext} from 'components/Map/providers/MapProvider';
+import {MapContext} from 'components/UI/Map/providers/MapProvider';
 
 import styles from './Filter.module.css';
 import {FilterItem} from './FilterItem';
 
-interface Props {
-    showHeading: boolean;
-}
 
-export function Filter({ showHeading = true }: Props) {
+export function Filter() {
     const [isOpen, setOpen] = useState(false);
     const { placemarks, allMarksTypes, selectedMarksTypes } = useContext(MapContext);
 
@@ -52,8 +49,7 @@ export function Filter({ showHeading = true }: Props) {
                 onKeyUp={onKeyUp}
             >
                 <div>
-                    {showHeading
-                    && <h1 className={styles.filter__header}>Карта объектов дизайн-кода</h1>}
+                    <h1 className={styles.filter__header}>Карта объектов дизайн-кода</h1>
                     <div className={styles.filter__counter}>
                         <span>Всего </span>
                         {count}
