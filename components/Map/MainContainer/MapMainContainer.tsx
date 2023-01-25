@@ -56,8 +56,6 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
             .map((m) => ({ ...m, isOpen: m.id === popup?.id })),
         [placemarks, selectedMarksTypes, popup?.id],
     );
-    
-    okn.getObject("93").then(console.log)
 
     return (
         <>
