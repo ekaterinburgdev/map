@@ -17,10 +17,17 @@
 @media screen and (min-width: 768px) {
   .react-modal-sheet-container {
     width: 400px !important;
-    height: calc(90vh - 2vw)  !important;
+    max-height: calc(90vh - 2vw) !important;
+    height: max-content !important;
+    overflow-y: auto;
+    overflow-x: hidden;
     right: .5vw !important;
     left: auto !important;
     top: .5vw !important;
+  }
+
+  .react-modal-sheet-content {
+    overflow: initial !important;
   }
 
   .react-modal-sheet-header,

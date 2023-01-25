@@ -1,0 +1,51 @@
+.oknInfo {
+    color: #c8a563;
+}
+
+.oknInfo__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.oknInfo__text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.oknInfo__oknTitle_lost {
+    text-decoration: line-through;
+    opacity: 0.64;
+    margin-top: 4px;
+}
+
+.oknInfo__oknLogo_lost {
+    opacity: 0.4;
+}
+
+.oknInfo__file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: rgba(200, 165, 99, 0.1);
+    border-radius: 8px;
+    margin-top: 16px;
+}
+
+.oknInfo__fileNameWrapper {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.oknInfo__fileName {
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.oknInfo__fileSize {
+    color: rgba(200, 165, 99, 0.5);
+    font-size: 12px;
+    line-height: 14px;
+}

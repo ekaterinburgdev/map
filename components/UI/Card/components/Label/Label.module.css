@@ -1,0 +1,13 @@
+.label {
+    padding: 3px 6px 2px;
+    border-radius: 16px;
+    font-size: 12px;
+    line-height: 14px;
+    width: max-content;
+    display: flex;
+    gap: 3px;
+}
+
+.label_clickable {
+    cursor: pointer;
+}

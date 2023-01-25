@@ -1,5 +1,7 @@
 import L from 'leaflet';
 
+import { MapItemType } from 'common/types/map-item';
+
 import { IMapContext } from '../providers/MapProvider';
 
 export enum Sizes {
@@ -10,10 +12,11 @@ export enum Sizes {
 export interface PointProps {
     position: L.LatLngExpression;
     preview?: string | null;
-    color?: string,
-    size?: Sizes,
+    color?: string;
+    size?: Sizes;
     isOpen?: boolean;
     openPopup?: IMapContext['openPopup'];
     closePopup?: IMapContext['closePopup'];
     id: string;
+    type: MapItemType;
 }

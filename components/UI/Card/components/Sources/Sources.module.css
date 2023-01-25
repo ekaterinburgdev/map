@@ -1,0 +1,33 @@
+.sources {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.sources__title {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.sources__list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.sources__listItem {
+    list-style: none;
+    color: #55647d;
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+.sources__listItem:hover {
+    opacity: .8;
+}

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useMemo } from 'react';
-import L from 'leaflet';
+import L, { LatLngExpression } from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -12,6 +12,7 @@ import { checkIsMobile } from 'common/isMobile';
 import { MARKER_COLOR } from 'common/constants/colors';
 import { Point } from '../Point';
 import { MapContext } from '../providers/MapProvider';
+import { Shape } from '../Shape/Shape';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
@@ -58,17 +59,48 @@ function MapMainContainer({ placemarksData }: Props) {
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
         >
-            <TileLayer url="https://tile.osmand.net/hd/{z}/{x}/{y}.png" />
+            <TileLayer url="https://tiles.ekaterinburg.io/styles/basic/{z}/{x}/{y}@2x.png" />
             {selectedMarks.map((placemark) => (
-                <Point
-                    key={placemark.id}
-                    id={placemark.id}
-                    color={MARKER_COLOR[MapItemType[placemark.type]]}
-                    position={placemark.coords}
-                    isOpen={placemark.isOpen}
-                    openPopup={openPopup}
-                    closePopup={closePopup}
-                />
+                <>
+                    {placemark.coords && placemark.type === MapItemType.OKN && (
+                        // eslint-disable-next-line react/jsx-no-useless-fragment
+                        <>
+                            {Array.isArray(placemark.coords[0]) ? (
+                                <Shape
+                                    openModal={openPopup}
+                                    id={placemark.id}
+                                    type={placemark.type}
+                                    positions={placemark.coords as LatLngExpression[]}
+                                    color={MARKER_COLOR[placemark.type]}
+                                    fillOpacity={0.3}
+                                    weight={3}
+                                    dashArray="8 8 8"
+                                />
+                            ) : (
+                                <Point
+                                    key={placemark.type + placemark.id}
+                                    id={placemark.id}
+                                    type={placemark.type}
+                                    color={MARKER_COLOR[placemark.type]}
+                                    position={placemark.coords as LatLngExpression}
+                                    preview={null}
+                                    isOpen={placemark.isOpen}
+                                    openPopup={openPopup}
+                                    closePopup={closePopup}
+                                />
+                            )}
+                        </>
+                    )}
+                    {placemark.borders && placemark.type === MapItemType.Houses && (
+                        <Shape
+                            openModal={openPopup}
+                            id={placemark.id}
+                            type={placemark.type}
+                            positions={placemark.borders}
+                            color={MARKER_COLOR[placemark.type]}
+                        />
+                    )}
+                </>
             ))}
         </MapContainer>
     );

@@ -1,8 +1,6 @@
 /* eslint-disable */
 
-import React, {
-    ReactNode, useCallback, useMemo, useState,
-} from 'react';
+import React, { ReactNode, useCallback, useMemo, useState } from 'react';
 import { uniqBy } from 'lodash';
 import { MapItem, MapItemType } from 'common/types/map-item';
 import { usePopup } from './usePopup';
@@ -15,7 +13,7 @@ export interface IMapContext {
     selectedMarksTypes: MapItemType[];
     filterMarks: (items: MapItemType[]) => void;
     popup: MapItem | null;
-    openPopup: (p: PopupId) => void;
+    openPopup: (p: PopupId, t: MapItemType) => void;
     closePopup: VoidFunction;
 }
 
