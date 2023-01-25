@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this,no-param-reassign */
-import {fetchAPI, getObjectsTotalCount, parseJsonWithSingleQuotes, STRAPI_BASE_URL} from '../dataHelpers';
+import {
+    fetchAPI, getObjectsTotalCount, parseJsonWithSingleQuotes, STRAPI_BASE_URL,
+} from '../dataHelpers';
 import { getById } from '../base/getById';
 import { Area } from '../base/objectsBase';
 import { OknAreaType, OknObjectSignificanceType } from './oknConstants';
