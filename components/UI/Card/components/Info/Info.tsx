@@ -1,17 +1,10 @@
 import React from 'react';
 
+import { InfoProps } from './Info.types';
+
 import styles from './Info.module.css';
 
-interface Props {
-    infos: {
-        name?: string;
-        text?: string;
-    }[];
-    nameColor?: string;
-    textColor?: string;
-}
-
-export function Info({ infos, nameColor, textColor }: Props) {
+export function Info({ infos, nameColor, textColor }: InfoProps) {
     return (
         <div className={styles.info}>
             {infos.map(({ name, text }) => (

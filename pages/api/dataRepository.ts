@@ -21,7 +21,7 @@ export async function getAllPlacemarks() {
 
 async function getOkns() {
     const okns = await fetch(
-        'https://map-api.ekaterinburg.io/api/okn-objects?populate=geometry,data&pagination[pageSize]=60',
+        'https://map-api.ekaterinburg.io/api/okn-objects?populate=geometry&pagination[pageSize]=1000',
     ).then(async (x) => JSON.parse(await x.text()).data);
     for (let i = 0; i < okns.length; i++) {
         const current = okns[i];
@@ -30,10 +30,7 @@ async function getOkns() {
             : undefined;
 
         okns[i] = {
-            coords: [
-                current.attributes.geometry.coordinates[1],
-                current.attributes.geometry.coordinates[0],
-            ],
+            coords: current.attributes.geometry?.coordinates,
             description: '',
             id: String(current.id),
             images: [],
@@ -52,15 +49,17 @@ async function getOkns() {
 
 async function getHouses() {
     const houses = await fetch(
-        'https://map-api.ekaterinburg.io/api/house?populate=geometry,data,adress&pagination[pageSize]=60',
+        'https://map-api.ekaterinburg.io/api/house?populate=geometry,borders&pagination[pageSize]=10000',
     ).then(async (x) => JSON.parse(await x.text()).data);
     for (let i = 0; i < houses.length; i++) {
         const current = houses[i];
         houses[i] = {
-            coords: [
-                current.attributes.geometry.coordinates[1],
-                current.attributes.geometry.coordinates[0],
-            ],
+            coords: current.attributes.geometry
+                ? [
+                      current.attributes.geometry.coordinates[1],
+                      current.attributes.geometry.coordinates[0],
+                  ]
+                : undefined,
             description: '',
             id: String(current.id),
             images: [],
@@ -71,6 +70,7 @@ async function getHouses() {
             series: current.attributes.Series,
             floors: current.attributes.Floors,
             date: current.attributes.Year,
+            borders: current.attributes.borders?.coordinates,
             street: '',
             type: MapItemType.Houses,
         };

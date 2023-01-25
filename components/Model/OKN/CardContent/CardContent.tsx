@@ -1,17 +1,15 @@
 import React, { useMemo } from 'react';
 import Image from 'next/image';
-import { MapItem } from 'common/types/map-item';
 
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Header } from 'components/UI/Card/components/Header/Header';
-import { Block } from 'components/UI/Card/components/Block/Block';
+import { Section } from 'components/UI/Card/components/Section/Section';
 import { OKNInfo } from './components/OKNInfo/OKNInfo';
-import styles from './CardContent.module.css';
 
-interface OKNCardContentProps {
-    placemark: MapItem;
-}
+import { OKNCardContentProps } from './CardContent.types';
+
+import styles from './CardContent.module.css';
 
 export function OKNCardContent({ placemark }: OKNCardContentProps) {
     const { title, description } = useMemo(() => {
@@ -53,16 +51,16 @@ export function OKNCardContent({ placemark }: OKNCardContentProps) {
                     <address className={styles.popup__address}>{placemark.address}</address>
                 )}
                 {placemark.date && (
-                    <Block>
+                    <Section>
                         <ConstructionInfo date={placemark.date} />
-                    </Block>
+                    </Section>
                 )}
-                <Block>
+                <Section>
                     <OKNInfo number={placemark.oknNumber} status={placemark.isExist} />
-                </Block>
-                <Block>
+                </Section>
+                <Section>
                     <Sources sources={['okn']} />
-                </Block>
+                </Section>
             </div>
         </div>
     );

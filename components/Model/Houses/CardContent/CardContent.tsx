@@ -1,18 +1,16 @@
 import React, { useMemo } from 'react';
 
-import { MapItem } from 'common/types/map-item';
-import { Block } from 'components/UI/Card/components/Block/Block';
+import { Section } from 'components/UI/Card/components/Section/Section';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Label } from 'components/UI/Card/components/Label/Label';
 
 import { Info } from 'components/UI/Card/components/Info/Info';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
-import styles from './CardContent.module.css';
 
-interface HousesCardContentProps {
-    placemark: MapItem;
-}
+import { HousesCardContentProps } from './CardContent.types';
+
+import styles from './CardContent.module.css';
 
 export function HousesCardContent({ placemark }: HousesCardContentProps) {
     const isEmergency = useMemo(() => placemark.condition === 'Аварийный', [placemark.condition]);
@@ -52,7 +50,7 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
     return (
         <div className={styles.popup}>
             <Header coordinates={placemark.coords} title={placemark.name} />
-            <Block>
+            <Section>
                 {isEmergency && (
                     <div className={styles.popup__emergencyLabel}>
                         <Label color="#e63223" backgroundColor="rgba(230, 50, 35, 0.24)">
@@ -61,13 +59,13 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
                     </div>
                 )}
                 <Info nameColor="#9baac3" infos={aboutHouse} />
-            </Block>
-            <Block>
+            </Section>
+            <Section>
                 <ConstructionInfo date={String(placemark.date)} />
-            </Block>
-            <Block>
+            </Section>
+            <Section>
                 <Sources sources={['mingkh', 'domaekb']} />
-            </Block>
+            </Section>
         </div>
     );
 }

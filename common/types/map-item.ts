@@ -17,7 +17,7 @@ export type MapItem = {
     id: string;
     name: string;
     type: MapItemType;
-    coords: LatLngExpression;
+    coords: LatLngExpression | LatLngExpression[];
     street: string;
     date?: string;
     description: string;
@@ -31,6 +31,7 @@ export type MapItem = {
     wearTear?: string;
     series?: string;
     floors?: string;
+    borders: LatLngExpression[] | LatLngExpression[][] | LatLngExpression[][][];
 };
 
 export enum MapItemType {

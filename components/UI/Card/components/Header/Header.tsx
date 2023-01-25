@@ -22,10 +22,11 @@ export function Header({ coordinates, title, description }: HeaderProps) {
         COPY_RESET_TIMEOUT,
     );
 
-    const coordsString = useMemo(
-        () => `${coordinates[0]?.toFixed(6)}, ${coordinates[1]?.toFixed(6)}`,
-        [coordinates],
-    );
+    const coordsString = useMemo(() => {
+        const coords = Array.isArray(coordinates[0]) ? coordinates[0] : coordinates;
+
+        return `${coords[0]?.toFixed(6)}, ${coords[1]?.toFixed(6)}`;
+    }, [coordinates]);
     const { isCopied: isCoordsCopied, onCopy: onCopyCoords } = useCopyHref(
         coordsString,
         COPY_RESET_TIMEOUT,
