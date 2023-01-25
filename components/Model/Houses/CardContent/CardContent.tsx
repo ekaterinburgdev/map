@@ -60,9 +60,11 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
                 )}
                 <Info nameColor="#9baac3" infos={aboutHouse} />
             </Section>
-            <Section>
-                <ConstructionInfo date={String(placemark.date)} />
-            </Section>
+            {placemark.date && (
+                <Section>
+                    <ConstructionInfo date={String(placemark.date)} />
+                </Section>
+            )}
             <Section>
                 <Sources sources={['mingkh', 'domaekb']} />
             </Section>
