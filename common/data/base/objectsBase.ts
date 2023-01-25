@@ -11,8 +11,9 @@ export interface ImageParameters {
 }
 
 export type Point = [
-    string, string,
-]
+    string,
+    string,
+];
 
 export interface Zone {
     polyline: Point[];
