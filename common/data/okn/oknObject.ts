@@ -20,7 +20,11 @@ export interface OknAttributes {
     type: string;
     category: OknObjectSignificanceType;
     img?: { url: string; title: string };
-    document: { archive: { id: number; url: string }; date: string; name: string; number: string }[];
+    document: {
+        archive:
+        { id: number; url: string };
+        date: string; name: string;
+        number: string }[];
     isExist?: string;
     comment?: string;
     CoordinatesHash: string;
