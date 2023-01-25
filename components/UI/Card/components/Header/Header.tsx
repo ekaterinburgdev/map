@@ -3,18 +3,12 @@ import React, { useMemo } from 'react';
 import { IconType } from 'components/UI/Icons/Icons.types';
 import { useCopyHref } from 'components/helpers/useCopyHref';
 
-import { MapItem } from 'common/types/map-item';
 import { Label } from '../Label/Label';
 
 import styles from './Header.module.css';
+import { HeaderProps } from './Header.types';
 
 const COPY_RESET_TIMEOUT = 2000;
-
-export type HeaderProps = {
-    coordinates: MapItem['coords'];
-    title: string;
-    description?: string;
-};
 
 export function Header({ coordinates, title, description }: HeaderProps) {
     const { isCopied: isLinkCopied, onCopy: onCopyLink } = useCopyHref(
