@@ -11,8 +11,8 @@ export interface ImageParameters {
 }
 
 export type Point = [
-    string,
-    string,
+    number,
+    number,
 ];
 
 export interface Zone {
