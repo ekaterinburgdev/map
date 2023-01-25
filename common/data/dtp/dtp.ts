@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-syntax */
-import { canGetById } from '../base/canGetById';
+import { getById } from '../base/getById';
 import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
@@ -9,7 +9,7 @@ const objectsByParticipants = new Map<DtpParticipantType, any[]>();
 
 export const dtp = {
     async getObject(id: string) {
-        return canGetById.getObject(id, '/dtps');
+        return getById.getObject(id, '/dtps');
     },
     async getObjectsBySeverity(type: DtpSeverityType) {
         const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/dtps`);

@@ -9,3 +9,8 @@ export async function getObjectsTotalCount(urlWithoutParams: string) {
     return (await fetchAPI(`${urlWithoutParams}?pagination[pageSize]=1`))
         .meta.pagination.total;
 }
+
+export function parseJsonWithSingleQuotes(json: string) {
+    if (!json) return json;
+    return JSON.parse(json.replaceAll("'", '"'));
+}

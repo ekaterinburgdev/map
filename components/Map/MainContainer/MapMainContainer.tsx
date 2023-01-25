@@ -20,6 +20,7 @@ import { Popup } from '../Popup';
 
 import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
+import {okn} from "../../../common/data/okn/okn";
 
 const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
@@ -55,6 +56,8 @@ function MapMainContainer({ placemarksData, showFilterHeading = true }: Props) {
             .map((m) => ({ ...m, isOpen: m.id === popup?.id })),
         [placemarks, selectedMarksTypes, popup?.id],
     );
+    
+    okn.getObject("93").then(console.log)
 
     return (
         <>

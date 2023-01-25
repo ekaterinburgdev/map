@@ -1,16 +1,16 @@
-/* eslint-disable class-methods-use-this */
-import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
-import { canGetById } from '../base/canGetById';
+/* eslint-disable class-methods-use-this,no-param-reassign */
+import {fetchAPI, getObjectsTotalCount, parseJsonWithSingleQuotes, STRAPI_BASE_URL} from '../dataHelpers';
+import { getById } from '../base/getById';
 import { Area } from '../base/objectsBase';
 import { OknAreaType, OknObjectSignificanceType } from './oknConstants';
 import { OknObject, OknObjectWithGeometry } from './oknObject';
 
 export const okn = {
     async getObject(id: string): Promise<OknObject> {
-        return canGetById.getObject(id, '/okn-objects')
+        return getById.getObject(id, '/okn-objects')
             .then((x) => {
-                // eslint-disable-next-line no-param-reassign
-                x.attributes.img = JSON.parse(x.attributes?.img.replaceAll("'", '"'));
+                x.attributes.img = parseJsonWithSingleQuotes(x.attributes?.img);
+                x.attributes.document = parseJsonWithSingleQuotes(x.attributes?.document);
                 return x;
             });
     },

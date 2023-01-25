@@ -1,9 +1,9 @@
 import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
-import { canGetById } from './canGetById';
+import { getById } from './getById';
 
 export const houseBase = {
     async getObject(id: string): Promise<HouseObject> {
-        return canGetById.getObject(id, '/house');
+        return getById.getObject(id, '/house');
     },
     async getObjectsPolygonsByRange(from: string, to: string, filterName: string) {
         const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/house`);
