@@ -11,4 +11,8 @@ export const SOUCES_BY_TYPE = {
         name: 'МинЖКХ Екатеринбурга',
         link: 'https://mingkh.ru',
     },
+    dtp: {
+        name: 'Карта ДТП',
+        link: 'https://dtp-stat.ru/',
+    },
 } as const;

@@ -4,6 +4,11 @@
     gap: 8px;
 }
 
+.info_row {
+    flex-direction: row;
+    gap: 12px;
+}
+
 .info__name {
     font-size: 12px;
     line-height: 14px;

@@ -13,7 +13,7 @@ export function Shape({
     weight = 0,
     dashArray,
 }: ShapeProps) {
-    const onClickHandler = useCallback(() => openModal(id, type), [id, type]);
+    const onClickHandler = useCallback(() => openModal(id, type), [id, type, openModal]);
     const eventHandlers = useMemo(
         () => ({
             click: onClickHandler,

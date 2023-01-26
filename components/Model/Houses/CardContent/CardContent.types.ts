@@ -1,5 +1,5 @@
-import { MapItem } from 'common/types/map-item';
+import { HouseObject } from 'common/data/base/houseBase';
 
 export interface HousesCardContentProps {
-    placemark: MapItem;
+    placemark: HouseObject;
 }

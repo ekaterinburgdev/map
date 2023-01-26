@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useMemo } from 'react';
-import L, { LatLngExpression } from 'leaflet';
+import React, { useEffect } from 'react';
+import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
 import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
@@ -7,27 +7,30 @@ import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
-import { MapItem, MapItemType } from 'common/types/map-item';
 import { checkIsMobile } from 'common/isMobile';
-import { MARKER_COLOR } from 'common/constants/colors';
-import { Point } from '../Point';
-import { MapContext } from '../providers/MapProvider';
-import { Shape } from '../Shape/Shape';
 
-import styles from './MapMainContainer.module.css';
 import 'leaflet/dist/leaflet.css';
+import { OKNMapData } from 'components/Model/OKN/MapData/MapData';
+import { HousesMapData } from 'components/Model/Houses/MapData/MapData';
+import { HouseObject } from 'common/data/base/houseBase';
+import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
+import { DTPObject } from 'common/data/dtp/dtp';
+import { DTPMapData } from 'components/Model/DTP/MapData/MapData';
+import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
 interface Props {
-    placemarksData: MapItem[];
+    houses: {
+        borders: HouseObject['attributes']['borders']['coordinates'];
+        id: string;
+    }[];
+    dtps: DTPObject[];
+    okns: OknObjectWithGeometry[];
 }
 
-function MapMainContainer({ placemarksData }: Props) {
+function MapMainContainer({ houses, dtps, okns }: Props) {
     const position: [number, number] = COORDS_EKATERINBURG;
-    const {
-        placemarks, popup, selectedMarksTypes, savePlacemarks, openPopup, closePopup,
-    } = useContext(MapContext);
 
     useEffect(() => {
         async function init() {
@@ -36,19 +39,10 @@ function MapMainContainer({ placemarksData }: Props) {
                 iconUrl: iconUrl.src,
                 shadowUrl: shadowUrl.src,
             });
-
-            savePlacemarks(placemarksData);
         }
 
         init();
-    }, [savePlacemarks, placemarksData]);
-
-    const selectedMarks: (MapItem & { isOpen: boolean })[] = useMemo(
-        () => placemarks
-            .filter((mark) => selectedMarksTypes.includes(mark.type))
-            .map((m) => ({ ...m, isOpen: m.id === popup?.id })),
-        [placemarks, selectedMarksTypes, popup?.id],
-    );
+    }, []);
 
     return (
         <MapContainer
@@ -59,49 +53,26 @@ function MapMainContainer({ placemarksData }: Props) {
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
         >
-            <TileLayer url="https://tiles.ekaterinburg.io/styles/basic/{z}/{x}/{y}@2x.png" />
-            {selectedMarks.map((placemark) => (
-                <>
-                    {placemark.coords && placemark.type === MapItemType.OKN && (
-                        // eslint-disable-next-line react/jsx-no-useless-fragment
-                        <>
-                            {Array.isArray(placemark.coords[0]) ? (
-                                <Shape
-                                    openModal={openPopup}
-                                    id={placemark.id}
-                                    type={placemark.type}
-                                    positions={placemark.coords as LatLngExpression[]}
-                                    color={MARKER_COLOR[placemark.type]}
-                                    fillOpacity={0.3}
-                                    weight={3}
-                                    dashArray="8 8 8"
-                                />
-                            ) : (
-                                <Point
-                                    key={placemark.type + placemark.id}
-                                    id={placemark.id}
-                                    type={placemark.type}
-                                    color={MARKER_COLOR[placemark.type]}
-                                    position={placemark.coords as LatLngExpression}
-                                    preview={null}
-                                    isOpen={placemark.isOpen}
-                                    openPopup={openPopup}
-                                    closePopup={closePopup}
-                                />
-                            )}
-                        </>
-                    )}
-                    {placemark.borders && placemark.type === MapItemType.Houses && (
-                        <Shape
-                            openModal={openPopup}
-                            id={placemark.id}
-                            type={placemark.type}
-                            positions={placemark.borders}
-                            color={MARKER_COLOR[placemark.type]}
-                        />
-                    )}
-                </>
-            ))}
+            <TileLayer url="https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}@2x.png" />
+            <>
+                {houses.map((house) => (
+                    <>{house.borders && <HousesMapData borders={house.borders} id={house.id} />}</>
+                ))}
+                {okns.map((okn) => (
+                    <>
+                        {okn.attributes.geometry.coordinates && (
+                            <OKNMapData id={okn.id} coords={okn.attributes.geometry.coordinates} />
+                        )}
+                    </>
+                ))}
+                {dtps.map((dtp) => (
+                    <>
+                        {dtp.attributes.geometry.coordinates && (
+                            <DTPMapData id={dtp.id} coords={dtp.attributes.geometry.coordinates} />
+                        )}
+                    </>
+                ))}
+            </>
         </MapContainer>
     );
 }

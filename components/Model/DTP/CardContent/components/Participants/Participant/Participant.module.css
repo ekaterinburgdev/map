@@ -1,0 +1,11 @@
+.participant__mainInfo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.participant__violations {
+    margin: 8px 0 0;
+    font-size: 12px;
+    line-height: 14px;
+    color: #55647d;
+}

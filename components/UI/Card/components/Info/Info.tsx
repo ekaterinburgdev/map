@@ -1,12 +1,19 @@
 import React from 'react';
+import classNames from 'classnames';
 
 import { InfoProps } from './Info.types';
 
 import styles from './Info.module.css';
 
-export function Info({ infos, nameColor, textColor }: InfoProps) {
+export function Info({
+    infos, nameColor, textColor, rowDirection,
+}: InfoProps) {
     return (
-        <div className={styles.info}>
+        <div
+            className={classNames(styles.info, {
+                [styles.info_row]: rowDirection,
+            })}
+        >
             {infos.map(({ name, text }) => (
                 <div>
                     {name && (

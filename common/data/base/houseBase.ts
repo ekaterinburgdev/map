@@ -7,15 +7,20 @@ export const houseBase = {
     },
     async getObjectsPolygonsByRange(from: string, to: string, filterName: string) {
         const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/house`);
-        return (await fetchAPI(`${STRAPI_BASE_URL
-        }/house?populate=borders&filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}&pagination[pageSize]=${totalCount}`))
-            .data.map((x) => x.attributes.borders?.coordinates);
+        return (
+            await fetchAPI(
+                `${STRAPI_BASE_URL}/house?populate=borders&filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}&pagination[pageSize]=${totalCount}`,
+            )
+        ).data.map((x: HouseObject) => ({
+            borders: x.attributes.borders?.coordinates,
+            id: x.id,
+        }));
     },
 };
 
 export interface HouseObject {
     id: string;
-    attributes: HouseAttributes
+    attributes: HouseAttributes;
 }
 
 export interface HouseAttributes {
@@ -35,4 +40,7 @@ export interface HouseAttributes {
     LiftsCount?: number;
     EntranceCount?: number;
     MinimalFloors?: number;
+    borders?: {
+        coordinates: [number, number][];
+    };
 }
