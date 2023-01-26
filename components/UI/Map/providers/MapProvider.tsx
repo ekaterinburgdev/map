@@ -6,7 +6,6 @@ import { MapItemType } from 'common/types/map-item';
 import { usePopup } from './usePopup';
 
 export interface IMapContext {
-    filterMarks: (items: MapItemType[]) => void;
     popupId: string | null;
     popupType: MapItemType | null;
     openPopup: (p: string, t: MapItemType) => void;
@@ -14,7 +13,6 @@ export interface IMapContext {
 }
 
 export const MapContext = React.createContext<IMapContext>({
-    filterMarks: () => {},
     popupId: null,
     popupType: null,
     openPopup: () => {},
@@ -26,24 +24,16 @@ interface Props {
 }
 
 export function MapContextProvider({ children }: Props) {
-    const [selectedMarksTypes, setSelectedMarks] = useState<MapItemType[]>([]);
     const { popupId, popupType, openPopup, closePopup } = usePopup();
-
-    const filterMarks = useCallback(
-        (items: MapItemType[]) => setSelectedMarks(items),
-        [setSelectedMarks],
-    );
 
     const value = useMemo(
         () => ({
-            selectedMarksTypes,
-            filterMarks,
             popupId,
             popupType,
             openPopup,
             closePopup,
         }),
-        [selectedMarksTypes, filterMarks, popupId, popupType, openPopup, closePopup],
+        [popupId, popupType, openPopup, closePopup],
     );
 
     return <MapContext.Provider value={value}>{children}</MapContext.Provider>;

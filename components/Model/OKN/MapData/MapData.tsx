@@ -7,10 +7,7 @@ import { Shape } from 'components/UI/Map/Shape/Shape';
 import { Point } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
-export type OKNMapDataProps = {
-    id: string;
-    coords: LatLngExpression[] | LatLngExpression;
-};
+import { OKNMapDataProps } from './MapData.types';
 
 export function OKNMapData({ id, coords }: OKNMapDataProps) {
     const {
@@ -32,7 +29,7 @@ export function OKNMapData({ id, coords }: OKNMapDataProps) {
                     color={MARKER_COLOR[MapItemType.OKN]}
                     fillOpacity={0.3}
                     weight={3}
-                    dashArray="8 8 8"
+                    dashed
                 />
             ) : (
                 <Point

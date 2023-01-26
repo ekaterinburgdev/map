@@ -56,16 +56,17 @@ export function Participants({ participants, vehicles }: ParticipantsProps) {
                             driver = vehicle.participants[driverIndex];
                             driverHealthStatus = healthStatusToType(driver.health_status);
                         }
-                        const restParticipants = driverIndex !== -1
-                            ? vehicle.participants.splice(driverIndex, 1)
-                            : vehicle.participants;
+
+                        const restParticipants = vehicle.participants.filter(
+                            (participant) => participant.role !== 'Водитель',
+                        );
 
                         const car = getVehicleName(vehicle);
 
                         return (
                             <div className={styles.participants__vehicle}>
                                 <div className={styles.participants__driver}>
-                                    <div>
+                                    <div className={styles.participants__carAndStatus}>
                                         <div className={styles.participants__car}>
                                             <div className={styles.participants__carModel}>
                                                 {car}
@@ -88,7 +89,11 @@ export function Participants({ participants, vehicles }: ParticipantsProps) {
                                             </Label>
                                         )}
                                     </div>
-                                    {driver && <Participant participant={driver} noHealthStatus />}
+                                    {driver && (
+                                        <div className={styles.participants__driverInfo}>
+                                            <Participant participant={driver} noHealthStatus />
+                                        </div>
+                                    )}
                                 </div>
                                 {restParticipants.map((participant) => (
                                     <Section>

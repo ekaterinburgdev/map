@@ -1,7 +1,3 @@
-.participants {
-
-}
-
 .participants__title {
     margin: 0;
 }
@@ -26,6 +22,17 @@
     background: #141d34;
 }
 
+.participants__carAndStatus {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.participants__car {
+    max-width: 70%;
+}
+
 .participants__carModel {
     font-size: 18px;
     line-height: 24px;
@@ -35,4 +42,8 @@
     color: #9baac3;
     font-size: 12px;
     line-height: 14px;
+}
+
+.participants__driverInfo {
+    margin-top: 12px;
 }

@@ -35,12 +35,12 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
 
         return parsedDate.toLocaleString('ru-RU', {
             day: 'numeric',
-            month: 'short',
+            month: 'long',
             year: 'numeric',
             hour: 'numeric',
             minute: 'numeric',
         });
-    }, [placemark.attributes.datetime]);
+    }, [placemark?.attributes.datetime]);
 
     const environment = useMemo(() => {
         const result: InfoProps['infos'] = [];
@@ -105,9 +105,6 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
                 <Section>
                     <Participants
                         participants={placemark.attributes.participants}
-                        participantsCount={placemark.attributes.participants_count}
-                        injuredCount={placemark.attributes.injured_count}
-                        deadCount={placemark.attributes.dead_count}
                         vehicles={placemark.attributes.vehicles}
                     />
                 </Section>

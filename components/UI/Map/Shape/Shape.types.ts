@@ -9,5 +9,5 @@ export type ShapeProps = {
     id: string;
     type: MapItemType;
     weight?: number;
-    dashArray?: string;
+    dashed?: boolean;
 };

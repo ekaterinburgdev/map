@@ -11,7 +11,7 @@ export function Shape({
     id,
     type,
     weight = 0,
-    dashArray,
+    dashed,
 }: ShapeProps) {
     const onClickHandler = useCallback(() => openModal(id, type), [id, type, openModal]);
     const eventHandlers = useMemo(
@@ -29,7 +29,7 @@ export function Shape({
                 color,
                 weight,
                 fillOpacity,
-                dashArray,
+                dashArray: dashed ? '8 8 8' : undefined,
             }}
         />
     );

@@ -97,8 +97,8 @@ export function Participant({ participant, noHealthStatus }: ParticipantProps) {
                             color={HEALTH_STATUS_COLOR[healthStatusType].color}
                             backgroundColor={HEALTH_STATUS_COLOR[healthStatusType].backgroundColor}
                         >
+                            {/* TODO: make correct gender word ending */}
                             {healthStatusType}
-                            {participant.gender === 'Женский' && 'а'}
                         </Label>
                     </div>
                 )}

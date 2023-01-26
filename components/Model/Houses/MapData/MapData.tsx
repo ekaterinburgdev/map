@@ -5,10 +5,7 @@ import { MARKER_COLOR } from 'common/constants/colors';
 import { Shape } from 'components/UI/Map/Shape/Shape';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
-export type HousesMapDataProps = {
-    borders: [number, number][];
-    id: string;
-};
+import { HousesMapDataProps } from './MapData.types';
 
 export function HousesMapData({ borders, id }: HousesMapDataProps) {
     const { openPopup } = useContext(MapContext);

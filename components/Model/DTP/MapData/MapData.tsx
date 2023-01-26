@@ -1,17 +1,13 @@
 import React, { useContext, useMemo } from 'react';
-import { LatLngExpression } from 'leaflet';
 
 import { MapItemType } from 'common/types/map-item';
 import { MARKER_COLOR } from 'common/constants/colors';
 import { Point } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
-export type OKNMapDataProps = {
-    id: string;
-    coords: LatLngExpression;
-};
+import { DTPMapDataProps } from './MapData.types';
 
-export function DTPMapData({ id, coords }: OKNMapDataProps) {
+export function DTPMapData({ id, coords }: DTPMapDataProps) {
     const {
         openPopup, closePopup, popupId, popupType,
     } = useContext(MapContext);
