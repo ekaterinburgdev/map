@@ -17,6 +17,10 @@ export function Header({ coordinates, title, description }: HeaderProps) {
     );
 
     const coordsString = useMemo(() => {
+        if (!coordinates) {
+            return null;
+        }
+
         const coords = Array.isArray(coordinates[0]) ? coordinates[0] : coordinates;
 
         return `${coords[0]?.toFixed(6)}, ${coords[1]?.toFixed(6)}`;
@@ -29,14 +33,16 @@ export function Header({ coordinates, title, description }: HeaderProps) {
     return (
         <>
             <div className={styles.header}>
-                <Label
-                    color="#9baac3"
-                    backgroundColor="rgba(85, 100, 125, 0.24)"
-                    onClick={onCopyCoords}
-                    icon={IconType.Copy}
-                >
-                    {isCoordsCopied ? 'Скопировано' : coordsString}
-                </Label>
+                {coordsString && (
+                    <Label
+                        color="#9baac3"
+                        backgroundColor="rgba(85, 100, 125, 0.24)"
+                        onClick={onCopyCoords}
+                        icon={IconType.Copy}
+                    >
+                        {isCoordsCopied ? 'Скопировано' : coordsString}
+                    </Label>
+                )}
                 <Label
                     color="#9baac3"
                     backgroundColor="rgba(85, 100, 125, 0.24)"
