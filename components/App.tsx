@@ -36,7 +36,6 @@ export default function App() {
     return (
         <>
             <MapContextProvider>
-                {/* <Filter /> */}
                 <MapMainContainer houses={houses} dtps={dtps} okns={okns} />
                 <Card />
             </MapContextProvider>

@@ -1,7 +1,5 @@
-import { MapItem } from 'common/types/map-item';
-
 export type HeaderProps = {
-    coordinates: MapItem['coords'];
+    coordinates: [number, number];
     title: string;
     description?: string;
 };
