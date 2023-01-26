@@ -58,7 +58,7 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
     return placemark ? (
         <div className={styles.popup}>
             <Header
-                coordinates={placemark?.attributes.borders.coordinates[0]}
+                coordinates={placemark?.attributes.borders?.coordinates?.[0]}
                 title={placemark?.attributes.Address}
             />
             <Section>
