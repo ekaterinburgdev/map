@@ -1,5 +1,5 @@
 .leaflet-container {
-    background: none !important;
+    background: rgb(25, 25, 25) !important;
 }
 
 .leaflet-popup .leaflet-popup-content-wrapper {
