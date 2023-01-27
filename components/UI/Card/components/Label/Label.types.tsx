@@ -5,4 +5,6 @@ export type LabelProps = {
     backgroundColor: string;
     icon?: IconType;
     onClick?: () => void;
+    right?: string;
+    rightColor?: string;
 };

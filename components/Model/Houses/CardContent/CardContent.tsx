@@ -13,61 +13,72 @@ import { HousesCardContentProps } from './CardContent.types';
 import styles from './CardContent.module.css';
 
 export function HousesCardContent({ placemark }: HousesCardContentProps) {
-    const isEmergency = useMemo(() => placemark.condition === 'Аварийный', [placemark.condition]);
+    const isEmergency = useMemo(
+        () => placemark?.attributes.Condition === 'Аварийный',
+        [placemark?.attributes.Condition],
+    );
     const aboutHouse = useMemo(() => {
         const result = [];
-        if (placemark.company) {
+        if (placemark?.attributes.Management_company) {
             result.push({
                 name: 'Управляющая компания',
-                text: placemark.company,
+                text: placemark?.attributes.Management_company,
             });
         }
 
-        if (placemark.wearTear) {
+        if (placemark?.attributes.WearAndTear) {
             result.push({
                 name: 'Износ',
-                text: `${placemark.wearTear}%`,
+                text: `${placemark?.attributes.WearAndTear}%`,
             });
         }
 
-        if (placemark.series) {
+        if (placemark?.attributes.Series) {
             result.push({
                 name: 'Серия дома',
-                text: placemark.series,
+                text: placemark?.attributes.Series,
             });
         }
 
-        if (placemark.floors) {
+        if (placemark?.attributes.Floors) {
             result.push({
                 name: 'Количество этажей',
-                text: placemark.floors,
+                text: placemark?.attributes.Floors,
             });
         }
 
         return result;
-    }, [placemark.company, placemark.wearTear, placemark.series, placemark.floors]);
+    }, [
+        placemark?.attributes.Management_company,
+        placemark?.attributes.WearAndTear,
+        placemark?.attributes.Series,
+        placemark?.attributes.Floors,
+    ]);
 
-    return (
+    return placemark ? (
         <div className={styles.popup}>
-            <Header coordinates={placemark.coords} title={placemark.name} />
+            <Header
+                coordinates={placemark?.attributes.borders?.coordinates?.[0]}
+                title={placemark?.attributes.Address}
+            />
             <Section>
                 {isEmergency && (
                     <div className={styles.popup__emergencyLabel}>
                         <Label color="#e63223" backgroundColor="rgba(230, 50, 35, 0.24)">
-                            {placemark.condition}
+                            {placemark?.attributes.Condition}
                         </Label>
                     </div>
                 )}
                 <Info nameColor="#9baac3" infos={aboutHouse} />
             </Section>
-            {placemark.date && (
+            {placemark?.attributes.Year && (
                 <Section>
-                    <ConstructionInfo date={String(placemark.date)} />
+                    <ConstructionInfo date={String(placemark?.attributes.Year)} />
                 </Section>
             )}
             <Section>
                 <Sources sources={['mingkh', 'domaekb']} />
             </Section>
         </div>
-    );
+    ) : null;
 }

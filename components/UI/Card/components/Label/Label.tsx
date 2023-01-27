@@ -9,6 +9,8 @@ export function Label({
     color,
     backgroundColor,
     icon,
+    right,
+    rightColor,
     onClick,
     children,
 }: React.PropsWithChildren<LabelProps>) {
@@ -18,6 +20,13 @@ export function Label({
             backgroundColor,
         }),
         [color, backgroundColor],
+    );
+
+    const rightStyle = useMemo(
+        () => ({
+            color: rightColor,
+        }),
+        [rightColor],
     );
 
     return (
@@ -30,6 +39,7 @@ export function Label({
         >
             {children}
             {icon && <Icon type={icon} color={color} />}
+            {right && <span style={rightStyle}>{right}</span>}
         </div>
     );
 }

@@ -17,7 +17,11 @@ function getLinePrefix(type: LineType) {
 
 async function getObjectsCountByLine(type: LineType) {
     const prefix = getLinePrefix(type);
-    return { line: prefix, count: (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-lines?&pagination[pageSize]=1`)).meta.pagination.total };
+    return {
+        line: prefix,
+        count: (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-lines?&pagination[pageSize]=1`)).meta
+            .pagination.total,
+    };
 }
 
 export const lines = {
@@ -32,11 +36,15 @@ export const lines = {
     async getLinePolylines(type: LineType) {
         const prefix = getLinePrefix(type);
         if (type === LineType.RedLine || LineType.BlueLine) {
-            return [(await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`))
-                .data[0].attributes.geometry.coordinates];
-        } if (type === LineType.PurpleLine) {
-            return (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`))
-                .data.map((x) => x.attributes.geometry[0].coordinates);
+            return [
+                (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`))
+                    .data[0].attributes.geometry.coordinates,
+            ];
+        }
+        if (type === LineType.PurpleLine) {
+            return (
+                await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`)
+            ).data.map((x) => x.attributes.geometry.coordinates);
         }
         throw new Error(`Unknown line type: ${type}`);
     },
@@ -44,6 +52,10 @@ export const lines = {
     async getLineObjects(type: LineType) {
         const prefix = getLinePrefix(type);
         const totalCount = (await getObjectsCountByLine(type)).count;
-        return (await fetchAPI(`${STRAPI_BASE_URL}/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`)).data;
+        return (
+            await fetchAPI(
+                `${STRAPI_BASE_URL}/${prefix}-lines?populate=geometry&pagination[pageSize]=${totalCount}`,
+            )
+        ).data;
     },
 };

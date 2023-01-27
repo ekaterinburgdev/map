@@ -1,5 +1,5 @@
-import { MapItem } from 'common/types/map-item';
+import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 
 export interface OKNCardContentProps {
-    placemark: MapItem;
+    placemark: OknObjectWithGeometry;
 }

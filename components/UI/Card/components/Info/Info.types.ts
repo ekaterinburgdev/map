@@ -5,4 +5,5 @@ export interface InfoProps {
     }[];
     nameColor?: string;
     textColor?: string;
+    rowDirection?: boolean;
 }

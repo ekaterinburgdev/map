@@ -33,7 +33,7 @@ export const designCode = {
         if (!inputData) await getAndSaveData();
 
         const resultIds = [];
-        for (const e of this.inputData) {
+        for (const e of inputData) {
             if (e.type === type) resultIds.push(e.id);
         }
 
