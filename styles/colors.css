@@ -1,3 +1,4 @@
+/* TODO: move histogram variables to separate file */
 :root {
     --histogram-color-active: white;
     --histogram-color-disabled: #2c3a5e;
