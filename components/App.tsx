@@ -12,6 +12,7 @@ import { Copyright } from './UI/Copyright/Copyright';
 import { Footer } from './UI/Footer/Footer';
 import { MapContextProvider } from './UI/Map/providers/MapProvider';
 import MapMainContainer from './UI/Map/MainContainer/MapMainContainer';
+import { Welcome } from './UI/Welcome/Welcome';
 
 export default function App() {
     const [houses, setHouses] = useState<{ borders: [number, number][]; id: string }[]>([]);
@@ -40,6 +41,7 @@ export default function App() {
                 <Card />
             </MapContextProvider>
 
+            <Welcome />
             <Copyright />
             <Footer />
         </>
