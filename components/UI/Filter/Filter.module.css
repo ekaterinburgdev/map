@@ -1,0 +1,43 @@
+.filter {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 401;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter__notification {
+
+}
+
+.filter__body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #020A0A;
+    border-radius: 16px;
+    padding: 8px;
+    gap: 2px;
+}
+
+.filter__item {
+    background: #141d34;
+    font-size: 18px;
+    line-height: 1.33;
+}
+
+.filter__item:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.filter__item:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.filter__caption {
+    font-size: 16px;
+}

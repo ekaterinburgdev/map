@@ -1,20 +1,20 @@
 import React from 'react';
 
-import styles from './Welcome.module.css';
+import styles from './Notification.module.css';
 
-export function Welcome() {
+export function Notification() {
     return (
-        <div className={styles.welcome}>
-            <h2 className={styles.welcome__heading}>
+        <div className={styles.notification}>
+            <h2 className={styles.notification__heading}>
                 Привет! Это&nbsp;инфокарта Екатеринбурга
             </h2>
-            <p className={styles.welcome__text}>
+            <p className={styles.notification__text}>
                 Вся информация о&nbsp;городе теперь собрана в&nbsp;одном месте: возраст домов,
                 объекты культурного наследия, дтп&nbsp;&mdash; всё на&nbsp;свете.
                 Для начала просто настройте фильтр ниже или кликните на
                 &nbsp;любой дом на&nbsp;карте.
             </p>
-            <button type="button" className={styles.welcome__close}>
+            <button type="button" className={styles.notification__close}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={18}

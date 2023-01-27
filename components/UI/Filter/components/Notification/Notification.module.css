@@ -1,0 +1,52 @@
+.notification {
+    width: 450px;
+    overflow: hidden;
+    border-radius: 16px;
+    padding: 16px 16px 16px 60px;
+    font-weight: 400;
+    background: #020a0a url('./navigation.svg') no-repeat 8px 12px;
+}
+
+.notification__heading {
+    font-size: 18px;
+    padding-right: 32px;
+    margin: 0 0 8px;
+}
+
+.notification__text {
+    font-size: 14px;
+    line-height: 1.28;
+}
+
+.notification__close {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    background: none;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    padding: 0;
+    transition: all .15s ease-out;
+}
+
+.notification__close:hover {
+    transform: scale(1.3);
+}
+
+.notification__background {
+    position: absolute;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    transform: translate(50%, 50%);
+    transition: 0.15s ease transform;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 20px solid #00b400;
+}
+
+.notification:hover .notification__background {
+    transform: translate(48%, 48%);
+}
