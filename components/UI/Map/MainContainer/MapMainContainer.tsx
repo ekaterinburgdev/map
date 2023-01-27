@@ -72,6 +72,15 @@ function MapMainContainer({ houses, dtps, okns }: Props) {
                         )}
                     </>
                 ))}
+
+                {/* TODO: Add histogram component to filter
+            <Histogram
+                data={data}
+                onChange={(value) => console.log(value)}
+                defaultMin={2018}
+                defaultMax={2021}
+            />
+            */}
             </>
         </MapContainer>
     );
