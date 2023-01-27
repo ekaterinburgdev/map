@@ -4,7 +4,7 @@ import styles from './Notification.module.css';
 
 export function Notification() {
     return (
-        <div className={styles.notification}>
+        <div className={styles.notification} data-notification>
             <h2 className={styles.notification__heading}>
                 Привет! Это&nbsp;инфокарта Екатеринбурга
             </h2>
@@ -14,7 +14,7 @@ export function Notification() {
                 Для начала просто настройте фильтр ниже или кликните на
                 &nbsp;любой дом на&nbsp;карте.
             </p>
-            <button type="button" className={styles.notification__close}>
+            <button type="button" className={styles.notification__close} onClick={() => document.querySelector('[data-notification]').remove()}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={18}

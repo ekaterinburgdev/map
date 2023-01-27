@@ -18,7 +18,8 @@ export function Filter() {
                     'Этажность домов',
                     'Дорожно-транспортные происшествия',
                 ].map((title, i) => (
-                    <div className={styles.filter__item}>
+                    // eslint-disable-next-line no-alert
+                    <div className={styles.filter__item} onClick={() => alert('Этот фильтр пока не работает')}>
                         <Toggle id={`id${i}`} label={title} />
                     </div>
                 ))}
