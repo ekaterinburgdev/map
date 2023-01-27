@@ -2,6 +2,7 @@
 @import './checkbox.css';
 @import './leaflet.css';
 @import './modal.css';
+@import './colors.css';
 
 * {
     box-sizing: border-box;
@@ -16,7 +17,6 @@ body {
     color: white;
 }
 
-
 body {
     padding: 0;
     margin: 0;
@@ -28,24 +28,22 @@ body {
     -moz-font-feature-settings: 'kern=1';
     -moz-font-feature-settings: 'kern';
     -ms-font-feature-settings: 'kern' 1;
-    font-feature-settings: 'kern'; 
+    font-feature-settings: 'kern';
     font-size: 1em;
-	line-height: 1.4;
+    line-height: 1.4;
     font-weight: 400;
     overflow: hidden;
 }
 
 ::selection {
-	background: #b3d4fc;
-	text-shadow: none
+    background: #b3d4fc;
+    text-shadow: none;
 }
-
 
 a {
     color: inherit;
     text-decoration: none;
 }
-
 
 @media (prefers-color-scheme: dark) {
     html {
@@ -65,5 +63,5 @@ a {
 ::-webkit-scrollbar-thumb {
     border: 4px solid black;
     border-radius: 20px;
-    background-color: rgba(255,255,255,.2);
+    background-color: rgba(255, 255, 255, 0.2);
 }
