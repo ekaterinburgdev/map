@@ -1,4 +1,4 @@
-/* eslint-disable */
+import React from 'react';
 import dynamic from 'next/dynamic';
 
 export const App = dynamic(() => import('../components/App'), {

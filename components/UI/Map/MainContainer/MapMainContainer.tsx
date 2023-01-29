@@ -6,16 +6,20 @@ import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
 import iconUrl from 'leaflet/dist/images/marker-icon.png';
 import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
+import 'leaflet/dist/leaflet.css';
+
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { checkIsMobile } from 'common/isMobile';
-
-import 'leaflet/dist/leaflet.css';
-import { OKNMapData } from 'components/Model/OKN/MapData/MapData';
-import { HousesMapData } from 'components/Model/Houses/MapData/MapData';
+import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 import { HouseObject } from 'common/data/base/houseBase';
 import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { DTPObject } from 'common/data/dtp/dtp';
+
+import { OKNMapData } from 'components/Model/OKN/MapData/MapData';
+import { HousesMapData } from 'components/Model/Houses/MapData/MapData';
 import { DTPMapData } from 'components/Model/DTP/MapData/MapData';
+import { DesignCodeMapData } from 'components/Model/DesignCode/MapData/MapData';
+
 import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
@@ -27,9 +31,10 @@ interface Props {
     }[];
     dtps: DTPObject[];
     okns: OknObjectWithGeometry[];
+    designCodeObjects: DesignCodeObject[];
 }
 
-function MapMainContainer({ houses, dtps, okns }: Props) {
+function MapMainContainer({ houses, dtps, okns, designCodeObjects }: Props) {
     const position: [number, number] = COORDS_EKATERINBURG;
 
     useEffect(() => {
@@ -69,6 +74,17 @@ function MapMainContainer({ houses, dtps, okns }: Props) {
                     <>
                         {dtp.attributes.geometry.coordinates && (
                             <DTPMapData id={dtp.id} coords={dtp.attributes.geometry.coordinates} />
+                        )}
+                    </>
+                ))}
+                {designCodeObjects.map((designCodeObject) => (
+                    <>
+                        {designCodeObject.coords && (
+                            <DesignCodeMapData
+                                id={designCodeObject.id}
+                                coords={designCodeObject.coords}
+                                type={designCodeObject.type}
+                            />
                         )}
                     </>
                 ))}

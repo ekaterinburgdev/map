@@ -1,14 +1,20 @@
 /* eslint-disable no-restricted-syntax,no-continue */
+import { groupBy } from 'lodash';
+
 import { fetchAPI } from '../dataHelpers';
 import { DesignCodeObject } from './designCodeObject';
 
 let filtersNames;
 let inputData;
-const objectsIdsByType = new Map<string, string[]>();
+let objectsByType: Record<string, DesignCodeObject[]> = {};
 const objectById = new Map<string, DesignCodeObject>();
 
+export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
+
 async function getAndSaveData() {
-    inputData = await fetchAPI('https://map.ekaterinburg.design/api/map');
+    inputData = await fetchAPI(`${DESIGN_MAP_HOST}/api/map`);
+
+    objectsByType = groupBy(inputData, 'type');
 }
 
 export const designCode = {
@@ -27,30 +33,36 @@ export const designCode = {
         return filtersNames;
     },
 
-    async getObjectsIds(type: string): Promise<string[]> {
-        if (objectsIdsByType[type]) return objectsIdsByType[type];
-
-        if (!inputData) await getAndSaveData();
-
-        const resultIds = [];
-        for (const e of inputData) {
-            if (e.type === type) resultIds.push(e.id);
+    async getObjectsByType(type: string): Promise<DesignCodeObject[]> {
+        if (objectsByType[type]) {
+            return objectsByType[type];
         }
 
-        objectsIdsByType[type] = resultIds;
-        return resultIds;
+        if (!inputData) {
+            await getAndSaveData();
+        }
+
+        return objectsByType[type];
     },
 
-    // eslint-disable-next-line consistent-return
     async getObject(id: string): Promise<DesignCodeObject> {
-        if (objectById[id]) return objectById[id];
+        if (objectById[id]) {
+            return objectById[id];
+        }
 
-        if (!inputData) await getAndSaveData();
+        if (!inputData) {
+            await getAndSaveData();
+        }
 
         for (const e of inputData) {
-            if (e.id !== id) continue;
+            if (e.id !== id) {
+                continue;
+            }
+
             objectById[id] = e;
             return e;
         }
+
+        return null;
     },
 };

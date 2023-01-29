@@ -22,6 +22,14 @@ export function Label({
         [color, backgroundColor],
     );
 
+    const backgroundStyle = useMemo(
+        () => ({
+            backgroundColor: color,
+            opacity: '0.3',
+        }),
+        [color],
+    );
+
     const rightStyle = useMemo(
         () => ({
             color: rightColor,
@@ -30,16 +38,21 @@ export function Label({
     );
 
     return (
-        <div
-            className={classNames(styles.label, {
-                [styles.label_clickable]: Boolean(onClick),
-            })}
-            style={style}
-            onClick={onClick}
-        >
-            {children}
-            {icon && <Icon type={icon} color={color} />}
-            {right && <span style={rightStyle}>{right}</span>}
+        <div className={styles.label}>
+            <div
+                className={classNames(styles.label__wrapper, {
+                    [styles.label_clickable]: Boolean(onClick),
+                })}
+                style={style}
+                onClick={onClick}
+            >
+                {children}
+                {icon && <Icon type={icon} color={color} />}
+                {right && <span style={rightStyle}>{right}</span>}
+            </div>
+            {!backgroundColor && (
+                <span className={styles.label__background} style={backgroundStyle} />
+            )}
         </div>
     );
 }
