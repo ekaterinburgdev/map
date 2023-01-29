@@ -17,6 +17,7 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
         () => placemark?.attributes.Condition === 'Аварийный',
         [placemark?.attributes.Condition],
     );
+
     const aboutHouse = useMemo(() => {
         const result = [];
         if (placemark?.attributes.Management_company) {

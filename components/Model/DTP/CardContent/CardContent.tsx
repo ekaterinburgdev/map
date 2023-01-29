@@ -85,7 +85,7 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
         placemark?.attributes.light,
     ]);
 
-    return placemark ? (
+    return placemark?.attributes ? (
         <div className={styles.popup}>
             <Header
                 coordinates={placemark?.attributes.geometry.coordinates}

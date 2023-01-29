@@ -12,7 +12,7 @@ export type MapItemImage = {
 };
 
 export enum MapItemType {
-    DesignCode = 'design-code',
+    DesignCode = 'designCode',
     DTP = 'dtp',
     Houses = 'houses',
     Lines = 'lines',

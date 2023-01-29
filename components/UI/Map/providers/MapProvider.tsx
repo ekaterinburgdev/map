@@ -1,7 +1,6 @@
 /* eslint-disable */
 
-import React, { ReactNode, useCallback, useMemo, useState } from 'react';
-import { uniqBy } from 'lodash';
+import React, { ReactNode, useMemo } from 'react';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from './usePopup';
 

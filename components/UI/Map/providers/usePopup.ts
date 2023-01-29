@@ -1,6 +1,4 @@
-/* eslint-disable */
-
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MapItemType } from 'common/types/map-item';
 
 type PopupId = string;
@@ -14,13 +12,16 @@ export function usePopup() {
     }, []);
 
     const closePopup = useCallback(() => {
+        setPopupType(null);
+        setOpenedPopup(null);
+
         window.location.hash = '';
     }, []);
 
     const handleOpenPopup = useCallback(() => {
-        const [type, id] = window.location.hash.slice(1).split('-');
+        const [type, ...id] = window.location.hash.slice(1).split('-');
 
-        setOpenedPopup(id);
+        setOpenedPopup(id.join('-'));
         setPopupType(type as MapItemType);
     }, []);
 
@@ -30,7 +31,7 @@ export function usePopup() {
         return () => {
             window.removeEventListener('hashchange', handleOpenPopup, false);
         };
-    }, [setOpenedPopup]);
+    }, [handleOpenPopup]);
 
     useEffect(() => {
         if (!window.location.hash) {
@@ -38,7 +39,7 @@ export function usePopup() {
         }
 
         handleOpenPopup();
-    }, []);
+    }, [handleOpenPopup]);
 
     return {
         popupId,

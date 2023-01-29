@@ -1,31 +1,11 @@
-import React, {
-    useContext, useEffect, useMemo, useState,
-} from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import { Modal } from 'components/UI/Modal';
 import { checkIsMobile } from 'common/isMobile';
-import { MapItemType } from 'common/types/map-item';
-import { OKNCardContent } from 'components/Model/OKN/CardContent';
-import { HousesCardContent } from 'components/Model/Houses/CardContent/CardContent';
-import { DTPCardContent } from 'components/Model/DTP/CardContent/CardContent';
-
-import { dtp } from 'common/data/dtp/dtp';
-import { okn } from 'common/data/okn/okn';
-import { houseBase } from 'common/data/base/houseBase';
 
 import { MapContext } from '../Map/providers/MapProvider';
 
-export const CONTENT_BY_TYPE = {
-    [MapItemType.OKN]: OKNCardContent,
-    [MapItemType.Houses]: HousesCardContent,
-    [MapItemType.DTP]: DTPCardContent,
-};
-
-export const REQUEST_BY_TYPE = {
-    [MapItemType.OKN]: okn.getObject,
-    [MapItemType.Houses]: houseBase.getObject,
-    [MapItemType.DTP]: dtp.getObject,
-};
+import { REQUEST_BY_TYPE, CONTENT_BY_TYPE } from './Card.constants';
 
 export function Card() {
     const { popupId, popupType, closePopup } = useContext(MapContext);
@@ -52,7 +32,11 @@ export function Card() {
         return checkIsMobile() ? mobileSize : desktopSize;
     }, [popupData?.images?.length]);
 
-    const CardContent = useMemo(() => CONTENT_BY_TYPE[popupType], [popupType]);
+    const CardContent = useMemo(() => {
+        setLoading(true);
+
+        return CONTENT_BY_TYPE[popupType];
+    }, [popupType]);
 
     return (
         <Modal size={size} isOpen={!!popupId} close={closePopup}>
