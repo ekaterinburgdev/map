@@ -23,7 +23,7 @@ export default function App() {
     const [designCodeObjects, setDesignCodeObjects] = useState<DesignCodeObject[]>([]);
 
     useEffect(() => {
-        (async function getData() {
+        async function getData() {
             const data = await dtp.getObjectsBySeverity(DtpSeverityType.WithDead);
             setDtps(data);
 
@@ -37,7 +37,9 @@ export default function App() {
 
             const designCodeResponse = await designCode.getObjectsByType('Навигационные стелы');
             setDesignCodeObjects(designCodeResponse);
-        }());
+        }
+
+        getData();
     }, []);
 
     return (
