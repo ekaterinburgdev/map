@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
+import classNames from 'classnames';
 
 import styles from './Welcome.module.css';
 
 export function Welcome() {
+    const [isClosed, setIsClosed] = useState(false);
+
+    const onClose = useCallback(() => {
+        setIsClosed(true);
+    }, []);
+
     return (
-        <div className={styles.welcome}>
-            <h2 className={styles.welcome__heading}>
-                Привет! Это&nbsp;инфокарта Екатеринбурга
-            </h2>
+        <div
+            className={classNames(styles.welcome, {
+                [styles.welcome_closed]: isClosed,
+            })}
+        >
+            <h2 className={styles.welcome__heading}>Привет! Это&nbsp;инфокарта Екатеринбурга</h2>
             <p className={styles.welcome__text}>
                 Вся информация о&nbsp;городе теперь собрана в&nbsp;одном месте: возраст домов,
-                объекты культурного наследия, дтп&nbsp;&mdash; всё на&nbsp;свете.
-                Для начала просто настройте фильтр ниже или кликните на
-                &nbsp;любой дом на&nbsp;карте.
+                объекты культурного наследия, дтп&nbsp;&mdash; всё на&nbsp;свете. Для начала просто
+                настройте фильтр ниже или кликните на &nbsp;любой дом на&nbsp;карте.
             </p>
-            <button type="button" className={styles.welcome__close}>
+            <button type="button" className={styles.welcome__close} onClick={onClose}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width={18}
