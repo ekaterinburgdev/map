@@ -2,6 +2,7 @@
 
 import React, { ReactNode, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
+
 import styles from './Modal.module.css';
 
 interface Props {
@@ -53,7 +54,7 @@ export function Modal({ isOpen, close, size = 0.8, children }: Props) {
                         </svg>
                     </button>
                 </Sheet.Header>
-                <Sheet.Content>{children}</Sheet.Content>
+                <Sheet.Content disableDrag>{children}</Sheet.Content>
             </Sheet.Container>
             <Sheet.Backdrop onTap={close} />
         </Sheet>
