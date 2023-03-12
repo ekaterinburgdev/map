@@ -4,11 +4,16 @@
     top: 16px;
     left: 16px;
     width: 450px;
+    max-width: calc(100vw - 2 * 16px);
     overflow: hidden;
     border-radius: 16px;
     padding: 16px 16px 16px 60px;
     font-weight: 400;
     background: #1e2841 url('./navigation.svg') no-repeat 8px 12px;
+}
+
+.welcome_closed {
+    display: none;
 }
 
 .welcome__heading {

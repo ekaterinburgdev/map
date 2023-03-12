@@ -30,17 +30,19 @@ export function DesignCodeCardContent({ placemark }: DesignCodeCardContentProps)
             <Section>
                 {placemark.images.map((image) => {
                     const imageData = image.m || image.s;
+                    const imageSrc = `${DESIGN_MAP_HOST}${imageData.src}`;
 
                     return (
-                        <Image
-                            key={image.id}
-                            src={imageData.src}
-                            width={imageData.width}
-                            height={imageData.height}
-                            loader={({ src }) => `${DESIGN_MAP_HOST}${src}`}
-                            className={styles.popup__image}
-                            alt={placemark.name}
-                        />
+                        <a href={imageSrc} target="_blank" rel="noreferrer">
+                            <Image
+                                key={image.id}
+                                src={imageSrc}
+                                width={imageData.width}
+                                height={imageData.height}
+                                className={styles.popup__image}
+                                alt={placemark.name}
+                            />
+                        </a>
                     );
                 })}
             </Section>

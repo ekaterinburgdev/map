@@ -41,7 +41,7 @@ export function Label({
         <div className={styles.label}>
             <div
                 className={classNames(styles.label__wrapper, {
-                    [styles.label_clickable]: Boolean(onClick),
+                    [styles.label__wrapper_clickable]: Boolean(onClick),
                 })}
                 style={style}
                 onClick={onClick}
