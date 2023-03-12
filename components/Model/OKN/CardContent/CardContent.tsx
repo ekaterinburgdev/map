@@ -39,7 +39,6 @@ export function OKNCardContent({ placemark }: OKNCardContentProps) {
                         src={placemark?.attributes.img.url}
                         width={400}
                         height={256}
-                        loader={({ src }) => src}
                         className={styles.popup__image}
                         alt={placemark?.attributes.name}
                     />

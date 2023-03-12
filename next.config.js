@@ -6,7 +6,7 @@ const nextConfig = {
         dirs: ['pages', 'components', 'api', 'common'],
     },
     images: {
-        loader: 'custom',
+        unoptimized: true,
     },
 };
 
