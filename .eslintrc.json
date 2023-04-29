@@ -7,6 +7,8 @@
     "indent": ["error", 4, { "SwitchCase": 1 }],
     "no-console": ["error", { "allow": ["error"] }],
     "no-param-reassign": ["error", { "props": false }],
+    "no-plusplus": "off",
+    "implicit-arrow-linebreak": "off",
 
     "@typescript-eslint/indent": ["error", 4],
 

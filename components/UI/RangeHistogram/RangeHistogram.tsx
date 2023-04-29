@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+
 import histogramStyles from './RangeHistogram.module.css';
 import { Slider } from './components/Slider';
 import { BarChart } from './components/BarChart';
@@ -6,15 +7,15 @@ import { Axis } from './components/Axis';
 import { HistogramData, MinMax, Range } from './types';
 
 interface Props {
-    data: HistogramData;
+    data?: HistogramData;
     onChange: (range: MinMax) => void;
     width?: number;
     height?: number;
-    defaultMin?: number;
-    defaultMax?: number;
+    defaultMin: number;
+    defaultMax: number;
 }
 
-export function Histogram({
+export function RangeHistogram({
     data,
     width = 360,
     height = 100,
@@ -22,29 +23,35 @@ export function Histogram({
     defaultMin,
     defaultMax,
 }: Props) {
-    const min = Math.min(...data.map((d) => d.from));
-    const max = Math.max(...data.map((d) => d.to));
     const [range, setRange] = useState<MinMax>({
-        min: defaultMin || min,
-        max: defaultMax || max,
+        min: defaultMin,
+        max: defaultMax,
+    });
+    const [sliderRange, setSliderRange] = useState<MinMax>({
+        min: defaultMin,
+        max: defaultMax,
     });
 
-    const onSelect = ({ from, to }: Range) => setRange({ min: from, max: to });
+    const onSelect = ({ from, to }: Range) => {
+        setSliderRange({ min: from, max: to });
+        setRange({ min: from, max: to });
+    };
 
     useEffect(() => {
         onChange?.(range);
-    });
+    }, [range, onChange]);
 
-    return (
+    return data ? (
         <div className={histogramStyles.histogram} style={{ width }}>
             <BarChart data={data} range={range} height={height} onSelect={onSelect} />
             <div className={histogramStyles.histogram__range}>
                 <Slider
+                    data={data}
                     width={width}
-                    min={min}
-                    max={max}
-                    currentMin={range.min}
-                    currentMax={range.max}
+                    min={defaultMin}
+                    max={defaultMax}
+                    currentMin={sliderRange.min}
+                    currentMax={sliderRange.max}
                     onChange={setRange}
                 />
             </div>
@@ -52,5 +59,5 @@ export function Histogram({
                 <Axis data={data} range={range} onSelect={onSelect} />
             </div>
         </div>
-    );
+    ) : null;
 }

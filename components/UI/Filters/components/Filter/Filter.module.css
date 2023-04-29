@@ -1,0 +1,19 @@
+.filter {
+    position: relative;
+    overflow: hidden;
+    padding: 16px 16px 0;
+    box-sizing: content-box;
+
+    height: 0;
+
+    will-change: height;
+    transition: height 150ms ease;
+
+    --children-height: 0;
+}
+
+.filter__open {
+    height: var(--children-height);
+
+    padding: 16px;
+}

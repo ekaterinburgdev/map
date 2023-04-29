@@ -1,3 +1,3 @@
-export { Histogram } from './RangeHistogram';
+export { RangeHistogram } from './RangeHistogram';
 
-export type { HistogramDatum, HistogramData } from './types';
+export type { HistogramDatum, HistogramData, HistogramDataWithoutValues } from './types';

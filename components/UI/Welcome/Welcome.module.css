@@ -1,10 +1,6 @@
 .welcome {
-    position: fixed;
     z-index: 401;
-    top: 16px;
-    left: 16px;
-    width: 450px;
-    max-width: calc(100vw - 2 * 16px);
+    width: 100%;
     overflow: hidden;
     border-radius: 16px;
     padding: 16px 16px 16px 60px;
@@ -25,6 +21,7 @@
 .welcome__text {
     font-size: 14px;
     line-height: 1.28;
+    margin: 0;
 }
 
 .welcome__close {

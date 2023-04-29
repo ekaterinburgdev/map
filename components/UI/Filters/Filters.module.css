@@ -1,0 +1,40 @@
+.filters {
+    width: 450px;
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 401;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filters__body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: #1e2841;
+    border-radius: 16px;
+    padding: 8px;
+    gap: 2px;
+}
+
+.filters__item {
+    background: #141d34;
+    font-size: 18px;
+    line-height: 1.33;
+}
+
+.filters__item:first-child {
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.filters__item:last-child {
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.filters__caption {
+    font-size: 16px;
+}

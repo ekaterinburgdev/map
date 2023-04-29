@@ -1,5 +1,6 @@
 .histogram {
-    margin: 100px;
+    padding: 16px 15px 0;
+    box-sizing: content-box;
     user-select: none;
 }
 

@@ -1,22 +1,45 @@
-import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
+import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import { getObjectsTotalCount, parallelRequests, STRAPI_BASE_URL } from '../dataHelpers';
 import { getById } from './getById';
 
 export const houseBase = {
     async getObject(id: string): Promise<HouseObject> {
         return getById.getObject(id, '/house');
     },
-    async getObjectsPolygonsByRange(from: string, to: string, filterName: string) {
-        const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/house`);
-        return (
-            await fetchAPI(
-                `${STRAPI_BASE_URL}/house?populate=borders&filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}&pagination[pageSize]=${totalCount}`,
-            )
-        ).data.map((x: HouseObject) => ({
-            borders: x.attributes.borders?.coordinates,
-            id: x.id,
-        }));
+    async getObjectsPolygonsByRange(from: number, to: number, filterName: string) {
+        const result = await parallelRequests(
+            `${STRAPI_BASE_URL}/house?populate=borders&filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}`,
+            (x: HouseObject) => ({
+                borders: x.attributes.borders?.coordinates,
+                year: x.attributes.Year,
+                id: x.id,
+            }),
+        );
+
+        return result;
+    },
+    async getFilterValues(histogramData: HistogramDataWithoutValues, filterName: string) {
+        const requests: Promise<number>[] = [];
+
+        histogramData.forEach(({ from, to }) => {
+            requests.push(
+                getObjectsTotalCount(
+                    `${STRAPI_BASE_URL}/house?filters[${filterName}][$gte]=${from}&filters[${filterName}][$lte]=${to}`,
+                ),
+            );
+        });
+
+        const result = await Promise.all(requests);
+
+        return result;
     },
 };
+
+export interface HouseClient {
+    borders: HouseAttributes['borders']['coordinates'];
+    year: number;
+    id: string;
+}
 
 export interface HouseObject {
     id: string;

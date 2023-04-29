@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import { Modal } from 'components/UI/Modal';
 import { checkIsMobile } from 'common/isMobile';
+import { MODEL_CONFIG } from 'components/Model/config';
 
 import { MapContext } from '../Map/providers/MapProvider';
-
-import { REQUEST_BY_TYPE, CONTENT_BY_TYPE } from './Card.constants';
 
 import styles from './Card.module.css';
 
@@ -15,16 +14,23 @@ export function Card() {
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(() => {
-        if (!popupId || !popupType) {
-            return;
-        }
+        async function fetchData() {
+            if (!popupId || !popupType) {
+                return;
+            }
 
-        setLoading(true);
+            setLoading(true);
 
-        REQUEST_BY_TYPE[popupType](popupId).then((data: any) => {
+            const requestFunction = MODEL_CONFIG.find((dataLayer) => dataLayer.type === popupType)
+                .requests.oneItemRequest;
+
+            const data = await requestFunction(popupId);
+
             setPopupData(data);
             setLoading(false);
-        });
+        }
+
+        fetchData();
     }, [popupId, popupType]);
 
     const size = useMemo(() => {
@@ -37,7 +43,10 @@ export function Card() {
     const CardContent = useMemo(() => {
         setLoading(true);
 
-        return CONTENT_BY_TYPE[popupType];
+        return (
+            MODEL_CONFIG.find((dataLayer) => dataLayer.type === popupType)?.cardContent
+            || (() => null)
+        );
     }, [popupType]);
 
     return (
