@@ -6,7 +6,7 @@ import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { MapItemType } from './map-item';
 
 export interface DataLayerBaseState<T> {
-    isOpen: boolean;
+    isActive: boolean;
     data: T[];
 }
 

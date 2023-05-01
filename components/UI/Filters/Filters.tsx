@@ -38,7 +38,7 @@ export function Filters() {
                         return (
                             <div key={id} className={styles.filters__item}>
                                 <Toggle onClick={onToggleClick} type={type} id={id} label={title} />
-                                <Filter isOpen={dataLayer[type].isOpen}>
+                                <Filter isActive={dataLayer[type].isActive}>
                                     <FilterComponent />
                                 </Filter>
                             </div>

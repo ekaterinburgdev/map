@@ -17,6 +17,8 @@ interface Props {
     currentMax?: number;
 }
 
+const ERROR = 0.15;
+
 export function Slider({
     width,
     min,
@@ -66,14 +68,22 @@ export function Slider({
     }, [minValue, maxValue, onChange, data]);
 
     useEffect(() => {
-        const minIndex = data.findIndex(({ from }) => Math.abs(currentMin - from) < 3);
+        const minIndex = data.findIndex(({ from, to }) => {
+            const epsilon = ERROR * (to - from);
+
+            return Math.abs(currentMin - from) <= epsilon;
+        });
         const minPercent = !minIndex ? 0 : Math.floor((minIndex / data.length) * 100);
 
         setMinValue(minPercent);
     }, [currentMin, data]);
 
     useEffect(() => {
-        const maxIndex = data.findIndex(({ to }) => Math.abs(currentMax - to) < 3);
+        const maxIndex = data.findIndex(({ from, to }) => {
+            const epsilon = ERROR * (to - from);
+
+            return Math.abs(currentMax - to) <= epsilon;
+        });
         const maxPercent = Math.ceil(((maxIndex + 1) / data.length) * 100);
 
         setMaxValue(maxPercent);

@@ -3,7 +3,7 @@ import { MapItemType } from 'common/types/map-item';
 import { SetDataPayload, ToggleDataPayload } from 'common/types/state';
 
 const initialDataState = {
-    isOpen: false,
+    isActive: false,
     data: [],
 };
 
@@ -22,7 +22,7 @@ const dataLayerSlice = createSlice({
         },
         toggleData(state, action: PayloadAction<ToggleDataPayload>) {
             const { type } = action.payload;
-            state[type].isOpen = !state[type].isOpen;
+            state[type].isActive = !state[type].isActive;
         },
     },
 });

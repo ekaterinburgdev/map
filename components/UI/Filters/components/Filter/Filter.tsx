@@ -4,10 +4,10 @@ import classNames from 'classnames';
 import styles from './Filter.module.css';
 
 export interface FilterProps extends PropsWithChildren {
-    isOpen: boolean;
+    isActive: boolean;
 }
 
-export function Filter({ children, isOpen }: FilterProps) {
+export function Filter({ children, isActive }: FilterProps) {
     const spoilerRef = useRef<HTMLDivElement>();
     const childrenWrapperRef = useRef<HTMLDivElement>();
 
@@ -19,7 +19,7 @@ export function Filter({ children, isOpen }: FilterProps) {
     return (
         <div
             ref={spoilerRef}
-            className={classNames(styles.filter, { [styles.filter__open]: isOpen })}
+            className={classNames(styles.filter, { [styles.filter__active]: isActive })}
             style={style}
         >
             <div ref={childrenWrapperRef}>{children}</div>

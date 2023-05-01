@@ -12,7 +12,7 @@
     --children-height: 0;
 }
 
-.filter__open {
+.filter__active {
     height: var(--children-height);
 
     padding: 16px;

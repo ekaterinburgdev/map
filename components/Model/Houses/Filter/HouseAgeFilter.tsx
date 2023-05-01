@@ -12,14 +12,17 @@ import { setData } from 'state/features/dataLayers';
 
 import { AGE_FILTERS_DATA } from '../Houses.constants';
 
-export const REQUEST_DELAY = 1000;
+import {
+    CURRENT_YEAR,
+    EKATERINBURG_FOUNDATION_YEAR,
+    REQUEST_DELAY,
+} from './HouseAgeFilter.constants';
+
 let timeoutId = null;
-const EKATERINBURG_FOUND = 1723;
-const CURRENT_YEAR = new Date().getFullYear();
 
 export function HouseAgeFilter() {
     const dispatch = useDispatch();
-    const shouldFetch = useSelector((state: State) => state.dataLayer.houses.isOpen);
+    const shouldFetch = useSelector((state: State) => state.dataLayer.houses.isActive);
     const [rangeData, setRangeData] = useState<HistogramData>(null);
 
     useEffect(() => {
@@ -61,7 +64,7 @@ export function HouseAgeFilter() {
             onChange={onChange}
             width={368}
             height={128}
-            defaultMin={EKATERINBURG_FOUND}
+            defaultMin={EKATERINBURG_FOUNDATION_YEAR}
             defaultMax={CURRENT_YEAR}
         />
     );

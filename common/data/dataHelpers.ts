@@ -9,9 +9,11 @@ export async function fetchAPI(url: string) {
 }
 
 export async function getObjectsTotalCount(url: string) {
-    const hasParams = url.includes('?');
-    return (await fetchAPI(`${url}${hasParams ? '&' : '?'}pagination[pageSize]=1`)).meta.pagination
-        .total;
+    const reqUrl = new URL(url);
+
+    reqUrl.searchParams.append('pagination[pageSize]', '1');
+
+    return (await fetchAPI(reqUrl.toString())).meta.pagination.total;
 }
 
 export function parseJsonWithSingleQuotes(json: string) {
@@ -29,9 +31,12 @@ export async function parallelRequests<T, R>(url: string, dataMapper: (x: T) => 
 
     const requests: Promise<{ data: T[] }>[] = [];
     for (let i = 1; i <= pagesCount; i++) {
-        requests.push(
-            fetchAPI(`${url}&pagination[pageSize]=${PAGINATION_SIZE}&pagination[page]=${i}`),
-        );
+        const reqUrl = new URL(url);
+
+        reqUrl.searchParams.append('pagination[pageSize]', PAGINATION_SIZE.toString());
+        reqUrl.searchParams.append('pagination[page]', i.toString());
+
+        requests.push(fetchAPI(reqUrl.toString()));
     }
 
     return new Promise<R[]>((resolve) => {

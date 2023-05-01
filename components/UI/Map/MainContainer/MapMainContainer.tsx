@@ -46,15 +46,16 @@ function MapMainContainer() {
             zoomControl={false}
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
+            minZoom={7}
         >
             <TileLayer url="https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}@2x.png" />
             <>
                 {MODEL_CONFIG.map(({ type, mapData: MapData }) => {
                     switch (type) {
                         case MapItemType.Houses: {
-                            const { data: objects, isOpen } = dataLayer[type];
+                            const { data: objects, isActive } = dataLayer[type];
 
-                            if (!isOpen) {
+                            if (!isActive) {
                                 return null;
                             }
 
@@ -70,9 +71,9 @@ function MapMainContainer() {
                             ));
                         }
                         case MapItemType.OKN: {
-                            const { data: objects, isOpen } = dataLayer[type];
+                            const { data: objects, isActive } = dataLayer[type];
 
-                            if (!isOpen) {
+                            if (!isActive) {
                                 return null;
                             }
 
@@ -89,9 +90,9 @@ function MapMainContainer() {
                             ));
                         }
                         case MapItemType.DTP: {
-                            const { data: objects, isOpen } = dataLayer[type];
+                            const { data: objects, isActive } = dataLayer[type];
 
-                            if (!isOpen) {
+                            if (!isActive) {
                                 return null;
                             }
 
@@ -108,9 +109,9 @@ function MapMainContainer() {
                             ));
                         }
                         case MapItemType.DesignCode: {
-                            const { data: objects, isOpen } = dataLayer[type];
+                            const { data: objects, isActive } = dataLayer[type];
 
-                            if (!isOpen) {
+                            if (!isActive) {
                                 return null;
                             }
 
