@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+
 import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
 
@@ -8,33 +10,18 @@ import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import 'leaflet/dist/leaflet.css';
 
+import { MODEL_CONFIG } from 'components/Model/config';
+
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { checkIsMobile } from 'common/isMobile';
-import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
-import { HouseObject } from 'common/data/base/houseBase';
-import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
-import { DTPObject } from 'common/data/dtp/dtp';
-
-import { OKNMapData } from 'components/Model/OKN/MapData/MapData';
-import { HousesMapData } from 'components/Model/Houses/MapData/MapData';
-import { DTPMapData } from 'components/Model/DTP/MapData/MapData';
-import { DesignCodeMapData } from 'components/Model/DesignCode/MapData/MapData';
+import { MapItemType } from 'common/types/map-item';
+import { State } from 'common/types/state';
 
 import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
-interface Props {
-    houses: {
-        borders: HouseObject['attributes']['borders']['coordinates'];
-        id: string;
-    }[];
-    dtps: DTPObject[];
-    okns: OknObjectWithGeometry[];
-    designCodeObjects: DesignCodeObject[];
-}
-
-function MapMainContainer({ houses, dtps, okns, designCodeObjects }: Props) {
+function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
 
     useEffect(() => {
@@ -49,6 +36,8 @@ function MapMainContainer({ houses, dtps, okns, designCodeObjects }: Props) {
         init();
     }, []);
 
+    const dataLayer = useSelector((state: State) => state.dataLayer);
+
     return (
         <MapContainer
             center={position}
@@ -57,46 +46,92 @@ function MapMainContainer({ houses, dtps, okns, designCodeObjects }: Props) {
             zoomControl={false}
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
+            minZoom={7}
         >
             <TileLayer url="https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}@2x.png" />
             <>
-                {houses.map((house) => (
-                    <>{house.borders && <HousesMapData borders={house.borders} id={house.id} />}</>
-                ))}
-                {okns.map((okn) => (
-                    <>
-                        {okn.attributes.geometry.coordinates && (
-                            <OKNMapData id={okn.id} coords={okn.attributes.geometry.coordinates} />
-                        )}
-                    </>
-                ))}
-                {dtps.map((dtp) => (
-                    <>
-                        {dtp.attributes.geometry.coordinates && (
-                            <DTPMapData id={dtp.id} coords={dtp.attributes.geometry.coordinates} />
-                        )}
-                    </>
-                ))}
-                {designCodeObjects.map((designCodeObject) => (
-                    <>
-                        {designCodeObject.coords && (
-                            <DesignCodeMapData
-                                id={designCodeObject.id}
-                                coords={designCodeObject.coords}
-                                type={designCodeObject.type}
-                            />
-                        )}
-                    </>
-                ))}
+                {MODEL_CONFIG.map(({ type, mapData: MapData }) => {
+                    switch (type) {
+                        case MapItemType.Houses: {
+                            const { data: objects, isActive } = dataLayer[type];
 
-                {/* TODO: Add histogram component to filter
-            <Histogram
-                data={data}
-                onChange={(value) => console.log(value)}
-                defaultMin={2018}
-                defaultMax={2021}
-            />
-            */}
+                            if (!isActive) {
+                                return null;
+                            }
+
+                            return objects.map((objectData) => (
+                                <>
+                                    {objectData.borders && (
+                                        <MapData
+                                            key={`map-data:${type}-${objectData.id}`}
+                                            {...objectData}
+                                        />
+                                    )}
+                                </>
+                            ));
+                        }
+                        case MapItemType.OKN: {
+                            const { data: objects, isActive } = dataLayer[type];
+
+                            if (!isActive) {
+                                return null;
+                            }
+
+                            return objects.map(({ id, attributes }) => (
+                                <>
+                                    {attributes.geometry.coordinates && (
+                                        <MapData
+                                            id={id}
+                                            coords={attributes.geometry.coordinates}
+                                            key={`map-data:${type}-${id}`}
+                                        />
+                                    )}
+                                </>
+                            ));
+                        }
+                        case MapItemType.DTP: {
+                            const { data: objects, isActive } = dataLayer[type];
+
+                            if (!isActive) {
+                                return null;
+                            }
+
+                            return objects.map(({ id, attributes }) => (
+                                <>
+                                    {attributes.geometry.coordinates && (
+                                        <MapData
+                                            id={id}
+                                            coords={attributes.geometry.coordinates}
+                                            key={`map-data:${type}-${id}`}
+                                        />
+                                    )}
+                                </>
+                            ));
+                        }
+                        case MapItemType.DesignCode: {
+                            const { data: objects, isActive } = dataLayer[type];
+
+                            if (!isActive) {
+                                return null;
+                            }
+
+                            return objects.map(({ id, coords, type: designCodeType }) => (
+                                <>
+                                    {coords && (
+                                        <MapData
+                                            id={id}
+                                            coords={coords}
+                                            type={designCodeType}
+                                            key={`map-data:${type}-${id}`}
+                                        />
+                                    )}
+                                </>
+                            ));
+                        }
+                        default:
+                            return null;
+                    }
+                })}
             </>
         </MapContainer>
     );

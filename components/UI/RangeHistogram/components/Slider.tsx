@@ -1,9 +1,14 @@
-import React, { ChangeEvent, useCallback, useEffect, useState, useRef } from 'react';
+import React, { ChangeEvent, useEffect, useState, useRef, useMemo } from 'react';
 import classnames from 'classnames';
-import { getPercent as getPercentUtil } from '../utils';
+
+import { HistogramData } from '../types';
+
+import { getValueFromPercent } from './Slider.helpers';
+
 import sliderStyles from './Slider.module.css';
 
 interface Props {
+    data: HistogramData;
     width: number;
     min: number;
     max: number;
@@ -12,62 +17,93 @@ interface Props {
     currentMax?: number;
 }
 
-export function Slider({ width, min, max, currentMin = min, currentMax = max, onChange }: Props) {
-    const [minValue, setMinValue] = useState(currentMin);
-    const [maxValue, setMaxValue] = useState(currentMax);
+const ERROR = 0.15;
+
+export function Slider({
+    width,
+    min,
+    max,
+    currentMin = min,
+    currentMax = max,
+    onChange,
+    data,
+}: Props) {
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(100);
     const minValRef = useRef<HTMLInputElement>(null);
     const maxValueRef = useRef<HTMLInputElement>(null);
     const range = useRef<HTMLDivElement>(null);
 
-    // Convert to percentage
-    const getPercent = useCallback((value: number) => getPercentUtil(min, max, value), [min, max]);
-
     // Set width of the range to decrease from the left side
     useEffect(() => {
         if (maxValueRef.current) {
-            const minPercent = getPercent(minValue);
-            const maxPercent = getPercent(+maxValueRef.current.value);
+            const minPercent = minValue;
+            const maxPercent = +maxValueRef.current.value;
 
             if (range.current) {
                 range.current.style.left = `${minPercent}%`;
                 range.current.style.width = `${maxPercent - minPercent}%`;
             }
         }
-    }, [minValue, getPercent]);
+    }, [minValue]);
 
     // Set width of the range to decrease from the right side
     useEffect(() => {
         if (minValRef.current) {
-            const minPercent = getPercent(+minValRef.current.value);
-            const maxPercent = getPercent(maxValue);
+            const minPercent = +minValRef.current.value;
+            const maxPercent = maxValue;
 
             if (range.current) {
                 range.current.style.width = `${maxPercent - minPercent}%`;
             }
         }
-    }, [maxValue, getPercent]);
+    }, [maxValue]);
 
     // Get min and max values when their state changes
     useEffect(() => {
-        onChange({ min: minValue, max: maxValue });
-    }, [minValue, maxValue, onChange]);
+        const minDataValue = getValueFromPercent(data, minValue);
+        const maxDataValue = getValueFromPercent(data, maxValue);
+
+        onChange({ min: minDataValue, max: maxDataValue });
+    }, [minValue, maxValue, onChange, data]);
 
     useEffect(() => {
-        setMinValue(currentMin);
-    }, [currentMin]);
+        const minIndex = data.findIndex(({ from, to }) => {
+            const epsilon = ERROR * (to - from);
+
+            return Math.abs(currentMin - from) <= epsilon;
+        });
+        const minPercent = !minIndex ? 0 : Math.floor((minIndex / data.length) * 100);
+
+        setMinValue(minPercent);
+    }, [currentMin, data]);
 
     useEffect(() => {
-        setMaxValue(currentMax);
-    }, [currentMax]);
+        const maxIndex = data.findIndex(({ from, to }) => {
+            const epsilon = ERROR * (to - from);
 
-    const thumbStyles = { width: width + 10, marginRight: -5, marginLeft: -5 };
+            return Math.abs(currentMax - to) <= epsilon;
+        });
+        const maxPercent = Math.ceil(((maxIndex + 1) / data.length) * 100);
+
+        setMaxValue(maxPercent);
+    }, [currentMax, data]);
+
+    const thumbStyles = useMemo(
+        () => ({
+            width: width + 10,
+            marginRight: -5,
+            marginLeft: -5,
+        }),
+        [width],
+    );
 
     return (
         <div>
             <input
                 type="range"
-                min={min}
-                max={max}
+                min={0}
+                max={100}
                 value={minValue}
                 ref={minValRef}
                 style={thumbStyles}
@@ -81,8 +117,8 @@ export function Slider({ width, min, max, currentMin = min, currentMax = max, on
             />
             <input
                 type="range"
-                min={min}
-                max={max}
+                min={0}
+                max={100}
                 value={maxValue}
                 ref={maxValueRef}
                 style={thumbStyles}
