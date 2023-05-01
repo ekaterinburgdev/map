@@ -52,46 +52,46 @@ export const FLOOR_FILTERS_DATA: HistogramDataWithoutValues = [
     {
         from: 1,
         to: 3,
-        color: '#ff7461',
+        color: '#006adb',
     },
     {
         from: 3,
         to: 5,
-        color: '#ffA34e',
+        color: '#0084e2',
     },
     {
         from: 5,
         to: 9,
-        color: '#fee678',
+        color: '#009ee1',
     },
     {
         from: 9,
         to: 12,
-        color: '#85e634',
+        color: '#00b7d9',
     },
     {
         from: 12,
         to: 16,
-        color: '#0f9467',
+        color: '#00cfc5',
     },
     {
         from: 16,
         to: 21,
-        color: '#71b3ff',
+        color: '#00e7a3',
     },
     {
         from: 21,
         to: 25,
-        color: '#0070e0',
+        color: '#72f674',
     },
     {
         from: 25,
         to: 31,
-        color: '#c270ff',
+        color: '#c0fc49',
     },
     {
         from: 31,
         to: 52,
-        color: '#f97bcf',
+        color: '#ffff00',
     },
 ];
