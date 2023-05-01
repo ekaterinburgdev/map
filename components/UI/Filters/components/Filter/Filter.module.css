@@ -1,7 +1,7 @@
 .filter {
     position: relative;
     overflow: hidden;
-    padding: 16px 16px 0;
+    margin: 16px 16px 0;
     box-sizing: content-box;
 
     height: 0;
@@ -15,5 +15,5 @@
 .filter__active {
     height: var(--children-height);
 
-    padding: 16px;
+    margin: 16px;
 }

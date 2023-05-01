@@ -1,17 +1,18 @@
 import React, { useCallback } from 'react';
 
-import { MapItemType } from 'common/types/map-item';
+import { FilterType } from '../../Filters.types';
 
 import styles from './Toggle.module.css';
 
 export interface ToggleProps {
     id: string;
     label: string;
-    onClick: (type: MapItemType) => void;
-    type: MapItemType;
+    onClick: (type: FilterType) => void;
+    type: FilterType;
+    isActive: boolean;
 }
 
-export function Toggle({ id, label, onClick, type }: ToggleProps) {
+export function Toggle({ id, label, onClick, type, isActive }: ToggleProps) {
     const onChange = useCallback(() => {
         onClick(type);
     }, [type, onClick]);
@@ -23,6 +24,7 @@ export function Toggle({ id, label, onClick, type }: ToggleProps) {
                 id={id}
                 className={styles.toggle__background}
                 type="checkbox"
+                checked={isActive}
                 onChange={onChange}
             />
             <span className={styles.toggle__control} />

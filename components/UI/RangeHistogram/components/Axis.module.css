@@ -5,13 +5,15 @@
     font-size: 14px;
     line-height: 18px;
     column-gap: 1px;
-    margin: 0 -15px;
+    margin: 0 -20px;
     color: var(--histogram-color-active);
 }
 
 .axis__item {
     transition: all 0.3s ease;
     cursor: pointer;
+    text-align: center;
+    flex-basis: var(--axis-item-basis);
 }
 
 .axis__item:hover {

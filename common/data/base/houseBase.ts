@@ -15,6 +15,7 @@ export const houseBase = {
         const result = await parallelRequests(fullUrl.toString(), (x: HouseObject) => ({
             borders: x.attributes.borders?.coordinates,
             year: x.attributes.Year,
+            floors: x.attributes.Floors,
             id: x.id,
         }));
 
@@ -43,6 +44,7 @@ export const houseBase = {
 export interface HouseClient {
     borders: HouseAttributes['borders']['coordinates'];
     year: number;
+    floors: number;
     id: string;
 }
 

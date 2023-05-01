@@ -47,3 +47,51 @@ export const AGE_FILTERS_DATA: HistogramDataWithoutValues = [
         color: '#f97bcf',
     },
 ];
+
+export const FLOOR_FILTERS_DATA: HistogramDataWithoutValues = [
+    {
+        from: 1,
+        to: 3,
+        color: '#ff7461',
+    },
+    {
+        from: 3,
+        to: 5,
+        color: '#ffA34e',
+    },
+    {
+        from: 5,
+        to: 9,
+        color: '#fee678',
+    },
+    {
+        from: 9,
+        to: 12,
+        color: '#85e634',
+    },
+    {
+        from: 12,
+        to: 16,
+        color: '#0f9467',
+    },
+    {
+        from: 16,
+        to: 21,
+        color: '#71b3ff',
+    },
+    {
+        from: 21,
+        to: 25,
+        color: '#0070e0',
+    },
+    {
+        from: 25,
+        to: 31,
+        color: '#c270ff',
+    },
+    {
+        from: 31,
+        to: 52,
+        color: '#f97bcf',
+    },
+];
