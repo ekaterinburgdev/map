@@ -1,21 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 
 import styles from './Welcome.module.css';
 
-export function Welcome() {
-    const [isClosed, setIsClosed] = useState(false);
-
-    const onClose = useCallback(() => {
-        setIsClosed(true);
-    }, []);
-
+export function Welcome({ onClose }: { onClose: () => void }) {
     return (
-        <div
-            className={classNames(styles.welcome, {
-                [styles.welcome_closed]: isClosed,
-            })}
-        >
+        <div className={classNames(styles.welcome)}>
             <h2 className={styles.welcome__heading}>Привет! Это&nbsp;инфокарта Екатеринбурга</h2>
             <p className={styles.welcome__text}>
                 Вся информация о&nbsp;городе теперь собрана в&nbsp;одном месте: возраст домов,

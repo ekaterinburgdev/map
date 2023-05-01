@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { HistogramData, HistogramDatum, MinMax } from '../types';
 import axisStyles from './Axis.module.css';
 
@@ -30,7 +30,14 @@ export function Axis({ data, range, onSelect }: Props) {
     };
 
     return (
-        <div className={axisStyles.axis}>
+        <div
+            className={axisStyles.axis}
+            style={
+                {
+                    '--axis-item-basis': `${100 / labels.length}%`,
+                } as CSSProperties
+            }
+        >
             {labels.map((item) => (
                 <div
                     aria-hidden

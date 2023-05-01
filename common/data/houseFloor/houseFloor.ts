@@ -5,6 +5,6 @@ export const houseFloor = {
         return houseBase.getObject(id);
     },
     async getObjectsPolygonsByRange(from: number, to: number) {
-        return houseBase.getObjectsPolygonsByRange(from, to, 'Floor');
+        return houseBase.getObjectsPolygonsByRange(from, to, 'Floors');
     },
 };

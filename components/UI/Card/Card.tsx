@@ -21,8 +21,7 @@ export function Card() {
 
             setLoading(true);
 
-            const requestFunction = MODEL_CONFIG.find((dataLayer) => dataLayer.type === popupType)
-                .requests.oneItemRequest;
+            const requestFunction = MODEL_CONFIG[popupType].requests.oneItemRequest;
 
             const data = await requestFunction(popupId);
 
@@ -43,10 +42,7 @@ export function Card() {
     const CardContent = useMemo(() => {
         setLoading(true);
 
-        return (
-            MODEL_CONFIG.find((dataLayer) => dataLayer.type === popupType)?.cardContent
-            || (() => null)
-        );
+        return MODEL_CONFIG[popupType]?.cardContent || (() => null);
     }, [popupType]);
 
     return (
