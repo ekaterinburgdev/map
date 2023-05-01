@@ -21,8 +21,8 @@ export function HouseFloorFilter() {
     const getHistogramData = useCallback(
         async () =>
             houseBase.getFilterValues(FLOOR_FILTERS_DATA, 'Floors').then((values) =>
-                FLOOR_FILTERS_DATA.map((d, idx) => ({
-                    ...d,
+                FLOOR_FILTERS_DATA.map((floorItemData, idx) => ({
+                    ...floorItemData,
                     value: values[idx],
                 }))),
         [],

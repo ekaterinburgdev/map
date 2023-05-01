@@ -21,8 +21,8 @@ export function HouseAgeFilter() {
     const getHistogramData = useCallback(
         async () =>
             houseBase.getFilterValues(AGE_FILTERS_DATA, 'Year').then((values) =>
-                AGE_FILTERS_DATA.map((d, idx) => ({
-                    ...d,
+                AGE_FILTERS_DATA.map((ageItemData, idx) => ({
+                    ...ageItemData,
                     value: values[idx],
                 }))),
         [],

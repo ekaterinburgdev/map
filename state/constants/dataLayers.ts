@@ -21,5 +21,5 @@ export const initialObjectsState = Object.values(FilterType).reduce((acc, type) 
 
 export const initialState: State['dataLayer'] = {
     objects: initialObjectsState,
-    activeFilter: FilterType.HouseAge,
+    activeFilter: Object.values(FilterType)[0],
 };

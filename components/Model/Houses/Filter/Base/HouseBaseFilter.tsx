@@ -12,10 +12,9 @@ import { HouseClient } from 'common/data/base/houseBase';
 
 import { setData } from 'state/features/dataLayers';
 
-import styles from './HouseBaseFilter.module.css';
+import { REQUEST_DELAY, timeoutIds } from './HouseBaseFilter.constants';
 
-const REQUEST_DELAY = 1000;
-const timeoutIds: Partial<Record<FilterType, NodeJS.Timeout>> = {};
+import styles from './HouseBaseFilter.module.css';
 
 export interface HouseBaseFilterProps {
     defaultMin: number;
