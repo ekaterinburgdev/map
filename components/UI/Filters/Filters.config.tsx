@@ -3,6 +3,7 @@ import React from 'react';
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
 
+import { OknFilter } from 'components/Model/Houses/Filter/Okn/OknFilter';
 import { FilterConfig, FilterType } from './Filters.types';
 
 export const FILTERS_CONFIG: FilterConfig = {
@@ -16,7 +17,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     },
     [FilterType.OKN]: {
         title: 'Объекты культурного наследия',
-        component: () => <p style={{ margin: 0 }}>Этого фильтра пока нет</p>,
+        component: OknFilter,
     },
     [FilterType.DesignCode]: {
         title: '«Дизайн-код Екатеринбурга»',

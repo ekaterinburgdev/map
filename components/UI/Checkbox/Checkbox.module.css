@@ -1,0 +1,90 @@
+.checkbox {
+    --checkbox-color: #3c4669;
+    position: relative;
+    display: inline-flex;
+    align-items: baseline;
+    font-size: 18px;
+    cursor: pointer;
+
+    /* Remove hover effect on touch screen */
+    @media (hover: hover) {
+        &:hover .checkbox__box:before {
+            transform: translate(-50%, -50%) scale(1.2);
+        }
+    }
+
+    &:active .checkbox__box:before {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.checkbox__input {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    border: 0;
+
+    &:checked + .checkbox__box:after {
+        opacity: 1;
+    }
+}
+
+.checkbox__box {
+    position: relative;
+    bottom: -0.3em;
+    flex-shrink: 0;
+    width: 1.28em;
+    height: 1.28em;
+    margin-right: 0.75em;
+    border-radius: 0.31em;
+    background-color: var(--checkbox-color);
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        border-radius: 0.35em;
+        background-color: var(--checkbox-color);
+        pointer-events: none;
+        transition: 0.15s ease transform;
+        transform: translate(-50%, -50%) scale(1);
+        transform-origin: 50% 50%;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 80%;
+        background-image: url("./Checkbox.svg");
+        background-position: 50% 50%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        opacity: 0;
+        transition: 0.15s ease opacity;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* Focus settings for old and modern browsers */
+.checkbox__input:focus-visible + .checkbox__box {
+    outline: 1px solid white;
+}
+
+.checkbox:has(.checkbox__input:focus-visible) {
+    border-radius: 2px;
+    outline: 2px solid white;
+}
+
+.checkbox:has(.checkbox__input:focus-visible) .checkbox__box {
+    outline: none;
+}
