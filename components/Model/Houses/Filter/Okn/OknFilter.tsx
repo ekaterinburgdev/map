@@ -8,8 +8,6 @@ import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 export function OknFilter() {
     return (
         <>
-            <p style={{ margin: 0 }}>Этого фильтра пока нет</p>
-            <br />
             <div style={{ opacity: 0.25, pointerEvents: 'none' }}>
                 {
                     [
