@@ -65,7 +65,7 @@
         left: 50%;
         width: 80%;
         height: 80%;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='13' fill='none'%3E%3Cpath stroke='%23fff' stroke-linecap='square' stroke-linejoin='round' stroke-miterlimit='3.864' stroke-width='2.625' d='m2.459 7.292 3.938 4.083 7.145-8.75'/%3E%3C/svg%3E");
+        background-image: url("./Checkbox.svg");
         background-position: 50% 50%;
         background-size: contain;
         background-repeat: no-repeat;
