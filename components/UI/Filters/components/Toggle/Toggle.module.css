@@ -5,21 +5,19 @@
     position: relative;
     cursor: pointer;
     user-select: none;
-    padding: 12px 16px 0;
+    padding: 12px 16px;
 
     --border-width: 2px;
-}
 
-.toggle:has(:focus-visible) {
-    outline: 2px solid white;
-}
-
-.toggle__background {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
+    &:focus-within {
+        outline: 2px solid white;
+        border-radius: 2px;
+    }
+    
+    /* Remove outline on click */
+    &:has(:focus:not(:focus-visible)) {
+        outline: none;
+    }
 }
 
 .toggle__control {
@@ -32,31 +30,40 @@
     background-color: #3a4154;
     transition: background-color 0.15s ease;
     font-size: 9px;
+    
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: white;
+        transition: transform 0.15s ease-out;
+    }
 }
-.toggle__control:after {
-    content: '';
+
+.toggle__background {
     position: absolute;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: white;
-    transition: transform 0.15s ease-out;
-}
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 
-.toggle__background:checked ~ .toggle__control {
-    background-color: rgba(0, 180, 0, 0.75);
-}
+    &:checked ~ .toggle__control {
+        background-color: rgba(0, 180, 0, 0.75);
+    }
 
-.toggle__background:checked ~ .toggle__control:after {
-    transform: translateX(calc(100% - 2 * var(--border-width)));
-}
+    &:checked ~ .toggle__control:after {
+        transform: translateX(calc(100% - 2 * var(--border-width)));
+    }
 
-.toggle__background:not(:checked) ~ .toggle__control {
-    background-color: rgba(255, 255, 255, 0.16);
-}
+    &:not(:checked) ~ .toggle__control {
+        background-color: rgba(255, 255, 255, 0.16);
+    }
 
-.toggle__background:not(:checked) ~ .toggle__control:after {
-    transform: translateX(0);
-    background: #9b9ea8;
+    &:not(:checked) ~ .toggle__control:after {
+        transform: translateX(0);
+        background: #9b9ea8;
+    }
 }
