@@ -61,7 +61,8 @@
 }
 
 .checkbox:has(.checkbox__input:focus-visible) {
-    outline: 1px solid white;
+    outline: 2px solid white;
+    border-radius: 2px;
 }
 
 .checkbox:has(.checkbox__input:focus-visible) .checkbox__box {
