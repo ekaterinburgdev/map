@@ -1,13 +1,15 @@
 .filter {
     position: relative;
     overflow: hidden;
-    margin: 16px 16px 0;
+    padding: 0 16px;
+    opacity: 0;
     box-sizing: content-box;
+    visibility: hidden;
 
     height: 0;
 
-    will-change: height;
-    transition: height 150ms ease;
+    will-change: height, padding;
+    transition: opacity 150ms ease, height 200ms ease, padding 200ms ease;
 
     --children-height: 0;
 }
@@ -15,5 +17,9 @@
 .filter__active {
     height: var(--children-height);
 
-    margin: 16px;
+    margin: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    opacity: 1;
+    visibility: visible;
 }

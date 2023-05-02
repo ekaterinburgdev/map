@@ -26,6 +26,13 @@ export function Toggle({ id, label, onClick, type, isActive }: ToggleProps) {
                 type="checkbox"
                 checked={isActive}
                 onChange={onChange}
+                onKeyDown={(e) => {
+                    if ((e.key === 'Enter')
+                    || (e.key === 'ArrowRight' && !isActive)
+                    || (e.key === 'ArrowLeft' && isActive)) {
+                        onChange();
+                    }
+                }}
             />
             <span className={styles.toggle__control} />
         </label>
