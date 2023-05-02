@@ -3,12 +3,13 @@ import styles from './Checkbox.module.css';
 
 export interface CheckboxProps {
     id: string;
+    checked: boolean;
     color: string;
     children: ReactNode;
     onClick: () => void;
 }
 
-export function Checkbox({ id, color, children, onClick }: CheckboxProps) {
+export function Checkbox({ id, checked, color, children, onClick }: CheckboxProps) {
     return (
         <label
             className={styles.checkbox}
@@ -20,6 +21,7 @@ export function Checkbox({ id, color, children, onClick }: CheckboxProps) {
                 type="checkbox"
                 className={styles.checkbox__input}
                 onClick={onClick}
+                checked={checked}
             />
             <span className={styles.checkbox__box} />
 
