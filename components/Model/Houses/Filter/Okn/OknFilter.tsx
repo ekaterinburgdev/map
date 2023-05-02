@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 
+/* TODO Update after merge. It's only checkbox test */
+
 export function OknFilter() {
     return (
         <>
@@ -12,17 +14,9 @@ export function OknFilter() {
                     { color: '#027000', label: 'Муниципального значения' },
                 ].map(({ color, label }, i) => (
                     <>
-                        <Checkbox
-                            id={`okn-${i}`}
-                            color={color}
-                            label={(
-                                <>
-                                    {label}
-                                    <br />
-                                </>
-                            )}
-                            onClick={() => { }}
-                        />
+                        <Checkbox id={`okn-${i}`} color={color} onClick={() => { }}>
+                            {label}
+                        </Checkbox>
                         <div style={{ marginBottom: 14 }} />
                     </>
                 ))
@@ -41,18 +35,11 @@ export function OknFilter() {
                     { color: '#e800b5', label: 'Защитные зоны', description: 'Временная зона в 100-250 метров вокруг объекта, у которого пока не указана зона охраны' },
                 ].map(({ color, label, description }, i) => (
                     <>
-                        <Checkbox
-                            id={`okn-zones-${i}`}
-                            color={color}
-                            label={(
-                                <>
-                                    {label}
-                                    <br />
-                                    <small style={{ color: '#9BAAC3' }}>{description}</small>
-                                </>
-                            )}
-                            onClick={() => { }}
-                        />
+                        <Checkbox id={`okn-zones-${i}`} color={color} onClick={() => { }}>
+                            {label}
+                            <br />
+                            <small style={{ color: '#9BAAC3' }}>{description}</small>
+                        </Checkbox>
                         <div style={{ marginBottom: 14 }} />
                     </>
                 ))

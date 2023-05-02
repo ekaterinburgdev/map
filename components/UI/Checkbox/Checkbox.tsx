@@ -4,11 +4,11 @@ import styles from './Checkbox.module.css';
 export interface CheckboxProps {
     id: string;
     color: string;
-    label: ReactNode;
+    children: ReactNode;
     onClick: () => void;
 }
 
-export function Checkbox({ id, color, label, onClick }: CheckboxProps) {
+export function Checkbox({ id, color, children, onClick }: CheckboxProps) {
     return (
         <label
             className={styles.checkbox}
@@ -24,7 +24,7 @@ export function Checkbox({ id, color, label, onClick }: CheckboxProps) {
             <span className={styles.checkbox__box} />
 
             <div className={styles.checkbox__label}>
-                {label}
+                {children}
             </div>
         </label>
     );
