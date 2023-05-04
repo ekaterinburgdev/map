@@ -1,5 +1,7 @@
+import qs from 'qs';
 import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
 import { getObjectsTotalCount, parallelRequests, STRAPI_BASE_URL } from '../dataHelpers';
+import { FilterOperator } from '../filterOperator';
 import { getById } from './getById';
 
 export const houseBase = {
@@ -7,12 +9,20 @@ export const houseBase = {
         return getById.getObject(id, '/house');
     },
     async getObjectsPolygonsByRange(from: number, to: number, filterName: string) {
-        const fullUrl = new URL(`${STRAPI_BASE_URL}/house?populate=borders`);
+        const url = `${STRAPI_BASE_URL}/house`;
 
-        fullUrl.searchParams.append(`filters[${filterName}][$gte]`, from.toString());
-        fullUrl.searchParams.append(`filters[${filterName}][$lte]`, to.toString());
+        const query = qs.stringify({
+            filters: {
+                [filterName]: {
+                    [FilterOperator.GreaterThanOrEqual]: from,
+                    [FilterOperator.LessThanOrEqual]: to,
+                },
+            },
+            populate: 'borders',
+            fields: filterName,
+        });
 
-        const result = await parallelRequests(fullUrl.toString(), (x: HouseObject) => ({
+        const result = await parallelRequests(`${url}?${query}`, (x: HouseObject) => ({
             borders: x.attributes.borders?.coordinates,
             year: x.attributes.Year,
             floors: x.attributes.Floors,
@@ -25,14 +35,23 @@ export const houseBase = {
         const requests: Promise<number>[] = [];
 
         histogramData.forEach(({ from, to }, idx) => {
-            const toFilter = idx === histogramData.length - 1 ? 'lte' : 'lt';
+            const toFilter = idx === histogramData.length - 1
+                ? FilterOperator.LessThanOrEqual
+                : FilterOperator.LessThan;
 
-            const fullUrl = new URL(`${STRAPI_BASE_URL}/house`);
+            const url = `${STRAPI_BASE_URL}/house`;
 
-            fullUrl.searchParams.append(`filters[${filterName}][$gte]`, from.toString());
-            fullUrl.searchParams.append(`filters[${filterName}][$${toFilter}]`, to.toString());
+            const query = qs.stringify({
+                filters: {
+                    [filterName]: {
+                        [FilterOperator.GreaterThanOrEqual]: from,
+                        [toFilter]: to,
+                    },
+                },
+                fields: 'Address',
+            });
 
-            requests.push(getObjectsTotalCount(fullUrl.toString()));
+            requests.push(getObjectsTotalCount(`${url}?${query}`));
         });
 
         const result = await Promise.all(requests);

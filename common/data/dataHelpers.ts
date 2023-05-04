@@ -1,3 +1,5 @@
+import qs from 'qs';
+
 export const STRAPI_BASE_URL = 'https://map-api.ekaterinburg.io/api';
 
 const PAGINATION_SIZE = 800;
@@ -8,12 +10,32 @@ export async function fetchAPI(url: string) {
     return response.json();
 }
 
-export async function getObjectsTotalCount(url: string) {
+export function getUrlWithExtraQuery(url: string, query: object) {
     const reqUrl = new URL(url);
 
-    reqUrl.searchParams.append('pagination[pageSize]', '1');
+    const newQuery = qs.stringify(
+        {
+            ...qs.parse(reqUrl.search, {
+                ignoreQueryPrefix: true,
+            }),
+            ...query,
+        },
+        { addQueryPrefix: true },
+    );
 
-    return (await fetchAPI(reqUrl.toString())).meta.pagination.total;
+    reqUrl.search = newQuery;
+
+    return reqUrl.toString();
+}
+
+export async function getObjectsTotalCount(url: string) {
+    const reqUrl = getUrlWithExtraQuery(url, {
+        pagination: {
+            pageSize: 1,
+        },
+    });
+
+    return (await fetchAPI(reqUrl)).meta.pagination.total;
 }
 
 export function parseJsonWithSingleQuotes(json: string) {
@@ -31,12 +53,14 @@ export async function parallelRequests<T, R>(url: string, dataMapper: (x: T) => 
 
     const requests: Promise<{ data: T[] }>[] = [];
     for (let i = 1; i <= pagesCount; i++) {
-        const reqUrl = new URL(url);
+        const reqUrl = getUrlWithExtraQuery(url, {
+            pagination: {
+                pageSize: PAGINATION_SIZE,
+                page: i,
+            },
+        });
 
-        reqUrl.searchParams.append('pagination[pageSize]', PAGINATION_SIZE.toString());
-        reqUrl.searchParams.append('pagination[page]', i.toString());
-
-        requests.push(fetchAPI(reqUrl.toString()));
+        requests.push(fetchAPI(reqUrl));
     }
 
     return new Promise<R[]>((resolve) => {

@@ -1,4 +1,4 @@
-export const SOUCES_BY_TYPE = {
+export const SOURCES_BY_TYPE = {
     okn: {
         name: 'Объекты культурного наследия России',
         link: 'https://okn.midural.ru',
