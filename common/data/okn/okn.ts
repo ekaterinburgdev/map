@@ -20,8 +20,51 @@ export const okn = {
         });
     },
 
+    async getObjectsCount() {
+        const objects: OknObject[] = await okn.getObjectsBySignificanceType(
+            Object.values(OknObjectSignificanceType),
+            true,
+        );
+
+        return objects.reduce((acc, object) => {
+            if (acc[object.attributes.category]) {
+                acc[object.attributes.category] += 1;
+            } else {
+                acc[object.attributes.category] = 1;
+            }
+
+            return acc;
+        }, {});
+    },
+
+    async getZonesCount() {
+        const query = qs.stringify({
+            pagination: {
+                pageSize: 1,
+            },
+            fields: undefined,
+        });
+
+        const objectZonesCount = await getObjectsTotalCount(
+            `${STRAPI_BASE_URL}/okn-objects?${query}`,
+        );
+        const protectZonesCount = await getObjectsTotalCount(
+            `${STRAPI_BASE_URL}/okn-protect-zones??${query}`,
+        );
+        const securityZonesCount = await getObjectsTotalCount(
+            `${STRAPI_BASE_URL}/okn-security-zones??${query}`,
+        );
+
+        return {
+            [OknAreaType.ObjectZone]: objectZonesCount,
+            [OknAreaType.ProtectZone]: protectZonesCount,
+            [OknAreaType.SecurityZone]: securityZonesCount,
+        };
+    },
+
     async getObjectsBySignificanceType(
         types: OknObjectSignificanceType[],
+        noPopulate = false,
     ): Promise<OknObjectWithGeometry[]> {
         const url = `${STRAPI_BASE_URL}/okn-objects`;
 
@@ -32,7 +75,7 @@ export const okn = {
                 },
             },
             fields: ['category'],
-            populate: 'geometry',
+            populate: !noPopulate ? 'geometry' : undefined,
         });
 
         const result = await parallelRequests(
@@ -40,13 +83,20 @@ export const okn = {
             (object: OknObjectWithGeometry) => object,
         );
 
+        if (noPopulate) {
+            return result;
+        }
+
         return result.filter((object) => Boolean(object.attributes.geometry?.coordinates?.length));
     },
 
-    async getAreaByType(type: OknAreaType): Promise<OknObjectWithGeometry[] | undefined> {
+    async getAreaByType(
+        type: OknAreaType,
+        noPopulate = false,
+    ): Promise<OknObjectWithGeometry[] | undefined> {
         const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/okn-objects`);
         const query = {
-            populate: ['geometry', 'data', 'borders'],
+            populate: !noPopulate ? ['geometry', 'data', 'borders'] : undefined,
             pagination: {
                 pageSize: totalCount,
             },

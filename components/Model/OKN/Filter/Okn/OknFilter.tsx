@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useReducer } from 'react';
+import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setData } from 'state/features/dataLayers';
@@ -22,10 +22,22 @@ import {
 
 import styles from './OknFilter.module.css';
 
+type ObjectsCount = Record<OknObjectSignificanceType, number>;
+
 export function OknFilter() {
     const dispatch = useDispatch();
     const [areaState, dispatchArea] = useReducer(areaReducer, areaInitalState);
     const [objectsState, dispatchObjects] = useReducer(objectsReducer, objectsInitalState);
+    const [objectsCount, setObjectsCount] = useState<ObjectsCount>(null);
+    const [areaCount, setAreaCount] = useState<Record<OknAreaType, number>>(null);
+
+    useEffect(() => {
+        okn.getObjectsCount().then(setObjectsCount);
+    }, []);
+
+    useEffect(() => {
+        okn.getZonesCount().then(setAreaCount);
+    }, []);
 
     const onAreaChange = useCallback(
         (oknArea: OknAreaType) => async () => {
@@ -100,6 +112,9 @@ export function OknFilter() {
                         onClick={onObjectsChange(label)}
                     >
                         {label}
+                        <span className={styles.OknFilter__objectsCount}>
+                            {objectsCount?.[label]}
+                        </span>
                     </Checkbox>
                     <div className={styles.OknFilter__checkboxContent} />
                 </>
@@ -114,6 +129,9 @@ export function OknFilter() {
                             onClick={onAreaChange(label)}
                         >
                             {label}
+                            <span className={styles.OknFilter__objectsCount}>
+                                {areaCount?.[label]}
+                            </span>
                             <br />
                             <small className={styles.OknFilter__checkboxDescription}>
                                 {description}
