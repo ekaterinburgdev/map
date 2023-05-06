@@ -2,11 +2,12 @@
 import { groupBy } from 'lodash';
 
 import { fetchAPI } from '../dataHelpers';
-import { DesignCodeObject } from './designCodeObject';
+
+import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
 
 let filtersNames;
 let inputData;
-let objectsByType: Record<string, DesignCodeObject[]> = {};
+let objectsByType: Record<DesignCodeItemType, DesignCodeObject[]> | {} = {};
 const objectById = new Map<string, DesignCodeObject>();
 
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
@@ -14,16 +15,16 @@ export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
 async function getAndSaveData() {
     inputData = await fetchAPI(`${DESIGN_MAP_HOST}/api/map`);
 
-    objectsByType = groupBy(inputData, 'type');
+    objectsByType = groupBy(inputData, 'type') as Record<DesignCodeItemType, DesignCodeObject[]>;
 }
 
 export const designCode = {
-    async getFilters(): Promise<string[]> {
+    async getFilters(): Promise<DesignCodeItemType[]> {
         if (filtersNames) return filtersNames;
 
         if (!inputData) await getAndSaveData();
 
-        const set = new Set<string>();
+        const set = new Set<DesignCodeItemType>();
 
         for (const e of inputData) {
             if (!e.type) continue;
@@ -33,7 +34,7 @@ export const designCode = {
         return filtersNames;
     },
 
-    async getObjectsByType(types: string[]): Promise<DesignCodeObject[]> {
+    async getObjectsByType(types: DesignCodeItemType[]): Promise<DesignCodeObject[]> {
         if (!inputData) {
             await getAndSaveData();
         }

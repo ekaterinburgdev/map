@@ -117,13 +117,14 @@ function MapMainContainer() {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as DesignCodeObject[];
 
-                return objects.map(({ id, coords, type: designCodeType }) => (
+                return objects.map(({ id, coords, type: designCodeType, preview }) => (
                     <>
                         {coords && (
                             <MapData
                                 id={id}
                                 coords={coords}
                                 type={designCodeType}
+                                preview={preview}
                                 key={`map-data:${activeMapItem}-${id}`}
                             />
                         )}

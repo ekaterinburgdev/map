@@ -1,7 +1,10 @@
 import { LatLngExpression } from 'leaflet';
 
-export type DesignCodeMapDataProps = {
+import { Image } from 'common/data/base/objectsBase';
+
+export interface DesignCodeMapDataProps {
     id: string;
     coords: LatLngExpression;
     type: string;
-};
+    preview: Image;
+}
