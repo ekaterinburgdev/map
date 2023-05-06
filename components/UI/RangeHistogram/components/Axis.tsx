@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { CSSProperties } from 'react';
+import React, { CSSProperties, useCallback } from 'react';
 import { HistogramData, HistogramDatum, MinMax } from '../types';
 import axisStyles from './Axis.module.css';
 
@@ -21,13 +21,18 @@ export function Axis({ data, range, onSelect }: Props) {
             isActive: lastItem.from >= range.min && lastItem.to <= range.max,
         });
 
-    const onClick = (from: number) => {
-        if (from === lastItem.to) {
-            onSelect?.(lastItem);
-        } else {
-            onSelect?.({ from, to: from + 1 });
-        }
-    };
+    const onClick = useCallback(
+        (from: number) => {
+            if (from === lastItem.to) {
+                onSelect?.(lastItem);
+            } else {
+                const selectedItem = data.find((dataItem) => dataItem.from === from);
+
+                onSelect?.({ from, to: selectedItem.to });
+            }
+        },
+        [data, lastItem, onSelect],
+    );
 
     return (
         <div
