@@ -90,41 +90,39 @@ export function OknFilter() {
     }, [dispatch, objectsState]);
 
     return (
-        <>
-            <div>
-                {OBJECTS_CONFIG.map(({ color, label }, i) => (
+        <div>
+            {OBJECTS_CONFIG.map(({ color, label }, i) => (
+                <>
+                    <Checkbox
+                        id={`okn-${i}`}
+                        checked={objectsState[label]}
+                        color={color}
+                        onClick={onObjectsChange(label)}
+                    >
+                        {label}
+                    </Checkbox>
+                    <div className={styles.OknFilter__checkboxContent} />
+                </>
+            ))}
+            <Section>
+                {AREA_CONFIG.map(({ color, label, description }, i) => (
                     <>
                         <Checkbox
-                            id={`okn-${i}`}
-                            checked={objectsState[label]}
+                            id={`okn-zones-${i}`}
+                            checked={areaState[label]}
                             color={color}
-                            onClick={onObjectsChange(label)}
+                            onClick={onAreaChange(label)}
                         >
                             {label}
+                            <br />
+                            <small className={styles.OknFilter__checkboxDescription}>
+                                {description}
+                            </small>
                         </Checkbox>
                         <div className={styles.OknFilter__checkboxContent} />
                     </>
                 ))}
-                <Section>
-                    {AREA_CONFIG.map(({ color, label, description }, i) => (
-                        <>
-                            <Checkbox
-                                id={`okn-zones-${i}`}
-                                checked={areaState[label]}
-                                color={color}
-                                onClick={onAreaChange(label)}
-                            >
-                                {label}
-                                <br />
-                                <small className={styles.OknFilter__checkboxDescription}>
-                                    {description}
-                                </small>
-                            </Checkbox>
-                            <div className={styles.OknFilter__checkboxContent} />
-                        </>
-                    ))}
-                </Section>
-            </div>
-        </>
+            </Section>
+        </div>
     );
 }
