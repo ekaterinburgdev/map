@@ -13,6 +13,8 @@ import { DESIGN_CODE_ITEMS_COLORS } from '../DesignCode.constants';
 
 import { designCodeReducer, designCondeInitalState } from './DesignCodeFilter.state';
 
+import styles from './DesignCodeFilter.module.css';
+
 export function DesignCodeFilter() {
     const dispatch = useDispatch();
     const [designCodeFilterState, dispatchDesignCodeAction] = useReducer(
@@ -20,6 +22,7 @@ export function DesignCodeFilter() {
         designCondeInitalState,
     );
     const [filterItems, setFilterItems] = useState<DesignCodeItemType[]>(null);
+    const [objectsCount, setObjectsCount] = useState<Record<DesignCodeItemType, number>>(null);
 
     useEffect(() => {
         designCode.getFilters().then(setFilterItems);
@@ -65,6 +68,10 @@ export function DesignCodeFilter() {
         });
     }, [dispatch, designCodeFilterState]);
 
+    useEffect(() => {
+        designCode.getObjectsCount().then(setObjectsCount);
+    }, []);
+
     return filterItems ? (
         <div>
             {filterItems.map((filterItem, i) => (
@@ -76,8 +83,11 @@ export function DesignCodeFilter() {
                         onClick={onChange(filterItem)}
                     >
                         {filterItem}
+                        <span className={styles.DesignCodeFilter__objectsCount}>
+                            {objectsCount?.[filterItem]}
+                        </span>
                     </Checkbox>
-                    <div style={{ marginBottom: 14 }} />
+                    <div className={styles.DesignCodeFilter__checkboxContent} />
                 </>
             ))}
         </div>
