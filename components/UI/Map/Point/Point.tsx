@@ -3,7 +3,7 @@ import { Marker as LeafletMarker } from 'react-leaflet';
 import L from 'leaflet';
 import classNames from 'classnames';
 
-import { SIZE_BY_LETTER } from './Point.constants';
+import { NO_PREVIEW_SIZE, SIZE_BY_LETTER } from './Point.constants';
 import { PointProps, Sizes } from './Point.types';
 
 import styles from './Point.module.css';
@@ -27,10 +27,13 @@ function PointComponent({
         }
     }, [id, type, closePopup, openPopup, isOpen]);
 
-    const sizeNumber = useMemo(
-        () => (isOpen ? SIZE_BY_LETTER[size].open : SIZE_BY_LETTER[size].closed),
-        [size, isOpen],
-    );
+    const sizeNumber = useMemo(() => {
+        if (!preview) {
+            return isOpen ? NO_PREVIEW_SIZE.open : NO_PREVIEW_SIZE.closed;
+        }
+
+        return isOpen ? SIZE_BY_LETTER[size].open : SIZE_BY_LETTER[size].closed;
+    }, [size, isOpen, preview]);
     const html = useMemo(() => {
         const style = `
             width:${sizeNumber}px;
@@ -54,7 +57,11 @@ function PointComponent({
             />`;
         }
 
-        const noPreviewStyle = `background-color:${color};`;
+        const noPreviewStyle = `
+            width:${sizeNumber}px;
+            height:${sizeNumber}px;
+            background-color:${color};
+        `;
 
         return `<div class="${className}" style="${noPreviewStyle}"></div>`;
     }, [isOpen, size, color, sizeNumber, preview]);

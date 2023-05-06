@@ -3,7 +3,7 @@ import { LatLngExpression } from 'leaflet';
 
 import { MapItemType } from 'common/types/map-item';
 import { Shape } from 'components/UI/Map/Shape/Shape';
-import { Point, Sizes } from 'components/UI/Map/Point';
+import { Point } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
 import { AREA_CONFIG, OBJECTS_CONFIG } from '../Okn.constants';
@@ -46,7 +46,6 @@ export function OKNMapData({ id, coords, type, preview, unclickable = false }: O
                     position={coords as LatLngExpression}
                     preview={preview}
                     isOpen={isOpen}
-                    size={Sizes.S}
                     openPopup={!unclickable ? openPopup : undefined}
                     closePopup={closePopup}
                 />
