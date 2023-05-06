@@ -33,16 +33,18 @@ export const designCode = {
         return filtersNames;
     },
 
-    async getObjectsByType(type: string): Promise<DesignCodeObject[]> {
-        if (objectsByType[type]) {
-            return objectsByType[type];
-        }
-
+    async getObjectsByType(types: string[]): Promise<DesignCodeObject[]> {
         if (!inputData) {
             await getAndSaveData();
         }
 
-        return objectsByType[type];
+        return types.reduce((acc, type) => {
+            if (objectsByType[type]) {
+                acc.push(...objectsByType[type]);
+            }
+
+            return acc;
+        }, []);
     },
 
     async getObject(id: string): Promise<DesignCodeObject> {

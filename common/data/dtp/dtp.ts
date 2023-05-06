@@ -1,45 +1,71 @@
-/* eslint-disable no-restricted-syntax */
+import { intersection } from 'lodash';
+import qs from 'qs';
+
+import { Range } from 'components/UI/RangeHistogram/types';
 import { getById } from '../base/getById';
-import { fetchAPI, getObjectsTotalCount, STRAPI_BASE_URL } from '../dataHelpers';
+import { parallelRequests, STRAPI_BASE_URL } from '../dataHelpers';
+import { FilterOperator } from '../filterOperator';
+
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
-
-let inputData;
-const objectsByParticipants = new Map<DtpParticipantType, any[]>();
 
 export const dtp = {
     async getObject(id: string) {
         return getById.getObject(id, '/dtps');
     },
-    async getObjectsBySeverity(type: DtpSeverityType) {
-        const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/dtps`);
-        return (
-            await fetchAPI(
-                `${STRAPI_BASE_URL}/dtps?filters[severity][$eq]=${type}&populate=data,geometry&pagination[pageSize]=${totalCount}`,
-            )
-        ).data;
-    },
-    async getObjectsByParticipants(type: DtpParticipantType) {
-        if (objectsByParticipants[type]) return objectsByParticipants[type];
+    async getObjects(filters: DTPFiltersParams) {
+        const url = `${STRAPI_BASE_URL}/dtps`;
 
-        if (!inputData) {
-            const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/dtps`);
-            inputData = (
-                await fetchAPI(
-                    `${STRAPI_BASE_URL}/dtps?populate=data,geometry&pagination[pageSize]=${totalCount}`,
-                )
-            ).data;
+        const { severity, participants, years } = filters;
+
+        const query = qs.stringify({
+            filters: {
+                datetime: {
+                    [FilterOperator['>=']]: years.from,
+                    [FilterOperator['<=']]: years.to,
+                },
+                ...(severity && severity.length
+                    ? {
+                        severity: {
+                            [FilterOperator['=']]: severity,
+                        },
+                    }
+                    : {}),
+            },
+            fields: ['severity'],
+            populate: 'geometry',
+        });
+
+        const result = await parallelRequests(`${url}?${query}`, (x: DTPObject) => x);
+
+        if (participants && participants.length) {
+            const resultWithParticipants = [];
+
+            result.forEach((dtpObject) => {
+                const participantCategories = Array.from(
+                    dtpObject.attributes?.participant_categories,
+                );
+
+                if (
+                    participantCategories.length
+                    && intersection(participantCategories, participants).length
+                ) {
+                    resultWithParticipants.push(dtpObject);
+                }
+            });
+
+            return resultWithParticipants;
         }
 
-        const result = [];
-
-        for (const e of inputData) {
-            if (Array.from(e.attributes?.participant_categories).includes(type)) result.push(e);
-        }
-        objectsByParticipants[type] = result;
         return result;
     },
 };
+
+export interface DTPFiltersParams {
+    severity?: DtpSeverityType[];
+    participants?: DtpParticipantType[];
+    years: Range;
+}
 
 export type DTPObject = {
     id: string;

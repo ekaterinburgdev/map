@@ -1,12 +1,7 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import L from 'leaflet';
 import { MapContainer, TileLayer } from 'react-leaflet';
-
-import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
-import iconUrl from 'leaflet/dist/images/marker-icon.png';
-import shadowUrl from 'leaflet/dist/images/marker-shadow.png';
 
 import 'leaflet/dist/leaflet.css';
 
@@ -28,18 +23,6 @@ const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
 
 function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
-
-    useEffect(() => {
-        async function init() {
-            L.Icon.Default.mergeOptions({
-                iconRetinaUrl: iconRetinaUrl.src,
-                iconUrl: iconUrl.src,
-                shadowUrl: shadowUrl.src,
-            });
-        }
-
-        init();
-    }, []);
 
     const dataObjects = useSelector((state: State) => state.dataLayer.objects);
     const activeFilter = useSelector((state: State) => state.dataLayer.activeFilter);
