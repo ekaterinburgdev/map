@@ -17,9 +17,7 @@ export function OKNMapData({ id, coords, type, preview, unclickable = false }: O
         [id, popupId, popupType],
     );
     const color = useMemo(() => {
-        const config = [...AREA_CONFIG, ...OBJECTS_CONFIG].find(
-            (configItem) => configItem.label === type,
-        );
+        const config = AREA_CONFIG[type] || OBJECTS_CONFIG[type];
 
         return config.color;
     }, [type]);

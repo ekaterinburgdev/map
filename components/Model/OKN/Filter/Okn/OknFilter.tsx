@@ -7,7 +7,7 @@ import { OknAreaType, OknObjectSignificanceType } from 'common/data/okn/oknConst
 import { okn } from 'common/data/okn/okn';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-
+import { Loader } from 'components/UI/Loader/Loader';
 import { Section } from 'components/UI/Card/components/Section/Section';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 
@@ -22,21 +22,34 @@ import {
 
 import styles from './OknFilter.module.css';
 
-type ObjectsCount = Record<OknObjectSignificanceType, number>;
+type ObjectsCountEntries = [OknObjectSignificanceType, number][];
 
 export function OknFilter() {
     const dispatch = useDispatch();
     const [areaState, dispatchArea] = useReducer(areaReducer, areaInitalState);
     const [objectsState, dispatchObjects] = useReducer(objectsReducer, objectsInitalState);
-    const [objectsCount, setObjectsCount] = useState<ObjectsCount>(null);
-    const [areaCount, setAreaCount] = useState<Record<OknAreaType, number>>(null);
+    const [objectsCount, setObjectsCount] = useState<ObjectsCountEntries>(null);
+    const [areaCount, setAreaCount] = useState<[OknAreaType, number][]>(null);
 
     useEffect(() => {
-        okn.getObjectsCount().then(setObjectsCount);
+        okn.getObjectsCount().then((objectsCountResult: ObjectsCountEntries) => {
+            const sortedObjectsCount = objectsCountResult.sort(
+                (a, b) => b[1] - a[1],
+            ) as ObjectsCountEntries;
+
+            setObjectsCount(sortedObjectsCount);
+        });
     }, []);
 
     useEffect(() => {
-        okn.getZonesCount().then(setAreaCount);
+        okn.getZonesCount().then((areaCountResult: [OknAreaType, number][]) => {
+            const sortedObjectsCount = areaCountResult.sort((a, b) => b[1] - a[1]) as [
+                OknAreaType,
+                number,
+            ][];
+
+            setAreaCount(sortedObjectsCount);
+        });
     }, []);
 
     const onAreaChange = useCallback(
@@ -101,46 +114,49 @@ export function OknFilter() {
         });
     }, [dispatch, objectsState]);
 
-    return (
+    return objectsCount && areaCount ? (
         <div>
-            {OBJECTS_CONFIG.map(({ color, label }, i) => (
-                <>
-                    <Checkbox
-                        id={`okn-${i}`}
-                        checked={objectsState[label]}
-                        color={color}
-                        onClick={onObjectsChange(label)}
-                    >
-                        {label}
-                        <span className={styles.OknFilter__objectsCount}>
-                            {objectsCount?.[label]}
-                        </span>
-                    </Checkbox>
-                    <div className={styles.OknFilter__checkboxContent} />
-                </>
-            ))}
-            <Section>
-                {AREA_CONFIG.map(({ color, label, description }, i) => (
+            {objectsCount
+                && objectsCount.map(([type, count], i) => (
                     <>
                         <Checkbox
-                            id={`okn-zones-${i}`}
-                            checked={areaState[label]}
-                            color={color}
-                            onClick={onAreaChange(label)}
+                            id={`okn-${i}`}
+                            checked={objectsState[type]}
+                            color={OBJECTS_CONFIG[type].color}
+                            onClick={onObjectsChange(type)}
                         >
-                            {label}
-                            <span className={styles.OknFilter__objectsCount}>
-                                {areaCount?.[label]}
-                            </span>
-                            <br />
-                            <small className={styles.OknFilter__checkboxDescription}>
-                                {description}
-                            </small>
+                            {type}
+                            <span className={styles.OknFilter__objectsCount}>{count}</span>
                         </Checkbox>
                         <div className={styles.OknFilter__checkboxContent} />
                     </>
                 ))}
+            <Section>
+                {areaCount
+                    && areaCount.map(([type, count], i) => (
+                        <>
+                            <Checkbox
+                                id={`okn-zones-${i}`}
+                                checked={areaState[type]}
+                                color={AREA_CONFIG[type].color}
+                                onClick={onAreaChange(type)}
+                            >
+                                {type}
+                                <span className={styles.OknFilter__objectsCount}>{count}</span>
+                                <br />
+                                <small className={styles.OknFilter__checkboxDescription}>
+                                    {AREA_CONFIG[type].description}
+                                </small>
+                            </Checkbox>
+                            <div className={styles.OknFilter__checkboxContent} />
+                        </>
+                    ))}
             </Section>
+        </div>
+    ) : (
+        // TODO: replace with FilterLoader component after it's merge
+        <div style={{ height: 128 }}>
+            <Loader />
         </div>
     );
 }

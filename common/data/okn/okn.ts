@@ -26,15 +26,17 @@ export const okn = {
             true,
         );
 
-        return objects.reduce((acc, object) => {
-            if (acc[object.attributes.category]) {
-                acc[object.attributes.category] += 1;
-            } else {
-                acc[object.attributes.category] = 1;
-            }
+        return Object.entries(
+            objects.reduce((acc, object) => {
+                if (acc[object.attributes.category]) {
+                    acc[object.attributes.category] += 1;
+                } else {
+                    acc[object.attributes.category] = 1;
+                }
 
-            return acc;
-        }, {});
+                return acc;
+            }, {}),
+        ) as [OknObjectSignificanceType, number][];
     },
 
     async getZonesCount() {
@@ -45,21 +47,21 @@ export const okn = {
             fields: undefined,
         });
 
-        const objectZonesCount = await getObjectsTotalCount(
+        const objectZonesCount = (await getObjectsTotalCount(
             `${STRAPI_BASE_URL}/okn-objects?${query}`,
-        );
-        const protectZonesCount = await getObjectsTotalCount(
+        )) as number;
+        const protectZonesCount = (await getObjectsTotalCount(
             `${STRAPI_BASE_URL}/okn-protect-zones??${query}`,
-        );
-        const securityZonesCount = await getObjectsTotalCount(
+        )) as number;
+        const securityZonesCount = (await getObjectsTotalCount(
             `${STRAPI_BASE_URL}/okn-security-zones??${query}`,
-        );
+        )) as number;
 
-        return {
-            [OknAreaType.ObjectZone]: objectZonesCount,
-            [OknAreaType.ProtectZone]: protectZonesCount,
-            [OknAreaType.SecurityZone]: securityZonesCount,
-        };
+        return [
+            [OknAreaType.ObjectZone, objectZonesCount],
+            [OknAreaType.ProtectZone, protectZonesCount],
+            [OknAreaType.SecurityZone, securityZonesCount],
+        ];
     },
 
     async getObjectsBySignificanceType(
