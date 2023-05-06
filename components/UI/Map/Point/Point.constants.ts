@@ -6,7 +6,7 @@ export const SIZE_BY_LETTER = {
         closed: 25,
     },
     [Sizes.M]: {
-        open: 64,
+        open: 70,
         closed: 40,
     },
 };
