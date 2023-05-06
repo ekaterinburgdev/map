@@ -3,7 +3,7 @@ import { LatLngExpression } from 'leaflet';
 
 import { MapItemType } from 'common/types/map-item';
 import { Shape } from 'components/UI/Map/Shape/Shape';
-import { Point } from 'components/UI/Map/Point';
+import { Point, Sizes } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
 import { AREA_CONFIG, OBJECTS_CONFIG } from '../Okn.constants';
@@ -13,7 +13,7 @@ import { OKNMapDataProps } from './MapData.types';
 export function OKNMapData({ id, coords, type, preview, unclickable = false }: OKNMapDataProps) {
     const { openPopup, closePopup, popupId, popupType } = useContext(MapContext);
     const isOpen = useMemo(
-        () => id === popupId && popupType === MapItemType.OKN,
+        () => id?.toString() === popupId?.toString() && popupType === MapItemType.OKN,
         [id, popupId, popupType],
     );
     const color = useMemo(() => {
@@ -34,7 +34,7 @@ export function OKNMapData({ id, coords, type, preview, unclickable = false }: O
                     positions={coords as LatLngExpression[]}
                     color={color}
                     fillOpacity={0.3}
-                    weight={3}
+                    weight={2}
                     dashed
                 />
             ) : (
@@ -46,6 +46,7 @@ export function OKNMapData({ id, coords, type, preview, unclickable = false }: O
                     position={coords as LatLngExpression}
                     preview={preview}
                     isOpen={isOpen}
+                    size={Sizes.S}
                     openPopup={!unclickable ? openPopup : undefined}
                     closePopup={closePopup}
                 />

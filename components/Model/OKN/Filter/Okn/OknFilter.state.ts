@@ -26,7 +26,7 @@ export function objectsReducer(state: ObjectsState, action: ObjectsAction) {
 }
 
 export const objectsInitalState = Object.values(OknObjectSignificanceType).reduce((acc, type) => {
-    acc[type] = false;
+    acc[type] = true;
 
     return acc;
 }, {} as ObjectsState);

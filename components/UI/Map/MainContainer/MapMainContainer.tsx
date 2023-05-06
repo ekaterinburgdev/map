@@ -72,6 +72,7 @@ function MapMainContainer() {
                     coords: attributes.geometry.coordinates,
                     key: `map-data:${activeMapItem}-protect-zone-${id}`,
                     type: OknAreaType.ProtectZone,
+                    unclickable: true,
                 }));
 
                 const securityZonesProps = securityZones.map(({ id, attributes }) => ({
@@ -79,6 +80,7 @@ function MapMainContainer() {
                     coords: attributes.geometry.coordinates,
                     key: `map-data:${activeMapItem}-security-zone-${id}`,
                     type: OknAreaType.SecurityZone,
+                    unclickable: true,
                 }));
 
                 return (

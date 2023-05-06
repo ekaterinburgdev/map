@@ -1,4 +1,4 @@
-import React, { useMemo, memo } from 'react';
+import React, { useMemo, memo, useCallback } from 'react';
 import { Marker as LeafletMarker } from 'react-leaflet';
 import L from 'leaflet';
 import classNames from 'classnames';
@@ -19,13 +19,13 @@ function PointComponent({
     type,
     preview,
 }: PointProps) {
-    const onClick = () => {
+    const onClick = useCallback(() => {
         if (isOpen) {
             closePopup();
         } else {
             openPopup(id, type);
         }
-    };
+    }, [id, type, closePopup, openPopup, isOpen]);
 
     const sizeNumber = useMemo(
         () => (isOpen ? SIZE_BY_LETTER[size].open : SIZE_BY_LETTER[size].closed),
@@ -42,6 +42,7 @@ function PointComponent({
             [styles.point_open]: isOpen,
             [styles.point_size_s]: size === Sizes.S,
             [styles.point_size_m]: size === Sizes.M,
+            [styles.point_noPreview]: !preview,
         });
 
         if (preview) {
@@ -53,7 +54,9 @@ function PointComponent({
             />`;
         }
 
-        return `<div class="${className}" style="${style}"></div>`;
+        const noPreviewStyle = `background-color:${color};`;
+
+        return `<div class="${className}" style="${noPreviewStyle}"></div>`;
     }, [isOpen, size, color, sizeNumber, preview]);
 
     const icon = new L.DivIcon({
