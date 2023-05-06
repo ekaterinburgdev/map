@@ -21,13 +21,13 @@ export const dtp = {
         const query = qs.stringify({
             filters: {
                 datetime: {
-                    [FilterOperator.GreaterThanOrEqual]: years.from,
-                    [FilterOperator.LessThanOrEqual]: years.to,
+                    [FilterOperator['>=']]: years.from,
+                    [FilterOperator['<=']]: years.to,
                 },
                 ...(severity && severity.length
                     ? {
                         severity: {
-                            [FilterOperator.Equal]: severity,
+                            [FilterOperator['=']]: severity,
                         },
                     }
                     : {}),

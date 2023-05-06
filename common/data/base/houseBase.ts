@@ -14,8 +14,8 @@ export const houseBase = {
         const query = qs.stringify({
             filters: {
                 [filterName]: {
-                    [FilterOperator.GreaterThanOrEqual]: from,
-                    [FilterOperator.LessThanOrEqual]: to,
+                    [FilterOperator['>=']]: from,
+                    [FilterOperator['<=']]: to,
                 },
             },
             populate: 'borders',
@@ -35,16 +35,14 @@ export const houseBase = {
         const requests: Promise<number>[] = [];
 
         histogramData.forEach(({ from, to }, idx) => {
-            const toFilter = idx === histogramData.length - 1
-                ? FilterOperator.LessThanOrEqual
-                : FilterOperator.LessThan;
+            const toFilter = idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
 
             const url = `${STRAPI_BASE_URL}/house`;
 
             const query = qs.stringify({
                 filters: {
                     [filterName]: {
-                        [FilterOperator.GreaterThanOrEqual]: from,
+                        [FilterOperator['>=']]: from,
                         [toFilter]: to,
                     },
                 },

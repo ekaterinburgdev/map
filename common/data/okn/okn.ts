@@ -29,7 +29,7 @@ export const okn = {
         const query = qs.stringify({
             filters: {
                 category: {
-                    [FilterOperator.Equal]: types,
+                    [FilterOperator['=']]: types,
                 },
             },
             fields: 'category',
