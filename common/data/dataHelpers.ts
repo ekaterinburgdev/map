@@ -38,7 +38,7 @@ export async function getObjectsTotalCount(url: string) {
     return (await fetchAPI(reqUrl)).meta.pagination.total;
 }
 
-export function parseJsonWithSingleQuotes(json: string) {
+export function parseJsonWithSingleQuotes(json: string): object | string {
     if (!json) {
         return json;
     }

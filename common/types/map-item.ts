@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export type MapItemImageSize = {
     width: number;
     height: number;

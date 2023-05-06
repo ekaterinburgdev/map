@@ -19,12 +19,13 @@ export interface OknAttributes {
     date: string;
     type: string;
     category: OknObjectSignificanceType;
-    img?: { url: string; title: string };
+    img?: { url: string; title: string; preview?: string };
     document: {
-        archive:
-        { id: number; url: string };
-        date: string; name: string;
-        number: string }[];
+        archive: { id: number; url: string };
+        date: string;
+        name: string;
+        number: string;
+    }[];
     isExist?: string;
     comment?: string;
     CoordinatesHash: string;

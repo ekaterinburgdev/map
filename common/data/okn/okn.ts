@@ -7,7 +7,6 @@ import {
     STRAPI_BASE_URL,
 } from '../dataHelpers';
 import { getById } from '../base/getById';
-import { Area } from '../base/objectsBase';
 import { FilterOperator } from '../filterOperator';
 import { OknAreaType, OknObjectSignificanceType } from './oknConstants';
 import { OknObject, OknObjectWithGeometry } from './oknObject';
@@ -32,16 +31,19 @@ export const okn = {
                     [FilterOperator['=']]: types,
                 },
             },
-            fields: 'category',
+            fields: ['category'],
             populate: 'geometry',
         });
 
-        const result = await parallelRequests(`${url}?${query}`, (x: OknObjectWithGeometry) => x);
+        const result = await parallelRequests(
+            `${url}?${query}`,
+            (object: OknObjectWithGeometry) => object,
+        );
 
-        return result;
+        return result.filter((object) => Boolean(object.attributes.geometry?.coordinates?.length));
     },
 
-    async getAreaByType(type: OknAreaType): Promise<Area | undefined> {
+    async getAreaByType(type: OknAreaType): Promise<OknObjectWithGeometry[] | undefined> {
         const totalCount = await getObjectsTotalCount(`${STRAPI_BASE_URL}/okn-objects`);
         const query = {
             populate: ['geometry', 'data', 'borders'],
@@ -55,18 +57,25 @@ export const okn = {
             query.fields = 'name';
 
             return (await fetchAPI(`${STRAPI_BASE_URL}/okn-objects?${qs.stringify(query)}`)).data
-                .map((x) => x.attributes?.borders?.coordinates)
-                .filter(Boolean);
+                .filter((x) => Boolean(x?.attributes?.borders?.coordinates?.length))
+                .map((x) => ({
+                    id: x.id,
+                    attributes: {
+                        geometry: {
+                            coordinates: x.attributes.borders.coordinates,
+                        },
+                    },
+                }));
         }
         if (type === OknAreaType.ProtectZone) {
             return (
                 await fetchAPI(`${STRAPI_BASE_URL}/okn-protect-zones?${qs.stringify(query)}`)
-            ).data.map((x) => x.attributes.geometry.coordinates);
+            ).data.filter((x) => Boolean(x?.attributes?.geometry?.coordinates?.length));
         }
         if (type === OknAreaType.SecurityZone) {
             return (
                 await fetchAPI(`${STRAPI_BASE_URL}/okn-security-zones?${qs.stringify(query)}`)
-            ).data.map((x) => x.attributes.geometry.coordinates);
+            ).data.filter((x) => Boolean(x?.attributes?.geometry?.coordinates?.length));
         }
         throw new Error(`Unknown okn type: ${type}`);
     },

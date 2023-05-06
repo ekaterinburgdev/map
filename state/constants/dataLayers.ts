@@ -1,3 +1,4 @@
+import { OknAreaType } from 'common/data/okn/oknConstants';
 import { MapItemType } from 'common/types/map-item';
 import { State } from 'common/types/state';
 import { FilterType } from 'components/UI/Filters/Filters.types';
@@ -11,13 +12,20 @@ const filterTypeMapItemTypeMap: Record<FilterType, MapItemType> = {
     [FilterType.OKN]: MapItemType.OKN,
 };
 
-export const initialObjectsState = Object.values(FilterType).reduce((acc, type) => {
-    const mapItemType = filterTypeMapItemTypeMap[type];
+export const initialObjectsState = Object.values(FilterType).reduce(
+    (acc, type) => {
+        const mapItemType = filterTypeMapItemTypeMap[type];
 
-    acc[type] = { data: [], mapItemType };
+        acc[type] = { data: [], mapItemType };
 
-    return acc;
-}, {}) as State['dataLayer']['objects'];
+        return acc;
+    },
+    {
+        [OknAreaType.ObjectZone]: { data: [], mapItemType: MapItemType.OKN },
+        [OknAreaType.SecurityZone]: { data: [], mapItemType: MapItemType.OKN },
+        [OknAreaType.ProtectZone]: { data: [], mapItemType: MapItemType.OKN },
+    },
+) as State['dataLayer']['objects'];
 
 export const initialState: State['dataLayer'] = {
     objects: initialObjectsState,

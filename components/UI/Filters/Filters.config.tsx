@@ -3,7 +3,7 @@ import React from 'react';
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
 
-import { OknFilter } from 'components/Model/Houses/Filter/Okn/OknFilter';
+import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
 import { FilterConfig, FilterType } from './Filters.types';
 
 function UnderConstructionNotice() {
@@ -52,13 +52,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     },
     [FilterType.OKN]: {
         title: 'Объекты культурного наследия',
-        component: () => (
-            <>
-                <UnderConstructionNotice />
-                <br />
-                <OknFilter />
-            </>
-        ),
+        component: OknFilter,
     },
     [FilterType.DesignCode]: {
         title: '«Дизайн-код Екатеринбурга»',

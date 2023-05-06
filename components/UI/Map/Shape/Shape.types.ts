@@ -5,7 +5,7 @@ export type ShapeProps = {
     color: string;
     fillOpacity?: number;
     positions: PolygonProps['positions'];
-    openModal: (id: string, type: MapItemType) => void;
+    openModal?: (id: string, type: MapItemType) => void;
     id: string;
     type: MapItemType;
     weight?: number;

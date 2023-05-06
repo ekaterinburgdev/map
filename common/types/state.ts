@@ -1,6 +1,7 @@
 import { HouseClient } from 'common/data/base/houseBase';
 import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 import { DTPObject } from 'common/data/dtp/dtp';
+import { OknAreaType } from 'common/data/okn/oknConstants';
 import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 
@@ -13,6 +14,7 @@ export interface DataLayerBaseState<T> {
 
 export type HousesState = DataLayerBaseState<HouseClient>;
 export type OKNState = DataLayerBaseState<OknObjectWithGeometry>;
+export type OKNAreaState = DataLayerBaseState<OknObjectWithGeometry>;
 export type DTPState = DataLayerBaseState<DTPObject>;
 export type DesignCodeState = DataLayerBaseState<DesignCodeObject>;
 export type LinesState = DataLayerBaseState<any>;
@@ -26,18 +28,21 @@ export interface State {
             [FilterType.DTP]: DTPState;
             [FilterType.DesignCode]: DesignCodeState;
             [FilterType.Line]: LinesState;
+            [OknAreaType.ObjectZone]: OKNAreaState;
+            [OknAreaType.ProtectZone]: OKNAreaState;
+            [OknAreaType.SecurityZone]: OKNAreaState;
         };
-        activeFilter: FilterType;
+        activeFilter: FilterType | OknAreaType;
     };
 }
 
 export type DataTypes = State['dataLayer']['objects'][keyof State['dataLayer']['objects']]['data'];
 
 export interface SetDataPayload {
-    type: FilterType;
+    type: keyof State['dataLayer']['objects'];
     data: DataTypes;
 }
 
 export interface ToggleDataPayload {
-    type: FilterType;
+    type: FilterType | OknAreaType;
 }
