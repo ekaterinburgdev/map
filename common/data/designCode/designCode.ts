@@ -4,10 +4,9 @@ import { fetchAPI } from '../dataHelpers';
 
 import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
 
-let filtersNames;
 let inputData;
 let objectsByType: Record<DesignCodeItemType, DesignCodeObject[]> | {} = {};
-let objectsCountByType: Record<DesignCodeItemType, number> | {} = {};
+let objectsCountByType: [DesignCodeItemType, number][] = [];
 const objectById = new Map<string, DesignCodeObject>();
 
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
@@ -16,33 +15,20 @@ async function getAndSaveData() {
     inputData = await fetchAPI(`${DESIGN_MAP_HOST}/api/map`);
 
     objectsByType = groupBy(inputData, 'type') as Record<DesignCodeItemType, DesignCodeObject[]>;
-    objectsCountByType = Object.entries(objectsByType).reduce((acc, [type, objects]) => {
-        acc[type] = objects.length;
+    objectsCountByType = Object.entries(
+        inputData.reduce((acc, currentObject) => {
+            if (acc[currentObject.type]) {
+                acc[currentObject.type] += 1;
+            } else {
+                acc[currentObject.type] = 1;
+            }
 
-        return acc;
-    }, {});
+            return acc;
+        }, {}),
+    ) as [DesignCodeItemType, number][];
 }
 
 export const designCode = {
-    async getFilters(): Promise<DesignCodeItemType[]> {
-        if (filtersNames) return filtersNames;
-
-        if (!inputData) await getAndSaveData();
-
-        const set = new Set<DesignCodeItemType>();
-
-        inputData.forEach((e: DesignCodeObject) => {
-            if (!e.type) {
-                return;
-            }
-
-            set.add(e.type);
-        });
-
-        filtersNames = Array.from(set);
-        return filtersNames;
-    },
-
     async getObjectsCount() {
         if (!inputData) {
             await getAndSaveData();

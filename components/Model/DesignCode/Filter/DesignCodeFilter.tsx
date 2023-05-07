@@ -21,12 +21,7 @@ export function DesignCodeFilter() {
         designCodeReducer,
         designCondeInitalState,
     );
-    const [filterItems, setFilterItems] = useState<DesignCodeItemType[]>(null);
-    const [objectsCount, setObjectsCount] = useState<Record<DesignCodeItemType, number>>(null);
-
-    useEffect(() => {
-        designCode.getFilters().then(setFilterItems);
-    }, []);
+    const [objectsCount, setObjectsCount] = useState<[DesignCodeItemType, number][]>(null);
 
     const onChange = useCallback(
         (designCodeItemType: DesignCodeItemType) => async () => {
@@ -69,23 +64,25 @@ export function DesignCodeFilter() {
     }, [dispatch, designCodeFilterState]);
 
     useEffect(() => {
-        designCode.getObjectsCount().then(setObjectsCount);
+        designCode.getObjectsCount().then((objectsCountResult) => {
+            const sortedObjectsCount = objectsCountResult.sort((a, b) => b[1] - a[1]);
+
+            setObjectsCount(sortedObjectsCount);
+        });
     }, []);
 
-    return filterItems ? (
+    return objectsCount ? (
         <div>
-            {filterItems.map((filterItem, i) => (
+            {objectsCount.map(([type, count], i) => (
                 <>
                     <Checkbox
                         id={`design-code-${i}`}
-                        checked={designCodeFilterState[filterItem]}
-                        color={DESIGN_CODE_ITEMS_COLORS[filterItem]}
-                        onClick={onChange(filterItem)}
+                        checked={designCodeFilterState[type]}
+                        color={DESIGN_CODE_ITEMS_COLORS[type]}
+                        onClick={onChange(type)}
                     >
-                        {filterItem}
-                        <span className={styles.DesignCodeFilter__objectsCount}>
-                            {objectsCount?.[filterItem]}
-                        </span>
+                        {type}
+                        <span className={styles.DesignCodeFilter__objectsCount}>{count}</span>
                     </Checkbox>
                     <div className={styles.DesignCodeFilter__checkboxContent} />
                 </>
