@@ -78,7 +78,9 @@ function PointComponent({
             zIndexOffset={isOpen ? 9999 : undefined}
             icon={icon}
             position={position}
-            eventHandlers={{ click: onClick }}
+            eventHandlers={{
+                click: openPopup && closePopup ? onClick : undefined,
+            }}
         />
     );
 }
