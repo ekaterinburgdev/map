@@ -12,7 +12,7 @@ export function linesReducer(state: LinesState, action: LinesAction) {
 }
 
 export const linesInitalState = Object.values(LineType).reduce((acc, type) => {
-    acc[type] = false;
+    acc[type] = true;
 
     return acc;
 }, {} as LinesState);
