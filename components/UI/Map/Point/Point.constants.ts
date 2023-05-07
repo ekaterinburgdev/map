@@ -3,7 +3,7 @@ import { Sizes } from './Point.types';
 export const SIZE_BY_LETTER = {
     [Sizes.S]: {
         open: 30,
-        closed: 25,
+        closed: 20,
     },
     [Sizes.M]: {
         open: 70,
