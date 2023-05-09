@@ -7,6 +7,7 @@ import 'leaflet/dist/leaflet.css';
 
 import { MODEL_CONFIG } from 'components/Model/config';
 
+import { OknAreaType } from 'common/data/okn/oknConstants';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { checkIsMobile } from 'common/isMobile';
 import { MapItemType } from 'common/types/map-item';
@@ -48,18 +49,53 @@ function MapMainContainer() {
             case MapItemType.OKN: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as OknObjectWithGeometry[];
+                const objectZones = dataObjects[OknAreaType.ObjectZone].data;
+                const protectZones = dataObjects[OknAreaType.ProtectZone].data;
+                const securityZones = dataObjects[OknAreaType.SecurityZone].data;
 
-                return objects.map(({ id, attributes }) => (
+                const objectsProps = objects.map(({ id, attributes }) => ({
+                    id,
+                    coords: attributes.geometry.coordinates,
+                    key: `map-data:${activeMapItem}-object-${id}`,
+                    type: attributes.category,
+                    name: attributes.name,
+                }));
+
+                const objectZonesProps = objectZones.map(({ id, attributes }) => ({
+                    id,
+                    coords: attributes.geometry.coordinates,
+                    key: `map-data:${activeMapItem}-object-zone-${id}`,
+                    type: OknAreaType.ObjectZone,
+                }));
+
+                const protectZonesProps = protectZones.map(({ id, attributes }) => ({
+                    id,
+                    coords: attributes.geometry.coordinates,
+                    key: `map-data:${activeMapItem}-protect-zone-${id}`,
+                    type: OknAreaType.ProtectZone,
+                    unclickable: true,
+                }));
+
+                const securityZonesProps = securityZones.map(({ id, attributes }) => ({
+                    id,
+                    coords: attributes.geometry.coordinates,
+                    key: `map-data:${activeMapItem}-security-zone-${id}`,
+                    type: OknAreaType.SecurityZone,
+                    unclickable: true,
+                }));
+
+                return (
                     <>
-                        {attributes.geometry.coordinates && (
-                            <MapData
-                                id={id}
-                                coords={attributes.geometry.coordinates}
-                                key={`map-data:${activeMapItem}-${id}`}
-                            />
-                        )}
+                        {[
+                            ...objectsProps,
+                            ...objectZonesProps,
+                            ...protectZonesProps,
+                            ...securityZonesProps,
+                        ].map((props) => (
+                            <MapData {...props} />
+                        ))}
                     </>
-                ));
+                );
             }
             case MapItemType.DTP: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;

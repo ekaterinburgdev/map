@@ -13,11 +13,20 @@ export function Shape({
     weight = 0,
     dashed,
 }: ShapeProps) {
-    const onClickHandler = useCallback(() => openModal(id, type), [id, type, openModal]);
+    const onClickHandler = useCallback(() => {
+        if (!openModal) {
+            return null;
+        }
+
+        return openModal(id, type);
+    }, [id, type, openModal]);
     const eventHandlers = useMemo(
-        () => ({
-            click: onClickHandler,
-        }),
+        () =>
+            (onClickHandler
+                ? {
+                    click: onClickHandler,
+                }
+                : {}),
         [onClickHandler],
     );
 

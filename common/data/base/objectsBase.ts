@@ -10,15 +10,4 @@ export interface ImageParameters {
     src: string;
 }
 
-export type Point = [
-    number,
-    number,
-];
-
-export interface Zone {
-    polyline: Point[];
-}
-
-export interface Area {
-    zones: Zone[];
-}
+export type Point = [number, number];

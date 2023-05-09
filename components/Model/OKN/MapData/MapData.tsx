@@ -2,33 +2,44 @@ import React, { useContext, useMemo } from 'react';
 import { LatLngExpression } from 'leaflet';
 
 import { MapItemType } from 'common/types/map-item';
-import { MARKER_COLOR } from 'common/constants/colors';
 import { Shape } from 'components/UI/Map/Shape/Shape';
 import { Point } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
+import { AREA_CONFIG, OBJECTS_CONFIG } from '../Okn.constants';
+
 import { OKNMapDataProps } from './MapData.types';
 
-export function OKNMapData({ id, coords }: OKNMapDataProps) {
-    const {
-        openPopup, closePopup, popupId, popupType,
-    } = useContext(MapContext);
+export function OKNMapData({
+    id,
+    coords,
+    type,
+    preview,
+    name,
+    unclickable = false,
+}: OKNMapDataProps) {
+    const { openPopup, closePopup, popupId, popupType } = useContext(MapContext);
     const isOpen = useMemo(
-        () => id === popupId && popupType === MapItemType.OKN,
+        () => id?.toString() === popupId?.toString() && popupType === MapItemType.OKN,
         [id, popupId, popupType],
     );
+    const color = useMemo(() => {
+        const config = AREA_CONFIG[type] || OBJECTS_CONFIG[type];
+
+        return config.color;
+    }, [type]);
 
     return (
         <>
             {Array.isArray(coords[0]) ? (
                 <Shape
-                    openModal={openPopup}
+                    openModal={!unclickable ? openPopup : undefined}
                     id={id}
                     type={MapItemType.OKN}
                     positions={coords as LatLngExpression[]}
-                    color={MARKER_COLOR[MapItemType.OKN]}
+                    color={color}
                     fillOpacity={0.3}
-                    weight={3}
+                    weight={2}
                     dashed
                 />
             ) : (
@@ -36,11 +47,12 @@ export function OKNMapData({ id, coords }: OKNMapDataProps) {
                     key={MapItemType.OKN + id}
                     id={id}
                     type={MapItemType.OKN}
-                    color={MARKER_COLOR[MapItemType.OKN]}
+                    color={color}
                     position={coords as LatLngExpression}
-                    preview={null}
+                    preview={preview}
                     isOpen={isOpen}
-                    openPopup={openPopup}
+                    name={name}
+                    openPopup={!unclickable ? openPopup : undefined}
                     closePopup={closePopup}
                 />
             )}

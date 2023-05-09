@@ -1,4 +1,6 @@
 import React, { CSSProperties, ReactNode } from 'react';
+import classNames from 'classnames';
+
 import styles from './Checkbox.module.css';
 
 export interface CheckboxProps {
@@ -7,12 +9,13 @@ export interface CheckboxProps {
     color: string;
     children: ReactNode;
     onClick: () => void;
+    mix?: string;
 }
 
-export function Checkbox({ id, checked, color, children, onClick }: CheckboxProps) {
+export function Checkbox({ id, checked, color, children, onClick, mix }: CheckboxProps) {
     return (
         <label
-            className={styles.checkbox}
+            className={classNames(styles.checkbox, mix)}
             htmlFor={id}
             style={{ '--checkbox-color': color } as CSSProperties}
         >
@@ -25,9 +28,7 @@ export function Checkbox({ id, checked, color, children, onClick }: CheckboxProp
             />
             <span className={styles.checkbox__box} />
 
-            <div className={styles.checkbox__label}>
-                {children}
-            </div>
+            <div className={styles.checkbox__label}>{children}</div>
         </label>
     );
 }
