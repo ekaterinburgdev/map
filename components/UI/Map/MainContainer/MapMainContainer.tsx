@@ -11,7 +11,7 @@ import { OknAreaType } from 'common/data/okn/oknConstants';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { checkIsMobile } from 'common/isMobile';
 import { MapItemType } from 'common/types/map-item';
-import { State } from 'common/types/state';
+import { LinesData, State } from 'common/types/state';
 
 import { HouseClient } from 'common/data/base/houseBase';
 import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
@@ -121,6 +121,48 @@ function MapMainContainer() {
                         )}
                     </React.Fragment>
                 ));
+            }
+            case MapItemType.Lines: {
+                const MapData = MODEL_CONFIG[activeMapItem].mapData;
+                const linesData = dataObjects[activeFilter].data as LinesData;
+                const { lines, points } = linesData;
+
+                const linesMapData = lines.map(({ coords, type, id }) => (
+                    <React.Fragment key={`map-data:${activeMapItem}-line-${type}-${id}`}>
+                        {coords && (
+                            <MapData id={id} positions={coords} lineType={type} figureType="line" />
+                        )}
+                    </React.Fragment>
+                ));
+                const pointsMapData = points.map(({ type, data }) =>
+                    data.map(
+                        ({
+                            id,
+                            attributes: {
+                                geometry: { coordinates },
+                                image,
+                            },
+                        }) => (
+                            <React.Fragment key={`map-data:${activeMapItem}-${type}-point-${id}`}>
+                                {coordinates && (
+                                    <MapData
+                                        id={id}
+                                        positions={coordinates}
+                                        lineType={type}
+                                        figureType="point"
+                                        preview={image}
+                                    />
+                                )}
+                            </React.Fragment>
+                        ),
+                    ));
+
+                return (
+                    <>
+                        {linesMapData}
+                        {pointsMapData}
+                    </>
+                );
             }
             default:
                 return null;

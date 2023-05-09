@@ -16,7 +16,11 @@ export const initialObjectsState = Object.values(FilterType).reduce(
     (acc, type) => {
         const mapItemType = filterTypeMapItemTypeMap[type];
 
-        acc[type] = { data: [], mapItemType };
+        if (type === FilterType.Line) {
+            acc[type] = { data: { lines: [], points: [] }, mapItemType };
+        } else {
+            acc[type] = { data: [], mapItemType };
+        }
 
         return acc;
     },

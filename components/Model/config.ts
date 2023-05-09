@@ -14,7 +14,7 @@ import { DTPMapData } from './DTP/MapData/MapData';
 import { HousesCardContent } from './Houses/CardContent/CardContent';
 import { HousesMapData } from './Houses/MapData/MapData';
 
-import { LinesMapData } from './Lines/MapData';
+import { LinesMapData } from './Lines/MapData/MapData';
 
 import { OKNCardContent } from './OKN/CardContent';
 import { OKNMapData } from './OKN/MapData/MapData';

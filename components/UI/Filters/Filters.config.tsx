@@ -3,8 +3,9 @@ import React from 'react';
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
 import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
-
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
+import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
+
 import { FilterConfig, FilterType } from './Filters.types';
 
 function UnderConstructionNotice() {
@@ -65,6 +66,6 @@ export const FILTERS_CONFIG: FilterConfig = {
     },
     [FilterType.Line]: {
         title: 'Цветные линии Екатеринбурга',
-        component: UnderConstructionNotice,
+        component: LinesFilter,
     },
 };
