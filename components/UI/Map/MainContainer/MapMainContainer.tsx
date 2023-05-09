@@ -128,17 +128,11 @@ function MapMainContainer() {
                 const { lines, points } = linesData;
 
                 const linesMapData = lines.map(({ coords, type, id }) => (
-                    <>
+                    <React.Fragment key={`map-data:${activeMapItem}-line-${type}-${id}`}>
                         {coords && (
-                            <MapData
-                                id={id}
-                                positions={coords}
-                                lineType={type}
-                                figureType="line"
-                                key={`map-data:${activeMapItem}-${id}`}
-                            />
+                            <MapData id={id} positions={coords} lineType={type} figureType="line" />
                         )}
-                    </>
+                    </React.Fragment>
                 ));
                 const pointsMapData = points.map(({ type, data }) =>
                     data.map(
@@ -149,7 +143,7 @@ function MapMainContainer() {
                                 image,
                             },
                         }) => (
-                            <>
+                            <React.Fragment key={`map-data:${activeMapItem}-${type}-point-${id}`}>
                                 {coordinates && (
                                     <MapData
                                         id={id}
@@ -157,10 +151,9 @@ function MapMainContainer() {
                                         lineType={type}
                                         figureType="point"
                                         preview={image}
-                                        key={`map-data:${activeMapItem}-${id}`}
                                     />
                                 )}
-                            </>
+                            </React.Fragment>
                         ),
                     ));
 

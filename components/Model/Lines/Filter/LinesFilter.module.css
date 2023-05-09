@@ -3,7 +3,7 @@
     color: #9baac3;
 }
 
-.LinesFilter__checkboxContent {
+.LinesFilter__checkboxContent:not(:last-of-type) {
     margin-bottom: 14px;
 }
 

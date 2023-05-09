@@ -7,7 +7,7 @@ export const LINES_CONFIG = {
     },
     [LineType.BlueLine]: {
         color: '#189eda',
-        description: 'Маршрут по\u00A0местам, связанными с\u00A0царской семьей',
+        description: 'Маршрут по\u00A0местам, связанным с\u00A0царской семьей',
     },
     [LineType.PurpleLine]: {
         color: '#9747ff',

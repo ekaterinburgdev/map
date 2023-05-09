@@ -8,7 +8,7 @@ import { lines } from 'common/data/lines/lines';
 import { LineType } from 'common/data/lines/lineType';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-import { Loader } from 'components/UI/Loader/Loader';
+import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 
 import { LINES_CONFIG } from '../Lines.constants';
@@ -26,7 +26,7 @@ export function LinesFilter() {
 
     useEffect(() => {
         lines.getFilters().then((linesFilters: LinesCountEntries) => {
-            const sortedLinesCount = linesFilters.sort((a, b) => b[1] - a[1]) as LinesCountEntries;
+            const sortedLinesCount = linesFilters.sort(([, countA], [, countB]) => countB - countA);
 
             setLinesCount(sortedLinesCount);
         });
@@ -78,28 +78,24 @@ export function LinesFilter() {
     return linesCount ? (
         <>
             {linesCount.map(([type, count], i) => (
-                <>
-                    <Checkbox
-                        id={`${type}-line-${i}`}
-                        checked={linesState[type]}
-                        color={LINES_CONFIG[type].color}
-                        onClick={onLinesChange(type)}
-                    >
-                        {type}
-                        <span className={styles.LinesFilter__objectsCount}>{count}</span>
-                        <br />
-                        <small className={styles.LinesFilter__description}>
-                            {LINES_CONFIG[type].description}
-                        </small>
-                    </Checkbox>
-                    <div className={styles.LinesFilter__checkboxContent} />
-                </>
+                <Checkbox
+                    id={`${type}-line-${i}`}
+                    checked={linesState[type]}
+                    color={LINES_CONFIG[type].color}
+                    onClick={onLinesChange(type)}
+                    mix={styles.LinesFilter__checkboxContent}
+                    key={`filter-${type}-line`}
+                >
+                    {type}
+                    <span className={styles.LinesFilter__objectsCount}>{count}</span>
+                    <br />
+                    <small className={styles.LinesFilter__description}>
+                        {LINES_CONFIG[type].description}
+                    </small>
+                </Checkbox>
             ))}
         </>
     ) : (
-        // TODO: replace with FilterLoader component after it's merge
-        <div style={{ height: 128 }}>
-            <Loader />
-        </div>
+        <FilterLoader />
     );
 }

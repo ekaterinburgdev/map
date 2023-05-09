@@ -21,7 +21,7 @@ export function LinesMapData({ id, lineType, figureType, positions, preview }: L
                         id={id.toString()}
                         position={position}
                         color={color}
-                        key={id}
+                        key={`${lineType}-line-point-${position.toString()}`}
                         preview={preview}
                         size={Sizes.S}
                         type={MapItemType.Lines}
@@ -32,7 +32,7 @@ export function LinesMapData({ id, lineType, figureType, positions, preview }: L
                     id={id.toString()}
                     position={positions as [number, number]}
                     color={color}
-                    key={id}
+                    key={`${lineType}-line-point-${positions.toString()}`}
                     preview={preview}
                     size={Sizes.S}
                     type={MapItemType.Lines}
@@ -40,6 +40,10 @@ export function LinesMapData({ id, lineType, figureType, positions, preview }: L
             )}
         </>
     ) : (
-        <Line positions={positions} color={color} key={id} />
+        <Line
+            positions={positions}
+            color={color}
+            key={`${lineType}-line-${positions.toString()}`}
+        />
     );
 }
