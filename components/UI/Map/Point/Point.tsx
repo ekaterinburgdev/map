@@ -18,6 +18,7 @@ function PointComponent({
     id,
     type,
     preview,
+    name,
 }: PointProps) {
     const onClick = useCallback(() => {
         if (isOpen) {
@@ -53,7 +54,7 @@ function PointComponent({
                 src="${preview}"
                 class="${className}"
                 style="${style}"
-                alt="Превью объекта"
+                alt="${name || 'Превью объекта'}"
             />`;
         }
 
@@ -64,7 +65,7 @@ function PointComponent({
         `;
 
         return `<div class="${className}" style="${noPreviewStyle}"></div>`;
-    }, [isOpen, size, color, sizeNumber, preview]);
+    }, [isOpen, size, color, sizeNumber, preview, name]);
 
     const icon = new L.DivIcon({
         popupAnchor: [0, -5],

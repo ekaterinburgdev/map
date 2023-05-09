@@ -58,6 +58,7 @@ function MapMainContainer() {
                     coords: attributes.geometry.coordinates,
                     key: `map-data:${activeMapItem}-object-${id}`,
                     type: attributes.category,
+                    name: attributes.name,
                 }));
 
                 const objectZonesProps = objectZones.map(({ id, attributes }) => ({

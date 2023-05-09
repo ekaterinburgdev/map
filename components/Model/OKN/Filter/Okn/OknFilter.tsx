@@ -115,44 +115,40 @@ export function OknFilter() {
     }, [dispatch, objectsState]);
 
     return objectsCount && areaCount ? (
-        <div>
+        <>
             {objectsCount
                 && objectsCount.map(([type, count], i) => (
-                    <>
-                        <Checkbox
-                            id={`okn-${i}`}
-                            checked={objectsState[type]}
-                            color={OBJECTS_CONFIG[type].color}
-                            onClick={onObjectsChange(type)}
-                        >
-                            {type}
-                            <span className={styles.OknFilter__objectsCount}>{count}</span>
-                        </Checkbox>
-                        <div className={styles.OknFilter__checkboxContent} />
-                    </>
+                    <Checkbox
+                        id={`okn-${i}`}
+                        checked={objectsState[type]}
+                        color={OBJECTS_CONFIG[type].color}
+                        onClick={onObjectsChange(type)}
+                        mix={styles.OknFilter__checkboxContent}
+                    >
+                        {type}
+                        <span className={styles.OknFilter__objectsCount}>{count}</span>
+                    </Checkbox>
                 ))}
             <Section>
                 {areaCount
                     && areaCount.map(([type, count], i) => (
-                        <>
-                            <Checkbox
-                                id={`okn-zones-${i}`}
-                                checked={areaState[type]}
-                                color={AREA_CONFIG[type].color}
-                                onClick={onAreaChange(type)}
-                            >
-                                {type}
-                                <span className={styles.OknFilter__objectsCount}>{count}</span>
-                                <br />
-                                <small className={styles.OknFilter__checkboxDescription}>
-                                    {AREA_CONFIG[type].description}
-                                </small>
-                            </Checkbox>
-                            <div className={styles.OknFilter__checkboxContent} />
-                        </>
+                        <Checkbox
+                            id={`okn-zones-${i}`}
+                            checked={areaState[type]}
+                            color={AREA_CONFIG[type].color}
+                            onClick={onAreaChange(type)}
+                            mix={styles.OknFilter__checkboxContent}
+                        >
+                            {type}
+                            <span className={styles.OknFilter__objectsCount}>{count}</span>
+                            <br />
+                            <small className={styles.OknFilter__checkboxDescription}>
+                                {AREA_CONFIG[type].description}
+                            </small>
+                        </Checkbox>
                     ))}
             </Section>
-        </div>
+        </>
     ) : (
         // TODO: replace with FilterLoader component after it's merge
         <div style={{ height: 128 }}>

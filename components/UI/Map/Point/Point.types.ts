@@ -15,6 +15,7 @@ export interface PointProps {
     color?: string;
     size?: Sizes;
     isOpen?: boolean;
+    name?: string;
     openPopup?: IMapContext['openPopup'];
     closePopup?: IMapContext['closePopup'];
     id: string;

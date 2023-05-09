@@ -10,7 +10,14 @@ import { AREA_CONFIG, OBJECTS_CONFIG } from '../Okn.constants';
 
 import { OKNMapDataProps } from './MapData.types';
 
-export function OKNMapData({ id, coords, type, preview, unclickable = false }: OKNMapDataProps) {
+export function OKNMapData({
+    id,
+    coords,
+    type,
+    preview,
+    name,
+    unclickable = false,
+}: OKNMapDataProps) {
     const { openPopup, closePopup, popupId, popupType } = useContext(MapContext);
     const isOpen = useMemo(
         () => id?.toString() === popupId?.toString() && popupType === MapItemType.OKN,
@@ -44,6 +51,7 @@ export function OKNMapData({ id, coords, type, preview, unclickable = false }: O
                     position={coords as LatLngExpression}
                     preview={preview}
                     isOpen={isOpen}
+                    name={name}
                     openPopup={!unclickable ? openPopup : undefined}
                     closePopup={closePopup}
                 />

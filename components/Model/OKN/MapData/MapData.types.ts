@@ -7,5 +7,6 @@ export type OKNMapDataProps = {
     coords: LatLngExpression[] | LatLngExpression;
     unclickable?: boolean;
     type: OknAreaType | OknObjectSignificanceType;
+    name?: string;
     preview?: string;
 };

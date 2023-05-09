@@ -8,10 +8,11 @@
     transition: all .15s;
     background-color: black;
     position: relative;
-}
 
-.point:hover {
-    transform: scale(1.3);
+    &:hover {
+        transform: scale(1.3);
+    }
+    
 }
 
 .point_open {
@@ -22,25 +23,25 @@
 
 .point_size_m {
     box-shadow: 0 0 0 4px currentColor;
-}
 
-.point_size_m:hover {
-    box-shadow: 0 0 0 5px currentColor;
+    &:hover {
+        box-shadow: 0 0 0 5px currentColor;
+    }
 }
 
 .point_size_s {
     box-shadow: 0 0 0 3px currentColor;
-}
 
-.point_size_s:hover {
-    box-shadow: 0 0 0 4px currentColor;
+    &:hover {
+        box-shadow: 0 0 0 4px currentColor;
+    }
 }
 
 .point_noPreview {
     border: solid 2px #000;
     box-shadow: none;
-}
 
-.point_noPreview:hover {
-    box-shadow: none;
+    &:hover {
+        box-shadow: none;
+    }
 }

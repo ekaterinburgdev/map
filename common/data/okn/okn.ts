@@ -76,7 +76,7 @@ export const okn = {
                     [FilterOperator['=']]: types,
                 },
             },
-            fields: ['category'],
+            fields: ['category', 'name'],
             populate: !noPopulate ? 'geometry' : undefined,
         });
 
