@@ -11,7 +11,7 @@ import { DTPMapDataProps } from './MapData.types';
 export function DTPMapData({ id, coords, severityType }: DTPMapDataProps) {
     const { openPopup, closePopup, popupId, popupType } = useContext(MapContext);
     const isOpen = useMemo(
-        () => id === popupId && popupType === MapItemType.DTP,
+        () => id.toString() === popupId && popupType === MapItemType.DTP,
         [id, popupId, popupType],
     );
 

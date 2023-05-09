@@ -7,7 +7,6 @@ import { dtp, DTPFiltersParams } from 'common/data/dtp/dtp';
 import { DtpParticipantType } from 'common/data/dtp/dtpParticipantType';
 import { DtpSeverityType } from 'common/data/dtp/dtpSeverityType';
 
-import { Icon } from 'components/UI/Icons';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { FilterType } from 'components/UI/Filters/Filters.types';
@@ -125,12 +124,14 @@ export function DTPFilter() {
             return acc;
         }, []) as DtpParticipantType[];
 
-        if (severities.length) {
-            filters.severity = severities;
+        if (!severities.length || !participants.length) {
+            dispatch(setData({ type: FilterType.DTP, data: [] }));
+
+            return;
         }
-        if (participants.length) {
-            filters.participants = participants;
-        }
+
+        filters.severity = severities;
+        filters.participants = participants;
 
         dtp.getObjects(filters).then((dtps) => {
             dispatch(
@@ -176,13 +177,6 @@ export function DTPFilter() {
                                 key={`filter-${type}-participant-dtp`}
                             >
                                 <div className={styles.DTPFilter__checkboxLabel}>
-                                    {DTP_PARTICIPANT_CONFIG[type] && (
-                                        <Icon
-                                            type={DTP_PARTICIPANT_CONFIG[type].icon}
-                                            color="white"
-                                            mix={styles.DTPFilter__icon}
-                                        />
-                                    )}
                                     {DTP_PARTICIPANT_CONFIG[type]?.label || type}
                                     <span className={styles.DTPFilter__objectsCount}>{count}</span>
                                 </div>

@@ -6,7 +6,7 @@ import { MODEL_CONFIG } from 'components/Model/config';
 
 import { MapContext } from '../Map/providers/MapProvider';
 
-import styles from './Card.module.css';
+import { CardLoader } from './components/Loader/Loader';
 
 export function Card() {
     const { popupId, popupType, closePopup } = useContext(MapContext);
@@ -47,11 +47,7 @@ export function Card() {
 
     return (
         <Modal size={size} isOpen={!!popupId} close={closePopup}>
-            {loading ? (
-                <p className={styles.card__loader}>Загрузка...</p>
-            ) : (
-                <CardContent placemark={popupData} />
-            )}
+            {loading ? <CardLoader /> : <CardContent placemark={popupData} />}
         </Modal>
     );
 }
