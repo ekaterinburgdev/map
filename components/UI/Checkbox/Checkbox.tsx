@@ -23,7 +23,7 @@ export function Checkbox({ id, checked, color, children, onClick, mix }: Checkbo
                 id={id}
                 type="checkbox"
                 className={styles.checkbox__input}
-                onClick={onClick}
+                onChange={onClick}
                 checked={checked}
             />
             <span className={styles.checkbox__box} />

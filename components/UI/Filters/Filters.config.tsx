@@ -2,6 +2,7 @@ import React from 'react';
 
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
+import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
 
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
 import { FilterConfig, FilterType } from './Filters.types';
@@ -56,7 +57,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     },
     [FilterType.DesignCode]: {
         title: '«Дизайн-код Екатеринбурга»',
-        component: UnderConstructionNotice,
+        component: DesignCodeFilter,
     },
     [FilterType.DTP]: {
         title: 'Дорожно-транспортные происшествия',

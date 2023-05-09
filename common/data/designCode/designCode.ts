@@ -1,12 +1,12 @@
-/* eslint-disable no-restricted-syntax,no-continue */
 import { groupBy } from 'lodash';
 
 import { fetchAPI } from '../dataHelpers';
-import { DesignCodeObject } from './designCodeObject';
 
-let filtersNames;
+import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
+
 let inputData;
-let objectsByType: Record<string, DesignCodeObject[]> = {};
+let objectsByType: Record<DesignCodeItemType, DesignCodeObject[]> | {} = {};
+let objectsCountByType: [DesignCodeItemType, number][] = [];
 const objectById = new Map<string, DesignCodeObject>();
 
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
@@ -14,26 +14,30 @@ export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
 async function getAndSaveData() {
     inputData = await fetchAPI(`${DESIGN_MAP_HOST}/api/map`);
 
-    objectsByType = groupBy(inputData, 'type');
+    objectsByType = groupBy(inputData, 'type') as Record<DesignCodeItemType, DesignCodeObject[]>;
+    objectsCountByType = Object.entries(
+        inputData.reduce((acc, currentObject) => {
+            if (acc[currentObject.type]) {
+                acc[currentObject.type] += 1;
+            } else {
+                acc[currentObject.type] = 1;
+            }
+
+            return acc;
+        }, {}),
+    ) as [DesignCodeItemType, number][];
 }
 
 export const designCode = {
-    async getFilters(): Promise<string[]> {
-        if (filtersNames) return filtersNames;
-
-        if (!inputData) await getAndSaveData();
-
-        const set = new Set<string>();
-
-        for (const e of inputData) {
-            if (!e.type) continue;
-            set.add(e.type);
+    async getObjectsCount() {
+        if (!inputData) {
+            await getAndSaveData();
         }
-        filtersNames = Array.from(set);
-        return filtersNames;
+
+        return objectsCountByType;
     },
 
-    async getObjectsByType(types: string[]): Promise<DesignCodeObject[]> {
+    async getObjectsByType(types: DesignCodeItemType[]): Promise<DesignCodeObject[]> {
         if (!inputData) {
             await getAndSaveData();
         }
@@ -56,15 +60,8 @@ export const designCode = {
             await getAndSaveData();
         }
 
-        for (const e of inputData) {
-            if (e.id !== id) {
-                continue;
-            }
+        objectById[id] = inputData.find((e: DesignCodeObject) => e.id === id);
 
-            objectById[id] = e;
-            return e;
-        }
-
-        return null;
+        return objectById[id] || null;
     },
 };

@@ -7,7 +7,7 @@ import { OknAreaType, OknObjectSignificanceType } from 'common/data/okn/oknConst
 import { okn } from 'common/data/okn/okn';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-import { Loader } from 'components/UI/Loader/Loader';
+import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { Section } from 'components/UI/Card/components/Section/Section';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 
@@ -34,8 +34,8 @@ export function OknFilter() {
     useEffect(() => {
         okn.getObjectsCount().then((objectsCountResult: ObjectsCountEntries) => {
             const sortedObjectsCount = objectsCountResult.sort(
-                (a, b) => b[1] - a[1],
-            ) as ObjectsCountEntries;
+                ([, countA], [, countB]) => countB - countA,
+            );
 
             setObjectsCount(sortedObjectsCount);
         });
@@ -43,10 +43,9 @@ export function OknFilter() {
 
     useEffect(() => {
         okn.getZonesCount().then((areaCountResult: [OknAreaType, number][]) => {
-            const sortedObjectsCount = areaCountResult.sort((a, b) => b[1] - a[1]) as [
-                OknAreaType,
-                number,
-            ][];
+            const sortedObjectsCount = areaCountResult.sort(
+                ([, countA], [, countB]) => countB - countA,
+            );
 
             setAreaCount(sortedObjectsCount);
         });
@@ -124,6 +123,7 @@ export function OknFilter() {
                         color={OBJECTS_CONFIG[type].color}
                         onClick={onObjectsChange(type)}
                         mix={styles.OknFilter__checkboxContent}
+                        key={`filter-okn-${type}`}
                     >
                         {type}
                         <span className={styles.OknFilter__objectsCount}>{count}</span>
@@ -138,6 +138,7 @@ export function OknFilter() {
                             color={AREA_CONFIG[type].color}
                             onClick={onAreaChange(type)}
                             mix={styles.OknFilter__checkboxContent}
+                            key={`filter-okn-zone-${type}`}
                         >
                             {type}
                             <span className={styles.OknFilter__objectsCount}>{count}</span>
@@ -150,9 +151,6 @@ export function OknFilter() {
             </Section>
         </>
     ) : (
-        // TODO: replace with FilterLoader component after it's merge
-        <div style={{ height: 128 }}>
-            <Loader />
-        </div>
+        <FilterLoader />
     );
 }

@@ -1,0 +1,12 @@
+.DesignCodeFilter__objectsCount {
+    color: #9baac3;
+    margin-left: 8px;
+}
+
+.DesignCodeFilter__checkboxContent {
+    width: 100%;
+
+    &:not(:last-of-type) {
+        margin-bottom: 14px;
+    }
+}

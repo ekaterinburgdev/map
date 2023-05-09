@@ -36,14 +36,9 @@ function MapMainContainer() {
                 const objects = dataObjects[activeFilter].data as HouseClient[];
 
                 return objects.map((objectData) => (
-                    <>
-                        {objectData.borders && (
-                            <MapData
-                                key={`map-data:${activeMapItem}-${objectData.id}`}
-                                {...objectData}
-                            />
-                        )}
-                    </>
+                    <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
+                        {objectData.borders && <MapData {...objectData} />}
+                    </React.Fragment>
                 ));
             }
             case MapItemType.OKN: {
@@ -102,32 +97,29 @@ function MapMainContainer() {
                 const objects = dataObjects[activeFilter].data as DTPObject[];
 
                 return objects.map(({ id, attributes }) => (
-                    <>
+                    <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
                         {attributes.geometry.coordinates && (
-                            <MapData
-                                id={id}
-                                coords={attributes.geometry.coordinates}
-                                key={`map-data:${activeMapItem}-${id}`}
-                            />
+                            <MapData id={id} coords={attributes.geometry.coordinates} />
                         )}
-                    </>
+                    </React.Fragment>
                 ));
             }
             case MapItemType.DesignCode: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as DesignCodeObject[];
 
-                return objects.map(({ id, coords, type: designCodeType }) => (
-                    <>
+                return objects.map(({ id, coords, type: designCodeType, preview, name }) => (
+                    <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
                         {coords && (
                             <MapData
                                 id={id}
                                 coords={coords}
+                                name={name}
                                 type={designCodeType}
-                                key={`map-data:${activeMapItem}-${id}`}
+                                preview={preview}
                             />
                         )}
-                    </>
+                    </React.Fragment>
                 ));
             }
             default:

@@ -1,11 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import classNames from 'classnames';
 
-import { Loader } from 'components/UI/Loader/Loader';
 import { RangeHistogram } from 'components/UI/RangeHistogram';
 import { HistogramData, MinMax } from 'components/UI/RangeHistogram/types';
 import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 
 import { State } from 'common/types/state';
 import { HouseClient } from 'common/data/base/houseBase';
@@ -13,8 +12,6 @@ import { HouseClient } from 'common/data/base/houseBase';
 import { setData } from 'state/features/dataLayers';
 
 import { REQUEST_DELAY, timeoutIds } from './HouseBaseFilter.constants';
-
-import styles from './HouseBaseFilter.module.css';
 
 export interface HouseBaseFilterProps {
     defaultMin: number;
@@ -83,8 +80,6 @@ export function HouseBaseFilter({
             defaultMax={defaultMax}
         />
     ) : (
-        <div className={classNames(styles.HouseBaseFilterLoader)}>
-            <Loader />
-        </div>
+        <FilterLoader />
     );
 }
