@@ -35,7 +35,7 @@ export const DTP_PARTICIPANT_CONFIG: ParticipantConfig = {
 
 export const SEVERITY_CONFIG = {
     [DtpSeverityType.Light]: {
-        color: '#00c9de',
+        color: '#36ccaa',
     },
     [DtpSeverityType.Heavy]: {
         color: '#fdcf4e',
