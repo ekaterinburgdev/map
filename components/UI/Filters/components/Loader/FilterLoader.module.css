@@ -1,3 +1,5 @@
 .FilterLoaderContainer {
+    position: relative;
+
     height: 128px;
 }

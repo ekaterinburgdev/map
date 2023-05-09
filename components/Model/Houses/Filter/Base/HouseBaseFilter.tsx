@@ -1,17 +1,13 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
-import { RangeHistogram } from 'components/UI/RangeHistogram';
 import { HistogramData, MinMax } from 'components/UI/RangeHistogram/types';
 import { FilterType } from 'components/UI/Filters/Filters.types';
-import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-
-import { State } from 'common/types/state';
 import { HouseClient } from 'common/data/base/houseBase';
 
 import { setData } from 'state/features/dataLayers';
 
-import { REQUEST_DELAY, timeoutIds } from './HouseBaseFilter.constants';
+import { RangeBaseFilter } from 'components/Model/RangeBaseFilter/RangeBaseFilter';
 
 export interface HouseBaseFilterProps {
     defaultMin: number;
@@ -22,15 +18,12 @@ export interface HouseBaseFilterProps {
 }
 
 export function HouseBaseFilter({
+    onChangeRequest,
     defaultMin,
     defaultMax,
-    onChangeRequest,
     getHistogramData,
     filterType,
 }: HouseBaseFilterProps) {
-    const shouldFetch = useSelector((state: State) => state.dataLayer.activeFilter === filterType);
-    const [rangeData, setRangeData] = useState<HistogramData>(null);
-    const [loading, setLoading] = useState<boolean>(true);
     const dispatch = useDispatch();
 
     const getHouses = useCallback(
@@ -42,44 +35,13 @@ export function HouseBaseFilter({
         [dispatch, onChangeRequest, filterType],
     );
 
-    useEffect(() => {
-        getHistogramData().then((data: HistogramData) => {
-            setRangeData(data);
-            setLoading(false);
-        });
-    }, [getHistogramData]);
-
-    const onChange = useCallback(
-        async (range: MinMax) => {
-            if (!shouldFetch) {
-                return;
-            }
-
-            if (timeoutIds[filterType]) {
-                clearTimeout(timeoutIds[filterType]);
-            }
-
-            const currentTimeoutId = setTimeout(async () => {
-                await getHouses(range);
-
-                timeoutIds[filterType] = null;
-            }, REQUEST_DELAY);
-
-            timeoutIds[filterType] = currentTimeoutId;
-        },
-        [filterType, shouldFetch, getHouses],
-    );
-
-    return !loading ? (
-        <RangeHistogram
-            data={rangeData}
-            onChange={onChange}
-            width={368}
-            height={128}
+    return (
+        <RangeBaseFilter
             defaultMin={defaultMin}
             defaultMax={defaultMax}
+            onChangeCallback={getHouses}
+            getHistogramData={getHistogramData}
+            filterType={filterType}
         />
-    ) : (
-        <FilterLoader />
     );
 }

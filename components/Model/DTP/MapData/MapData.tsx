@@ -1,16 +1,15 @@
 import React, { useContext, useMemo } from 'react';
 
 import { MapItemType } from 'common/types/map-item';
-import { MARKER_COLOR } from 'common/constants/colors';
 import { Point } from 'components/UI/Map/Point';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
+import { SEVERITY_CONFIG } from '../DTP.constants';
+
 import { DTPMapDataProps } from './MapData.types';
 
-export function DTPMapData({ id, coords }: DTPMapDataProps) {
-    const {
-        openPopup, closePopup, popupId, popupType,
-    } = useContext(MapContext);
+export function DTPMapData({ id, coords, severityType }: DTPMapDataProps) {
+    const { openPopup, closePopup, popupId, popupType } = useContext(MapContext);
     const isOpen = useMemo(
         () => id === popupId && popupType === MapItemType.DTP,
         [id, popupId, popupType],
@@ -21,9 +20,8 @@ export function DTPMapData({ id, coords }: DTPMapDataProps) {
             key={MapItemType.DTP + id}
             id={id}
             type={MapItemType.DTP}
-            color={MARKER_COLOR[MapItemType.DTP]}
+            color={SEVERITY_CONFIG[severityType].color}
             position={coords}
-            preview={null}
             isOpen={isOpen}
             openPopup={openPopup}
             closePopup={closePopup}
