@@ -7,4 +7,5 @@ export interface DesignCodeMapDataProps {
     coords: LatLngExpression;
     type: string;
     preview: Image;
+    name: string;
 }

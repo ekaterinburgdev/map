@@ -65,29 +65,30 @@ export function DesignCodeFilter() {
 
     useEffect(() => {
         designCode.getObjectsCount().then((objectsCountResult) => {
-            const sortedObjectsCount = objectsCountResult.sort((a, b) => b[1] - a[1]);
+            const sortedObjectsCount = objectsCountResult.sort(
+                ([, countA], [, countB]) => countB - countA,
+            );
 
             setObjectsCount(sortedObjectsCount);
         });
     }, []);
 
     return objectsCount ? (
-        <div>
+        <>
             {objectsCount.map(([type, count], i) => (
-                <>
-                    <Checkbox
-                        id={`design-code-${i}`}
-                        checked={designCodeFilterState[type]}
-                        color={DESIGN_CODE_ITEMS_COLORS[type]}
-                        onClick={onChange(type)}
-                    >
-                        {type}
-                        <span className={styles.DesignCodeFilter__objectsCount}>{count}</span>
-                    </Checkbox>
-                    <div className={styles.DesignCodeFilter__checkboxContent} />
-                </>
+                <Checkbox
+                    id={`design-code-${i}`}
+                    checked={designCodeFilterState[type]}
+                    color={DESIGN_CODE_ITEMS_COLORS[type]}
+                    onClick={onChange(type)}
+                    mix={styles.DesignCodeFilter__checkboxContent}
+                    key={`filter-design-code-${type}`}
+                >
+                    {type}
+                    <span className={styles.DesignCodeFilter__objectsCount}>{count}</span>
+                </Checkbox>
             ))}
-        </div>
+        </>
     ) : (
         <FilterLoader />
     );

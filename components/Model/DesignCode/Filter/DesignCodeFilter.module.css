@@ -4,5 +4,9 @@
 }
 
 .DesignCodeFilter__checkboxContent {
-    margin-bottom: 14px;
+    width: 100%;
+
+    &:not(:last-of-type) {
+        margin-bottom: 14px;
+    }
 }
