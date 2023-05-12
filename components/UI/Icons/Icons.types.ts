@@ -3,6 +3,12 @@ export enum IconType {
     Copy = 'copy',
     OKN = 'okn',
     Pdf = 'pdf',
+    Auto = 'auto',
+    Pedestrian = 'pedestrian',
+    Bycicle = 'bycicle',
+    Bike = 'bike',
+    PublicTransport = 'publicTransport',
+    Children = 'children',
 }
 
-export type IconBaseProps = { color?: string };
+export type IconBaseProps = { color?: string; mix?: string };

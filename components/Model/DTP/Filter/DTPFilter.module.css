@@ -1,0 +1,22 @@
+.DTPFilter__sectionTitle {
+    font-size: 18px;
+    margin: 11px 0 8px;
+}
+
+.DTPFilter__checkboxContent {
+    width: 100%;
+
+    &:not(:last-of-type) {
+        margin-bottom: 8px;
+    }
+}
+
+.DTPFilter__objectsCount {
+    margin-left: 8px;
+    color: #9baac3;
+}
+
+.DTPFilter__icon {
+    margin-right: 2px;
+    vertical-align: text-bottom;
+}

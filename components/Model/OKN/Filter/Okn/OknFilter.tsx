@@ -53,6 +53,8 @@ export function OknFilter() {
 
     const onAreaChange = useCallback(
         (oknArea: OknAreaType) => async () => {
+            dispatchArea({ type: 'toggle', areaType: oknArea });
+
             if (!areaState[oknArea]) {
                 const oknAreas = await okn.getAreaByType(oknArea);
 
@@ -70,8 +72,6 @@ export function OknFilter() {
                     }),
                 );
             }
-
-            dispatchArea({ type: 'toggle', areaType: oknArea });
         },
         [dispatch, areaState],
     );

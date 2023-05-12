@@ -99,7 +99,11 @@ function MapMainContainer() {
                 return objects.map(({ id, attributes }) => (
                     <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
                         {attributes.geometry.coordinates && (
-                            <MapData id={id} coords={attributes.geometry.coordinates} />
+                            <MapData
+                                id={id}
+                                coords={attributes.geometry.coordinates}
+                                severityType={attributes.severity}
+                            />
                         )}
                     </React.Fragment>
                 ));

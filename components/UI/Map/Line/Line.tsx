@@ -9,7 +9,7 @@ export function Line({ color, positions }: LineProps) {
             positions={positions}
             pathOptions={{
                 color,
-                weight: 6,
+                weight: 3,
             }}
         />
     );

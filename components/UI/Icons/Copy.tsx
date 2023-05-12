@@ -2,7 +2,7 @@ import React from 'react';
 
 import { IconBaseProps } from './Icons.types';
 
-export function Copy({ color }: IconBaseProps) {
+export function Copy({ color, mix }: IconBaseProps) {
     return (
         <svg
             width="12"
@@ -10,6 +10,7 @@ export function Copy({ color }: IconBaseProps) {
             viewBox="0 0 12 12"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className={mix}
         >
             <mask
                 id="mask0_6184_10300"
