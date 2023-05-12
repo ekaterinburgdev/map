@@ -12,5 +12,10 @@ export function getValueFromPercent(data: HistogramData, percent: number) {
 
     const partInBlock = absolutePartInBlock / oneSliderBlockWidth;
 
-    return Math.round(partInBlock * (dataValue.to - dataValue.from) + dataValue.from);
+    try {
+        // TODO: madgic
+        return Math.round(partInBlock * (dataValue.to - dataValue.from) + dataValue.from);
+    } catch (e) {
+        return 0;
+    }
 }

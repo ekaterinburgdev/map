@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import histogramStyles from './RangeHistogram.module.css';
 import { Slider } from './components/Slider';
@@ -37,9 +37,13 @@ export function RangeHistogram({
         setRange({ min: from, max: to });
     };
 
-    useEffect(() => {
-        onChange?.(range);
-    }, [range, onChange]);
+    const onChangeRange: Props['onChange'] = useCallback(
+        (p) => {
+            setRange(p);
+            onChange(p);
+        },
+        [onChange],
+    );
 
     return data ? (
         <div className={histogramStyles.histogram} style={{ width }}>
@@ -52,7 +56,7 @@ export function RangeHistogram({
                     max={defaultMax}
                     currentMin={sliderRange.min}
                     currentMax={sliderRange.max}
-                    onChange={setRange}
+                    onChange={onChangeRange}
                 />
             </div>
             <div className={histogramStyles.histogram__axis}>
