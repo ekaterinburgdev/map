@@ -46,6 +46,8 @@ export function OsmBuildingFilter({ loading, field, rangeData }: Props) {
                                         'interpolate',
                                         ['linear'],
                                         ['to-number', ['get', field]],
+                                        0,
+                                        '#0c1021',
                                     ].concat(colors),
                                 },
                             };
