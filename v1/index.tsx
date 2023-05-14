@@ -13,6 +13,7 @@ const levelsRangeData = FLOOR_FILTERS_DATA.map((item) => ({ ...item, value: 1 })
 export default function App() {
     const [loading, setLoading] = useState(true);
     const [hasDtp, setHasDtp] = useState(false);
+    const [hasDistricts, setHasDistricts] = useState(true);
 
     return (
         <MapProvider>
@@ -52,39 +53,56 @@ export default function App() {
             >
                 {hasDtp && (
                     <Source
-                        id="my-source"
-                        type="vector"
-                        tiles={['https://cartography-zeta.vercel.app/dtp/{z}/{x}/{y}.pbf']}
+                        id="ekb-dtp-source"
+                        type="geojson"
+                        data="https://cartography-zeta.vercel.app/dtp.geojson"
                     >
                         <Layer
                             id="dtp"
-                            // type="heatmap"
                             type="circle"
-                            source="my-source"
-                            source-layer="dtp"
+                            source="ekb-dtp-source"
+                            // source-layer="dtp"
                             paint={{
-                                'circle-color': 'blue',
-                                // 'heatmap-radius':
-                                // ['interpolate', ['linear'], ['zoom'], 0, 2, 4, 10],
-                                // 'heatmap-intensity':
-                                // ['interpolate', ['linear'], ['zoom'], 0, 1, 9, 3],
-                                // 'heatmap-color': [
-                                //     'interpolate',
-                                //     ['linear'],
-                                //     ['heatmap-density'],
-                                //     0,
-                                //     'rgba(33,102,172,0)',
-                                //     0.2,
-                                //     'rgb(103,169,207)',
-                                //     0.4,
-                                //     'rgb(209,229,240)',
-                                //     0.6,
-                                //     'rgb(253,219,199)',
-                                //     0.8,
-                                //     'rgb(239,138,98)',
-                                //     1,
-                                //     'rgb(178,24,43)',
-                                // ],
+                                'circle-radius': 2,
+                                'circle-color': [
+                                    'case',
+                                    ['==', ['get', 'severity'], 'Легкий'],
+                                    '#36ccaa',
+                                    ['==', ['get', 'severity'], 'Тяжёлый'],
+                                    '#fdcf4e',
+                                    ['==', ['get', 'severity'], 'С погибшими'],
+                                    '#ff0000',
+                                    '#007cbf',
+                                ],
+                            }}
+                        />
+                    </Source>
+                )}
+
+                {hasDistricts && (
+                    <Source id="ekb-district-style" type="geojson" data="/ekb-districts.json">
+                        <Layer
+                            id="district"
+                            type="line"
+                            source="ekb-district-style"
+                            paint={{
+                                'line-color': '#FFF',
+                                'line-width': 2,
+                                'line-opacity': 1,
+                                'line-dasharray': [0.7, 2],
+                            }}
+                        />
+                        <Layer
+                            id="district2"
+                            type="symbol"
+                            source="ekb-district-style"
+                            layout={{
+                                'text-field': '{name}',
+                                'text-size': 12,
+                                'text-font': ['Iset Sans Regular'],
+                            }}
+                            paint={{
+                                'text-color': '#FFF',
                             }}
                         />
                     </Source>
@@ -117,6 +135,23 @@ export default function App() {
                             type="checkbox"
                             checked={hasDtp}
                             onChange={() => setHasDtp(!hasDtp)}
+                        />
+                    </label>
+                    <label
+                        htmlFor="districts"
+                        style={{
+                            display: 'flex',
+                            marginTop: '20px',
+                            gap: '4px',
+                            alignItems: 'center',
+                        }}
+                    >
+                        Районы
+                        <input
+                            id="districts"
+                            type="checkbox"
+                            checked={hasDistricts}
+                            onChange={() => setHasDistricts(!hasDistricts)}
                         />
                     </label>
                 </div>
