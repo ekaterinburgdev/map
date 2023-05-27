@@ -13,6 +13,7 @@ import { FILTERS_CONFIG } from './Filters.config';
 import { FilterConfigItem, FilterType } from './Filters.types';
 
 export function Filters() {
+    // TODO Add to Redux after development modal window with project information
     const [isWelcomeClosed, setIsWelcomeClosed] = useState(localStorage.getItem('is-welcome-closed') !== null);
 
     const onClose = useCallback(() => {
