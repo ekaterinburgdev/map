@@ -10,7 +10,7 @@ export function Welcome({ onClose }: { onClose: () => void }) {
             <p className={styles.welcome__text}>
                 Вся информация о&nbsp;городе теперь собрана в&nbsp;одном месте: возраст домов,
                 объекты культурного наследия, дтп&nbsp;&mdash; всё на&nbsp;свете. Для начала просто
-                настройте фильтр ниже или кликните на &nbsp;любой дом на&nbsp;карте.
+                настройте фильтр ниже или кликните на &nbsp;любой объект на&nbsp;карте.
             </p>
             <button type="button" className={styles.welcome__close} onClick={onClose}>
                 <svg
