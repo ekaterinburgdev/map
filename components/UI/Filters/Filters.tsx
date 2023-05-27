@@ -13,10 +13,11 @@ import { FILTERS_CONFIG } from './Filters.config';
 import { FilterConfigItem, FilterType } from './Filters.types';
 
 export function Filters() {
-    const [isWelcomeClosed, setIsWelcomeClosed] = useState(false);
+    const [isWelcomeClosed, setIsWelcomeClosed] = useState(localStorage.getItem('is-welcome-closed') !== null);
 
     const onClose = useCallback(() => {
         setIsWelcomeClosed(true);
+        localStorage.setItem('is-welcome-closed', '');
     }, []);
 
     const dispatch = useDispatch();
