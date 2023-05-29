@@ -21,9 +21,9 @@
     height: max-content !important;
     overflow-y: auto;
     overflow-x: hidden;
-    right: .5vw !important;
+    right: 8px !important;
     left: auto !important;
-    top: .5vw !important;
+    top: 8px !important;
   }
 
   .react-modal-sheet-content {
