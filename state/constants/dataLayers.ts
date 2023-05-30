@@ -6,6 +6,7 @@ import { FilterType } from 'components/UI/Filters/Filters.types';
 const filterTypeMapItemTypeMap: Record<FilterType, MapItemType> = {
     [FilterType.HouseAge]: MapItemType.Houses,
     [FilterType.HouseFloor]: MapItemType.Houses,
+    [FilterType.HouseWearTear]: MapItemType.Houses,
     [FilterType.DTP]: MapItemType.DTP,
     [FilterType.DesignCode]: MapItemType.DesignCode,
     [FilterType.Line]: MapItemType.Lines,

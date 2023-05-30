@@ -43,6 +43,7 @@ export interface State {
         objects: {
             [FilterType.HouseAge]: HousesState;
             [FilterType.HouseFloor]: HousesState;
+            [FilterType.HouseWearTear]: HousesState;
             [FilterType.OKN]: OKNState;
             [FilterType.DTP]: DTPState;
             [FilterType.DesignCode]: DesignCodeState;
