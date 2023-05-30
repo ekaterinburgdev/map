@@ -8,7 +8,11 @@ export const houseBase = {
     async getObject(id: string): Promise<HouseObject> {
         return getById.getObject(id, '/house');
     },
-    async getObjectsPolygonsByRange(from: number, to: number, filterName: string) {
+    async getObjectsPolygonsByRange(
+        from: number,
+        to: number,
+        filterName: string,
+    ): Promise<HouseClient[]> {
         const url = `${STRAPI_BASE_URL}/house`;
 
         const query = qs.stringify({
@@ -22,12 +26,16 @@ export const houseBase = {
             fields: filterName,
         });
 
-        const result = await parallelRequests(`${url}?${query}`, (x: HouseObject) => ({
-            borders: x.attributes.borders?.coordinates,
-            year: x.attributes.Year,
-            floors: x.attributes.Floors,
-            id: x.id,
-        }));
+        const result = await parallelRequests(
+            `${url}?${query}`,
+            (x: HouseObject): HouseClient => ({
+                borders: x.attributes.borders?.coordinates,
+                year: x.attributes.Year,
+                floors: x.attributes.Floors,
+                wearAndTear: x.attributes.WearAndTear,
+                id: x.id,
+            }),
+        );
 
         return result;
     },
@@ -62,6 +70,7 @@ export interface HouseClient {
     borders: HouseAttributes['borders']['coordinates'];
     year: number;
     floors: number;
+    wearAndTear: number;
     id: string;
 }
 

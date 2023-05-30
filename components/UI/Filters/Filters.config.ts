@@ -4,7 +4,7 @@ import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeF
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
 import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Model/DTP/Filter/DTPFilter';
-
+import { HouseWearTearFilter } from 'components/Model/Houses/Filter/WearTear/HouseWearTearFilter';
 import { FilterConfig, FilterType } from './Filters.types';
 
 export const FILTERS_CONFIG: FilterConfig = {
@@ -15,6 +15,10 @@ export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.HouseFloor]: {
         title: 'Этажность домов',
         component: HouseFloorFilter,
+    },
+    [FilterType.HouseWearTear]: {
+        title: 'Износ домов',
+        component: HouseWearTearFilter,
     },
     [FilterType.OKN]: {
         title: 'Объекты культурного наследия',

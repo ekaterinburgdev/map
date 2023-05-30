@@ -95,3 +95,41 @@ export const FLOOR_FILTERS_DATA: HistogramDataWithoutValues = [
         color: '#ffff00',
     },
 ];
+
+export const WEAR_TEAR_FILTERS_DATA: HistogramDataWithoutValues = [
+    {
+        from: 0,
+        to: 10,
+        color: '#ff7461',
+    },
+    {
+        from: 10,
+        to: 20,
+        color: '#ffA34e',
+    },
+    {
+        from: 20,
+        to: 35,
+        color: '#fee678',
+    },
+    {
+        from: 35,
+        to: 50,
+        color: '#85e634',
+    },
+    {
+        from: 50,
+        to: 65,
+        color: '#0f9467',
+    },
+    {
+        from: 65,
+        to: 80,
+        color: '#71b3ff',
+    },
+    {
+        from: 80,
+        to: 100,
+        color: '#0070e0',
+    },
+];
