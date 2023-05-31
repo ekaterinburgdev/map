@@ -100,36 +100,51 @@ export const WEAR_TEAR_FILTERS_DATA: HistogramDataWithoutValues = [
     {
         from: 0,
         to: 10,
-        color: '#ff7461',
+        color: '#006b29',
     },
     {
         from: 10,
         to: 20,
-        color: '#ffA34e',
+        color: '#24782a',
     },
     {
         from: 20,
-        to: 35,
-        color: '#fee678',
+        to: 30,
+        color: '#73a426',
     },
     {
-        from: 35,
+        from: 30,
+        to: 40,
+        color: '#b6c718',
+    },
+    {
+        from: 40,
         to: 50,
-        color: '#85e634',
+        color: '#e9e005',
     },
     {
         from: 50,
-        to: 65,
-        color: '#0f9467',
+        to: 60,
+        color: '#ffea00',
     },
     {
-        from: 65,
+        from: 60,
+        to: 70,
+        color: '#ffdc00',
+    },
+    {
+        from: 70,
         to: 80,
-        color: '#71b3ff',
+        color: '#ffbb00',
     },
     {
         from: 80,
+        to: 90,
+        color: '#ff8a00',
+    },
+    {
+        from: 90,
         to: 100,
-        color: '#0070e0',
+        color: '#ff0000',
     },
 ];
