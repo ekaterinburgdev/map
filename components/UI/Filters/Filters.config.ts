@@ -17,7 +17,7 @@ export const FILTERS_CONFIG: FilterConfig = {
         component: HouseFloorFilter,
     },
     [FilterType.HouseWearTear]: {
-        title: 'Износ домов',
+        title: 'Степень износа домов',
         component: HouseWearTearFilter,
     },
     [FilterType.OKN]: {

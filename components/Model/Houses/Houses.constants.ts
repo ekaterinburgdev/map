@@ -3,46 +3,41 @@ import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
 export const AGE_FILTERS_DATA: HistogramDataWithoutValues = [
     {
         from: 1723,
-        to: 1807,
+        to: 1860,
         color: '#ff7461',
     },
     {
-        from: 1807,
-        to: 1905,
+        from: 1860,
+        to: 1917,
         color: '#ffA34e',
     },
     {
-        from: 1905,
-        to: 1920,
+        from: 1917,
+        to: 1930,
         color: '#fee678',
     },
     {
-        from: 1920,
+        from: 1930,
         to: 1940,
         color: '#85e634',
     },
     {
         from: 1940,
-        to: 1960,
+        to: 1955,
         color: '#0f9467',
     },
     {
-        from: 1960,
-        to: 1980,
+        from: 1955,
+        to: 1991,
         color: '#71b3ff',
     },
     {
-        from: 1980,
-        to: 1990,
-        color: '#0070e0',
-    },
-    {
-        from: 1990,
-        to: 2000,
+        from: 1991,
+        to: 2010,
         color: '#c270ff',
     },
     {
-        from: 2000,
+        from: 2010,
         to: new Date().getFullYear(),
         color: '#f97bcf',
     },
