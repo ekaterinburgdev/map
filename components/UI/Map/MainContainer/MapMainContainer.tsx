@@ -29,17 +29,35 @@ function MapMainContainer() {
     const activeFilter = useSelector((state: State) => state.dataLayer.activeFilter);
     const activeMapData = useMemo(() => {
         const activeMapItem = dataObjects[activeFilter]?.mapItemType;
-
         switch (activeMapItem) {
             case MapItemType.Houses: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as HouseClient[];
 
-                return objects.map((objectData) => (
-                    <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
-                        {objectData.borders && <MapData {...objectData} />}
-                    </React.Fragment>
-                ));
+                return (
+                    <>
+                        {/* TODO: Add Map Loader */}
+                        {objects.length === 0 && (
+                            <div style={{
+                                position: 'absolute',
+                                zIndex: 1000000,
+                                color: 'white',
+                                left: '50%',
+                                top: '50%',
+                                fontSize: 24,
+                                transform: 'translate(-50%,-50%)',
+                            }}
+                            >
+                                Загрузка данных...
+                            </div>
+                        )}
+                        {objects.length > 0 && objects.map((objectData) => (
+                            <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
+                                {objectData.borders && <MapData {...objectData} />}
+                            </React.Fragment>
+                        ))}
+                    </>
+                );
             }
             case MapItemType.OKN: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
