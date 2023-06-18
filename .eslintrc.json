@@ -32,5 +32,5 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "object-curly-newline": "off"
   },
-  "ignorePatterns": ["next.config.js"]
+  "ignorePatterns": ["next.config.js", "sw.js"]
 }
