@@ -44,7 +44,7 @@ function MapMainContainer() {
                                 color: 'white',
                                 left: '50%',
                                 top: '50%',
-                                fontSize: 24,
+                                fontSize: 20,
                                 transform: 'translate(-50%,-50%)',
                             }}
                             >
