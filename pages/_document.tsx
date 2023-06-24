@@ -1,13 +1,25 @@
 /* eslint-disable */
 import React, { useEffect } from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 export default function Document() {
     const siteTitle = 'Инфокарта Екатеринбурга';
     const siteUrl = 'https://map.ekaterinburg.city/';
     const siteDescription = 'Вся информация о городе теперь собрана в одном месте: возраст домов, объекты культурного наследия, дтп — всё на свете.';
     const ogImage = `${siteUrl}og-preview.jpg`;
+
+    useEffect(() => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then((serviceWorker) => {
+                    console.debug('Service Worker registered: ', serviceWorker);
+                })
+                .catch((error) => {
+                    console.error('Error registering the Service Worker: ', error);
+                });
+        }
+    }, []);
 
     return (
         <Html lang="ru">
@@ -34,18 +46,6 @@ export default function Document() {
                 <link rel="manifest" href="/site.webmanifest" />
 
                 <link rel="dns-prefetch" href="https://tiles.ekaterinburg.io/" />
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                if ('serviceWorker' in navigator) {
-                    navigator.serviceWorker
-                        .register('/sw.js')
-                        .then((serviceWorker) => {
-                            console.debug('Service Worker registered: ', serviceWorker);
-                        })
-                        .catch((error) => {
-                            console.error('Error registering the Service Worker: ', error);
-                        });
-                }`}} />
             </Head>
 
             <body>
