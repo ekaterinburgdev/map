@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
 
 export default function Document() {
@@ -7,6 +7,19 @@ export default function Document() {
     const siteUrl = 'https://map.ekaterinburg.city/';
     const siteDescription = 'Вся информация о городе теперь собрана в одном месте: возраст домов, объекты культурного наследия, дтп — всё на свете.';
     const ogImage = `${siteUrl}og-preview.jpg`;
+
+    useEffect(() => {
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('/sw.js')
+                .then((serviceWorker) => {
+                    console.debug('Service Worker registered: ', serviceWorker);
+                })
+                .catch((error) => {
+                    console.error('Error registering the Service Worker: ', error);
+                });
+        }
+    }, []);
 
     return (
         <Html lang="ru">
