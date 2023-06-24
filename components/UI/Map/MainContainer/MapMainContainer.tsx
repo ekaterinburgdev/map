@@ -200,6 +200,8 @@ function MapMainContainer() {
             zoom={DEFAULT_ZOOM}
             className={styles.Map}
             minZoom={7}
+            // TODO Add placemarks to canvas
+            preferCanvas
         >
             <TileLayer url="https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}@2x.png" />
             {activeMapData}
