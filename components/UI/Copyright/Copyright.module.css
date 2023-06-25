@@ -1,7 +1,7 @@
 .copyright {
     position: fixed;
     z-index: 1000;
-    font-size: .5vw;
+    font-size: .6vw;
     color: rgba(255,255,255,.8);
     right: 0;
     bottom: 1px;
@@ -9,8 +9,11 @@
     margin-right: .25vw;
 }
 
-@media screen and (max-width: 768px) {
+/* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */
+@media screen and (max-width: 1150px) {
     .copyright {
+        top: 1px;
+        bottom: initial;
         font-size: 2vw;
         margin-right: .5vw;
     }
