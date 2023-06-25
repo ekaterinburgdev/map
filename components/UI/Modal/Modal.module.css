@@ -21,3 +21,53 @@
     background-color: #000;
     transform: scale(1.3);
 }
+
+.react-modal-sheet-backdrop {
+    border: none;
+}
+
+.react-modal-sheet-container {
+    border-radius: 10px 10px 0 0 !important;
+    width: 400px !important;
+    max-height: calc(90vh - 2vw) !important;
+    height: max-content !important;
+    overflow-y: auto;
+    overflow-x: hidden;
+    right: 8px !important;
+    left: auto !important;
+    top: 8px !important;
+}
+
+.react-modal-sheet-header,
+/*.react-modal-sheet-container,*/
+.react-modal-sheet-content {
+    border-radius: 10px 10px 0 0 !important;
+}
+
+
+/*.react-modal-sheet-container {*/
+/*    width: 400px !important;*/
+/*    max-height: calc(90vh - 2vw) !important;*/
+/*    height: max-content !important;*/
+/*    overflow-y: auto;*/
+/*    overflow-x: hidden;*/
+/*    right: 8px !important;*/
+/*    left: auto !important;*/
+/*    top: 8px !important;*/
+/*}*/
+
+.react-modal-sheet-content {
+    overflow: initial !important;
+}
+
+.react-modal-sheet-header,
+/*.react-modal-sheet-container,*/
+.react-modal-sheet-content {
+    border-radius: 12px !important;
+}
+
+.react-modal-sheet-header,
+.react-modal-sheet-drag-indicator,
+.react-modal-sheet-backdrop {
+    display: none !important;
+}

@@ -20,7 +20,7 @@ import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 
 import styles from './MapMainContainer.module.css';
 
-const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
+const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
 
 function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
@@ -159,7 +159,8 @@ function MapMainContainer() {
                                 )}
                             </React.Fragment>
                         ),
-                    ));
+                    ),
+                );
 
                 return (
                     <>

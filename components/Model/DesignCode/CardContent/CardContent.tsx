@@ -38,7 +38,7 @@ export function DesignCodeCardContent({ placemark }: DesignCodeCardContentProps)
                                 key={image.id}
                                 src={imageSrc}
                                 width={imageData.width}
-                                height={imageData.height}
+                                height={imageData.width}
                                 className={styles.popup__image}
                                 alt={placemark.name}
                             />

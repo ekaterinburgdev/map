@@ -30,8 +30,8 @@ export function Modal({ isOpen, close, size = 0.8, children }: Props) {
 
     return (
         <Sheet snapPoints={[size, 0]} detent="content-height" isOpen={isOpen} onClose={close}>
-            <Sheet.Container>
-                <Sheet.Header>
+            <Sheet.Container className={styles.reactModalSheetContainer}>
+                <Sheet.Header className={styles.reactModalSheetHeader}>
                     <button
                         type="button"
                         aria-label="Close"
@@ -54,9 +54,11 @@ export function Modal({ isOpen, close, size = 0.8, children }: Props) {
                         </svg>
                     </button>
                 </Sheet.Header>
-                <Sheet.Content disableDrag>{children}</Sheet.Content>
+                <Sheet.Content disableDrag className={styles.reactModalSheetContent}>
+                    {children}
+                </Sheet.Content>
             </Sheet.Container>
-            <Sheet.Backdrop onTap={close} />
+            <Sheet.Backdrop onTap={close} className={styles.reactModalSheetBackdrop} />
         </Sheet>
     );
 }

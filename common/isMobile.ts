@@ -1,3 +1,9 @@
-/* eslint-disable */
+import { useWindowSize } from 'common/use-window-size';
 
-export const checkIsMobile = () => window.innerWidth < 780;
+export const checkIsMobile = (innerWidth) => innerWidth < 1150;
+
+export const useIsMobile = () => {
+    const windowSize = useWindowSize();
+
+    return checkIsMobile(windowSize.innerWidth);
+};
