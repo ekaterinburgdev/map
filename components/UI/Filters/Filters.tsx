@@ -1,12 +1,12 @@
-import styles from './Filters.module.css';
-import { FILTERS_CONFIG } from 'components/UI/Filters/Filters.config';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { FilterConfigItem, FilterType } from 'components/UI/Filters/Filters.types';
 import { Toggle } from 'components/UI/Filters/components/Toggle/Toggle';
 import { Filter } from 'components/UI/Filters/components/Filter/Filter';
-import React, { useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FILTERS_CONFIG } from 'components/UI/Filters/Filters.config';
 import { toggleData } from 'state/features/dataLayers';
 import { State } from 'common/types/state';
+import styles from './Filters.module.css';
 
 export function Filters() {
     const dispatch = useDispatch();

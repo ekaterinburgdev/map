@@ -1,7 +1,7 @@
 import Sheet from 'react-modal-sheet';
 import * as React from 'react';
-import { CardContent } from 'components/UI/Card/CardContent';
 import { useContext } from 'react';
+import { Card } from 'components/UI/Card/Card';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
 export function MobileCard() {
@@ -13,7 +13,7 @@ export function MobileCard() {
                 <Sheet.Header />
                 <Sheet.Content>
                     <Sheet.Scroller>
-                        <CardContent />
+                        <Card />
                     </Sheet.Scroller>
                 </Sheet.Content>
             </Sheet.Container>

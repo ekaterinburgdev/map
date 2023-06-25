@@ -1,9 +1,9 @@
-import { CardLoader } from 'components/UI/Card/components/Loader/Loader';
 import React, { useContext, useEffect, useMemo, useState } from 'react';
+import { CardLoader } from 'components/UI/Card/components/Loader/Loader';
 import { MODEL_CONFIG } from 'components/Model/config';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
-export function CardContent() {
+export function Card() {
     const { popupId, popupType } = useContext(MapContext);
     const [popupData, setPopupData] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);

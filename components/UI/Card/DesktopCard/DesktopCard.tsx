@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
+import { MapContext } from 'components/UI/Map/providers/MapProvider';
+import { Card } from 'components/UI/Card/Card';
 import styles from './DesktopCard.module.css';
 import { Close } from './Close';
-import { MapContext } from 'components/UI/Map/providers/MapProvider';
-import { CardContent } from '../CardContent';
 
 export function DesktopCard() {
     const { popupId, closePopup } = useContext(MapContext);
@@ -16,7 +16,7 @@ export function DesktopCard() {
             <div className={styles.DesktopCard__header}>
                 <Close close={closePopup} />
             </div>
-            <CardContent />
+            <Card />
         </div>
     );
 }

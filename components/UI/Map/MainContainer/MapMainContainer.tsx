@@ -138,28 +138,32 @@ function MapMainContainer() {
                         )}
                     </React.Fragment>
                 ));
-                const pointsMapData = points.map(({ type, data }) =>
-                    data.map(
-                        ({
-                            id,
-                            attributes: {
-                                geometry: { coordinates },
-                                image,
-                            },
-                        }) => (
-                            <React.Fragment key={`map-data:${activeMapItem}-${type}-point-${id}`}>
-                                {coordinates && (
-                                    <MapData
-                                        id={id}
-                                        positions={coordinates}
-                                        lineType={type}
-                                        figureType="point"
-                                        preview={image}
-                                    />
-                                )}
-                            </React.Fragment>
+                const pointsMapData = points.map(
+                    ({ type, data }) =>
+                        data.map(
+                            ({
+                                id,
+                                attributes: {
+                                    geometry: { coordinates },
+                                    image,
+                                },
+                            }) => (
+                                <React.Fragment
+                                    key={`map-data:${activeMapItem}-${type}-point-${id}`}
+                                >
+                                    {coordinates && (
+                                        <MapData
+                                            id={id}
+                                            positions={coordinates}
+                                            lineType={type}
+                                            figureType="point"
+                                            preview={image}
+                                        />
+                                    )}
+                                </React.Fragment>
+                            ),
                         ),
-                    ),
+                    // eslint-disable
                 );
 
                 return (
