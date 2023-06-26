@@ -20,7 +20,7 @@ import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 
 import styles from './MapMainContainer.module.css';
 
-const DEFAULT_ZOOM = checkIsMobile() ? 12 : 15;
+const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
 
 function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
@@ -156,28 +156,33 @@ function MapMainContainer() {
                         )}
                     </React.Fragment>
                 ));
-                const pointsMapData = points.map(({ type, data }) =>
-                    data.map(
-                        ({
-                            id,
-                            attributes: {
-                                geometry: { coordinates },
-                                image,
-                            },
-                        }) => (
-                            <React.Fragment key={`map-data:${activeMapItem}-${type}-point-${id}`}>
-                                {coordinates && (
-                                    <MapData
-                                        id={id}
-                                        positions={coordinates}
-                                        lineType={type}
-                                        figureType="point"
-                                        preview={image}
-                                    />
-                                )}
-                            </React.Fragment>
+                const pointsMapData = points.map(
+                    ({ type, data }) =>
+                        data.map(
+                            ({
+                                id,
+                                attributes: {
+                                    geometry: { coordinates },
+                                    image,
+                                },
+                            }) => (
+                                <React.Fragment
+                                    key={`map-data:${activeMapItem}-${type}-point-${id}`}
+                                >
+                                    {coordinates && (
+                                        <MapData
+                                            id={id}
+                                            positions={coordinates}
+                                            lineType={type}
+                                            figureType="point"
+                                            preview={image}
+                                        />
+                                    )}
+                                </React.Fragment>
+                            ),
                         ),
-                    ));
+                    // eslint-disable
+                );
 
                 return (
                     <>

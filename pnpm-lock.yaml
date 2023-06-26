@@ -50,8 +50,8 @@ dependencies:
     specifier: ^4.1.0
     version: 4.2.0(leaflet@1.9.3)(react-dom@18.2.0)(react@18.2.0)
   react-modal-sheet:
-    specifier: ^1.9.0
-    version: 1.10.0(framer-motion@8.5.5)(react@18.2.0)
+    specifier: ^2.0.0
+    version: 2.0.0(framer-motion@8.5.5)(react@18.2.0)
   react-redux:
     specifier: ^8.0.5
     version: 8.0.5(@types/react@18.0.27)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1)
@@ -635,8 +635,8 @@ packages:
       fastq: 1.15.0
     dev: true
 
-  /@react-aria/ssr@3.4.1(react@18.2.0):
-    resolution: {integrity: sha512-NmhoilMDyIfQiOSdQgxpVH2tC2u85Y0mVijtBNbI9kcDYLEiW/r6vKYVKtkyU+C4qobXhGMPfZ70PTc0lysSVA==}
+  /@react-aria/ssr@3.6.0(react@18.2.0):
+    resolution: {integrity: sha512-OFiYQdv+Yk7AO7IsQu/fAEPijbeTwrrEYvdNoJ3sblBBedD5j5fBTNWrUPNVlwC4XWWnWTCMaRIVsJujsFiWXg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -644,14 +644,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-aria/utils@3.14.2(react@18.2.0):
-    resolution: {integrity: sha512-3nr5gsAf/J/W+6Tu4NF3Q7m+1mXjfpXESh7TPa6UR6v3tVDTsJVMrITg2BkHN1jM8xELcl2ZxyUffOWqOXzWuA==}
+  /@react-aria/utils@3.17.0(react@18.2.0):
+    resolution: {integrity: sha512-NEul0cQ6tQPdNSHYzNYD+EfFabeYNvDwEiHB82kK/Tsfhfm84SM+baben/at2N51K7iRrJPr5hC5fi4+P88lNg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
-      '@react-aria/ssr': 3.4.1(react@18.2.0)
-      '@react-stately/utils': 3.5.2(react@18.2.0)
-      '@react-types/shared': 3.16.0(react@18.2.0)
+      '@react-aria/ssr': 3.6.0(react@18.2.0)
+      '@react-stately/utils': 3.6.0(react@18.2.0)
+      '@react-types/shared': 3.18.1(react@18.2.0)
       '@swc/helpers': 0.4.14
       clsx: 1.2.1
       react: 18.2.0
@@ -669,8 +669,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@react-stately/utils@3.5.2(react@18.2.0):
-    resolution: {integrity: sha512-639gSKqamPHIEPaApb9ahVJS0HgAqNdVF3tQRoh+Ky6759Mbk6i3HqG4zk4IGQ1tVlYSYZvCckwehF7b2zndMg==}
+  /@react-stately/utils@3.6.0(react@18.2.0):
+    resolution: {integrity: sha512-rptF7iUWDrquaYvBAS4QQhOBQyLBncDeHF03WnHXAxnuPJXNcr9cXJtjJPGCs036ZB8Q2hc9BGG5wNyMkF5v+Q==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -678,8 +678,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-types/shared@3.16.0(react@18.2.0):
-    resolution: {integrity: sha512-IQgU4oAEvMwylEvaTsr2XB1G/mAoMe1JFYLD6G78v++oAR9l8o9MQxZ0YSeANDkqTamb2gKezGoT1RxvSKjVxw==}
+  /@react-types/shared@3.18.1(react@18.2.0):
+    resolution: {integrity: sha512-OpTYRFS607Ctfd6Tmhyk6t6cbFyDhO5K+etU35X50pMzpypo1b7vF0mkngEeTc0Xwl0e749ONZNPZskMyu5k8w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
@@ -3208,21 +3208,16 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-merge-refs@2.0.1:
-    resolution: {integrity: sha512-pywF6oouJWuqL26xV3OruRSIqai31R9SdJX/I3gP2q8jLxUnA1IwXcLW8werUHLZOrp4N7YOeQNZrh/BKrHI4A==}
-    dev: false
-
-  /react-modal-sheet@1.10.0(framer-motion@8.5.5)(react@18.2.0):
-    resolution: {integrity: sha512-kPMdwBPppCvVzfn0s/smV89YO1jm5KzQib4sLlsPcWwEfxTGth2+MNhmH2bjPzY0TNMJEC8tMh70Xtrb5y2VCA==}
+  /react-modal-sheet@2.0.0(framer-motion@8.5.5)(react@18.2.0):
+    resolution: {integrity: sha512-Ql5hXvZYuQ/hb3RBI7H23lxpgmzUdJYCUd1/ySXeAAVj8gSLC5t+ZQif12FghFV8Pw1IJIM1zxce7OnO65lLOw==}
     engines: {node: '>=16'}
     peerDependencies:
-      framer-motion: '>=2'
+      framer-motion: '>=6'
       react: '>=16'
     dependencies:
-      '@react-aria/utils': 3.14.2(react@18.2.0)
+      '@react-aria/utils': 3.17.0(react@18.2.0)
       framer-motion: 8.5.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      react-merge-refs: 2.0.1
     dev: false
 
   /react-redux@8.0.5(@types/react@18.0.27)(react-dom@18.2.0)(react@18.2.0)(redux@4.2.1):

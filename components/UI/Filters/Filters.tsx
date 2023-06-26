@@ -1,26 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { State } from 'common/types/state';
+import { FilterConfigItem, FilterType } from 'components/UI/Filters/Filters.types';
+import { Toggle } from 'components/UI/Filters/components/Toggle/Toggle';
+import { Filter } from 'components/UI/Filters/components/Filter/Filter';
+import { FILTERS_CONFIG } from 'components/UI/Filters/Filters.config';
 import { toggleData } from 'state/features/dataLayers';
-
-import { Welcome } from '../Welcome/Welcome';
-import { Toggle } from './components/Toggle/Toggle';
-import { Filter } from './components/Filter/Filter';
-
+import { State } from 'common/types/state';
 import styles from './Filters.module.css';
-import { FILTERS_CONFIG } from './Filters.config';
-import { FilterConfigItem, FilterType } from './Filters.types';
 
 export function Filters() {
-    // TODO Add to Redux after development modal window with project information
-    const [isWelcomeClosed, setIsWelcomeClosed] = useState(localStorage.getItem('is-welcome-closed') !== null);
-
-    const onClose = useCallback(() => {
-        setIsWelcomeClosed(true);
-        localStorage.setItem('is-welcome-closed', '');
-    }, []);
-
     const dispatch = useDispatch();
 
     const onToggleClick = useCallback(
@@ -33,36 +21,28 @@ export function Filters() {
     const dataLayer = useSelector((state: State) => state.dataLayer);
 
     return (
-        <div className={styles.filters}>
-            {!isWelcomeClosed && (
-                <div className={styles.filters__notification}>
-                    <Welcome onClose={onClose} />
-                </div>
+        <div className={styles.filters__body}>
+            {(Object.entries(FILTERS_CONFIG) as [FilterType, FilterConfigItem][]).map(
+                ([type, { component: Component, title }], idx) => {
+                    const id = `id:${type}-${idx}`;
+                    const isActive = type === dataLayer.activeFilter;
+
+                    return (
+                        <div key={id} className={styles.filters__item}>
+                            <Toggle
+                                id={id}
+                                isActive={isActive}
+                                onClick={onToggleClick}
+                                type={type}
+                                label={title}
+                            />
+                            <Filter isActive={isActive}>
+                                <Component />
+                            </Filter>
+                        </div>
+                    );
+                },
             )}
-
-            <div className={styles.filters__body}>
-                {(Object.entries(FILTERS_CONFIG) as [FilterType, FilterConfigItem][]).map(
-                    ([type, { component: Component, title }], idx) => {
-                        const id = `id:${type}-${idx}`;
-                        const isActive = type === dataLayer.activeFilter;
-
-                        return (
-                            <div key={id} className={styles.filters__item}>
-                                <Toggle
-                                    id={id}
-                                    isActive={isActive}
-                                    onClick={onToggleClick}
-                                    type={type}
-                                    label={title}
-                                />
-                                <Filter isActive={isActive}>
-                                    <Component />
-                                </Filter>
-                            </div>
-                        );
-                    },
-                )}
-            </div>
         </div>
     );
 }

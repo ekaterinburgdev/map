@@ -1,6 +1,6 @@
 .filter {
     position: relative;
-    overflow: hidden;
+    overflow-x: scroll;
     padding: 0 16px;
     opacity: 0;
     box-sizing: content-box;
@@ -12,6 +12,14 @@
     transition: opacity 150ms ease, height 200ms ease, padding 200ms ease;
 
     --children-height: 0;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.filter::-webkit-scrollbar {
+    display: none;
 }
 
 .filter__active {

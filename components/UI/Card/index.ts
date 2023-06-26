@@ -1,3 +1,2 @@
-/* eslint-disable */
-
-export { Card } from './Card';
+export { DesktopCard } from './DesktopCard/DesktopCard';
+export { MobileCard } from './MobileCard/MobileCard';

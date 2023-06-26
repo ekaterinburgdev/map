@@ -1,15 +1,10 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
-
-import { Modal } from 'components/UI/Modal';
-import { checkIsMobile } from 'common/isMobile';
+import { CardLoader } from 'components/UI/Card/components/Loader/Loader';
 import { MODEL_CONFIG } from 'components/Model/config';
-
-import { MapContext } from '../Map/providers/MapProvider';
-
-import { CardLoader } from './components/Loader/Loader';
+import { MapContext } from 'components/UI/Map/providers/MapProvider';
 
 export function Card() {
-    const { popupId, popupType, closePopup } = useContext(MapContext);
+    const { popupId, popupType } = useContext(MapContext);
     const [popupData, setPopupData] = useState<any>();
     const [loading, setLoading] = useState<boolean>(false);
 
@@ -32,22 +27,11 @@ export function Card() {
         fetchData();
     }, [popupId, popupType]);
 
-    const size = useMemo(() => {
-        const mobileSize = popupData?.images?.length ? 0.85 : 0.5;
-        const desktopSize = 100;
-
-        return checkIsMobile() ? mobileSize : desktopSize;
-    }, [popupData?.images?.length]);
-
     const CardContent = useMemo(() => {
         setLoading(true);
 
         return MODEL_CONFIG[popupType]?.cardContent || (() => null);
     }, [popupType]);
 
-    return (
-        <Modal size={size} isOpen={!!popupId} close={closePopup}>
-            {loading ? <CardLoader /> : <CardContent placemark={popupData} />}
-        </Modal>
-    );
+    return loading ? <CardLoader /> : <CardContent placemark={popupData} />;
 }
