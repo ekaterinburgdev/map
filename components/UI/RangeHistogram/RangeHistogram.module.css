@@ -1,5 +1,10 @@
 .histogram {
-    padding: 16px 15px 0;
+    --histogram-padding: 10px;
+    position: relative;
+    padding-top: var(--histogram-padding);
+    padding-right: var(--histogram-padding);
+    padding-bottom: 0;
+    padding-left: var(--histogram-padding);
     box-sizing: content-box;
     user-select: none;
 }

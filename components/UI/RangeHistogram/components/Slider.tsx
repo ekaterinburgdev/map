@@ -9,7 +9,6 @@ import sliderStyles from './Slider.module.css';
 
 interface Props {
     data: HistogramData;
-    width: number;
     min: number;
     max: number;
     onChange: Function;
@@ -20,7 +19,6 @@ interface Props {
 const ERROR = 0.15;
 
 export function Slider({
-    width,
     min,
     max,
     currentMin = min,
@@ -89,15 +87,6 @@ export function Slider({
         setMaxValue(maxPercent);
     }, [currentMax, data]);
 
-    const thumbStyles = useMemo(
-        () => ({
-            width: width + 10,
-            marginRight: -5,
-            marginLeft: -5,
-        }),
-        [width],
-    );
-
     return (
         <div>
             <input
@@ -106,7 +95,6 @@ export function Slider({
                 max={100}
                 value={minValue}
                 ref={minValRef}
-                style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_left, {
                     [sliderStyles.thumb_zindex_5]: minValue > max - 100,
                 })}
@@ -121,7 +109,6 @@ export function Slider({
                 max={100}
                 value={maxValue}
                 ref={maxValueRef}
-                style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_right)}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
                     const value = Math.max(+event.target.value, minValue + 1);
@@ -129,7 +116,7 @@ export function Slider({
                 }}
             />
 
-            <div className={sliderStyles.slider} style={{ width }}>
+            <div className={sliderStyles.slider}>
                 <div className={sliderStyles.slider__track} />
                 <div ref={range} className={sliderStyles.slider__range} />
             </div>

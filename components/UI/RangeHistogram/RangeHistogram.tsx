@@ -9,7 +9,7 @@ import { HistogramData, MinMax, Range } from './types';
 interface Props {
     data?: HistogramData;
     onChange: (range: MinMax) => void;
-    width?: number;
+    width?: number | 'auto',
     height?: number;
     defaultMin: number;
     defaultMax: number;
@@ -17,7 +17,7 @@ interface Props {
 
 export function RangeHistogram({
     data,
-    width = 360,
+    width = 'auto',
     height = 100,
     onChange,
     defaultMin,
@@ -43,11 +43,15 @@ export function RangeHistogram({
 
     return data ? (
         <div className={histogramStyles.histogram} style={{ width }}>
-            <BarChart data={data} range={range} height={height} onSelect={onSelect} />
+            <BarChart
+                data={data}
+                range={range}
+                height={height}
+                onSelect={onSelect}
+            />
             <div className={histogramStyles.histogram__range}>
                 <Slider
                     data={data}
-                    width={width}
                     min={defaultMin}
                     max={defaultMax}
                     currentMin={sliderRange.min}
