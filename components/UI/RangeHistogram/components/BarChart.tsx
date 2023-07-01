@@ -68,7 +68,7 @@ export function BarChart({ data, range, height, onSelect }: Props) {
                     }}
                 >
                     <div className={barchartStyles.barchart__percent}>
-                        {item.percent}
+                        {Intl.NumberFormat('ru-RU').format(item.percent)}
                         &thinsp;%
                     </div>
                     <div className={barchartStyles.barchart__value}>{item.value}</div>
