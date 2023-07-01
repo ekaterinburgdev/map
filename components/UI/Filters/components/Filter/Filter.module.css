@@ -1,5 +1,6 @@
 .filter {
     position: relative;
+    overflow: auto;
     padding: 0 16px;
     opacity: 0;
     box-sizing: content-box;
