@@ -1,5 +1,6 @@
 .leftSidebar {
-    width: 450px;
+    width: 27%;
+    max-width: 450px;
     position: fixed;
     top: 8px;
     left: 8px;

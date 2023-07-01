@@ -11,7 +11,7 @@
 
 .filters__item {
     background: #141d34;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 1.33;
 }
 
@@ -26,5 +26,17 @@
 }
 
 .filters__caption {
-    font-size: 16px;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 1440px) {
+    .filters__item {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .filters__item {
+        font-size: 18px;
+    }
 }

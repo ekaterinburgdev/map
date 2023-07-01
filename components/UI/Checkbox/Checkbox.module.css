@@ -3,7 +3,7 @@
     position: relative;
     display: inline-flex;
     align-items: baseline;
-    font-size: 18px;
+    font-size: 1em;
     cursor: pointer;
 
     /* Remove hover effect on touch screen */
