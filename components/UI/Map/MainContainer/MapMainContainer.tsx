@@ -18,6 +18,7 @@ import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { DTPObject } from 'common/data/dtp/dtp';
 import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 
+import { MapLoader } from '../Loader/MapLoader';
 import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
@@ -34,30 +35,13 @@ function MapMainContainer() {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as HouseClient[];
 
-                return (
-                    <>
-                        {/* TODO: Add Map Loader */}
-                        {objects.length === 0 && (
-                            <div style={{
-                                position: 'absolute',
-                                zIndex: 1000000,
-                                color: 'white',
-                                left: '50%',
-                                top: '50%',
-                                fontSize: 20,
-                                transform: 'translate(-50%,-50%)',
-                            }}
-                            >
-                                Загрузка данных...
-                            </div>
-                        )}
-                        {objects.length > 0 && objects.map((objectData) => (
-                            <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
-                                {objectData.borders && <MapData {...objectData} />}
-                            </React.Fragment>
-                        ))}
-                    </>
-                );
+                return objects.length > 0
+                    ? objects.map((objectData) => (
+                        <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
+                            {objectData.borders && <MapData {...objectData} />}
+                        </React.Fragment>
+                    ))
+                    : <MapLoader />;
             }
             case MapItemType.OKN: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
