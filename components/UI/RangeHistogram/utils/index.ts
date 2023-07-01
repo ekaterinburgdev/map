@@ -1,7 +1,7 @@
 import { round } from 'common/round';
 
 export function getPercent(min: number, max: number, value: number) {
-    return Math.round(((value - min) / (max - min)) * 100);
+    return Math.round(((value - min) / (max - min)) * 1000) / 10;
 }
 
 export function randomData(min: number, max: number) {

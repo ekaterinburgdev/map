@@ -16,7 +16,7 @@ export function BarChart({ data, range, height, onSelect }: Props) {
 
     const items = data.map((item) => ({
         ...item,
-        height: getPercent(0, max, item.value),
+        percent: `${getPercent(0, max, item.value)}%`,
         isActive: item.from >= range.min && item.to <= range.max,
     }));
 
@@ -47,7 +47,7 @@ export function BarChart({ data, range, height, onSelect }: Props) {
     }, []);
 
     return (
-        <div className={barchartStyles.barchart} style={{ height }}>
+        <div className={barchartStyles.barchart} style={{ height, position: 'relative' }}>
             {items.map((item) => (
                 <div
                     aria-hidden
@@ -60,11 +60,13 @@ export function BarChart({ data, range, height, onSelect }: Props) {
                         [barchartStyles.barchart__item_active]: item.isActive,
                     })}
                     style={{
-                        height: `${item.height}%`,
+                        height: item.percent,
                         color: item.color,
+                        position: 'static',
                     }}
                 >
-                    <div className={barchartStyles.barchart__label}>{item.value}</div>
+                    <div className={barchartStyles.barchart__percent}>{item.percent}</div>
+                    <div className={barchartStyles.barchart__value}>{item.value}</div>
                 </div>
             ))}
         </div>
