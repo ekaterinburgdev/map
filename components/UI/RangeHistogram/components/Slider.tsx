@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState, useRef, useMemo } from 'react';
+import React, { ChangeEvent, useEffect, useState, useRef } from 'react';
 import classnames from 'classnames';
 
 import { HistogramData } from '../types';
