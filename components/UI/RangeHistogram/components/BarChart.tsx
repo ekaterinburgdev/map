@@ -12,11 +12,13 @@ interface Props {
 }
 
 export function BarChart({ data, range, height, onSelect }: Props) {
+    const total = data.reduce((acc, item) => acc + item.value, 0);
     const max = Math.max(...data.map((item) => item.value));
 
     const items = data.map((item) => ({
         ...item,
-        percent: `${getPercent(0, max, item.value)}%`,
+        height: `${getPercent(0, max, item.value)}%`,
+        percent: `${getPercent(0, total, item.value)}%`,
         isActive: item.from >= range.min && item.to <= range.max,
     }));
 
@@ -60,7 +62,7 @@ export function BarChart({ data, range, height, onSelect }: Props) {
                         [barchartStyles.barchart__item_active]: item.isActive,
                     })}
                     style={{
-                        height: item.percent,
+                        height: item.height,
                         color: item.color,
                         position: 'static',
                     }}
