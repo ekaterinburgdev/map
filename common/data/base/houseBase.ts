@@ -44,8 +44,7 @@ export const houseBase = {
         const requests: Promise<number>[] = [];
 
         histogramData.forEach(({ from, to }, idx) => {
-            const toFilter =
-                idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
+            const toFilter = idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
 
             const url = `${STRAPI_BASE_URL}/house`;
 

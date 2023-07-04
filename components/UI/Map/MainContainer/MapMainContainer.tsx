@@ -18,8 +18,8 @@ import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { DTPObject } from 'common/data/dtp/dtp';
 import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 
-import styles from './MapMainContainer.module.css';
 import { HousePoint } from 'components/Model/Houses/MapData/HousePoint';
+import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
 
@@ -53,8 +53,8 @@ function MapMainContainer() {
                                 Загрузка данных...
                             </div>
                         )}
-                        {objects.length > 0 &&
-                            objects.map((objectData) => (
+                        {objects.length > 0
+                            && objects.map((objectData) => (
                                 <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
                                     {objectData.borders && <MapData {...objectData} />}
                                     {objectData.geometry && <HousePoint {...objectData} />}

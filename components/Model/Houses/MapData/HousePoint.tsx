@@ -11,7 +11,7 @@ export function HousePoint(houseClient: HouseClient) {
             position={geometry}
             id={id}
             type={MapItemType.Houses}
-            color={'white'}
+            color="white"
             size={Sizes.XS}
             openPopup={() => {}}
             closePopup={() => {}}
