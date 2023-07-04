@@ -37,6 +37,14 @@
     }
 }
 
+.point_size_xs {
+    box-shadow: 0 0 0 4px currentColor;
+
+    &:hover {
+         box-shadow: 0 0 0 5px currentColor;
+     }
+}
+
 .point_noPreview {
     border: solid 2px #000;
     box-shadow: none;

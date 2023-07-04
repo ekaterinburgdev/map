@@ -22,7 +22,7 @@ export const houseBase = {
                     [FilterOperator['<=']]: to,
                 },
             },
-            populate: 'borders',
+            populate: ['borders', 'geometry'],
             fields: filterName,
         });
 
@@ -30,6 +30,7 @@ export const houseBase = {
             `${url}?${query}`,
             (x: HouseObject): HouseClient => ({
                 borders: x.attributes.borders?.coordinates,
+                geometry: x.attributes.geometry.coordinates,
                 year: x.attributes.Year,
                 floors: x.attributes.Floors,
                 wearAndTear: x.attributes.WearAndTear,
@@ -43,7 +44,8 @@ export const houseBase = {
         const requests: Promise<number>[] = [];
 
         histogramData.forEach(({ from, to }, idx) => {
-            const toFilter = idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
+            const toFilter =
+                idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
 
             const url = `${STRAPI_BASE_URL}/house`;
 
@@ -68,6 +70,7 @@ export const houseBase = {
 
 export interface HouseClient {
     borders: HouseAttributes['borders']['coordinates'];
+    geometry: HouseAttributes['geometry']['coordinates'];
     year: number;
     floors: number;
     wearAndTear: number;
@@ -98,5 +101,8 @@ export interface HouseAttributes {
     MinimalFloors?: number;
     borders?: {
         coordinates: [number, number][];
+    };
+    geometry?: {
+        coordinates: [number, number];
     };
 }

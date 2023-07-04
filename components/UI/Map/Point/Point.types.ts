@@ -4,7 +4,13 @@ import { MapItemType } from 'common/types/map-item';
 
 import { IMapContext } from '../providers/MapProvider';
 
+export type TOpenClosed = {
+    open: number;
+    closed: number;
+};
+
 export enum Sizes {
+    XS = 'xs',
     S = 's',
     M = 'm',
 }

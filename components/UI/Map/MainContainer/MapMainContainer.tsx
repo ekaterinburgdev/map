@@ -19,6 +19,7 @@ import { DTPObject } from 'common/data/dtp/dtp';
 import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 
 import styles from './MapMainContainer.module.css';
+import { HousePoint } from 'components/Model/Houses/MapData/HousePoint';
 
 const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
 
@@ -38,24 +39,27 @@ function MapMainContainer() {
                     <>
                         {/* TODO: Add Map Loader */}
                         {objects.length === 0 && (
-                            <div style={{
-                                position: 'absolute',
-                                zIndex: 1000000,
-                                color: 'white',
-                                left: '50%',
-                                top: '50%',
-                                fontSize: 20,
-                                transform: 'translate(-50%,-50%)',
-                            }}
+                            <div
+                                style={{
+                                    position: 'absolute',
+                                    zIndex: 1000000,
+                                    color: 'white',
+                                    left: '50%',
+                                    top: '50%',
+                                    fontSize: 20,
+                                    transform: 'translate(-50%,-50%)',
+                                }}
                             >
                                 Загрузка данных...
                             </div>
                         )}
-                        {objects.length > 0 && objects.map((objectData) => (
-                            <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
-                                {objectData.borders && <MapData {...objectData} />}
-                            </React.Fragment>
-                        ))}
+                        {objects.length > 0 &&
+                            objects.map((objectData) => (
+                                <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
+                                    {objectData.borders && <MapData {...objectData} />}
+                                    {objectData.geometry && <HousePoint {...objectData} />}
+                                </React.Fragment>
+                            ))}
                     </>
                 );
             }

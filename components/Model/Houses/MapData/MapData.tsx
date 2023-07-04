@@ -21,15 +21,15 @@ export function HousesMapData({ borders, id, year, floors, wearAndTear }: HouseC
     const houseColor = useMemo(() => {
         if (activeFilter === FilterType.HouseAge) {
             return (
-                AGE_FILTERS_DATA.find(({ from, to }) => from <= year && year <= to)?.color
-                || DEFAULT_COLOR
+                AGE_FILTERS_DATA.find(({ from, to }) => from <= year && year <= to)?.color ||
+                DEFAULT_COLOR
             );
         }
 
         if (activeFilter === FilterType.HouseFloor) {
             return (
-                FLOOR_FILTERS_DATA.find(({ from, to }) => from <= floors && floors <= to)?.color
-                || DEFAULT_COLOR
+                FLOOR_FILTERS_DATA.find(({ from, to }) => from <= floors && floors <= to)?.color ||
+                DEFAULT_COLOR
             );
         }
 

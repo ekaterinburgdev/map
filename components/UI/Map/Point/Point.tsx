@@ -1,4 +1,4 @@
-import React, { useMemo, memo, useCallback } from 'react';
+import React, { memo, useCallback, useMemo } from 'react';
 import { Marker as LeafletMarker } from 'react-leaflet';
 import L from 'leaflet';
 import classNames from 'classnames';
@@ -29,7 +29,7 @@ function PointComponent({
     }, [id, type, closePopup, openPopup, isOpen]);
 
     const sizeNumber = useMemo(() => {
-        if (!preview) {
+        if (!preview && size !== Sizes.XS) {
             return isOpen ? NO_PREVIEW_SIZE.open : NO_PREVIEW_SIZE.closed;
         }
 
@@ -44,6 +44,7 @@ function PointComponent({
 
         const className = classNames(styles.point, {
             [styles.point_open]: isOpen,
+            [styles.point_size_xs]: size === Sizes.XS,
             [styles.point_size_s]: size === Sizes.S,
             [styles.point_size_m]: size === Sizes.M,
             [styles.point_noPreview]: !preview,
