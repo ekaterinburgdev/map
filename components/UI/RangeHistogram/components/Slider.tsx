@@ -13,81 +13,102 @@ interface Props {
     min: number;
     max: number;
     onChange: Function;
-    currentMin?: number;
-    currentMax?: number;
+    barChartMin?: number;
+    barChartMax?: number;
 }
 
 const ERROR = 0.15;
 
 export function Slider({
     width,
+    // минимально возможное значение на слайдере (в условных единицах)
     min,
+    // максимально возможное значение на слайдере (в условных единицах)
     max,
-    currentMin = min,
-    currentMax = max,
+    barChartMin = min,
+    barChartMax = max,
+    // вызываем только когда поменялось внутреннее состояние
     onChange,
     data,
 }: Props) {
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(100);
-    const minValRef = useRef<HTMLInputElement>(null);
-    const maxValueRef = useRef<HTMLInputElement>(null);
-    const range = useRef<HTMLDivElement>(null);
+    const [innerSelectedLeft, setInnerSelectedLeft] = useState(0);
+    const [innerSelectedRight, setInnerSelectedRight] = useState(100);
 
-    // Set width of the range to decrease from the left side
+    const [leftSliderPositionInPercents, setLeftSliderPositionInPercents] = useState(0);
+    const [rightSliderPositionInPercents, setRightSliderPositionInPercents] = useState(100);
+    const leftSliderRef = useRef<HTMLInputElement>(null);
+    const rightSliderRef = useRef<HTMLInputElement>(null);
+    const rangeRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        if (maxValueRef.current) {
-            const minPercent = minValue;
-            const maxPercent = +maxValueRef.current.value;
+        setLeftSliderPositionInPercents(innerSelectedLeft);
+    }, [innerSelectedLeft]);
 
-            if (range.current) {
-                range.current.style.left = `${minPercent}%`;
-                range.current.style.width = `${maxPercent - minPercent}%`;
-            }
-        }
-    }, [minValue]);
-
-    // Set width of the range to decrease from the right side
     useEffect(() => {
-        if (minValRef.current) {
-            const minPercent = +minValRef.current.value;
-            const maxPercent = maxValue;
-
-            if (range.current) {
-                range.current.style.width = `${maxPercent - minPercent}%`;
-            }
-        }
-    }, [maxValue]);
+        setRightSliderPositionInPercents(innerSelectedRight);
+    }, [innerSelectedRight]);
 
     // Get min and max values when their state changes
     useEffect(() => {
-        const minDataValue = getValueFromPercent(data, minValue);
-        const maxDataValue = getValueFromPercent(data, maxValue);
+        const minDataValue = getValueFromPercent(data, innerSelectedLeft);
+        const maxDataValue = getValueFromPercent(data, innerSelectedRight);
 
+        console.log('use effect in slider with change');
+
+        // здесь передаются неправильные min, max
         onChange({ min: minDataValue, max: maxDataValue });
-    }, [minValue, maxValue, onChange, data]);
+    }, [innerSelectedLeft, innerSelectedRight, onChange, data]);
+
+    // Set width of the range to decrease from the left side
+    useEffect(() => {
+        if (rightSliderRef.current) {
+            const minPercent = leftSliderPositionInPercents;
+            const maxPercent = +rightSliderRef.current.value;
+
+            if (rangeRef.current) {
+                rangeRef.current.style.left = `${minPercent}%`;
+                rangeRef.current.style.width = `${maxPercent - minPercent}%`;
+            }
+        }
+    }, [leftSliderPositionInPercents]);
+
+    // Set width of the range to decrease from the right side
+    useEffect(() => {
+        if (leftSliderRef.current) {
+            const minPercent = +leftSliderRef.current.value;
+            const maxPercent = rightSliderPositionInPercents;
+
+            if (rangeRef.current) {
+                rangeRef.current.style.width = `${maxPercent - minPercent}%`;
+            }
+        }
+    }, [rightSliderPositionInPercents]);
+
+    useEffect(() => {
+        console.log('on change in slider changed');
+    }, [onChange]);
 
     useEffect(() => {
         const minIndex = data.findIndex(({ from, to }) => {
             const epsilon = ERROR * (to - from);
 
-            return Math.abs(currentMin - from) <= epsilon;
+            return Math.abs(barChartMin - from) <= epsilon;
         });
         const minPercent = !minIndex ? 0 : Math.floor((minIndex / data.length) * 100);
 
-        setMinValue(minPercent);
-    }, [currentMin, data]);
+        setLeftSliderPositionInPercents(minPercent);
+    }, [barChartMin, data]);
 
     useEffect(() => {
         const maxIndex = data.findIndex(({ from, to }) => {
             const epsilon = ERROR * (to - from);
 
-            return Math.abs(currentMax - to) <= epsilon;
+            return Math.abs(barChartMax - to) <= epsilon;
         });
         const maxPercent = Math.ceil(((maxIndex + 1) / data.length) * 100);
 
-        setMaxValue(maxPercent);
-    }, [currentMax, data]);
+        setRightSliderPositionInPercents(maxPercent);
+    }, [barChartMax, data]);
 
     const thumbStyles = useMemo(
         () => ({
@@ -104,34 +125,40 @@ export function Slider({
                 type="range"
                 min={0}
                 max={100}
-                value={minValue}
-                ref={minValRef}
+                value={leftSliderPositionInPercents}
+                ref={leftSliderRef}
                 style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_left, {
-                    [sliderStyles.thumb_zindex_5]: minValue > max - 100,
+                    [sliderStyles.thumb_zindex_5]: leftSliderPositionInPercents > max - 100,
                 })}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const value = Math.min(+event.target.value, maxValue - 1);
-                    setMinValue(value);
+                    const newLeftSliderPositionInPercents = Math.min(
+                        +event.target.value,
+                        rightSliderPositionInPercents - 1,
+                    );
+                    setInnerSelectedLeft(newLeftSliderPositionInPercents);
                 }}
             />
             <input
                 type="range"
                 min={0}
                 max={100}
-                value={maxValue}
-                ref={maxValueRef}
+                value={rightSliderPositionInPercents}
+                ref={rightSliderRef}
                 style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_right)}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const value = Math.max(+event.target.value, minValue + 1);
-                    setMaxValue(value);
+                    const newRightSliderPositionInPercents = Math.max(
+                        +event.target.value,
+                        leftSliderPositionInPercents + 1,
+                    );
+                    setInnerSelectedRight(newRightSliderPositionInPercents);
                 }}
             />
 
             <div className={sliderStyles.slider} style={{ width }}>
                 <div className={sliderStyles.slider__track} />
-                <div ref={range} className={sliderStyles.slider__range} />
+                <div ref={rangeRef} className={sliderStyles.slider__range} />
             </div>
         </div>
     );

@@ -67,6 +67,7 @@ export function RangeBaseFilter({
             height={128}
             defaultMin={defaultMin}
             defaultMax={defaultMax}
+            type={filterType}
         />
     ) : (
         <>{!noLoader && <FilterLoader />}</>
