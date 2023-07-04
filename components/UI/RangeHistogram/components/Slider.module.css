@@ -1,6 +1,6 @@
 .slider {
     position: absolute;
-    width: calc(100% - var(--histogram-padding) * 2);
+    width: calc(100% - var(--histogram-padding-x) * 2);
 }
 
 .slider__track,
@@ -31,7 +31,7 @@
 .thumb {
     pointer-events: none;
     position: absolute;
-    width: calc(100% - var(--histogram-padding));
+    width: calc(100% - var(--histogram-padding-x));
     height: 0;
 }
 

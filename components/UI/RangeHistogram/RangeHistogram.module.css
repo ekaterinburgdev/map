@@ -1,10 +1,19 @@
 .histogram {
-    --histogram-padding: 10px;
+    --histogram-color-active: white;
+    --histogram-color-disabled: #2c3a5e;
+
+    --histogram-thumb-color-active: white;
+    --histogram-thumb-color-disabled: #55647d;
+
+    --histogram-padding-x: 10px;
+}
+
+.histogram {
     position: relative;
-    padding-top: var(--histogram-padding);
-    padding-right: var(--histogram-padding);
+    padding-top: 32px;
+    padding-right: var(--histogram-padding-x);
     padding-bottom: 0;
-    padding-left: var(--histogram-padding);
+    padding-left: var(--histogram-padding-x);
     box-sizing: content-box;
     user-select: none;
 }
