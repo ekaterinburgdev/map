@@ -1,5 +1,6 @@
 .slider {
-    position: relative;
+    position: absolute;
+    width: calc(100% - var(--histogram-padding-x) * 2);
 }
 
 .slider__track,
@@ -30,6 +31,7 @@
 .thumb {
     pointer-events: none;
     position: absolute;
+    width: calc(100% - var(--histogram-padding-x));
     height: 0;
 }
 
@@ -57,6 +59,7 @@
     pointer-events: all;
     position: relative;
     transition: all 0.3s ease;
+    transform: translate(-50%, 0);
 }
 
 .thumb:hover::-webkit-slider-thumb {
@@ -78,4 +81,5 @@
     margin-bottom: 2px;
     pointer-events: all;
     position: relative;
+    transform: translate(-50%, 0);
 }

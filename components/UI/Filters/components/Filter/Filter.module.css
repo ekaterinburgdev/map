@@ -1,6 +1,6 @@
 .filter {
     position: relative;
-    overflow-x: scroll;
+    overflow: auto;
     padding: 0 16px;
     opacity: 0;
     box-sizing: content-box;
