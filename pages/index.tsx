@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react';
-import { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
 
-import 'styles/globals.css';
-import 'ekb/style.css';
+export const App = dynamic(() => import('../components/App'), { ssr: false });
 
-export default function App({ Component, pageProps }: AppProps) {
+export default function Home() {
     useEffect(() => {
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker
@@ -19,5 +18,5 @@ export default function App({ Component, pageProps }: AppProps) {
         }
     }, []);
 
-    return <Component {...pageProps} />;
+    return <App />;
 }
