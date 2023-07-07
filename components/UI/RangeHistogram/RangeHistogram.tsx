@@ -42,10 +42,12 @@ export function RangeHistogram({
 
     useEffect(() => {
         setFinalRange(barChartRange);
+        console.log("barChartRange ", barChartRange);
     }, [barChartRange]);
 
     useEffect(() => {
         setFinalRange(sliderRange2);
+        console.log('slider range ', sliderRange2);
     }, [sliderRange2]);
 
     useEffect(() => {
@@ -118,9 +120,12 @@ export function RangeHistogram({
                     // onChange={onChange2}
                 />
             </div>
-            {/*<div className={histogramStyles.histogram__axis}>*/}
-            {/*    <Axis data={data} range={range} onSelect={onSelect} />*/}
-            {/*</div>*/}
+            <div className={histogramStyles.histogram__axis}>
+                <Axis
+                    data={data}
+                    range={finalRange}
+                />
+            </div>
         </div>
     ) : null;
 }

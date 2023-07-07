@@ -47,8 +47,8 @@ export function Axis({ data, range, onSelect }: Props) {
                 <div
                     aria-hidden
                     key={item.value}
-                    onClick={() => onClick?.(item.value)}
-                    onKeyUp={() => onClick?.(item.value)}
+                    // onClick={() => onClick?.(item.value)}
+                    // onKeyUp={() => onClick?.(item.value)}
                     className={classNames(axisStyles.axis__item, {
                         [axisStyles.axis__item_active]: item.isActive,
                     })}
