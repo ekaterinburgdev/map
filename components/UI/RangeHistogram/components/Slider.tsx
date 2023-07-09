@@ -36,11 +36,13 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
 
     // when left slider is moved - update actualLeft
     useEffect(() => {
+        console.log({ innerSelectedLeft });
         setActualLeft(innerSelectedLeft);
     }, [innerSelectedLeft]);
 
     // when right slider is moved - update actualRight
     useEffect(() => {
+        console.log({ innerSelectedRight });
         setActualRight(innerSelectedRight);
     }, [innerSelectedRight]);
 
@@ -60,7 +62,7 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
 
             return Math.abs(barChartMinMax.min - from) <= epsilon;
         });
-        const minPercent = !minIndex ? 0 : Math.floor((minIndex / data.length) * 100);
+        const minPercent = !minIndex ? 0 : (minIndex / data.length) * 100;
 
         setActualLeft(minPercent);
     }, [barChartMinMax, data]);
@@ -72,7 +74,7 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
 
             return Math.abs(barChartMinMax.max - to) <= epsilon;
         });
-        const maxPercent = Math.ceil(((maxIndex + 1) / data.length) * 100);
+        const maxPercent = ((maxIndex + 1) / data.length) * 100;
 
         setActualRight(maxPercent);
     }, [barChartMinMax, data]);
@@ -122,7 +124,7 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
                 type="range"
                 min={0}
                 max={100}
-                value={actualLeft}
+                value={Math.floor(actualLeft)}
                 ref={leftSliderRef}
                 style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_left, {
@@ -141,7 +143,7 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
                 type="range"
                 min={0}
                 max={100}
-                value={actualRight}
+                value={Math.ceil(actualRight)}
                 ref={rightSliderRef}
                 style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_right)}
