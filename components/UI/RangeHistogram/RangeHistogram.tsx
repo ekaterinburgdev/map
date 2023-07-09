@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import histogramStyles from './RangeHistogram.module.css';
 import { Slider } from './components/Slider';
@@ -7,12 +7,14 @@ import { Axis } from './components/Axis';
 import { HistogramData, MinMax, Range } from './types';
 
 interface Props {
-    data?: HistogramData;
-    onChange: (range: MinMax) => void;
-    width?: number | 'auto',
+    width?: number | 'auto';
     height?: number;
+
     defaultMin: number;
     defaultMax: number;
+
+    data?: HistogramData;
+    onChange: (minMax: MinMax) => void;
 }
 
 export function RangeHistogram({
@@ -23,44 +25,65 @@ export function RangeHistogram({
     defaultMin,
     defaultMax,
 }: Props) {
-    const [range, setRange] = useState<MinMax>({
-        min: defaultMin,
-        max: defaultMax,
-    });
-    const [sliderRange, setSliderRange] = useState<MinMax>({
+    const [barChartMinMax, setBarChartMinMax] = useState<MinMax>({
         min: defaultMin,
         max: defaultMax,
     });
 
-    const onSelect = ({ from, to }: Range) => {
-        setSliderRange({ min: from, max: to });
-        setRange({ min: from, max: to });
-    };
+    const [sliderMinMax, setSliderMinMax] = useState<MinMax>({
+        min: defaultMin,
+        max: defaultMax,
+    });
+
+    const [finalMinMax, setFinalMinMax] = useState<MinMax>({
+        min: defaultMin,
+        max: defaultMax,
+    });
 
     useEffect(() => {
-        onChange?.(range);
-    }, [range, onChange]);
+        setFinalMinMax(barChartMinMax);
+    }, [barChartMinMax]);
+
+    useEffect(() => {
+        setFinalMinMax(sliderMinMax);
+    }, [sliderMinMax]);
+
+    useEffect(() => {
+        onChange(finalMinMax);
+    }, [finalMinMax]);
+
+    const onSelectInBarChart = (fromTo: Range) => {
+        setBarChartMinMax({
+            min: fromTo.from,
+            max: fromTo.to,
+        });
+    };
+
+    const onChangeSlider = useCallback((minMax: MinMax) => {
+        setSliderMinMax(minMax);
+    }, []);
 
     return data ? (
         <div className={histogramStyles.histogram} style={{ width }}>
             <BarChart
                 data={data}
-                range={range}
+                sliderMinMax={sliderMinMax}
                 height={height}
-                onSelect={onSelect}
+                onSelect={onSelectInBarChart}
+                maxValue={defaultMax}
+                minValue={defaultMin}
             />
             <div className={histogramStyles.histogram__range}>
                 <Slider
                     data={data}
                     min={defaultMin}
                     max={defaultMax}
-                    currentMin={sliderRange.min}
-                    currentMax={sliderRange.max}
-                    onChange={setRange}
+                    barChartMinMax={barChartMinMax}
+                    onChange={onChangeSlider}
                 />
             </div>
             <div className={histogramStyles.histogram__axis}>
-                <Axis data={data} range={range} onSelect={onSelect} />
+                <Axis data={data} range={finalMinMax} />
             </div>
         </div>
     ) : null;

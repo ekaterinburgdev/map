@@ -8,6 +8,13 @@
     column-gap: 1px;
 }
 
+.barchart__itemWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
 .barchart__item {
     display: flex;
     justify-content: center;

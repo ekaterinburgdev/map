@@ -21,6 +21,7 @@ export function Axis({ data, range, onSelect }: Props) {
             isActive: lastItem.from >= range.min && lastItem.to <= range.max,
         });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onClick = useCallback(
         (from: number) => {
             if (from === lastItem.to) {
@@ -47,8 +48,8 @@ export function Axis({ data, range, onSelect }: Props) {
                 <div
                     aria-hidden
                     key={item.value}
-                    onClick={() => onClick?.(item.value)}
-                    onKeyUp={() => onClick?.(item.value)}
+                    // onClick={() => onClick?.(item.value)}
+                    // onKeyUp={() => onClick?.(item.value)}
                     className={classNames(axisStyles.axis__item, {
                         [axisStyles.axis__item_active]: item.isActive,
                     })}

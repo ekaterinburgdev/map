@@ -1,7 +1,7 @@
-import React, { ChangeEvent, useEffect, useState, useRef } from 'react';
+import React, { ChangeEvent, useEffect, useState, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 
-import { HistogramData } from '../types';
+import { HistogramData, MinMax } from '../types';
 
 import { getValueFromPercent } from './Slider.helpers';
 
@@ -9,83 +9,100 @@ import sliderStyles from './Slider.module.css';
 
 interface Props {
     data: HistogramData;
+
+    // minimal value of slider (in absolute units)
     min: number;
+    // maximal value of slider (in absolute units)
     max: number;
+
+    // on manual movement of slider
     onChange: Function;
-    currentMin?: number;
-    currentMax?: number;
+    barChartMinMax: MinMax;
 }
 
 const ERROR = 0.15;
 
-export function Slider({
-    min,
-    max,
-    currentMin = min,
-    currentMax = max,
-    onChange,
-    data,
-}: Props) {
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(100);
-    const minValRef = useRef<HTMLInputElement>(null);
-    const maxValueRef = useRef<HTMLInputElement>(null);
-    const range = useRef<HTMLDivElement>(null);
+export function Slider({ max, barChartMinMax, onChange, data }: Props) {
+    const [startValueInternal, setStartValueInternal] = useState(0);
+    const [endValueInternal, setEndValueInternal] = useState(100);
 
-    // Set width of the range to decrease from the left side
+    const [startValue, setStartValue] = useState(0);
+    const [endValue, setEndValue] = useState(100);
+
+    const leftSliderRef = useRef<HTMLInputElement>(null);
+    const rightSliderRef = useRef<HTMLInputElement>(null);
+    const rangeRef = useRef<HTMLDivElement>(null);
+
+    // when left slider is moved - update startValue
     useEffect(() => {
-        if (maxValueRef.current) {
-            const minPercent = minValue;
-            const maxPercent = +maxValueRef.current.value;
+        setStartValue(startValueInternal);
+    }, [startValueInternal]);
 
-            if (range.current) {
-                range.current.style.left = `${minPercent}%`;
-                range.current.style.width = `${maxPercent - minPercent}%`;
-            }
-        }
-    }, [minValue]);
-
-    // Set width of the range to decrease from the right side
+    // when right slider is moved - update endValue
     useEffect(() => {
-        if (minValRef.current) {
-            const minPercent = +minValRef.current.value;
-            const maxPercent = maxValue;
+        setEndValue(endValueInternal);
+    }, [endValueInternal]);
 
-            if (range.current) {
-                range.current.style.width = `${maxPercent - minPercent}%`;
-            }
-        }
-    }, [maxValue]);
-
-    // Get min and max values when their state changes
+    // when slider is moved - lift up new state to parent components
     useEffect(() => {
-        const minDataValue = getValueFromPercent(data, minValue);
-        const maxDataValue = getValueFromPercent(data, maxValue);
-
+        const minDataValue = getValueFromPercent(data, startValueInternal);
+        const maxDataValue = getValueFromPercent(data, endValueInternal);
         onChange({ min: minDataValue, max: maxDataValue });
-    }, [minValue, maxValue, onChange, data]);
+    }, [startValueInternal, endValueInternal, onChange, data]);
 
+    // when barChartLeft updated - update startValue
     useEffect(() => {
         const minIndex = data.findIndex(({ from, to }) => {
             const epsilon = ERROR * (to - from);
 
-            return Math.abs(currentMin - from) <= epsilon;
+            return Math.abs(barChartMinMax.min - from) <= epsilon;
         });
-        const minPercent = !minIndex ? 0 : Math.floor((minIndex / data.length) * 100);
+        const minPercent = !minIndex ? 0 : (minIndex / data.length) * 100;
 
-        setMinValue(minPercent);
-    }, [currentMin, data]);
+        setStartValue(minPercent);
+    }, [barChartMinMax, data]);
 
+    // when barChartRight updated - update endValue
     useEffect(() => {
         const maxIndex = data.findIndex(({ from, to }) => {
             const epsilon = ERROR * (to - from);
 
-            return Math.abs(currentMax - to) <= epsilon;
+            return Math.abs(barChartMinMax.max - to) <= epsilon;
         });
-        const maxPercent = Math.ceil(((maxIndex + 1) / data.length) * 100);
+        const maxPercent = ((maxIndex + 1) / data.length) * 100;
 
-        setMaxValue(maxPercent);
-    }, [currentMax, data]);
+        setEndValue(maxPercent);
+    }, [barChartMinMax, data]);
+
+    // when startValue is updated - change the position of left slider
+    useEffect(() => {
+        if (rightSliderRef.current) {
+            const minPercent = startValue;
+            const maxPercent = Number(rightSliderRef.current.value);
+
+            if (rangeRef.current) {
+                rangeRef.current.style.left = `${minPercent}%`;
+                rangeRef.current.style.width = `${maxPercent - minPercent}%`;
+            }
+        }
+    }, [startValue]);
+
+    // when endValue is updated - change the position of right slider
+    useEffect(() => {
+        if (leftSliderRef.current) {
+            const minPercent = Number(leftSliderRef.current.value);
+
+            if (rangeRef.current) {
+                rangeRef.current.style.width = `${endValue - minPercent}%`;
+            }
+        }
+    }, [endValue]);
+
+    // when starting movement of slider should update inner state with actual values
+    const setActualValuesToInnerState = useCallback(() => {
+        setStartValueInternal(startValue);
+        setEndValueInternal(endValue);
+    }, [startValue, endValue]);
 
     return (
         <div>
@@ -93,32 +110,40 @@ export function Slider({
                 type="range"
                 min={0}
                 max={100}
-                value={minValue}
-                ref={minValRef}
+                value={Math.floor(startValue)}
+                ref={leftSliderRef}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_left, {
-                    [sliderStyles.thumb_zindex_5]: minValue > max - 100,
+                    [sliderStyles.thumb_zindex_5]: startValue > max - 100,
                 })}
+                onMouseDown={setActualValuesToInnerState}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const value = Math.min(+event.target.value, maxValue - 1);
-                    setMinValue(value);
+                    const newLeftSliderPositionInPercents = Math.min(
+                        Number(event.target.value),
+                        endValue - 1,
+                    );
+                    setStartValueInternal(newLeftSliderPositionInPercents);
                 }}
             />
             <input
                 type="range"
                 min={0}
                 max={100}
-                value={maxValue}
-                ref={maxValueRef}
+                value={Math.ceil(endValue)}
+                ref={rightSliderRef}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_right)}
+                onMouseDown={setActualValuesToInnerState}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
-                    const value = Math.max(+event.target.value, minValue + 1);
-                    setMaxValue(value);
+                    const newRightSliderPositionInPercents = Math.max(
+                        Number(event.target.value),
+                        startValue + 1,
+                    );
+                    setEndValueInternal(newRightSliderPositionInPercents);
                 }}
             />
 
             <div className={sliderStyles.slider}>
                 <div className={sliderStyles.slider__track} />
-                <div ref={range} className={sliderStyles.slider__range} />
+                <div ref={rangeRef} className={sliderStyles.slider__range} />
             </div>
         </div>
     );
