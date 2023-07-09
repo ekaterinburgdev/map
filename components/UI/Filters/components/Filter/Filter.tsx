@@ -36,6 +36,19 @@ export function Filter({ children, isActive }: FilterProps) {
         },
     );
 
+    if (!isActive) {
+        return (
+            <div
+                ref={spoilerRef}
+                className={classNames(styles.filter, { [styles.filter__active]: isActive })}
+                style={style}
+                aria-hidden={!isActive}
+            >
+                <div ref={childrenWrapperRef} />
+            </div>
+        );
+    }
+
     return (
         <div
             ref={spoilerRef}

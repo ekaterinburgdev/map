@@ -1,68 +1,17 @@
-import qs from 'qs';
 import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
-import { getObjectsTotalCount, parallelRequests, STRAPI_BASE_URL } from '../dataHelpers';
-import { FilterOperator } from '../filterOperator';
-import { getById } from './getById';
 
 export const houseBase = {
-    async getObject(id: string): Promise<HouseObject> {
-        return getById.getObject(id, '/house');
-    },
-    async getObjectsPolygonsByRange(
-        from: number,
-        to: number,
-        filterName: string,
-    ): Promise<HouseClient[]> {
-        const url = `${STRAPI_BASE_URL}/house`;
-
-        const query = qs.stringify({
-            filters: {
-                [filterName]: {
-                    [FilterOperator['>=']]: from,
-                    [FilterOperator['<=']]: to,
-                },
-            },
-            populate: 'borders',
-            fields: filterName,
-        });
-
-        const result = await parallelRequests(
-            `${url}?${query}`,
-            (x: HouseObject): HouseClient => ({
-                borders: x.attributes.borders?.coordinates,
-                year: x.attributes.Year,
-                floors: x.attributes.Floors,
-                wearAndTear: x.attributes.WearAndTear,
-                id: x.id,
-            }),
-        );
-
-        return result;
-    },
-    async getFilterValues(histogramData: HistogramDataWithoutValues, filterName: string) {
-        const requests: Promise<number>[] = [];
-
-        histogramData.forEach(({ from, to }, idx) => {
-            const toFilter = idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
-
-            const url = `${STRAPI_BASE_URL}/house`;
-
-            const query = qs.stringify({
-                filters: {
-                    [filterName]: {
-                        [FilterOperator['>=']]: from,
-                        [toFilter]: to,
-                    },
-                },
-                fields: 'Address',
-            });
-
-            requests.push(getObjectsTotalCount(`${url}?${query}`));
-        });
-
-        const result = await Promise.all(requests);
-
-        return result;
+    async getFilterValues(_: HistogramDataWithoutValues, filterName: string) {
+        switch (filterName) {
+            case 'Year':
+                return Promise.resolve([0, 8, 67, 195, 982, 4790, 935, 811]);
+            case 'Floors':
+                return Promise.resolve([1815, 994, 2400, 1384, 440, 569, 61, 184, 17]);
+            case 'WearAndTear':
+                return Promise.resolve([850, 1191, 1467, 1087, 767, 409, 291, 67, 4, 7]);
+            default:
+                return Promise.resolve([]);
+        }
     },
 };
 

@@ -1,56 +1,46 @@
+/* eslint-disable no-console */
 import { MapItemType } from 'common/types/map-item';
 
-import { dtp } from 'common/data/dtp/dtp';
-import { okn } from 'common/data/okn/okn';
-import { houseBase } from 'common/data/base/houseBase';
-import { designCode } from 'common/data/designCode/designCode';
-
 import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
-import { DesignCodeMapData } from './DesignCode/MapData/MapData';
 
 import { DTPCardContent } from './DTP/CardContent/CardContent';
-import { DTPMapData } from './DTP/MapData/MapData';
 
 import { HousesCardContent } from './Houses/CardContent/CardContent';
-import { HousesMapData } from './Houses/MapData/MapData';
-
-import { LinesMapData } from './Lines/MapData/MapData';
 
 import { OKNCardContent } from './OKN/CardContent';
-import { OKNMapData } from './OKN/MapData/MapData';
 
 export const MODEL_CONFIG = {
     [MapItemType.Houses]: {
         cardContent: HousesCardContent,
-        mapData: HousesMapData,
+        // mapData: HousesMapData,
         requests: {
-            oneItemRequest: houseBase.getObject,
+            oneItemRequest: console.log,
         },
     },
     [MapItemType.DesignCode]: {
         cardContent: DesignCodeCardContent,
-        mapData: DesignCodeMapData,
+        // mapData: DesignCodeMapData,
         requests: {
-            oneItemRequest: designCode.getObject,
+            oneItemRequest: console.log,
         },
     },
     [MapItemType.DTP]: {
         cardContent: DTPCardContent,
-        mapData: DTPMapData,
+        // mapData: DTPMapData,
         requests: {
-            oneItemRequest: dtp.getObject,
+            oneItemRequest: console.log,
         },
     },
     [MapItemType.OKN]: {
         cardContent: OKNCardContent,
-        mapData: OKNMapData,
+        // mapData: OKNMapData,
         requests: {
-            oneItemRequest: okn.getObject,
+            oneItemRequest: console.log,
         },
     },
     [MapItemType.Lines]: {
         cardContent: () => null,
-        mapData: LinesMapData,
+        // mapData: LinesMapData,
         requests: {
             oneItemRequest: () => Promise.resolve(),
         },

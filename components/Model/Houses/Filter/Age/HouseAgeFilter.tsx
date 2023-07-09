@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
+import { useDispatch } from 'react-redux';
 
 import { MinMax } from 'components/UI/RangeHistogram/types';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 
 import { houseBase } from 'common/data/base/houseBase';
-import { houseAge } from 'common/data/houseAge/houseAge';
+
+import { setFilterParams } from 'state/features/dataLayers';
 
 import { AGE_FILTERS_DATA } from '../../Houses.constants';
 
@@ -13,9 +14,13 @@ import { HouseBaseFilter } from '../Base/HouseBaseFilter';
 import { CURRENT_YEAR, EKATERINBURG_FOUNDATION_YEAR } from './HouseAgeFilter.constants';
 
 export function HouseAgeFilter() {
+    const dispatch = useDispatch();
+
     const getHouses = useCallback(
-        async (range: MinMax) => houseAge.getObjectsPolygonsByRange(range.min, range.max),
-        [],
+        async (range: MinMax) => {
+            dispatch(setFilterParams({ activeFilterParams: range }));
+        },
+        [dispatch],
     );
 
     const getHistogramData = useCallback(
@@ -24,7 +29,8 @@ export function HouseAgeFilter() {
                 AGE_FILTERS_DATA.map((ageItemData, idx) => ({
                     ...ageItemData,
                     value: values[idx],
-                }))),
+                })),
+            ),
         [],
     );
 
@@ -34,7 +40,6 @@ export function HouseAgeFilter() {
             defaultMax={CURRENT_YEAR}
             onChangeRequest={getHouses}
             getHistogramData={getHistogramData}
-            filterType={FilterType.HouseAge}
         />
     );
 }

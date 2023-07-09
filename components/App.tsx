@@ -8,10 +8,10 @@ import { MobileFilters } from 'components/UI/Filters';
 import { RightSidebar } from 'components/UI/RightSidebar/RightSidebar';
 import { MobileCard } from 'components/UI/Card';
 import { useIsMobile } from 'common/isMobile';
-import MapMainContainer from './UI/Map/MainContainer/MapMainContainer';
 import { MapContextProvider } from './UI/Map/providers/MapProvider';
 import { Footer } from './UI/Footer/Footer';
 import { Copyright } from './UI/Copyright/Copyright';
+import { VectorMap } from './UI/Map/VectorMap';
 
 export default function App() {
     const isMobile = useIsMobile();
@@ -19,7 +19,7 @@ export default function App() {
     return (
         <Provider store={store}>
             <MapContextProvider>
-                <MapMainContainer />
+                <VectorMap />
                 {!isMobile && (
                     <>
                         <LeftSidebar />
