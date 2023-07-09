@@ -63,7 +63,7 @@ export function RangeBaseFilter({
         <RangeHistogram
             data={rangeData}
             onChange={onChange}
-            width={368}
+            width="auto"
             height={128}
             defaultMin={defaultMin}
             defaultMax={defaultMax}

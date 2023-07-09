@@ -29,10 +29,12 @@ export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxVa
         setActualMinMax(sliderMinMax);
     }, [sliderMinMax]);
 
+    const total = data.reduce((acc, item) => acc + item.value, 0);
     const max = Math.max(...data.map((item) => item.value));
 
     const items = data.map((item) => ({
         ...item,
+        percent: getPercent(0, total, item.value),
         height: getPercent(0, max, item.value),
         isActive: item.from >= actualMinMax.min && item.to <= actualMinMax.max,
     }));
@@ -56,9 +58,14 @@ export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxVa
                     style={{
                         height: `${item.height}%`,
                         color: item.color,
+                        position: 'static',
                     }}
                 >
-                    <div className={barchartStyles.barchart__label}>{item.value}</div>
+                    <div className={barchartStyles.barchart__percent}>
+                        {Intl.NumberFormat('ru-RU').format(item.percent)}
+                        &thinsp;%
+                    </div>
+                    <div className={barchartStyles.barchart__value}>{item.value}</div>
                 </div>
             ))}
         </div>

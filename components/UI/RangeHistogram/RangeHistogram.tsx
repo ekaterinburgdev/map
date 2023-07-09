@@ -7,7 +7,7 @@ import { Axis } from './components/Axis';
 import { HistogramData, MinMax, Range } from './types';
 
 interface Props {
-    width?: number;
+    width?: number | 'auto';
     height?: number;
 
     defaultMin: number;
@@ -19,7 +19,7 @@ interface Props {
 
 export function RangeHistogram({
     data,
-    width = 360,
+    width = 'auto',
     height = 100,
     onChange,
     defaultMin,
@@ -76,7 +76,6 @@ export function RangeHistogram({
             <div className={histogramStyles.histogram__range}>
                 <Slider
                     data={data}
-                    width={width}
                     min={defaultMin}
                     max={defaultMax}
                     barChartMinMax={barChartMinMax}

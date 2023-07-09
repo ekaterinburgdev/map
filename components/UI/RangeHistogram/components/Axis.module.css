@@ -2,10 +2,10 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    font-size: 14px;
+    font-size: 11px;
     line-height: 18px;
     column-gap: 1px;
-    margin: 0 -20px;
+    margin: 0 calc(-1 * var(--histogram-padding-x));
     color: var(--histogram-color-active);
 }
 
@@ -26,4 +26,10 @@
 
 .axis__item:not(.axis__item_active):hover {
     color: var(--histogram-color-active);
+}
+
+@media screen and (min-width: 768px) {
+    .axis {
+        font-size: 14px;
+    }
 }

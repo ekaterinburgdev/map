@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState, useRef, useMemo, useCallback } from 'react';
+import React, { ChangeEvent, useEffect, useState, useRef, useCallback } from 'react';
 import classnames from 'classnames';
 
 import { HistogramData, MinMax } from '../types';
@@ -9,7 +9,6 @@ import sliderStyles from './Slider.module.css';
 
 interface Props {
     data: HistogramData;
-    width: number;
 
     // minimal value of slider (in absolute units)
     min: number;
@@ -23,7 +22,7 @@ interface Props {
 
 const ERROR = 0.15;
 
-export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
+export function Slider({ max, barChartMinMax, onChange, data }: Props) {
     const [innerSelectedLeft, setInnerSelectedLeft] = useState(0);
     const [innerSelectedRight, setInnerSelectedRight] = useState(100);
 
@@ -105,15 +104,6 @@ export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
         setInnerSelectedRight(actualRight);
     }, [actualLeft, actualRight]);
 
-    const thumbStyles = useMemo(
-        () => ({
-            width: width + 10,
-            marginRight: -5,
-            marginLeft: -5,
-        }),
-        [width],
-    );
-
     return (
         <div>
             <input
@@ -122,7 +112,6 @@ export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
                 max={100}
                 value={Math.floor(actualLeft)}
                 ref={leftSliderRef}
-                style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_left, {
                     [sliderStyles.thumb_zindex_5]: actualLeft > max - 100,
                 })}
@@ -141,7 +130,6 @@ export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
                 max={100}
                 value={Math.ceil(actualRight)}
                 ref={rightSliderRef}
-                style={thumbStyles}
                 className={classnames(sliderStyles.thumb, sliderStyles.thumb_right)}
                 onMouseDown={setActualValuesToInnerState}
                 onChange={(event: ChangeEvent<HTMLInputElement>) => {
@@ -153,7 +141,7 @@ export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
                 }}
             />
 
-            <div className={sliderStyles.slider} style={{ width }}>
+            <div className={sliderStyles.slider}>
                 <div className={sliderStyles.slider__track} />
                 <div ref={rangeRef} className={sliderStyles.slider__range} />
             </div>
