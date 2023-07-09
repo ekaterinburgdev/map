@@ -5,7 +5,6 @@ import { Slider } from './components/Slider';
 import { BarChart } from './components/BarChart';
 import { Axis } from './components/Axis';
 import { HistogramData, MinMax, Range } from './types';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 
 interface Props {
     width?: number;
@@ -13,7 +12,6 @@ interface Props {
 
     defaultMin: number;
     defaultMax: number;
-    type?: string;
 
     data?: HistogramData;
     onChange: (minMax: MinMax) => void;
@@ -26,7 +24,6 @@ export function RangeHistogram({
     onChange,
     defaultMin,
     defaultMax,
-    type,
 }: Props) {
     const [barChartMinMax, setBarChartMinMax] = useState<MinMax>({
         min: defaultMin,
@@ -52,11 +49,8 @@ export function RangeHistogram({
     }, [sliderMinMax]);
 
     useEffect(() => {
-        if (type === FilterType.HouseAge) {
-            console.log('on change final range', finalMinMax);
-        }
         onChange(finalMinMax);
-    }, [finalMinMax, type]);
+    }, [finalMinMax]);
 
     const onSelectInBarChart = (fromTo: Range) => {
         setBarChartMinMax({

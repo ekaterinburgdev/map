@@ -25,8 +25,8 @@ export function getValueFromPercent(data: HistogramData, percent: number) {
     const fromToDiffInAbsoluteValues = dataValue.to - dataValue.from;
 
     // 19 / 100 * 40 = 7,6 - distance between initial and from in current bar in absolute values
-    const toAddInAbsoluteValues =
-        (fromToDiffInAbsoluteValues / 100) * percentsBetweenFromAndInitial;
+    const toAddInAbsoluteValues = (fromToDiffInAbsoluteValues / 100)
+      * percentsBetweenFromAndInitial;
 
     return dataValue.from + Math.round(toAddInAbsoluteValues);
 }

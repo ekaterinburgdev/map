@@ -21,6 +21,7 @@ export function Axis({ data, range, onSelect }: Props) {
             isActive: lastItem.from >= range.min && lastItem.to <= range.max,
         });
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const onClick = useCallback(
         (from: number) => {
             if (from === lastItem.to) {

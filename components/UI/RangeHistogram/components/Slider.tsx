@@ -23,7 +23,7 @@ interface Props {
 
 const ERROR = 0.15;
 
-export function Slider({ width, min, max, barChartMinMax, onChange, data }: Props) {
+export function Slider({ width, max, barChartMinMax, onChange, data }: Props) {
     const [innerSelectedLeft, setInnerSelectedLeft] = useState(0);
     const [innerSelectedRight, setInnerSelectedRight] = useState(100);
 
@@ -36,13 +36,11 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
 
     // when left slider is moved - update actualLeft
     useEffect(() => {
-        console.log({ innerSelectedLeft });
         setActualLeft(innerSelectedLeft);
     }, [innerSelectedLeft]);
 
     // when right slider is moved - update actualRight
     useEffect(() => {
-        console.log({ innerSelectedRight });
         setActualRight(innerSelectedRight);
     }, [innerSelectedRight]);
 
@@ -50,8 +48,6 @@ export function Slider({ width, min, max, barChartMinMax, onChange, data }: Prop
     useEffect(() => {
         const minDataValue = getValueFromPercent(data, innerSelectedLeft);
         const maxDataValue = getValueFromPercent(data, innerSelectedRight);
-        console.log('on change in slider');
-        console.log({ innerSelectedLeft, innerSelectedRight, minDataValue, maxDataValue });
         onChange({ min: minDataValue, max: maxDataValue });
     }, [innerSelectedLeft, innerSelectedRight, onChange, data]);
 
