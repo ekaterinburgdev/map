@@ -14,19 +14,19 @@ interface Props {
 }
 
 export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxValue }: Props) {
-    const [innerSelectedMinMax, setInnerSelectedMinMax] = useState<MinMax>();
+    const [minMaxInternal, setMinMaxInternal] = useState<MinMax>();
 
-    const [actualMinMax, setActualMinMax] = useState<MinMax>({
+    const [minMax, setMinMax] = useState<MinMax>({
         min: minValue,
         max: maxValue,
     });
 
     useEffect(() => {
-        setActualMinMax(innerSelectedMinMax);
-    }, [innerSelectedMinMax]);
+        setMinMax(minMaxInternal);
+    }, [minMaxInternal]);
 
     useEffect(() => {
-        setActualMinMax(sliderMinMax);
+        setMinMax(sliderMinMax);
     }, [sliderMinMax]);
 
     const total = data.reduce((acc, item) => acc + item.value, 0);
@@ -36,7 +36,7 @@ export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxVa
         ...item,
         percent: getPercent(0, total, item.value),
         height: getPercent(0, max, item.value),
-        isActive: item.from >= actualMinMax.min && item.to <= actualMinMax.max,
+        isActive: item.from >= minMax.min && item.to <= minMax.max,
     }));
 
     const selected = useRef(false);
@@ -44,7 +44,7 @@ export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxVa
     const onMouseDown = (item: HistogramDatum) => {
         selected.current = true;
         onSelect?.(item);
-        setInnerSelectedMinMax({
+        setMinMaxInternal({
             min: item.from,
             max: item.to,
         });
@@ -53,12 +53,12 @@ export function BarChart({ data, sliderMinMax, height, onSelect, minValue, maxVa
     const onMouseEnter = (item: HistogramDatum) => {
         if (selected.current === true) {
             onSelect({
-                from: Math.min(actualMinMax.min, item.from),
-                to: Math.max(actualMinMax.max, item.to),
+                from: Math.min(minMax.min, item.from),
+                to: Math.max(minMax.max, item.to),
             });
-            setInnerSelectedMinMax({
-                min: Math.min(actualMinMax.min, item.from),
-                max: Math.max(actualMinMax.max, item.to),
+            setMinMaxInternal({
+                min: Math.min(minMax.min, item.from),
+                max: Math.max(minMax.max, item.to),
             });
         }
     };
