@@ -4,8 +4,8 @@ import { FilterConfigItem, FilterType } from 'components/UI/Filters/Filters.type
 import { Toggle } from 'components/UI/Filters/components/Toggle/Toggle';
 import { Filter } from 'components/UI/Filters/components/Filter/Filter';
 import { FILTERS_CONFIG } from 'components/UI/Filters/Filters.config';
+import { activeFilterSelector } from 'state/features/selectors';
 import { toggleData } from 'state/features/dataLayers';
-import { State } from 'common/types/state';
 import styles from './Filters.module.css';
 
 export function Filters() {
@@ -18,14 +18,14 @@ export function Filters() {
         [dispatch],
     );
 
-    const dataLayer = useSelector((state: State) => state.dataLayer);
+    const activeFilter = useSelector(activeFilterSelector);
 
     return (
         <div className={styles.filters__body}>
             {(Object.entries(FILTERS_CONFIG) as [FilterType, FilterConfigItem][]).map(
                 ([type, { component: Component, title }], idx) => {
                     const id = `id:${type}-${idx}`;
-                    const isActive = type === dataLayer.activeFilter;
+                    const isActive = type === activeFilter;
 
                     return (
                         <div key={id} className={styles.filters__item}>

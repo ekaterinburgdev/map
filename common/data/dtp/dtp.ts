@@ -1,128 +1,28 @@
-import { intersection } from 'lodash';
-import qs from 'qs';
-
-import { HistogramDataWithoutValues, Range } from 'components/UI/RangeHistogram/types';
-import { getById } from '../base/getById';
-import { getObjectsTotalCount, parallelRequests, STRAPI_BASE_URL } from '../dataHelpers';
-import { FilterOperator } from '../filterOperator';
+import { Range } from 'components/UI/RangeHistogram/types';
 
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
 
 export const dtp = {
-    async getObject(id: string) {
-        return getById.getObject(id, '/dtps');
-    },
     async getSeverityFilters() {
-        const dtps = await dtp.getObjects({
-            severity: Object.values(DtpSeverityType),
-            years: { from: 2015, to: new Date().getFullYear() },
-        });
-
-        return Object.entries(
-            dtps.reduce((acc, dtpItem) => {
-                if (acc[dtpItem.attributes.severity]) {
-                    acc[dtpItem.attributes.severity] += 1;
-                } else {
-                    acc[dtpItem.attributes.severity] = 1;
-                }
-
-                return acc;
-            }, {}),
-        ) as [DtpSeverityType, number][];
+        return Promise.resolve([
+            ['Легкий', 4186],
+            ['Тяжёлый', 3394],
+            ['С погибшими', 542],
+        ]);
     },
     async getParticipantFilters() {
-        const dtps = await dtp.getObjects({
-            severity: Object.values(DtpSeverityType),
-            years: { from: 2015, to: new Date().getFullYear() },
-        });
-
-        return Object.entries(
-            dtps.reduce((acc, dtpItem) => {
-                const participants = dtpItem.attributes.participant_categories;
-
-                participants?.forEach((participant) => {
-                    if (acc[participant]) {
-                        acc[participant] += 1;
-                    } else {
-                        acc[participant] = 1;
-                    }
-                });
-
-                return acc;
-            }, {}),
-        ) as [DtpParticipantType, number][];
+        return Promise.resolve([
+            ['Все участники', 8122],
+            ['Пешеходы', 3079],
+            ['Мотоциклисты', 453],
+            ['Дети', 882],
+            ['Велосипедисты', 343],
+            ['Общ. транспорт', 321],
+        ]);
     },
-    async getYearsFilters(histogramData: HistogramDataWithoutValues) {
-        const requests: Promise<number>[] = [];
-
-        histogramData.forEach(({ from, to }, idx) => {
-            const toFilter = idx === histogramData.length - 1 ? FilterOperator['<='] : FilterOperator['<'];
-
-            const url = `${STRAPI_BASE_URL}/dtps`;
-
-            const query = qs.stringify({
-                filters: {
-                    datetime: {
-                        [FilterOperator['>=']]: from,
-                        [toFilter]: to,
-                    },
-                },
-                fields: 'address',
-            });
-
-            requests.push(getObjectsTotalCount(`${url}?${query}`));
-        });
-
-        const result = await Promise.all(requests);
-
-        return result;
-    },
-    async getObjects(filters: DTPFiltersParams) {
-        const url = `${STRAPI_BASE_URL}/dtps`;
-
-        const { severity, participants, years } = filters;
-
-        const query = qs.stringify({
-            filters: {
-                datetime: {
-                    [FilterOperator['>=']]: years.from,
-                    [FilterOperator['<=']]: years.to,
-                },
-                ...(severity && severity.length
-                    ? {
-                        severity: {
-                            [FilterOperator['=']]: severity,
-                        },
-                    }
-                    : {}),
-            },
-            fields: ['severity', 'participant_categories'],
-            populate: 'geometry',
-        });
-
-        const result = await parallelRequests(`${url}?${query}`, (x: DTPObject) => x);
-
-        if (participants && participants.length) {
-            const resultWithParticipants = [];
-
-            result.forEach((dtpObject) => {
-                const participantCategories = Array.from(
-                    dtpObject.attributes?.participant_categories,
-                );
-
-                if (
-                    participantCategories.length
-                    && intersection(participantCategories, participants).length
-                ) {
-                    resultWithParticipants.push(dtpObject);
-                }
-            });
-
-            return resultWithParticipants;
-        }
-
-        return result;
+    async getYearsFilters() {
+        return Promise.resolve([1014, 805, 730, 978, 1180, 1114, 1243, 1058]);
     },
 };
 

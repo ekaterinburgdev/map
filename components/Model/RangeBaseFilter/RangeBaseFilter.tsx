@@ -1,21 +1,14 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 import { RangeHistogram } from 'components/UI/RangeHistogram';
 import { HistogramData, MinMax } from 'components/UI/RangeHistogram/types';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-
-import { State } from 'common/types/state';
-
-import { REQUEST_DELAY, timeoutIds } from './RangeBaseFilter.constants';
 
 export interface RangeBaseFilterProps {
     defaultMin: number;
     defaultMax: number;
     onChangeCallback: (range: MinMax) => Promise<void> | void;
     getHistogramData: () => Promise<HistogramData>;
-    filterType: FilterType;
     noLoader?: boolean;
 }
 
@@ -24,10 +17,8 @@ export function RangeBaseFilter({
     defaultMax,
     onChangeCallback,
     getHistogramData,
-    filterType,
     noLoader,
 }: RangeBaseFilterProps) {
-    const shouldFetch = useSelector((state: State) => state.dataLayer.activeFilter === filterType);
     const [rangeData, setRangeData] = useState<HistogramData>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
@@ -38,37 +29,22 @@ export function RangeBaseFilter({
         });
     }, [getHistogramData]);
 
-    const onChange = useCallback(
-        async (range: MinMax) => {
-            if (!shouldFetch) {
-                return;
-            }
+    if (loading) {
+        if (noLoader) {
+            return null;
+        }
 
-            if (timeoutIds[filterType]) {
-                clearTimeout(timeoutIds[filterType]);
-            }
+        return <FilterLoader />;
+    }
 
-            const currentTimeoutId = setTimeout(async () => {
-                await onChangeCallback(range);
-
-                timeoutIds[filterType] = null;
-            }, REQUEST_DELAY);
-
-            timeoutIds[filterType] = currentTimeoutId;
-        },
-        [filterType, shouldFetch, onChangeCallback],
-    );
-
-    return !loading ? (
+    return (
         <RangeHistogram
             data={rangeData}
-            onChange={onChange}
+            onChange={onChangeCallback}
             width="auto"
             height={128}
             defaultMin={defaultMin}
             defaultMax={defaultMax}
         />
-    ) : (
-        <>{!noLoader && <FilterLoader />}</>
     );
 }

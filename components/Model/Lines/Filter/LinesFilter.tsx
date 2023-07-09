@@ -1,15 +1,10 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
-import { useDispatch } from 'react-redux';
-
-import { setData } from 'state/features/dataLayers';
-import { initialObjectsState } from 'state/constants/dataLayers';
 
 import { lines } from 'common/data/lines/lines';
 import { LineType } from 'common/data/lines/lineType';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 
 import { LINES_CONFIG } from '../Lines.constants';
 
@@ -20,7 +15,6 @@ import styles from './LinesFilter.module.css';
 type LinesCountEntries = [LineType, number][];
 
 export function LinesFilter() {
-    const dispatch = useDispatch();
     const [linesState, dispatchLines] = useReducer(linesReducer, linesInitalState);
     const [linesCount, setLinesCount] = useState<LinesCountEntries>(null);
 
@@ -38,42 +32,6 @@ export function LinesFilter() {
         },
         [],
     );
-
-    useEffect(() => {
-        const lineTypes = Object.entries(linesState).reduce((acc, [type, value]) => {
-            if (value) {
-                acc.push(type);
-            }
-
-            return acc;
-        }, []) as LineType[];
-
-        if (!lineTypes.length) {
-            dispatch(
-                setData({
-                    type: FilterType.Line,
-                    data: initialObjectsState.line.data,
-                }),
-            );
-
-            return;
-        }
-
-        Promise.all([lines.getLinePolylines(lineTypes), lines.getLineObjects(lineTypes)]).then(
-            ([polylines, points]) => {
-                const concatenatedLines = [].concat(...polylines);
-                dispatch(
-                    setData({
-                        type: FilterType.Line,
-                        data: {
-                            lines: concatenatedLines,
-                            points,
-                        },
-                    }),
-                );
-            },
-        );
-    }, [dispatch, linesState]);
 
     return linesCount ? (
         <>

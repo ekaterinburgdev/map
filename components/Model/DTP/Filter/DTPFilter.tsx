@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setData } from 'state/features/dataLayers';
+import { setFilter } from 'state/features/dataLayers';
 
 import { dtp, DTPFiltersParams } from 'common/data/dtp/dtp';
 import { DtpParticipantType } from 'common/data/dtp/dtpParticipantType';
@@ -89,7 +89,7 @@ export function DTPFilter() {
     const onYearsChange = useCallback((range: MinMax) => setYearsState(range), []);
 
     const getHistogramData = useCallback(async () => {
-        const dtpFilters = await dtp.getYearsFilters(YEARS_FILTERS_DATA);
+        const dtpFilters = await dtp.getYearsFilters();
 
         const histogramData = YEARS_FILTERS_DATA.map((yearsItemData, idx) => ({
             ...yearsItemData,
@@ -124,23 +124,15 @@ export function DTPFilter() {
             return acc;
         }, []) as DtpParticipantType[];
 
-        if (!severities.length || !participants.length) {
-            dispatch(setData({ type: FilterType.DTP, data: [] }));
-
-            return;
-        }
-
         filters.severity = severities;
         filters.participants = participants;
 
-        dtp.getObjects(filters).then((dtps) => {
-            dispatch(
-                setData({
-                    type: FilterType.DTP,
-                    data: dtps,
-                }),
-            );
-        });
+        dispatch(
+            setFilter({
+                activeFilter: FilterType.DTP,
+                activeFilterParams: filters,
+            }),
+        );
     }, [dispatch, severityState, participantState, yearsState.min, yearsState.max]);
 
     const shouldShowLoader = useMemo(
@@ -158,7 +150,6 @@ export function DTPFilter() {
             <RangeBaseFilter
                 defaultMin={CURRENT_YEAR - 1}
                 defaultMax={CURRENT_YEAR}
-                filterType={FilterType.DTP}
                 getHistogramData={getHistogramData}
                 onChangeCallback={onYearsChange}
                 noLoader
@@ -166,39 +157,37 @@ export function DTPFilter() {
             {shouldShowCheckboxes && (
                 <>
                     <h2 className={styles.DTPFilter__sectionTitle}>Участники ДТП</h2>
-                    {participantCount
-                        && participantCount.map(([type, count], i) => (
-                            <Checkbox
-                                id={`${type}-line-${i}`}
-                                checked={participantState[type]}
-                                color="#3c4669"
-                                onClick={onParticipantChange(type)}
-                                mix={styles.DTPFilter__checkboxContent}
-                                key={`filter-${type}-participant-dtp`}
-                            >
-                                <div className={styles.DTPFilter__checkboxLabel}>
-                                    {DTP_PARTICIPANT_CONFIG[type]?.label || type}
-                                    <span className={styles.DTPFilter__objectsCount}>{count}</span>
-                                </div>
-                            </Checkbox>
-                        ))}
+                    {participantCount?.map(([type, count], i) => (
+                        <Checkbox
+                            id={`${type}-line-${i}`}
+                            checked={participantState[type]}
+                            color="#3c4669"
+                            onClick={onParticipantChange(type)}
+                            mix={styles.DTPFilter__checkboxContent}
+                            key={`filter-${type}-participant-dtp`}
+                        >
+                            <div className={styles.DTPFilter__checkboxLabel}>
+                                {DTP_PARTICIPANT_CONFIG[type]?.label || type}
+                                <span className={styles.DTPFilter__objectsCount}>{count}</span>
+                            </div>
+                        </Checkbox>
+                    ))}
                     <h2 className={styles.DTPFilter__sectionTitle}>Вред здоровью</h2>
-                    {severityCount
-                        && severityCount.map(([type, count], i) => (
-                            <Checkbox
-                                id={`${type}-line-${i}`}
-                                checked={severityState[type]}
-                                color={SEVERITY_CONFIG[type].color}
-                                onClick={onSeverityChange(type)}
-                                mix={styles.DTPFilter__checkboxContent}
-                                key={`filter-${type}-severity-dtp`}
-                            >
-                                <div className={styles.DTPFilter__checkboxLabel}>
-                                    {type}
-                                    <span className={styles.DTPFilter__objectsCount}>{count}</span>
-                                </div>
-                            </Checkbox>
-                        ))}
+                    {severityCount?.map(([type, count], i) => (
+                        <Checkbox
+                            id={`${type}-line-${i}`}
+                            checked={severityState[type]}
+                            color={SEVERITY_CONFIG[type].color}
+                            onClick={onSeverityChange(type)}
+                            mix={styles.DTPFilter__checkboxContent}
+                            key={`filter-${type}-severity-dtp`}
+                        >
+                            <div className={styles.DTPFilter__checkboxLabel}>
+                                {type}
+                                <span className={styles.DTPFilter__objectsCount}>{count}</span>
+                            </div>
+                        </Checkbox>
+                    ))}
                 </>
             )}
             {shouldShowLoader && <FilterLoader />}
