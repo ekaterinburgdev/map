@@ -2,7 +2,7 @@ import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilte
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
 // import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
-// import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
+import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Model/DTP/Filter/DTPFilter';
 // import { HouseWearTearFilter } from 'components/Model/Houses/Filter/WearTear/HouseWearTearFilter';
 import { FilterConfig, FilterType } from './Filters.types';
@@ -33,8 +33,8 @@ export const FILTERS_CONFIG: FilterConfig = {
         title: 'Дорожно-транспортные происшествия',
         component: DTPFilter,
     },
-    // [FilterType.Line]: {
-    //     title: 'Цветные линии Екатеринбурга',
-    //     component: LinesFilter,
-    // },
+    [FilterType.Line]: {
+        title: 'Цветные линии Екатеринбурга',
+        component: LinesFilter,
+    },
 };

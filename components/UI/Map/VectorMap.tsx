@@ -9,6 +9,7 @@ import { COORDS_EKATERINBURG } from 'common/constants/coords';
 import { BuildingSource } from './VectorMap/BuildingSource';
 import { OknSource } from './VectorMap/OknSource';
 import { DtpSource } from './VectorMap/DtpSource';
+import { LinesSource } from './VectorMap/LinesSource';
 
 function MapLayers() {
     return (
@@ -16,6 +17,7 @@ function MapLayers() {
             <BuildingSource />
             <OknSource />
             <DtpSource />
+            <LinesSource />
         </>
     );
 }
