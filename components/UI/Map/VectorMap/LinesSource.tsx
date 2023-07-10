@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Source, Layer } from 'react-map-gl';
 import type { CircleLayer, LineLayer } from 'react-map-gl';

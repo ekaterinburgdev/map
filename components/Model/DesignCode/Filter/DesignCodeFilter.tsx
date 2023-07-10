@@ -45,6 +45,7 @@ export function DesignCodeFilter() {
                     id={`design-code-${i}`}
                     checked={designCodeFilterState[type]}
                     color={DESIGN_CODE_ITEMS_COLORS[type]}
+                    // @ts-ignore
                     onClick={onChange(type)}
                     mix={styles.DesignCodeFilter__checkboxContent}
                     key={`filter-design-code-${type}`}
