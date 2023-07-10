@@ -37,7 +37,7 @@ export function Filters() {
                                 label={title}
                             />
                             <Filter isActive={isActive}>
-                                <Component />
+                                {isActive && <Component />}
                             </Filter>
                         </div>
                     );

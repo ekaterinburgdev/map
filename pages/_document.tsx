@@ -32,6 +32,7 @@ export default function Document() {
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="manifest" href="/site.webmanifest" />
 
+                <link rel="dns-prefetch" href="https://map-api.ekaterinburg.io/" />
                 <link rel="dns-prefetch" href="https://tiles.ekaterinburg.io/" />
             </Head>
 

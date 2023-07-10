@@ -28,17 +28,18 @@ function MapMainContainer() {
 
     const dataObjects = useSelector((state: State) => state.dataLayer.objects);
     const activeFilter = useSelector((state: State) => state.dataLayer.activeFilter);
+
     const activeMapData = useMemo(() => {
         const activeMapItem = dataObjects[activeFilter]?.mapItemType;
         switch (activeMapItem) {
             case MapItemType.Houses: {
-                const MapData = MODEL_CONFIG[activeMapItem].mapData;
+                const MapObjects = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as HouseClient[];
 
                 return objects.length > 0
                     ? objects.map((objectData) => (
                         <React.Fragment key={`map-data:${activeMapItem}-${objectData.id}`}>
-                            {objectData.borders && <MapData {...objectData} />}
+                            {objectData.borders && <MapObjects {...objectData} />}
                         </React.Fragment>
                     ))
                     : <MapLoader />;
@@ -81,92 +82,90 @@ function MapMainContainer() {
                     unclickable: true,
                 }));
 
-                return (
-                    <>
-                        {[
-                            ...objectsProps,
-                            ...objectZonesProps,
-                            ...protectZonesProps,
-                            ...securityZonesProps,
-                        ].map((props) => (
-                            <MapData {...props} />
-                        ))}
-                    </>
-                );
+                const layersProps = [
+                    ...objectsProps,
+                    ...objectZonesProps,
+                    ...protectZonesProps,
+                    ...securityZonesProps,
+                ];
+
+                return layersProps.length > 0
+                    ? layersProps.map((props) => (
+                        <MapData {...props} />
+                    ))
+                    : <MapLoader />;
             }
             case MapItemType.DTP: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as DTPObject[];
 
-                return objects.map(({ id, attributes }) => (
-                    <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
-                        {attributes.geometry.coordinates && (
-                            <MapData
-                                id={id}
-                                coords={attributes.geometry.coordinates}
-                                severityType={attributes.severity}
-                            />
-                        )}
-                    </React.Fragment>
-                ));
+                return objects.length > 0
+                    ? objects.map(({ id, attributes }) => (
+                        <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
+                            {attributes.geometry.coordinates && (
+                                <MapData
+                                    id={id}
+                                    coords={attributes.geometry.coordinates}
+                                    severityType={attributes.severity}
+                                />
+                            )}
+                        </React.Fragment>
+                    ))
+                    : <MapLoader />;
             }
             case MapItemType.DesignCode: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const objects = dataObjects[activeFilter].data as DesignCodeObject[];
 
-                return objects.map(({ id, coords, type: designCodeType, preview, name }) => (
-                    <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
-                        {coords && (
-                            <MapData
-                                id={id}
-                                coords={coords}
-                                name={name}
-                                type={designCodeType}
-                                preview={preview}
-                            />
-                        )}
-                    </React.Fragment>
-                ));
+                return objects.length > 0
+                    ? objects.map(({ id, coords, type: designCodeType, preview, name }) => (
+                        <React.Fragment key={`map-data:${activeMapItem}-${id}`}>
+                            {coords && (
+                                <MapData
+                                    id={id}
+                                    coords={coords}
+                                    name={name}
+                                    type={designCodeType}
+                                    preview={preview}
+                                />
+                            )}
+                        </React.Fragment>
+                    ))
+                    : <MapLoader />;
             }
             case MapItemType.Lines: {
                 const MapData = MODEL_CONFIG[activeMapItem].mapData;
                 const linesData = dataObjects[activeFilter].data as LinesData;
                 const { lines, points } = linesData;
 
-                const linesMapData = lines.map(({ coords, type, id }) => (
-                    <React.Fragment key={`map-data:${activeMapItem}-line-${type}-${id}`}>
-                        {coords && (
-                            <MapData id={id} positions={coords} lineType={type} figureType="line" />
-                        )}
-                    </React.Fragment>
-                ));
-                const pointsMapData = points.map(
-                    ({ type, data }) =>
-                        data.map(
-                            ({
-                                id,
-                                attributes: {
-                                    geometry: { coordinates },
-                                    image,
-                                },
-                            }) => (
-                                <React.Fragment
-                                    key={`map-data:${activeMapItem}-${type}-point-${id}`}
-                                >
-                                    {coordinates && (
-                                        <MapData
-                                            id={id}
-                                            positions={coordinates}
-                                            lineType={type}
-                                            figureType="point"
-                                            preview={image}
-                                        />
-                                    )}
-                                </React.Fragment>
-                            ),
-                        ),
-                    // eslint-disable
-                );
+                const linesMapData = lines.length > 0
+                    ? lines.map(({ coords, type, id }) => (
+                        <React.Fragment key={`map-data:${activeMapItem}-line-${type}-${id}`}>
+                            {coords && (
+                                <MapData id={id} positions={coords} lineType={type} figureType="line" />
+                            )}
+                        </React.Fragment>
+                    ))
+                    : <MapLoader />;
+
+                const pointsMapData = points.map(({ type, data }) =>
+                    (data.length > 0
+                        ? data.map(({ id, attributes: { geometry: { coordinates }, image } }) => (
+                            <React.Fragment
+                                key={`map-data:${activeMapItem}-${type}-point-${id}`}
+                            >
+                                {coordinates && (
+                                    <MapData
+                                        id={id}
+                                        positions={coordinates}
+                                        lineType={type}
+                                        figureType="point"
+                                        preview={image}
+                                    />
+                                )}
+                            </React.Fragment>
+                        ))
+                        : <MapLoader />));
 
                 return (
                     <>
