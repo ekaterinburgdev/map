@@ -50,7 +50,7 @@ export function RangeHistogram({
 
     useEffect(() => {
         onChange(finalMinMax);
-    }, [finalMinMax]);
+    }, [onChange, finalMinMax]);
 
     const onSelectInBarChart = (fromTo: Range) => {
         setBarChartMinMax({

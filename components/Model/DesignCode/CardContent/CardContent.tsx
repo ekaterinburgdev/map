@@ -1,6 +1,5 @@
 import React from 'react';
 
-import Image from 'next/image';
 import { Section } from 'components/UI/Card/components/Section/Section';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Label } from 'components/UI/Card/components/Label/Label';
@@ -34,7 +33,7 @@ export function DesignCodeCardContent({ placemark }: DesignCodeCardContentProps)
 
                     return (
                         <a href={imageSrc} target="_blank" rel="noreferrer">
-                            <Image
+                            <img
                                 key={image.id}
                                 src={imageSrc}
                                 width={imageData.width}

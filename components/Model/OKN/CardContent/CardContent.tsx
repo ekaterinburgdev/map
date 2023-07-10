@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import Image from 'next/image';
 
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
@@ -34,7 +33,7 @@ export function OKNCardContent({ placemark }: OKNCardContentProps) {
                     rel="noreferrer"
                     className={styles.popup__imageLink}
                 >
-                    <Image
+                    <img
                         key={placemark?.attributes.img.title}
                         src={placemark?.attributes.img.url}
                         width={400}
