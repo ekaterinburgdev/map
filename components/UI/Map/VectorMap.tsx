@@ -10,6 +10,7 @@ import { BuildingSource } from './VectorMap/BuildingSource';
 import { OknSource } from './VectorMap/OknSource';
 import { DtpSource } from './VectorMap/DtpSource';
 import { LinesSource } from './VectorMap/LinesSource';
+import { DesignCodeSource } from './VectorMap/DesignCodeSource';
 
 function MapLayers() {
     return (
@@ -18,6 +19,7 @@ function MapLayers() {
             <OknSource />
             <DtpSource />
             <LinesSource />
+            <DesignCodeSource />
         </>
     );
 }
