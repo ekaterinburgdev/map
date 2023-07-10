@@ -1,5 +1,8 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import { useDispatch } from 'react-redux';
 
+import { setFilter } from 'state/features/dataLayers';
+import { FilterType } from 'components/UI/Filters/Filters.types';
 import { lines } from 'common/data/lines/lines';
 import { LineType } from 'common/data/lines/lineType';
 
@@ -15,6 +18,7 @@ import styles from './LinesFilter.module.css';
 type LinesCountEntries = [LineType, number][];
 
 export function LinesFilter() {
+    const dispatch = useDispatch();
     const [linesState, dispatchLines] = useReducer(linesReducer, linesInitalState);
     const [linesCount, setLinesCount] = useState<LinesCountEntries>(null);
 
@@ -26,6 +30,15 @@ export function LinesFilter() {
         });
     }, []);
 
+    useEffect(() => {
+        dispatch(
+            setFilter({
+                activeFilter: FilterType.Line,
+                activeFilterParams: linesState,
+            }),
+        );
+    }, [dispatch, linesState]);
+
     const onLinesChange = useCallback(
         (lineType: LineType) => () => {
             dispatchLines({ type: 'toggle', lineType });
@@ -33,7 +46,9 @@ export function LinesFilter() {
         [],
     );
 
-    return linesCount ? (
+    if (!linesCount) return <FilterLoader />;
+
+    return (
         <>
             {linesCount.map(([type, count], i) => (
                 <Checkbox
@@ -53,7 +68,5 @@ export function LinesFilter() {
                 </Checkbox>
             ))}
         </>
-    ) : (
-        <FilterLoader />
     );
 }
