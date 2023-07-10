@@ -63,7 +63,7 @@ export const lines = {
     async getLineObjects(types: LineType[]) {
         const lineObjectsRequest = types.map(async (type) => {
             const prefix = getLinePrefix(type);
-            const totalCount = (await getObjectsCountByLine(type)).count;
+            const totalCount = await getObjectsCountByLine(type);
 
             const query = qs.stringify({
                 populate: 'geometry',
