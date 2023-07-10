@@ -3,7 +3,7 @@ import { HouseClient, HouseObject } from './houseBase';
 
 async function houseBaseDownload() {
     const result = await parallelRequests(
-        `${STRAPI_BASE_URL}/house`,
+        `${STRAPI_BASE_URL}/house?populate=borders`,
         (x: HouseObject): HouseClient => ({
             borders: x.attributes.borders?.coordinates,
             year: x.attributes.Year,

@@ -18,7 +18,7 @@ async function getLinePolylines(types: LineType[]) {
     const lineRequests = types.map((type) => {
         const prefix = getLinePrefix(type);
 
-        return fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines`).then((response) =>
+        return fetchAPI(`${STRAPI_BASE_URL}/${prefix}-line-lines?populate=geometry`).then((response) =>
             response.data.map((e) => {
                 const geometry = Array.isArray(e.attributes.geometry)
                     ? e.attributes.geometry[0]
