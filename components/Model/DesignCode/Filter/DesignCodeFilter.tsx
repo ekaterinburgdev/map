@@ -1,22 +1,26 @@
-import React, { useCallback, useReducer, useState } from 'react';
-
+import React, { useCallback, useEffect, useReducer } from 'react';
+import { useDispatch } from 'react-redux';
+import groupBy from 'lodash/groupBy';
 import { DesignCodeItemType } from 'common/data/designCode/designCodeObject';
-import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
+import { FilterType } from 'components/UI/Filters/Filters.types';
+import { setFilter } from 'state/features/dataLayers';
 
+import designCode from '../../../../public/ekb-design-code.json';
 import { DESIGN_CODE_ITEMS_COLORS } from '../DesignCode.constants';
 
 import { designCodeReducer, designCondeInitalState } from './DesignCodeFilter.state';
 
 import styles from './DesignCodeFilter.module.css';
 
+const DESIGN_CODE_ITEMS = groupBy(designCode.features, (item) => item.properties.type);
+
 export function DesignCodeFilter() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const [designCodeFilterState, dispatchDesignCodeAction] = useReducer(
         designCodeReducer,
         designCondeInitalState,
     );
-    const [objectsCount] = useState<[DesignCodeItemType, number][]>(null);
 
     const onChange = useCallback(
         (designCodeItemType: DesignCodeItemType) => async () => {
@@ -25,9 +29,18 @@ export function DesignCodeFilter() {
         [],
     );
 
-    return objectsCount ? (
-        <>
-            {objectsCount.map(([type, count], i) => (
+    useEffect(() => {
+        dispatch(
+            setFilter({
+                activeFilter: FilterType.DesignCode,
+                activeFilterParams: designCodeFilterState,
+            }),
+        );
+    }, [designCodeFilterState, dispatch]);
+
+    return (
+        <div>
+            {Object.entries(DESIGN_CODE_ITEMS).map(([type, items], i) => (
                 <Checkbox
                     id={`design-code-${i}`}
                     checked={designCodeFilterState[type]}
@@ -37,11 +50,9 @@ export function DesignCodeFilter() {
                     key={`filter-design-code-${type}`}
                 >
                     {type}
-                    <span className={styles.DesignCodeFilter__objectsCount}>{count}</span>
+                    <span className={styles.DesignCodeFilter__objectsCount}>{items.length}</span>
                 </Checkbox>
             ))}
-        </>
-    ) : (
-        <FilterLoader />
+        </div>
     );
 }

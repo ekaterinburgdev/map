@@ -1,6 +1,6 @@
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
-// import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
+import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
 import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Model/DTP/Filter/DTPFilter';
@@ -25,10 +25,10 @@ export const FILTERS_CONFIG: FilterConfig = {
         title: 'Объекты культурного наследия',
         component: OknFilter,
     },
-    // [FilterType.DesignCode]: {
-    //     title: '«Дизайн-код Екатеринбурга»',
-    //     component: DesignCodeFilter,
-    // },
+    [FilterType.DesignCode]: {
+        title: '«Дизайн-код Екатеринбурга»',
+        component: DesignCodeFilter,
+    },
     [FilterType.DTP]: {
         title: 'Дорожно-транспортные происшествия',
         component: DTPFilter,
