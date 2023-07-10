@@ -8,11 +8,11 @@ import { okn } from 'common/data/okn/okn';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-// import { Section } from 'components/UI/Card/components/Section/Section';
+import { Section } from 'components/UI/Card/components/Section/Section';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 
-import { OBJECTS_CONFIG } from '../../Okn.constants';
+import { AREA_CONFIG, OBJECTS_CONFIG } from '../../Okn.constants';
 
 import {
     areaInitalState,
@@ -29,7 +29,7 @@ export function OknFilter() {
     const dispatch = useDispatch();
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
-    const [areaState] = useReducer(areaReducer, areaInitalState);
+    const [areaState, dispatchArea] = useReducer(areaReducer, areaInitalState);
     const [objectsState, dispatchObjects] = useReducer(objectsReducer, objectsInitalState);
     const [objectsCount, setObjectsCount] = useState<ObjectsCountEntries>(null);
     const [areaCount, setAreaCount] = useState<[OknAreaType, number][]>(null);
@@ -54,12 +54,12 @@ export function OknFilter() {
         });
     }, []);
 
-    // const onAreaChange = useCallback(
-    //     (oknArea: OknAreaType) => async () => {
-    //         dispatchArea({ type: 'toggle', areaType: oknArea });
-    //     },
-    //     [],
-    // );
+    const onAreaChange = useCallback(
+        (oknArea: OknAreaType) => async () => {
+            dispatchArea({ type: 'toggle', areaType: oknArea });
+        },
+        [],
+    );
 
     const onObjectsChange = useCallback(
         (oknObjectType: OknObjectSignificanceType) => async () => {
@@ -74,23 +74,11 @@ export function OknFilter() {
                 activeFilter: FilterType.OKN,
                 activeFilterParams: {
                     ...Object.entries(areaState).reduce(
-                        (all, [id, value]) => ({
-                            ...all,
-                            [id]: {
-                                value,
-                                type: 'area',
-                            },
-                        }),
+                        (all, [id, value]) => ({ ...all, [id]: { value, type: 'area' } }),
                         {},
                     ),
                     ...Object.entries(objectsState).reduce(
-                        (all, [id, value]) => ({
-                            ...all,
-                            [id]: {
-                                value,
-                                type: 'objects',
-                            },
-                        }),
+                        (all, [id, value]) => ({ ...all, [id]: { value, type: 'objects' } }),
                         {},
                     ),
                 },
@@ -121,7 +109,7 @@ export function OknFilter() {
                     <span className={styles.OknFilter__objectsCount}>{count}</span>
                 </Checkbox>
             ))}
-            {/* <Section>
+            <Section>
                 {areaCount?.map(([type, count], i) => (
                     <Checkbox
                         id={`okn-zones-${i}`}
@@ -139,7 +127,7 @@ export function OknFilter() {
                         </small>
                     </Checkbox>
                 ))}
-            </Section> */}
+            </Section>
         </>
     );
 }

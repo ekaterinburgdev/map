@@ -37,7 +37,6 @@ export function OknSource() {
             'circle-radius': 8,
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
-            // @ts-ignore
             'circle-stroke-width': 1,
             // @ts-ignore
             'circle-stroke-color': ['case'].concat(...strokeColors).concat(['rgba(0, 0, 0, 0)']),
