@@ -9,6 +9,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "preload": "npx ts-node scripts/preload.ts",
+    "postinstall": "pnpm preload",
     "devPreinstall": "husky install",
     "check-types": "tsc --noEmit"
   },
