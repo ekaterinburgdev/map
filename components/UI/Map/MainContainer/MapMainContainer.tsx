@@ -22,6 +22,7 @@ import { MapLoader } from '../Loader/MapLoader';
 import styles from './MapMainContainer.module.css';
 
 const DEFAULT_ZOOM = checkIsMobile(window.innerWidth) ? 12 : 15;
+const TILE_SERVER = `https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}${window.devicePixelRatio > 1 ? '@2x' : ''}.png`;
 
 function MapMainContainer() {
     const position: [number, number] = COORDS_EKATERINBURG;
@@ -191,7 +192,7 @@ function MapMainContainer() {
             // TODO Add placemarks to canvas
             preferCanvas
         >
-            <TileLayer url="https://tiles.ekaterinburg.io/styles/basic-black/{z}/{x}/{y}@2x.png" />
+            <TileLayer url={TILE_SERVER} />
             {activeMapData}
         </MapContainer>
     );
