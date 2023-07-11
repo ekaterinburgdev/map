@@ -1,15 +1,28 @@
-import React from 'react';
-import { Source, Layer } from 'react-map-gl';
+import React, { useEffect } from 'react';
+import { Source, Layer, useMap } from 'react-map-gl';
 import type { CircleLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { SEVERITY_CONFIG } from 'components/Model/DTP/DTP.constants';
+import { MapItemType } from 'common/types/map-item';
 import dtp from '../../../../public/ekb-dtp.json';
+import { usePopup } from '../providers/usePopup';
+
+const DTP_LAYER_ID = 'dtp-point';
 
 export function DtpSource() {
+    const ekbMap = useMap();
+    const { openPopup } = usePopup();
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
+
+    useEffect(() => {
+        ekbMap?.current?.on?.('click', DTP_LAYER_ID, (e) => {
+            const item = e.target.queryRenderedFeatures(e.point)[0];
+            openPopup(item.properties?.id, MapItemType.DTP);
+        });
+    }, [ekbMap, openPopup]);
 
     if (activeFilter !== FilterType.DTP || !activeFilterParams) {
         return null;
@@ -45,7 +58,7 @@ export function DtpSource() {
     ]);
 
     const layerStyle: CircleLayer = {
-        id: 'point',
+        id: DTP_LAYER_ID,
         type: 'circle',
         source: 'ekb-dtp-source',
         paint: {

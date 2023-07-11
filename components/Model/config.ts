@@ -1,5 +1,9 @@
 /* eslint-disable no-console */
 import { MapItemType } from 'common/types/map-item';
+import { houseBase } from 'common/data/base/houseBase';
+import { designCode } from 'common/data/designCode/designCode';
+import { dtp } from 'common/data/dtp/dtp';
+import { okn } from 'common/data/okn/okn';
 
 import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
 
@@ -12,35 +16,30 @@ import { OKNCardContent } from './OKN/CardContent';
 export const MODEL_CONFIG = {
     [MapItemType.Houses]: {
         cardContent: HousesCardContent,
-        // mapData: HousesMapData,
         requests: {
-            oneItemRequest: console.log,
+            oneItemRequest: houseBase.getObject,
         },
     },
     [MapItemType.DesignCode]: {
         cardContent: DesignCodeCardContent,
-        // mapData: DesignCodeMapData,
         requests: {
-            oneItemRequest: console.log,
+            oneItemRequest: designCode.getObject,
         },
     },
     [MapItemType.DTP]: {
         cardContent: DTPCardContent,
-        // mapData: DTPMapData,
         requests: {
-            oneItemRequest: console.log,
+            oneItemRequest: dtp.getObject,
         },
     },
     [MapItemType.OKN]: {
         cardContent: OKNCardContent,
-        // mapData: OKNMapData,
         requests: {
-            oneItemRequest: console.log,
+            oneItemRequest: okn.getObject,
         },
     },
     [MapItemType.Lines]: {
         cardContent: () => null,
-        // mapData: LinesMapData,
         requests: {
             oneItemRequest: () => Promise.resolve(),
         },

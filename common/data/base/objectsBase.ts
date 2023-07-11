@@ -5,8 +5,8 @@ export interface Image {
 }
 
 export interface ImageParameters {
-    width: string;
-    height: string;
+    width: string | number;
+    height: string | number;
     src: string;
 }
 

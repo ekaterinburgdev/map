@@ -1,9 +1,13 @@
 import { Range } from 'components/UI/RangeHistogram/types';
 
+import { getById } from '../base/getById';
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
 
 export const dtp = {
+    async getObject(id: string) {
+        return getById.getObject(id, '/dtps');
+    },
     async getSeverityFilters() {
         return Promise.resolve([
             ['Легкий', 4186],
