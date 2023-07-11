@@ -1,6 +1,24 @@
+import dtp from '../../../public/ekb-design-code.json';
+import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
+
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
 
 export const designCode = {
+    getObject(id: string): Promise<DesignCodeObject> {
+        try {
+            const result = dtp.features.find((item) => item.properties.id === id);
+
+            return Promise.resolve({
+                ...result.properties,
+                street: result.properties.street,
+                type: result.properties.type as DesignCodeItemType,
+                coords: [result.geometry.coordinates[0], result.geometry.coordinates[1]],
+            });
+        } catch (error) {
+            console.error(error);
+            return Promise.resolve(null);
+        }
+    },
     async getObjectsCount() {
         return Promise.resolve([
             ['Таблички ОКН', 105],

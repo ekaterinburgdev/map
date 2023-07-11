@@ -1,6 +1,10 @@
 import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import { getById } from './getById';
 
 export const houseBase = {
+    async getObject(id: string): Promise<HouseObject> {
+        return getById.getObject(id, '/house');
+    },
     async getFilterValues(_: HistogramDataWithoutValues, filterName: string) {
         switch (filterName) {
             case 'Year':
