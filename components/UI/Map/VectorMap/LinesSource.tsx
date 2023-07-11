@@ -50,10 +50,10 @@ export function LinesSource() {
 
     return (
         <>
-            <Source id="ekb-lines-source" type="geojson" data="/ekb-color-lines.geojson">
+            <Source id="ekb-lines-source" type="geojson" data="/ekb-color-lines.json">
                 <Layer {...linesLayerStyle} />
             </Source>
-            <Source id="ekb-points-source" type="geojson" data="/ekb-color-points.geojson">
+            <Source id="ekb-points-source" type="geojson" data="/ekb-color-points.json">
                 <Layer {...pointLayerStyle} />
             </Source>
         </>
