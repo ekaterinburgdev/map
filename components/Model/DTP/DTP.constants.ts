@@ -45,10 +45,9 @@ export const SEVERITY_CONFIG = {
     },
 };
 
-export const YEARS_FILTERS_DATA: HistogramDataWithoutValues = range(MIN_DTP_YEAR, CURRENT_YEAR).map(
-    (year) => ({
-        from: year,
-        to: year + 1,
-        color: '#7793db',
-    }),
-);
+export const DTP_YEARS_RANGE = range(MIN_DTP_YEAR, CURRENT_YEAR);
+export const YEARS_FILTERS_DATA: HistogramDataWithoutValues = DTP_YEARS_RANGE.map((year) => ({
+    from: year,
+    to: year + 1,
+    color: '#7793db',
+}));
