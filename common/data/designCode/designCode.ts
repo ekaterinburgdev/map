@@ -1,7 +1,12 @@
+import groupBy from 'lodash/groupBy';
 import dtp from '../../../public/ekb-design-code.json';
 import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
 
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';
+
+const designByType = Object.entries(groupBy(dtp.features, (item) => item.properties.type))
+    .map(([type, items]) => [type, items.length])
+    .sort((a, b) => (b[1] as number) - (a[1] as number));
 
 export const designCode = {
     getObject(id: string): Promise<DesignCodeObject> {
@@ -20,19 +25,6 @@ export const designCode = {
         }
     },
     async getObjectsCount() {
-        return Promise.resolve([
-            ['Таблички ОКН', 105],
-            ['Фризы остановок', 27],
-            ['Настенные таблички', 21],
-            ['Навигационные стелы', 18],
-            ['Обычные адресные таблички', 9],
-            ['Исторические адресные таблички', 6],
-            ['Таблички ЧО', 6],
-            ['Логотипы и айдентика', 3],
-            ['Светофор', 2],
-            ['Транспорт', 1],
-            ['Памятные таблички', 1],
-            ['Уличная мебель', 1],
-        ]);
+        return designByType;
     },
 };

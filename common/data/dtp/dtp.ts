@@ -1,4 +1,8 @@
+import groupBy from 'lodash/groupBy';
 import { Range } from 'components/UI/RangeHistogram/types';
+import { DTP_YEARS_RANGE } from 'components/Model/DTP/DTP.constants';
+
+import dtpData from '../../../public/ekb-dtp.json';
 
 import { getById } from '../base/getById';
 import { DtpSeverityType } from './dtpSeverityType';
@@ -9,24 +13,39 @@ export const dtp = {
         return getById.getObject(id, '/dtps');
     },
     async getSeverityFilters() {
-        return Promise.resolve([
-            ['Легкий', 4186],
-            ['Тяжёлый', 3394],
-            ['С погибшими', 542],
-        ]);
+        const dtpBySeverity = Object.entries(
+            groupBy(dtpData.features, (item) => item.properties.severity),
+        )
+            .map(([type, items]) => [type, items.length])
+            .sort((a, b) => (b[1] as number) - (a[1] as number));
+
+        return Promise.resolve(dtpBySeverity);
     },
     async getParticipantFilters() {
-        return Promise.resolve([
-            ['Все участники', 8122],
-            ['Пешеходы', 3079],
-            ['Мотоциклисты', 453],
-            ['Дети', 882],
-            ['Велосипедисты', 343],
-            ['Общ. транспорт', 321],
-        ]);
+        const categories = Array.from(
+            new Set(dtpData.features.map((item) => item.properties.participant_categories).flat(2)),
+        );
+
+        const dtpByParticipants = categories
+            .map((category) => [
+                category,
+                dtpData.features.filter((item) =>
+                    item.properties.participant_categories.includes(category),
+                ),
+            ])
+            .map(([type, items]) => [type, items.length])
+            .sort((a, b) => (b[1] as number) - (a[1] as number));
+
+        return Promise.resolve(dtpByParticipants);
     },
     async getYearsFilters() {
-        return Promise.resolve([1014, 805, 730, 978, 1180, 1114, 1243, 1058]);
+        const years = DTP_YEARS_RANGE;
+
+        const dtpByYear = years.map(
+            (year) => dtpData.features.filter((item) => item.properties.year === year).length,
+        );
+
+        return Promise.resolve(dtpByYear);
     },
 };
 
