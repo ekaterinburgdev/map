@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
-import type { CircleLayer } from 'react-map-gl';
+import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { FilterType } from 'components/UI/Filters/Filters.types';
-import { OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
+import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
 import { MapItemType } from 'common/types/map-item';
+import { OknAreaType } from 'common/data/okn/oknConstants';
 import { usePopup } from '../providers/usePopup';
 
-const OKN_LAYER_ID = 'ekb-okn-source';
+const OKN_LAYER_ID = 'ekb-okn-layer';
 
 export function OknSource() {
     const ekbMap = useMap();
@@ -56,11 +57,86 @@ export function OknSource() {
         },
     };
 
+    const getZoneStyle = (source: string, type: string, zone: OknAreaType): FillLayer => ({
+        id: `ekb-okn-${type}-polygon-layer`,
+        type: 'fill',
+        source,
+        paint: {
+            'fill-color': AREA_CONFIG[zone].color,
+            'fill-opacity': 0.3,
+        },
+    });
+
+    const getZoneOutlineStyle = (source: string, type: string, zone: OknAreaType): LineLayer => ({
+        id: `ekb-okn-${type}-outline-layer`,
+        type: 'line',
+        source,
+        paint: {
+            'line-color': AREA_CONFIG[zone].color,
+            'line-width': 3,
+            'line-dasharray': [2, 2],
+        },
+    });
+
     return (
         <>
             <Source id="ekb-okn-source" type="geojson" data="/ekb-okn.geojson">
                 <Layer {...layerStyle} />
             </Source>
+            {activeFilterParams[OknAreaType.ProtectZone]?.value && (
+                <Source id="ekb-okn-protect-source" type="geojson" data="/ekb-okn-protect.json">
+                    <Layer
+                        {...getZoneStyle(
+                            'ekb-okn-protect-source',
+                            'protect',
+                            OknAreaType.ProtectZone,
+                        )}
+                    />
+                    <Layer
+                        {...getZoneOutlineStyle(
+                            'ekb-okn-protect-source',
+                            'protect',
+                            OknAreaType.ProtectZone,
+                        )}
+                    />
+                </Source>
+            )}
+            {activeFilterParams[OknAreaType.SecurityZone]?.value && (
+                <Source id="ekb-okn-security-source" type="geojson" data="/ekb-okn-security.json">
+                    <Layer
+                        {...getZoneStyle(
+                            'ekb-okn-security-source',
+                            'security',
+                            OknAreaType.SecurityZone,
+                        )}
+                    />
+                    <Layer
+                        {...getZoneOutlineStyle(
+                            'ekb-okn-security-source',
+                            'security',
+                            OknAreaType.SecurityZone,
+                        )}
+                    />
+                </Source>
+            )}
+            {activeFilterParams[OknAreaType.ObjectZone]?.value && (
+                <Source id="ekb-okn-objects-source" type="geojson" data="/ekb-okn-objects.json">
+                    <Layer
+                        {...getZoneStyle(
+                            'ekb-okn-objects-source',
+                            'objects',
+                            OknAreaType.ObjectZone,
+                        )}
+                    />
+                    <Layer
+                        {...getZoneOutlineStyle(
+                            'ekb-okn-objects-source',
+                            'objects',
+                            OknAreaType.ObjectZone,
+                        )}
+                    />
+                </Source>
+            )}
         </>
     );
 }
