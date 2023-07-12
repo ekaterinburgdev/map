@@ -14,6 +14,7 @@ import { RangeBaseFilter } from 'components/Model/RangeBaseFilter/RangeBaseFilte
 import { MinMax } from 'components/UI/RangeHistogram/types';
 
 import {
+    MIN_DTP_YEAR,
     CURRENT_YEAR,
     DTP_PARTICIPANT_CONFIG,
     SEVERITY_CONFIG,
@@ -148,7 +149,7 @@ export function DTPFilter() {
     return (
         <>
             <RangeBaseFilter
-                defaultMin={CURRENT_YEAR - 1}
+                defaultMin={MIN_DTP_YEAR}
                 defaultMax={CURRENT_YEAR}
                 getHistogramData={getHistogramData}
                 onChangeCallback={onYearsChange}
