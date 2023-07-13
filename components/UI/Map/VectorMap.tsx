@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
 import { Map } from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
@@ -11,6 +11,7 @@ import { OknSource } from './VectorMap/OknSource';
 import { DtpSource } from './VectorMap/DtpSource';
 import { LinesSource } from './VectorMap/LinesSource';
 import { DesignCodeSource } from './VectorMap/DesignCodeSource';
+import { MapContext } from './providers/MapProvider';
 
 function MapLayers() {
     return (
@@ -25,7 +26,7 @@ function MapLayers() {
 }
 
 export function VectorMap() {
-    const [loading, setLoading] = useState(true);
+    const { loading, setLoading } = useContext(MapContext);
 
     return (
         <Map

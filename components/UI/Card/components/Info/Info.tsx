@@ -5,9 +5,7 @@ import { InfoProps } from './Info.types';
 
 import styles from './Info.module.css';
 
-export function Info({
-    infos, nameColor, textColor, rowDirection,
-}: InfoProps) {
+export function Info({ infos, nameColor, textColor, rowDirection }: InfoProps) {
     return (
         <div
             className={classNames(styles.info, {
@@ -15,7 +13,7 @@ export function Info({
             })}
         >
             {infos.map(({ name, text }) => (
-                <div>
+                <div key={name}>
                     {name && (
                         <div className={styles.info__name} style={{ color: nameColor }}>
                             {name}

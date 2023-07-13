@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl';
 
 import { Section } from 'components/UI/Card/components/Section/Section';
@@ -14,6 +14,7 @@ import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/Model/EditButtonLink/EditObjectButtonLink';
 
 import { usePopup } from 'components/UI/Map/providers/usePopup';
+import { MapContext } from 'components/UI/Map/providers/MapProvider';
 import { HouseObject } from 'common/data/base/houseBase';
 
 import styles from './CardContent.module.css';
@@ -21,14 +22,14 @@ import styles from './CardContent.module.css';
 export function HousesCardContent() {
     const { popupId } = usePopup();
     const { ekbMap } = useMap();
-    const isMapLoaded = ekbMap?.loaded?.();
+    const { loading } = useContext(MapContext);
 
     const [placemark, setPlacemark] = useState<HouseObject | null>(null);
 
     useEffect(() => {
         const map = ekbMap?.getMap?.();
 
-        if (!map || !popupId || !isMapLoaded) {
+        if (!map || !popupId || loading) {
             return;
         }
 
@@ -44,7 +45,9 @@ export function HousesCardContent() {
             setPlacemark({
                 id: popupId,
                 attributes: {
-                    Address: `${house['addr:street'] || ''}, ${house['addr:housenumber'] || ''}`,
+                    Address: [house['addr:street'], house['addr:housenumber']]
+                        .filter(Boolean)
+                        .join(', '),
                     Management_company: house['building:management'],
                     Series: house['building:series'],
                     Condition: house['building:condition'],
@@ -60,7 +63,7 @@ export function HousesCardContent() {
         } catch (error) {
             console.error(error);
         }
-    }, [ekbMap, popupId, isMapLoaded]);
+    }, [ekbMap, popupId, loading]);
 
     const isEmergency = useMemo(
         () => placemark?.attributes?.Condition === 'Аварийный',
@@ -111,11 +114,13 @@ export function HousesCardContent() {
 
     return (
         <div className={styles.popup}>
-            <Header
-                coordinates={placemark?.attributes.borders?.coordinates?.[0]}
-                title={placemark?.attributes.Address}
-            />
-            {(isEmergency || aboutHouse) && (
+            {placemark?.attributes.Address && (
+                <Header
+                    coordinates={placemark?.attributes.borders?.coordinates?.[0]}
+                    title={placemark?.attributes.Address}
+                />
+            )}
+            {(isEmergency || aboutHouse?.length > 0) && (
                 <Section>
                     {isEmergency && (
                         <div className={styles.popup__emergencyLabel}>

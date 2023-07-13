@@ -9,6 +9,8 @@ export interface IMapContext {
     popupType: MapItemType | null;
     openPopup: (p: string, t: MapItemType) => void;
     closePopup: VoidFunction;
+    loading: boolean;
+    setLoading: (l: boolean) => void;
 }
 
 export const MapContext = React.createContext<IMapContext>({
@@ -16,6 +18,8 @@ export const MapContext = React.createContext<IMapContext>({
     popupType: null,
     openPopup: () => {},
     closePopup: () => {},
+    loading: true,
+    setLoading: () => {},
 });
 
 interface Props {
@@ -23,6 +27,7 @@ interface Props {
 }
 
 export function MapContextProvider({ children }: Props) {
+    const [loading, setLoading] = useState(true);
     const { popupId, popupType, openPopup, closePopup } = usePopup();
 
     const value = useMemo(
@@ -31,8 +36,10 @@ export function MapContextProvider({ children }: Props) {
             popupType,
             openPopup,
             closePopup,
+            loading,
+            setLoading,
         }),
-        [popupId, popupType, openPopup, closePopup],
+        [popupId, popupType, openPopup, closePopup, loading, setLoading],
     );
 
     return <MapContext.Provider value={value}>{children}</MapContext.Provider>;

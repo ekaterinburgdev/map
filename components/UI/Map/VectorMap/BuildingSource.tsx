@@ -12,10 +12,19 @@ import { FilterType } from 'components/UI/Filters/Filters.types';
 import { usePopup } from '../providers/usePopup';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
-    if (!(typeof range?.min === 'number' && typeof range?.max === 'number' && field && rangeData)) {
+    if (
+        !(
+            typeof range?.min === 'number' &&
+            typeof range?.max === 'number' &&
+            field &&
+            rangeData &&
+            map?.setStyle &&
+            map?.getStyle
+        )
+    ) {
         map.setStyle({
-            ...map.getStyle(),
-            layers: map.getStyle().layers.map((layer) => {
+            ...map?.getStyle(),
+            layers: map?.getStyle().layers.map((layer) => {
                 if (layer.id === 'building') {
                     return {
                         ...layer,
