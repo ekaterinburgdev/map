@@ -1,4 +1,5 @@
 import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import houseMeta from '../../../public/houses-meta.json';
 import { getById } from './getById';
 
 export const houseBase = {
@@ -8,11 +9,11 @@ export const houseBase = {
     async getFilterValues(_: HistogramDataWithoutValues, filterName: string) {
         switch (filterName) {
             case 'Year':
-                return Promise.resolve([0, 8, 67, 195, 982, 4790, 935, 811]);
+                return Promise.resolve(houseMeta.years);
             case 'Floors':
-                return Promise.resolve([1815, 994, 2400, 1384, 440, 569, 61, 184, 17]);
+                return Promise.resolve(houseMeta.floors);
             case 'WearAndTear':
-                return Promise.resolve([850, 1191, 1467, 1087, 767, 409, 291, 67, 4, 7]);
+                return Promise.resolve(houseMeta.health);
             default:
                 return Promise.resolve([]);
         }

@@ -80,7 +80,7 @@ export function OknSource() {
 
     return (
         <>
-            <Source id="ekb-okn-source" type="geojson" data="/ekb-okn.geojson">
+            <Source id="ekb-okn-source" type="geojson" data="/ekb-okn.json">
                 <Layer {...layerStyle} />
             </Source>
             {activeFilterParams[OknAreaType.ProtectZone]?.value && (

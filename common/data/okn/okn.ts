@@ -1,5 +1,6 @@
 import { getById } from '../base/getById';
 import { parseJsonWithSingleQuotes } from '../dataHelpers';
+import oknMeta from '../../../public/okn-meta.json';
 import { OknObject } from './oknObject';
 
 export const okn = {
@@ -12,18 +13,10 @@ export const okn = {
     },
 
     async getObjectsCount() {
-        return Promise.resolve([
-            ['Федерального значения', 82],
-            ['Регионального значения', 667],
-            ['Местного (муниципального) значения', 11],
-        ]);
+        return Promise.resolve(oknMeta.points);
     },
 
     async getZonesCount() {
-        return Promise.resolve([
-            ['Границы территорий ОКН', 760],
-            ['Защитные зоны', 211],
-            ['Зоны охраны ОКН', 681],
-        ]);
+        return Promise.resolve(oknMeta.zones);
     },
 };
