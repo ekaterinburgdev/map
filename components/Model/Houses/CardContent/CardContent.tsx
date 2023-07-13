@@ -42,6 +42,13 @@ export function HousesCardContent() {
 
             if (!house) return;
 
+            map.flyTo({
+                center: {
+                    lat: +lat,
+                    lng: +lng,
+                },
+            });
+
             setPlacemark({
                 id: popupId,
                 attributes: {

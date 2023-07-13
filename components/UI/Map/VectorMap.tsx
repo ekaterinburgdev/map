@@ -37,7 +37,7 @@ export function VectorMap() {
                 zoom: 15,
                 pitch: 0,
             }}
-            minZoom={10}
+            minZoom={12}
             maxZoom={20}
             // hash
             style={{ width: '100vw', height: '100vh', color: 'black' }}
