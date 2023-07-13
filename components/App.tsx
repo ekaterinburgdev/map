@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { MapProvider } from 'react-map-gl';
 
 import { store } from 'state';
 
@@ -19,24 +20,26 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <MapContextProvider>
-                <VectorMap />
-                {!isMobile && (
-                    <>
-                        <LeftSidebar />
-                        <RightSidebar />
-                    </>
-                )}
-                <Copyright />
-                <EditButtonLink />
-                <Footer />
-                {isMobile && (
-                    <>
-                        <MobileFilters />
-                        <MobileCard />
-                    </>
-                )}
-            </MapContextProvider>
+            <MapProvider>
+                <MapContextProvider>
+                    <VectorMap />
+                    {!isMobile && (
+                        <>
+                            <LeftSidebar />
+                            <RightSidebar />
+                        </>
+                    )}
+                    <Copyright />
+                    <EditButtonLink />
+                    <Footer />
+                    {isMobile && (
+                        <>
+                            <MobileFilters />
+                            <MobileCard />
+                        </>
+                    )}
+                </MapContextProvider>
+            </MapProvider>
         </Provider>
     );
 }

@@ -7,7 +7,9 @@ import {
     FLOOR_FILTERS_DATA,
     WEAR_TEAR_FILTERS_DATA,
 } from 'components/Model/Houses/Houses.constants';
+import { MapItemType } from 'common/types/map-item';
 import { FilterType } from 'components/UI/Filters/Filters.types';
+import { usePopup } from '../providers/usePopup';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
     if (!(typeof range?.min === 'number' && typeof range?.max === 'number' && field && rangeData)) {
@@ -76,13 +78,14 @@ export function BuildingSource() {
     const ekbMap = useMap();
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
+    const { openPopup } = usePopup();
 
     useEffect(() => {
         const map = ekbMap?.current?.getMap?.();
 
         const field = {
             [FilterType.HouseAge]: 'building:year',
-            [FilterType.HouseFloor]: 'building:height',
+            [FilterType.HouseFloor]: 'building:levels',
             [FilterType.HouseWearTear]: 'building:health',
         }[activeFilter];
 
@@ -99,6 +102,16 @@ export function BuildingSource() {
             range: activeFilterParams,
         });
     }, [activeFilter, activeFilterParams, ekbMap]);
+
+    useEffect(() => {
+        const map = ekbMap?.current?.getMap?.();
+
+        if (!map) return;
+
+        map.on('click', 'building', (e) => {
+            openPopup(`${e.lngLat.lat}_${e.lngLat.lng}`, MapItemType.Houses);
+        });
+    }, [ekbMap, openPopup]);
 
     return null;
 }

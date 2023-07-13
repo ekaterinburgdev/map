@@ -1,6 +1,5 @@
 /* eslint-disable no-console */
 import { MapItemType } from 'common/types/map-item';
-import { houseBase } from 'common/data/base/houseBase';
 import { designCode } from 'common/data/designCode/designCode';
 import { dtp } from 'common/data/dtp/dtp';
 import { okn } from 'common/data/okn/okn';
@@ -17,7 +16,7 @@ export const MODEL_CONFIG = {
     [MapItemType.Houses]: {
         cardContent: HousesCardContent,
         requests: {
-            oneItemRequest: houseBase.getObject,
+            oneItemRequest: () => Promise.resolve(),
         },
     },
     [MapItemType.DesignCode]: {

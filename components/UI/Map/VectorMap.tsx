@@ -45,29 +45,6 @@ export function VectorMap() {
             mapLib={maplibregl}
             reuseMaps
             onLoad={() => setLoading(false)}
-            // onClick={(e) => {
-            //     try {
-            //         // Получить все объекты под указателем мыши
-            //         const features = e.target.queryRenderedFeatures(e.point)
-            //         // const features = e.target.queryRenderedFeatures(e.point, {
-            //         // layers: ['dtp']
-            //         // });
-
-            //         // Если есть хотя бы один объект, показать всплывающее окно
-            //         // if (features.length) {
-            //         //     const feature = features[0];
-
-            //         //     new maplibregl.Popup({ offset: 25 })
-            //         //         .setLngLat(e.lngLat)
-            //         //         .setHTML(JSON.stringify(feature.properties, null, 2))
-            //         //         .addTo(e.target as any);
-            //         // }
-
-            //         console.log(features)
-            //     } catch (e) {
-            //         console.log(e);
-            //     }
-            // }}
         >
             {!loading && <MapLayers />}
         </Map>

@@ -41,14 +41,6 @@ export interface HouseAttributes {
     Year: number;
     Emergency: string;
     WearAndTear?: any;
-    createdAt: Date;
-    updatedAt: Date;
-    CoordinatesHash: string;
-    LivingRoomsCount?: number;
-    RoomsCount?: number;
-    LiftsCount?: number;
-    EntranceCount?: number;
-    MinimalFloors?: number;
     borders?: {
         coordinates: [number, number][];
     };
