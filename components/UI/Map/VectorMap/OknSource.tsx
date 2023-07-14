@@ -18,9 +18,37 @@ export function OknSource() {
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
     useEffect(() => {
+        let activeObject = null;
+
         ekbMap?.current?.on?.('click', OKN_LAYER_ID, (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
             openPopup(item.properties?.id, MapItemType.OKN);
+        });
+
+        ekbMap?.current?.on('mousemove', 'ekb-okn-protect-polygon-layer', (e) => {
+            if (e.features.length > 0) {
+                if (activeObject !== null) {
+                    ekbMap?.current?.setFeatureState(
+                        { source: 'ekb-okn-protect-source', id: activeObject },
+                        { hover: false },
+                    );
+                }
+                activeObject = e.features[0].id;
+                ekbMap?.current?.setFeatureState(
+                    { source: 'ekb-okn-protect-source', id: activeObject },
+                    { hover: true },
+                );
+            }
+        });
+
+        ekbMap?.current?.on('mouseleave', 'ekb-okn-protect-polygon-layer', () => {
+            if (activeObject !== null) {
+                ekbMap.current.setFeatureState(
+                    { source: 'ekb-okn-protect-source', id: activeObject },
+                    { hover: false },
+                );
+            }
+            activeObject = null;
         });
     }, [ekbMap, openPopup]);
 
