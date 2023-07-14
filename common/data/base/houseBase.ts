@@ -11,7 +11,7 @@ export const houseBase = {
             case 'Year':
                 return Promise.resolve(houseMeta.years);
             case 'Floors':
-                return Promise.resolve(houseMeta.floors);
+                return Promise.resolve(houseMeta.levels);
             case 'WearAndTear':
                 return Promise.resolve(houseMeta.health);
             default:
