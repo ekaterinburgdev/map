@@ -34,6 +34,7 @@ export function OknSource() {
                     );
                 }
                 activeObject = e.features[0].id;
+                ekbMap.current.getCanvas().style.cursor = 'pointer';
                 ekbMap?.current?.setFeatureState(
                     { source: 'ekb-okn-protect-source', id: activeObject },
                     { hover: true },
@@ -47,6 +48,7 @@ export function OknSource() {
                     { source: 'ekb-okn-protect-source', id: activeObject },
                     { hover: false },
                 );
+                ekbMap.current.getCanvas().style.cursor = '';
             }
             activeObject = null;
         });
