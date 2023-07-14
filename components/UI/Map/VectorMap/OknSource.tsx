@@ -61,7 +61,12 @@ export function OknSource() {
         source,
         paint: {
             'fill-color': AREA_CONFIG[zone].color,
-            'fill-opacity': 0.3,
+            'fill-opacity': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                0.8,
+                0.5,
+            ],
         },
     });
 
