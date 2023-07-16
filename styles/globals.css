@@ -2,6 +2,7 @@
 @import './checkbox.css';
 @import './leaflet.css';
 @import './modal.css';
+@import "./tally-widget.css";
 
 * {
     box-sizing: border-box;
@@ -63,4 +64,8 @@ a {
 ::-webkit-scrollbar-thumb {
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+button {
+    font-family: inherit;
 }

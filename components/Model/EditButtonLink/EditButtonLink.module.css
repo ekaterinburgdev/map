@@ -1,0 +1,14 @@
+.editButtonLink {
+    position: fixed;
+    z-index: 1000;
+    right: 8px;
+    bottom: 16px;
+}
+
+/* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */
+@media screen and (max-width: 1150px) {
+    .editButtonLink {
+        bottom: initial;
+        top: calc(2vw + 16px);
+    }
+}

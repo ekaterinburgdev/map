@@ -1,0 +1,11 @@
+.buttonLink {
+    border: 0;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(60, 70, 90);
+    color: #9baac3;
+    display: inline-flex;
+    column-gap: 4px;
+    align-items: center;
+}

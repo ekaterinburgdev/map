@@ -8,6 +8,7 @@ import { Info } from 'components/UI/Card/components/Info/Info';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 
+import { EditObjectButtonLink } from 'components/Model/EditButtonLink/EditObjectButtonLink';
 import { HousesCardContentProps } from './CardContent.types';
 
 import styles from './CardContent.module.css';
@@ -79,6 +80,9 @@ export function HousesCardContent({ placemark }: HousesCardContentProps) {
             )}
             <Section>
                 <Sources sources={['mingkh', 'domaekb']} />
+            </Section>
+            <Section>
+                <EditObjectButtonLink address={placemark?.attributes.Address} />
             </Section>
         </div>
     ) : null;
