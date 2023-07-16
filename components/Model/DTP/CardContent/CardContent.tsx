@@ -7,7 +7,6 @@ import { Info } from 'components/UI/Card/components/Info/Info';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 
 import { InfoProps } from 'components/UI/Card/components/Info/Info.types';
-import { EditButton } from 'components/Model/EditButton/EditButton';
 import { DTPCardContentProps } from './CardContent.types';
 
 import styles from './CardContent.module.css';
@@ -112,9 +111,6 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
             )}
             <Section>
                 <Sources sources={['dtp']} />
-            </Section>
-            <Section>
-                <EditButton />
             </Section>
         </div>
     ) : null;

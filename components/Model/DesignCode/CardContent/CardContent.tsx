@@ -5,7 +5,6 @@ import { Header } from 'components/UI/Card/components/Header/Header';
 import { Label } from 'components/UI/Card/components/Label/Label';
 
 import { DESIGN_MAP_HOST } from 'common/data/designCode/designCode';
-import { EditButton } from 'components/Model/EditButton/EditButton';
 import { DESIGN_CODE_MARKER_COLOR_BY_TYPE } from '../MapData/MapData.constants';
 import { DesignCodeCardContentProps } from './CardContent.types';
 
@@ -45,9 +44,6 @@ export function DesignCodeCardContent({ placemark }: DesignCodeCardContentProps)
                         </a>
                     );
                 })}
-            </Section>
-            <Section>
-                <EditButton />
             </Section>
         </div>
     ) : null;

@@ -4,7 +4,6 @@ import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Section } from 'components/UI/Card/components/Section/Section';
-import { EditButton } from 'components/Model/EditButton/EditButton';
 import { OKNInfo } from './components/OKNInfo/OKNInfo';
 
 import { OKNCardContentProps } from './CardContent.types';
@@ -68,9 +67,6 @@ export function OKNCardContent({ placemark }: OKNCardContentProps) {
                 </Section>
                 <Section>
                     <Sources sources={['okn']} />
-                </Section>
-                <Section>
-                    <EditButton />
                 </Section>
             </div>
         </div>
