@@ -42,13 +42,6 @@ export function HousesCardContent() {
 
             if (!house) return;
 
-            map.flyTo({
-                center: {
-                    lat: +lat,
-                    lng: +lng,
-                },
-            });
-
             setPlacemark({
                 id: popupId,
                 attributes: {
@@ -69,6 +62,25 @@ export function HousesCardContent() {
             });
         } catch (error) {
             console.error(error);
+        }
+    }, [ekbMap, popupId, loading]);
+
+    useEffect(() => {
+        const map = ekbMap?.getMap?.();
+
+        if (!map || !popupId) {
+            return;
+        }
+
+        // center map only on loading step
+        if (loading) {
+            try {
+                const [lat, lng] = popupId.split('_');
+
+                map.flyTo({ center: { lat: +lat, lng: +lng } });
+            } catch (error) {
+                console.error(error);
+            }
         }
     }, [ekbMap, popupId, loading]);
 
