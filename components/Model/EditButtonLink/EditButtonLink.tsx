@@ -1,15 +1,12 @@
 import React from 'react';
 import { ButtonLink } from 'components/UI/ButtonLink/ButtonLink';
 import { IconType } from 'components/UI/Icons/Icons.types';
+import styles from './EditButtonLink.module.css';
 
-const getEditObjectLink = (address: string) => `https://tally.so#tally-open=w2BoVe&tally-width=650&tally-overlay=1&tally-emoji-animation=none&address=${address}`;
+const link = 'https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none';
 
-type TEditButtonLinkProps = {
-    address: string;
-};
-
-export function EditButtonLink({ address }: TEditButtonLinkProps) {
+export function EditButtonLink() {
     return (
-        <ButtonLink text="Дополнить или поправить" link={getEditObjectLink(address)} icon={IconType.Edit} />
+        <ButtonLink text="Дать фидбэк сервису" link={link} icon={IconType.Edit} additionalStyles={styles.editButtonLink} />
     );
 }
