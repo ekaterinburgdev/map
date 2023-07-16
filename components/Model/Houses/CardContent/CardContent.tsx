@@ -12,6 +12,7 @@ import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 
 import { EditObjectButtonLink } from 'components/Model/EditButtonLink/EditObjectButtonLink';
+import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 
 import { usePopup } from 'components/UI/Map/providers/usePopup';
 import { MapContext } from 'components/UI/Map/providers/MapProvider';
@@ -126,6 +127,14 @@ export function HousesCardContent() {
         placemark?.attributes?.Series,
         placemark?.attributes?.Floors,
     ]);
+
+    if (loading) {
+        return (
+            <div className={styles.popup}>
+                <FilterLoader />
+            </div>
+        );
+    }
 
     if (!placemark?.attributes) {
         return null;
