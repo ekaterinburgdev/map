@@ -49,6 +49,7 @@ export default function Document() {
             console.error('Error registering the Service Worker: ', error);
         });
 }`}} />
+                <script async src="https://tally.so/widgets/embed.js"></script>
                 <Main />
                 <NextScript />
             </body>

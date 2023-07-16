@@ -1,8 +1,10 @@
 import React from 'react';
-import { Button } from 'components/UI/Button/Button';
+import { ButtonLink } from 'components/UI/ButtonLink/ButtonLink';
+
+const EDIT_OBJECT_LINK = 'https://tally.so#tally-open=w2BoVe&tally-width=650&tally-overlay=1&tally-emoji-animation=none';
 
 export function EditButton() {
     return (
-        <Button text="Дополнить или поправить" icon="edit" />
+        <ButtonLink text="Дополнить или поправить" link={EDIT_OBJECT_LINK} icon="edit" />
     );
 }
