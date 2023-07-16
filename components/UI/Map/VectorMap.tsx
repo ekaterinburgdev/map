@@ -35,7 +35,7 @@ export function VectorMap() {
                 latitude: COORDS_EKATERINBURG[0],
                 longitude: COORDS_EKATERINBURG[1],
                 zoom: 15,
-                pitch: 0,
+                pitch: 30,
             }}
             minZoom={12}
             maxZoom={20}
