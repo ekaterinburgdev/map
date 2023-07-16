@@ -1,4 +1,5 @@
-import { IconType } from './Icons.types';
+import { Edit } from 'components/UI/Icons/Edit';
+import { IconBaseProps, IconType } from './Icons.types';
 import { Copy } from './Copy';
 import { Link } from './Link';
 import { OKN } from './OKN';
@@ -10,7 +11,7 @@ import { Bike } from './Bike';
 import { PublicTransport } from './PublicTransport';
 import { Children } from './Children';
 
-export const ICON_BY_TYPE = {
+export const ICON_BY_TYPE: Record<IconType, (props: IconBaseProps) => JSX.Element> = {
     [IconType.Copy]: Copy,
     [IconType.Link]: Link,
     [IconType.OKN]: OKN,
@@ -21,4 +22,5 @@ export const ICON_BY_TYPE = {
     [IconType.Bike]: Bike,
     [IconType.PublicTransport]: PublicTransport,
     [IconType.Children]: Children,
+    [IconType.Edit]: Edit,
 };

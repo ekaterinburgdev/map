@@ -1,0 +1,10 @@
+.button {
+    border: 0;
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background: rgba(60, 70, 90, 0.5);
+    color: #9baac3;
+    display: flex;
+    column-gap: 4px;
+}

@@ -9,6 +9,7 @@ export enum IconType {
     Bike = 'bike',
     PublicTransport = 'publicTransport',
     Children = 'children',
+    Edit = 'edit',
 }
 
 export type IconBaseProps = { color?: string; mix?: string };
