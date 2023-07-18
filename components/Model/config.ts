@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { MapItemType } from 'common/types/map-item';
 import { designCode } from 'common/data/designCode/designCode';
 import { dtp } from 'common/data/dtp/dtp';

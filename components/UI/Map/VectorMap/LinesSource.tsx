@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React from 'react';
 import { Source, Layer } from 'react-map-gl';
 import type { CircleLayer, LineLayer } from 'react-map-gl';
@@ -16,7 +15,7 @@ export function LinesSource() {
     }
 
     const activeItems = Object.entries(activeFilterParams)
-        .filter(([_, value]) => value)
+        .filter(([, value]) => value)
         .map(([type]) => [type, LINES_CONFIG[type]]);
 
     const colors = activeItems.map(([type, { color }]) => [['==', ['get', 'type'], type], color]);

@@ -1,5 +1,3 @@
-﻿/* eslint-disable */
-
 import React, { ReactNode, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
 
