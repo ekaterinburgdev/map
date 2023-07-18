@@ -30,8 +30,7 @@ export function OknSource() {
 
     const colors = Object.entries(activeFilterParams)
         // @ts-ignore
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .filter(([_, { value, type }]) => value && type === 'objects')
+        .filter(([, { value, type }]) => value && type === 'objects')
         .map(([category]) => [
             ['==', ['get', 'category'], category],
             OBJECTS_CONFIG[category].color,
@@ -39,8 +38,7 @@ export function OknSource() {
 
     const strokeColors = Object.entries(activeFilterParams)
         // @ts-ignore
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        .filter(([_, { value, type }]) => value && type === 'objects')
+        .filter(([, { value, type }]) => value && type === 'objects')
         .map(([category]) => [['==', ['get', 'category'], category], '#000']);
 
     const layerStyle: CircleLayer = {
