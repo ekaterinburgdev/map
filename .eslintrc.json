@@ -36,5 +36,5 @@
     "function-paren-newline": "off",
     "operator-linebreak": "off"
   },
-  "ignorePatterns": ["next.config.js", "sw.js"]
+  "ignorePatterns": ["next.config.js", "sw.js", "scripts/**/*.*js"]
 }
