@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@turf/turf": "^6.5.0",
+    "node-fetch": "^2.6.12",
+    "pg": "^8.11.1",
+    "rbush": "^3.0.1"
+  }
+}

@@ -31,7 +31,10 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "object-curly-newline": "off",
-    "@next/next/no-img-element": "off"
+    "@next/next/no-img-element": "off",
+    "max-len": "off",
+    "function-paren-newline": "off",
+    "operator-linebreak": "off"
   },
-  "ignorePatterns": ["next.config.js", "sw.js"]
+  "ignorePatterns": ["next.config.js", "sw.js", "scripts/**/*.*js"]
 }

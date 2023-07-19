@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { SetDataPayload, ToggleDataPayload } from 'common/types/state';
+import { ToggleDataPayload, SetFilterParamsPayload, SetFilterPayload } from 'common/types/state';
 
 import { initialState } from '../constants/dataLayers';
 
@@ -8,19 +8,24 @@ const dataLayerSlice = createSlice({
     name: 'dataLayer',
     initialState,
     reducers: {
-        setData(state, action: PayloadAction<SetDataPayload>) {
-            const { data, type } = action.payload;
-
-            state.objects[type].data = data;
+        setFilter(state, action: PayloadAction<SetFilterPayload>) {
+            const { activeFilter, activeFilterParams } = action.payload;
+            state.activeFilter = activeFilter;
+            state.activeFilterParams = activeFilterParams;
+        },
+        setFilterParams(state, action: PayloadAction<SetFilterParamsPayload>) {
+            const { activeFilterParams } = action.payload;
+            state.activeFilterParams = activeFilterParams;
         },
         toggleData(state, action: PayloadAction<ToggleDataPayload>) {
             const { type } = action.payload;
 
             state.activeFilter = type === state.activeFilter ? null : type;
+            state.activeFilterParams = null;
         },
     },
 });
 
-export const { setData, toggleData } = dataLayerSlice.actions;
+export const { toggleData, setFilter, setFilterParams } = dataLayerSlice.actions;
 
 export const dataLayerReducer = dataLayerSlice.reducer;

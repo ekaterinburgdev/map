@@ -1,19 +1,19 @@
-import React, { useCallback, useEffect, useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-
-import { setData } from 'state/features/dataLayers';
-
+import groupBy from 'lodash/groupBy';
 import { DesignCodeItemType } from 'common/data/designCode/designCodeObject';
-import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-import { designCode } from 'common/data/designCode/designCode';
+import { FilterType } from 'components/UI/Filters/Filters.types';
+import { setFilter } from 'state/features/dataLayers';
 
+import designCode from '../../../../public/ekb-design-code.json';
 import { DESIGN_CODE_ITEMS_COLORS } from '../DesignCode.constants';
 
 import { designCodeReducer, designCondeInitalState } from './DesignCodeFilter.state';
 
 import styles from './DesignCodeFilter.module.css';
+
+const DESIGN_CODE_ITEMS = groupBy(designCode.features, (item) => item.properties.type);
 
 export function DesignCodeFilter() {
     const dispatch = useDispatch();
@@ -21,7 +21,6 @@ export function DesignCodeFilter() {
         designCodeReducer,
         designCondeInitalState,
     );
-    const [objectsCount, setObjectsCount] = useState<[DesignCodeItemType, number][]>(null);
 
     const onChange = useCallback(
         (designCodeItemType: DesignCodeItemType) => async () => {
@@ -31,65 +30,30 @@ export function DesignCodeFilter() {
     );
 
     useEffect(() => {
-        const designCodeItemTypes = Object.entries(designCodeFilterState).reduce(
-            (acc, [type, value]) => {
-                if (value) {
-                    acc.push(type);
-                }
-
-                return acc;
-            },
-            [],
+        dispatch(
+            setFilter({
+                activeFilter: FilterType.DesignCode,
+                activeFilterParams: designCodeFilterState,
+            }),
         );
+    }, [designCodeFilterState, dispatch]);
 
-        if (!designCodeItemTypes.length) {
-            dispatch(
-                setData({
-                    type: FilterType.DesignCode,
-                    data: [],
-                }),
-            );
-
-            return;
-        }
-
-        designCode.getObjectsByType(designCodeItemTypes).then((objects) => {
-            dispatch(
-                setData({
-                    type: FilterType.DesignCode,
-                    data: objects,
-                }),
-            );
-        });
-    }, [dispatch, designCodeFilterState]);
-
-    useEffect(() => {
-        designCode.getObjectsCount().then((objectsCountResult) => {
-            const sortedObjectsCount = objectsCountResult.sort(
-                ([, countA], [, countB]) => countB - countA,
-            );
-
-            setObjectsCount(sortedObjectsCount);
-        });
-    }, []);
-
-    return objectsCount ? (
-        <>
-            {objectsCount.map(([type, count], i) => (
+    return (
+        <div>
+            {Object.entries(DESIGN_CODE_ITEMS).map(([type, items], i) => (
                 <Checkbox
                     id={`design-code-${i}`}
                     checked={designCodeFilterState[type]}
                     color={DESIGN_CODE_ITEMS_COLORS[type]}
+                    // @ts-ignore
                     onClick={onChange(type)}
                     mix={styles.DesignCodeFilter__checkboxContent}
                     key={`filter-design-code-${type}`}
                 >
                     {type}
-                    <span className={styles.DesignCodeFilter__objectsCount}>{count}</span>
+                    <span className={styles.DesignCodeFilter__objectsCount}>{items.length}</span>
                 </Checkbox>
             ))}
-        </>
-    ) : (
-        <FilterLoader />
+        </div>
     );
 }

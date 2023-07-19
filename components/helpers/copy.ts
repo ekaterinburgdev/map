@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 export function copy(text: string) {
     const dummy = document.createElement('input');
     document.body.appendChild(dummy);

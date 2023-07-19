@@ -1,15 +1,13 @@
 import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { setData } from 'state/features/dataLayers';
-import { initialObjectsState } from 'state/constants/dataLayers';
-
+import { setFilter } from 'state/features/dataLayers';
+import { FilterType } from 'components/UI/Filters/Filters.types';
 import { lines } from 'common/data/lines/lines';
 import { LineType } from 'common/data/lines/lineType';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 
 import { LINES_CONFIG } from '../Lines.constants';
 
@@ -32,6 +30,15 @@ export function LinesFilter() {
         });
     }, []);
 
+    useEffect(() => {
+        dispatch(
+            setFilter({
+                activeFilter: FilterType.Line,
+                activeFilterParams: linesState,
+            }),
+        );
+    }, [dispatch, linesState]);
+
     const onLinesChange = useCallback(
         (lineType: LineType) => () => {
             dispatchLines({ type: 'toggle', lineType });
@@ -39,43 +46,9 @@ export function LinesFilter() {
         [],
     );
 
-    useEffect(() => {
-        const lineTypes = Object.entries(linesState).reduce((acc, [type, value]) => {
-            if (value) {
-                acc.push(type);
-            }
+    if (!linesCount) return <FilterLoader />;
 
-            return acc;
-        }, []) as LineType[];
-
-        if (!lineTypes.length) {
-            dispatch(
-                setData({
-                    type: FilterType.Line,
-                    data: initialObjectsState.line.data,
-                }),
-            );
-
-            return;
-        }
-
-        Promise.all([lines.getLinePolylines(lineTypes), lines.getLineObjects(lineTypes)]).then(
-            ([polylines, points]) => {
-                const concatenatedLines = [].concat(...polylines);
-                dispatch(
-                    setData({
-                        type: FilterType.Line,
-                        data: {
-                            lines: concatenatedLines,
-                            points,
-                        },
-                    }),
-                );
-            },
-        );
-    }, [dispatch, linesState]);
-
-    return linesCount ? (
+    return (
         <>
             {linesCount.map(([type, count], i) => (
                 <Checkbox
@@ -95,7 +68,5 @@ export function LinesFilter() {
                 </Checkbox>
             ))}
         </>
-    ) : (
-        <FilterLoader />
     );
 }

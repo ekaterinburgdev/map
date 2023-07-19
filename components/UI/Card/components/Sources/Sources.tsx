@@ -14,7 +14,7 @@ export function Sources({ sources }: SourcesProps) {
                     const { link, name } = SOURCES_BY_TYPE[source];
 
                     return (
-                        <li className={styles.sources__listItem}>
+                        <li key={link} className={styles.sources__listItem}>
                             <a href={link} target="_blank" rel="noreferrer">
                                 {name}
                             </a>

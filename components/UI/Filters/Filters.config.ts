@@ -1,12 +1,13 @@
 import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
 import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
+import { HouseWearTearFilter } from 'components/Model/Houses/Filter/WearTear/HouseWearTearFilter';
 import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
 import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
 import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Model/DTP/Filter/DTPFilter';
-import { HouseWearTearFilter } from 'components/Model/Houses/Filter/WearTear/HouseWearTearFilter';
 import { FilterConfig, FilterType } from './Filters.types';
 
+// @ts-ignore
 export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.HouseAge]: {
         title: 'Возраст домов',

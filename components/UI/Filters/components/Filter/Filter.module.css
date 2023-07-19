@@ -6,12 +6,10 @@
     box-sizing: content-box;
     visibility: hidden;
 
-    height: 0;
+    max-height: 0;
 
-    will-change: height, padding;
-    transition: opacity 150ms ease, height 200ms ease, padding 200ms ease;
-
-    --children-height: 0;
+    will-change: padding;
+    transition: opacity 150ms ease, padding 200ms ease;
 
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
@@ -22,12 +20,12 @@
     display: none;
 }
 
-.filter__active {
-    height: var(--children-height);
-
+.filter_active {
     margin: 0;
     padding-top: 16px;
     padding-bottom: 16px;
     opacity: 1;
     visibility: visible;
+
+    max-height: 100vh;
 }

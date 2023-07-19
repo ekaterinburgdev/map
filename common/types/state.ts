@@ -40,27 +40,18 @@ export interface LinesState {
 
 export interface State {
     dataLayer: {
-        objects: {
-            [FilterType.HouseAge]: HousesState;
-            [FilterType.HouseFloor]: HousesState;
-            [FilterType.HouseWearTear]: HousesState;
-            [FilterType.OKN]: OKNState;
-            [FilterType.DTP]: DTPState;
-            [FilterType.DesignCode]: DesignCodeState;
-            [FilterType.Line]: LinesState;
-            [OknAreaType.ObjectZone]: OKNAreaState;
-            [OknAreaType.ProtectZone]: OKNAreaState;
-            [OknAreaType.SecurityZone]: OKNAreaState;
-        };
         activeFilter: FilterType | OknAreaType;
+        activeFilterParams: any;
     };
 }
 
-export type DataTypes = State['dataLayer']['objects'][keyof State['dataLayer']['objects']]['data'];
+export interface SetFilterPayload {
+    activeFilter: FilterType | OknAreaType;
+    activeFilterParams: any;
+}
 
-export interface SetDataPayload {
-    type: keyof State['dataLayer']['objects'];
-    data: DataTypes;
+export interface SetFilterParamsPayload {
+    activeFilterParams: any;
 }
 
 export interface ToggleDataPayload {
