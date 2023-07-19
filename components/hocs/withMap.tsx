@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import L from 'leaflet';
 import { useMap } from 'react-leaflet';

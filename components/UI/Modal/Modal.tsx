@@ -1,5 +1,3 @@
-﻿/* eslint-disable */
-
 import React, { ReactNode, useEffect } from 'react';
 import Sheet from 'react-modal-sheet';
 
@@ -9,7 +7,6 @@ interface Props {
     children: ReactNode;
     isOpen: boolean;
     close: VoidFunction;
-    // eslint-disable-next-line react/require-default-props
     size?: number;
 }
 

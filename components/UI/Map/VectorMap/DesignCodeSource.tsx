@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
 import type { CircleLayer } from 'react-map-gl';
@@ -29,7 +28,7 @@ export function DesignCodeSource() {
     }
 
     const activeItems = Object.entries(activeFilterParams)
-        .filter(([_, value]) => value)
+        .filter(([, value]) => value)
         .map(([type]) => [type, DESIGN_CODE_ITEMS_COLORS[type]]);
 
     const colors = activeItems.map(([type, color]) => [['==', ['get', 'type'], type], color]);

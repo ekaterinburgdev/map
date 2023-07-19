@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { ReactNode, useMemo, useState } from 'react';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from './usePopup';
