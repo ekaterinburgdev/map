@@ -4,6 +4,8 @@ import { designCode } from 'common/data/designCode/designCode';
 import { dtp } from 'common/data/dtp/dtp';
 import { okn } from 'common/data/okn/okn';
 
+import { lines } from 'common/data/lines/lines';
+import { LinesCardContent } from 'components/Model/Lines/CardContent/CardContent';
 import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
 
 import { DTPCardContent } from './DTP/CardContent/CardContent';
@@ -38,9 +40,9 @@ export const MODEL_CONFIG = {
         },
     },
     [MapItemType.Lines]: {
-        cardContent: () => null,
+        cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: () => Promise.resolve(),
+            oneItemRequest: lines.getObject,
         },
     },
 } as const;
