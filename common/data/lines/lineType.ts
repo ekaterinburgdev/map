@@ -7,7 +7,8 @@ export enum LineType {
 export interface LineObject {
     id: number;
     attributes: {
-        iconCaption: string;
+        iconCaption?: string;
+        name?: string;
         description: null | string;
         geometry: {
             id: string;
