@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useEffect } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
 import type { CircleLayer, LineLayer } from 'react-map-gl';
@@ -29,7 +28,6 @@ export function LinesSource() {
             if (lineType === LineType.BlueLine) {
                 openPopup(item.properties?.id, MapItemType.BlueLines);
             }
-            // openPopup(item.properties?.id, MapItemType.Lines);
         });
     }, [ekbMap, openPopup]);
 

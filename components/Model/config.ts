@@ -38,12 +38,6 @@ export const MODEL_CONFIG = {
             oneItemRequest: okn.getObject,
         },
     },
-    [MapItemType.Lines]: {
-        cardContent: LinesCardContent,
-        requests: {
-            oneItemRequest: lines.getBlueObject,
-        },
-    },
     [MapItemType.RedLines]: {
         cardContent: LinesCardContent,
         requests: {

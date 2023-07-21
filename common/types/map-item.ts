@@ -16,6 +16,5 @@ export enum MapItemType {
     RedLines = 'redLines',
     PinkLines = 'pinkLines',
     BlueLines = 'blueLines',
-    Lines = 'lines',
     OKN = 'okn',
 }
