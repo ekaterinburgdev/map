@@ -17,6 +17,7 @@ export function LinesCardContent({ placemark }: TLinesCardContentProps) {
             />
             {placemark.attributes.description && placemark.attributes.description.startsWith('http') && (
                 <Section>
+                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
                     <Link link={placemark.attributes.description} text="Подробнее об объекте" />
                 </Section>
             )}
