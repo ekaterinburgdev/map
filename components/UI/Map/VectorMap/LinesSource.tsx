@@ -8,6 +8,7 @@ import { FilterType } from 'components/UI/Filters/Filters.types';
 import { LINES_CONFIG } from 'components/Model/Lines/Lines.constants';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from 'components/UI/Map/providers/usePopup';
+import { LineType } from 'common/data/lines/lineType';
 
 export function LinesSource() {
     const ekbMap = useMap();
@@ -18,7 +19,17 @@ export function LinesSource() {
     useEffect(() => {
         ekbMap?.current?.on?.('click', 'ekb-points-layer', (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
-            openPopup(item.properties?.id, MapItemType.Lines);
+            const lineType = item.properties.type;
+            if (lineType === LineType.RedLine) {
+                openPopup(item.properties?.id, MapItemType.RedLines);
+            }
+            if (lineType === LineType.PurpleLine) {
+                openPopup(item.properties?.id, MapItemType.PinkLines);
+            }
+            if (lineType === LineType.BlueLine) {
+                openPopup(item.properties?.id, MapItemType.BlueLines);
+            }
+            // openPopup(item.properties?.id, MapItemType.Lines);
         });
     }, [ekbMap, openPopup]);
 
@@ -27,7 +38,7 @@ export function LinesSource() {
     }
 
     const activeItems = Object.entries(activeFilterParams)
-        .filter(([_, value]) => value)
+        .filter(([, value]) => value)
         .map(([type]) => [type, LINES_CONFIG[type]]);
 
     const colors = activeItems.map(([type, { color }]) => [['==', ['get', 'type'], type], color]);

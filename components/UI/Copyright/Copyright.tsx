@@ -1,9 +1,8 @@
-/* eslint-disable */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
-import styles from './Copyright.module.css';
 import { FilterType } from '../Filters/Filters.types';
+import styles from './Copyright.module.css';
 
 export function Copyright() {
     const activeFilter = useSelector(activeFilterSelector);
@@ -16,7 +15,9 @@ export function Copyright() {
                     target="_blank"
                     rel="noreferrer"
                 >
-                    © how-old-is-this.house {' | '}
+                    © how-old-is-this.house
+                    {' '}
+                    {'| '}
                 </a>
             )}
 

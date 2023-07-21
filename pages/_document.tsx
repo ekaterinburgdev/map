@@ -1,7 +1,5 @@
-/* eslint-disable */
 import React from 'react';
 import { Html, Head, Main, NextScript } from 'next/document';
-import Script from 'next/script';
 
 export default function Document() {
     const siteTitle = 'Инфокарта Екатеринбурга';
@@ -12,6 +10,7 @@ export default function Document() {
     return (
         <Html lang="ru">
             <Head>
+                {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
                 <title>{siteTitle}</title>
                 <meta name="theme-color" content="#000000" />
                 <meta name="description" content={siteDescription} />
@@ -33,13 +32,15 @@ export default function Document() {
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="manifest" href="/site.webmanifest" />
 
-                <link rel="dns-preconnect" href="https://tiles.ekaterinburg.io/" />
-                <link rel="dns-preconnect" href="https://map-api.ekaterinburg.io/" />
+                <link rel="dns-prefetch" href="https://tiles.ekaterinburg.io/" />
+                <link rel="dns-prefetch" href="https://map-api.ekaterinburg.io/" />
             </Head>
 
             <body>
-                <script dangerouslySetInnerHTML={{
-                    __html: `if ('serviceWorker' in navigator) {
+                {process.env.NODE_ENV === 'production' && (
+                    // eslint-disable-next-line react/no-danger
+                    <script dangerouslySetInnerHTML={{ __html:
+`if ('serviceWorker' in navigator) {
     navigator.serviceWorker
         .register('/sw.js')
         .then((serviceWorker) => {
@@ -48,8 +49,10 @@ export default function Document() {
         .catch((error) => {
             console.error('Error registering the Service Worker: ', error);
         });
-}`}} />
-                <script async src="https://tally.so/widgets/embed.js"></script>
+}` }}
+                    />
+                )}
+                <script async src="https://tally.so/widgets/embed.js" />
                 <Main />
                 <NextScript />
             </body>

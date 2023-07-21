@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { MapItemType } from 'common/types/map-item';
 import { designCode } from 'common/data/designCode/designCode';
 import { dtp } from 'common/data/dtp/dtp';
@@ -43,11 +42,24 @@ export const MODEL_CONFIG = {
         cardContent: LinesCardContent,
         requests: {
             oneItemRequest: lines.getBlueObject,
-            // oneItemRequest: {
-            //     red: lines.getRedObject,
-            //     pink: lines.getPinkObject,
-            //     blue: lines.getBlueObject,
-            // },
+        },
+    },
+    [MapItemType.RedLines]: {
+        cardContent: LinesCardContent,
+        requests: {
+            oneItemRequest: lines.getRedObject,
+        },
+    },
+    [MapItemType.PinkLines]: {
+        cardContent: LinesCardContent,
+        requests: {
+            oneItemRequest: lines.getPinkObject,
+        },
+    },
+    [MapItemType.BlueLines]: {
+        cardContent: LinesCardContent,
+        requests: {
+            oneItemRequest: lines.getBlueObject,
         },
     },
 } as const;
