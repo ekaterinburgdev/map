@@ -7,8 +7,16 @@ const linesByType = Object.entries(groupBy(data.features, (item) => item.propert
     .sort((a, b) => (b[1] as number) - (a[1] as number));
 
 export const lines = {
-    async getObject(id: string): Promise<object> {
-        return getById.getObject(id, '/pink-line');
+    async getRedObject(id: string): Promise<object> {
+        return getById.getObject(id, '/red-lines');
+    },
+
+    async getPinkObject(id: string): Promise<object> {
+        return getById.getObject(id, '/pink-lines');
+    },
+
+    async getBlueObject(id: string): Promise<object> {
+        return getById.getObject(id, '/blue-lines');
     },
 
     async getFilters() {

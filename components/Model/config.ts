@@ -42,7 +42,12 @@ export const MODEL_CONFIG = {
     [MapItemType.Lines]: {
         cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: lines.getObject,
+            oneItemRequest: lines.getBlueObject,
+            // oneItemRequest: {
+            //     red: lines.getRedObject,
+            //     pink: lines.getPinkObject,
+            //     blue: lines.getBlueObject,
+            // },
         },
     },
 } as const;
