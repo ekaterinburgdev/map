@@ -1,341 +1,865 @@
 {
-    "type": "FeatureCollection",
-    "name": "points",
-    "features": [
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59743752338986, 56.840204906257284] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.594530008817614, 56.842211486738236]
-            },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59094389536465, 56.843522688321386] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    [60.59633168599757, 56.837780798523],
-                    [60.598584741570086, 56.8379954409017]
-                ]
-            },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.591855846429695, 56.84468097603139] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59602936365678, 56.8425995600869] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60104509451457, 56.83952720135226] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.600256525064175, 56.83854222892105] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.603721939111416, 56.83810412833311] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.605406366372726, 56.836542801879425]
-            },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.606972776437296, 56.838409917123016]
-            },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.6083836183791, 56.83914791645328] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60590525724933, 56.83913909581573] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.607353650117375, 56.842781835428156]
-            },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60900052645245, 56.8445641196794] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.610706411385905, 56.84529464786038] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61082442858172, 56.842797269443395] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.6110497341397, 56.8420181830572] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61147888758207, 56.84080395114876] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61456342794913, 56.84001600186081] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.616403423333246, 56.83977196990867] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61663945772661, 56.83920157488418] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61580260851394, 56.83711397231052] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61456879236705, 56.83637299229863] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61074932672987, 56.83508212290889] },
-            "properties": { "type": "Красная линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59607451367087, 56.82610821249199] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.612684763548764, 56.844851304478055]
-            },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.608487106440535, 56.843773867710844]
-            },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61084745037332, 56.83956965594552] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.602788082835154, 56.82876699456687] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.607522181746226, 56.82578761637104] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59864943432507, 56.82288153772408] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60890284883817, 56.84445517019446] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60907987463278, 56.84397083674574] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61655250894814, 56.839106575729986] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.603095866319734, 56.83514884209803] },
-            "properties": { "type": "Синяя линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.613717368997435, 56.8403801104569] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61349206344017, 56.84046243344019] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.61276250258802, 56.84018165245528] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.607534877217965, 56.8406211986279] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.607754818357044, 56.84099164823714] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.606601468480605, 56.841836906411146]
-            },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [60.608669451630874, 56.846778710694636]
-            },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.610788396752675, 56.84690217391316] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60817592517209, 56.846340706881634] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60182311312297, 56.826539915318584] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60025133864017, 56.82963393077623] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.600514195123665, 56.8298986159942] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59914626852602, 56.83139552262072] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.600744865098854, 56.83340698820549] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.60057320372185, 56.83387455019021] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59817530886237, 56.83575944187241] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59948422686158, 56.840211054376724] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.598985335984715, 56.83934664805119] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59876941815891, 56.83917023610371] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58981888667609, 56.83624755728051] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5896579541352, 56.83500373212234] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59052698985598, 56.83480965636645] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59191905633411, 56.833627536629265] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.59118681327277, 56.83491110494143] },
-            "properties": { "type": "Фиолетовая линия" }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.606577328600174, 56.83437592252609] },
-            "properties": { "type": "Фиолетовая линия" }
-        }
-    ]
+  "type": "FeatureCollection",
+  "name": "points",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59743752338986,
+          56.840204906257284
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.594530008817614,
+          56.842211486738236
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59094389536465,
+          56.843522688321386
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          [
+            60.59633168599757,
+            56.837780798523
+          ],
+          [
+            60.598584741570086,
+            56.8379954409017
+          ]
+        ]
+      },
+      "properties": {
+        "type": "Красная линия"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.591855846429695,
+          56.84468097603139
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59602936365678,
+          56.8425995600869
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60104509451457,
+          56.83952720135226
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 10
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.600256525064175,
+          56.83854222892105
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 11
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.603721939111416,
+          56.83810412833311
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 12
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.605406366372726,
+          56.836542801879425
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.606972776437296,
+          56.838409917123016
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 14
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.6083836183791,
+          56.83914791645328
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60590525724933,
+          56.83913909581573
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 16
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.607353650117375,
+          56.842781835428156
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 18
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60900052645245,
+          56.8445641196794
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.610706411385905,
+          56.84529464786038
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 20
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61082442858172,
+          56.842797269443395
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 21
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.6110497341397,
+          56.8420181830572
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 22
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61147888758207,
+          56.84080395114876
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 23
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61456342794913,
+          56.84001600186081
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.616403423333246,
+          56.83977196990867
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 26
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61663945772661,
+          56.83920157488418
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 27
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61580260851394,
+          56.83711397231052
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 28
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61456879236705,
+          56.83637299229863
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 29
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61074932672987,
+          56.83508212290889
+        ]
+      },
+      "properties": {
+        "type": "Красная линия",
+        "id": 30
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59607451367087,
+          56.82610821249199
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.612684763548764,
+          56.844851304478055
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.608487106440535,
+          56.843773867710844
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61084745037332,
+          56.83956965594552
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.602788082835154,
+          56.82876699456687
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.607522181746226,
+          56.82578761637104
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 11
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59864943432507,
+          56.82288153772408
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 10
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60890284883817,
+          56.84445517019446
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 1
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60907987463278,
+          56.84397083674574
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61655250894814,
+          56.839106575729986
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.603095866319734,
+          56.83514884209803
+        ]
+      },
+      "properties": {
+        "type": "Синяя линия",
+        "id": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.613717368997435,
+          56.8403801104569
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 2
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61349206344017,
+          56.84046243344019
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 3
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.61276250258802,
+          56.84018165245528
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 4
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.607534877217965,
+          56.8406211986279
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 5
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.607754818357044,
+          56.84099164823714
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 6
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.606601468480605,
+          56.841836906411146
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 10
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.608669451630874,
+          56.846778710694636
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 7
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.610788396752675,
+          56.84690217391316
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 8
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60817592517209,
+          56.846340706881634
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 9
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60182311312297,
+          56.826539915318584
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 11
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60025133864017,
+          56.82963393077623
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 12
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.600514195123665,
+          56.8298986159942
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 13
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59914626852602,
+          56.83139552262072
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 14
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.600744865098854,
+          56.83340698820549
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 15
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.60057320372185,
+          56.83387455019021
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 16
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59817530886237,
+          56.83575944187241
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 17
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59948422686158,
+          56.840211054376724
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 18
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.598985335984715,
+          56.83934664805119
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 19
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59876941815891,
+          56.83917023610371
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 20
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.58981888667609,
+          56.83624755728051
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 21
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.5896579541352,
+          56.83500373212234
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 22
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59052698985598,
+          56.83480965636645
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 23
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59191905633411,
+          56.833627536629265
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 24
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.59118681327277,
+          56.83491110494143
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 25
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          60.606577328600174,
+          56.83437592252609
+        ]
+      },
+      "properties": {
+        "type": "Фиолетовая линия",
+        "id": 26
+      }
+    }
+  ]
 }

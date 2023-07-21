@@ -13,6 +13,8 @@ export enum MapItemType {
     DesignCode = 'designCode',
     DTP = 'dtp',
     Houses = 'houses',
-    Lines = 'lines',
+    RedLines = 'redLines',
+    PinkLines = 'pinkLines',
+    BlueLines = 'blueLines',
     OKN = 'okn',
 }

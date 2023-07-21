@@ -3,6 +3,8 @@ import { designCode } from 'common/data/designCode/designCode';
 import { dtp } from 'common/data/dtp/dtp';
 import { okn } from 'common/data/okn/okn';
 
+import { lines } from 'common/data/lines/lines';
+import { LinesCardContent } from 'components/Model/Lines/CardContent/CardContent';
 import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
 
 import { DTPCardContent } from './DTP/CardContent/CardContent';
@@ -36,10 +38,22 @@ export const MODEL_CONFIG = {
             oneItemRequest: okn.getObject,
         },
     },
-    [MapItemType.Lines]: {
-        cardContent: () => null,
+    [MapItemType.RedLines]: {
+        cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: () => Promise.resolve(),
+            oneItemRequest: lines.getRedObject,
+        },
+    },
+    [MapItemType.PinkLines]: {
+        cardContent: LinesCardContent,
+        requests: {
+            oneItemRequest: lines.getPinkObject,
+        },
+    },
+    [MapItemType.BlueLines]: {
+        cardContent: LinesCardContent,
+        requests: {
+            oneItemRequest: lines.getBlueObject,
         },
     },
 } as const;
