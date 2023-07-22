@@ -8,7 +8,7 @@ export default function Document() {
     const ogImage = `${siteUrl}og-preview.jpg`;
 
     return (
-        <Html lang="ru">
+        <Html lang="ru" style={{ background: 'black' }}>
             <Head>
                 {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
                 <title>{siteTitle}</title>
