@@ -33,6 +33,7 @@ export function HouseWearTearFilter() {
         <HouseBaseFilter
             defaultMin={0}
             defaultMax={100}
+            units="%"
             onChangeRequest={getHouses}
             getHistogramData={getHistogramData}
         />

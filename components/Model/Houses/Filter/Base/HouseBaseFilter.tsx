@@ -7,6 +7,7 @@ import { RangeBaseFilter } from 'components/Model/RangeBaseFilter/RangeBaseFilte
 export interface HouseBaseFilterProps {
     defaultMin: number;
     defaultMax: number;
+    units?: string;
     onChangeRequest: (range: MinMax) => void;
     getHistogramData: () => Promise<HistogramData>;
 }
@@ -15,12 +16,14 @@ export function HouseBaseFilter({
     onChangeRequest,
     defaultMin,
     defaultMax,
+    units,
     getHistogramData,
 }: HouseBaseFilterProps) {
     return (
         <RangeBaseFilter
             defaultMin={defaultMin}
             defaultMax={defaultMax}
+            units={units}
             onChangeCallback={onChangeRequest}
             getHistogramData={getHistogramData}
         />

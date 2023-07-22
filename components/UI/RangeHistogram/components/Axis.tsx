@@ -5,11 +5,12 @@ import axisStyles from './Axis.module.css';
 
 interface Props {
     data: HistogramData;
+    units: string;
     range: MinMax;
     onSelect?: (item: { from: HistogramDatum['from']; to: HistogramDatum['to'] }) => void;
 }
 
-export function Axis({ data, range, onSelect }: Props) {
+export function Axis({ data, units, range, onSelect }: Props) {
     const lastItem = data[data.length - 1];
     const labels = data
         .map((item) => ({
@@ -44,19 +45,23 @@ export function Axis({ data, range, onSelect }: Props) {
                 } as CSSProperties
             }
         >
-            {labels.map((item) => (
-                <div
-                    aria-hidden
-                    key={item.value}
-                    // onClick={() => onClick?.(item.value)}
-                    // onKeyUp={() => onClick?.(item.value)}
-                    className={classNames(axisStyles.axis__item, {
-                        [axisStyles.axis__item_active]: item.isActive,
-                    })}
-                >
-                    {item.value}
-                </div>
-            ))}
+            {labels.map((item, i) => {
+                const isFirst = i === 0;
+                const isLast = i === labels.length - 1;
+                return (
+                    <div
+                        aria-hidden
+                        key={item.value}
+                        // onClick={() => onClick?.(item.value)}
+                        // onKeyUp={() => onClick?.(item.value)}
+                        className={classNames(axisStyles.axis__item, {
+                            [axisStyles.axis__item_active]: item.isActive,
+                        })}
+                    >
+                        {item.value}{(isFirst || isLast) && <>&thinsp;{units}</>}
+                    </div>
+                );
+            })}
         </div>
     );
 }
