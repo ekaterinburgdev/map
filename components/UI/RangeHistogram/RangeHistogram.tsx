@@ -12,6 +12,7 @@ interface Props {
 
     defaultMin: number;
     defaultMax: number;
+    units: string;
 
     data?: HistogramData;
     onChange: (minMax: MinMax) => void;
@@ -24,6 +25,7 @@ export function RangeHistogram({
     onChange,
     defaultMin,
     defaultMax,
+    units,
 }: Props) {
     const [barChartMinMax, setBarChartMinMax] = useState<MinMax>({
         min: defaultMin,
@@ -83,7 +85,7 @@ export function RangeHistogram({
                 />
             </div>
             <div className={histogramStyles.histogram__axis}>
-                <Axis data={data} range={finalMinMax} />
+                <Axis data={data} units={units} range={finalMinMax} />
             </div>
         </div>
     ) : null;

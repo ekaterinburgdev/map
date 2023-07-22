@@ -7,6 +7,7 @@ import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoad
 export interface RangeBaseFilterProps {
     defaultMin: number;
     defaultMax: number;
+    units?: string,
     onChangeCallback: (range: MinMax) => Promise<void> | void;
     getHistogramData: () => Promise<HistogramData>;
     noLoader?: boolean;
@@ -15,6 +16,7 @@ export interface RangeBaseFilterProps {
 export function RangeBaseFilter({
     defaultMin,
     defaultMax,
+    units,
     onChangeCallback,
     getHistogramData,
     noLoader,
@@ -45,6 +47,7 @@ export function RangeBaseFilter({
             height={128}
             defaultMin={defaultMin}
             defaultMax={defaultMax}
+            units={units}
         />
     );
 }

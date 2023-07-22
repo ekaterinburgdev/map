@@ -37,6 +37,7 @@
     position: absolute;
     top: -40px;
     font-size: 11px;
+    white-space: nowrap;
 } 
 
 .barchart__value {
