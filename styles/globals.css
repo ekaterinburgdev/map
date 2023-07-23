@@ -50,18 +50,24 @@ button {
 }
 
 *::-webkit-scrollbar {
-  width: 14px;
+  width: 9px;
 }
 
-*::-webkit-scrollbar-thumb {
-    background: rgba(80, 89, 112, 0.80);
+::-webkit-scrollbar-thumb {
     /* Fix scrollbar box edges */
-    box-shadow: inset -6px 0 0 #1e2841, inset -6px 0 0 #1e2841, inset -6px 0 0 #1e2841;
-    border-top: 4px solid #1e2841;
-    border-bottom: 4px solid #1e2841;
-    border-radius: 14px / 16px;
+    box-shadow: inset -3px 0 0 #1e2841;
+    border-radius: 12px;
+    transition: .15s ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgba(117, 129, 151, .4);
+}
+
+:hover::-webkit-scrollbar-thumb {
+    background: rgba(117, 129, 151, .45);
 }
 
 *::-webkit-scrollbar-thumb:active {
-    background: rgba(80, 89, 112, 1); 
+    background: rgba(117, 129, 151, .7); 
 }
