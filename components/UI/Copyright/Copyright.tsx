@@ -32,7 +32,10 @@ export function Copyright() {
 
     return (
         <div className={styles.copyright}>
-            ©{' '}
+            <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">
+                OpenStreetMap
+            </a>
+            {' · '}
             {copyright && (
                 <a
                     href={copyright}
@@ -40,14 +43,8 @@ export function Copyright() {
                     rel="noreferrer"
                 >
                     {new URL(copyright).host}
-                    {' '}
-                    {'| '}
                 </a>
             )}
-
-            <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">
-                OpenStreetMap
-            </a>
         </div>
     );
 }
