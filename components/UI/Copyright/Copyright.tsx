@@ -38,15 +38,17 @@ export function Copyright() {
             <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">
                 OpenStreetMap
             </a>
-            {' · '}
             {copyright && (
-                <a
-                    href={copyright}
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    {new URL(copyright).host}
-                </a>
+                <>
+                    {' · '}
+                    <a
+                        href={copyright}
+                        target="_blank"
+                        rel="noreferrer"
+                    >
+                        {new URL(copyright).host}
+                    </a>
+                </>
             )}
         </div>
     );
