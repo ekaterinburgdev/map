@@ -4,8 +4,9 @@
     left: 50%;
     z-index: 1000;
     padding: 0 4px;
+    border-radius: 0 0 2px 2px;
     background: black;
-    color: white;
+    color: rgba(255,255,255,.5);
     font-size: 10px;
     line-height: 1.5;
     transform: translateX(-50%);
