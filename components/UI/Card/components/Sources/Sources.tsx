@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SOURCES_BY_TYPE } from './Sources.constants';
+import { SOURCES_BY_TYPE } from 'common/constants/sources';
 import { SourcesProps } from './Sources.types';
 
 import styles from './Sources.module.css';
@@ -11,11 +11,11 @@ export function Sources({ sources }: SourcesProps) {
             <h3 className={styles.sources__title}>Источники</h3>
             <ul className={styles.sources__list}>
                 {sources.map((source) => {
-                    const { link, name } = SOURCES_BY_TYPE[source];
+                    const { link, name, data } = SOURCES_BY_TYPE[source];
 
                     return (
                         <li key={link} className={styles.sources__listItem}>
-                            <a href={link} target="_blank" rel="noreferrer">
+                            <a href={data || link} target="_blank" rel="noreferrer">
                                 {name}
                             </a>
                         </li>

@@ -1,20 +1,30 @@
 .copyright {
     position: fixed;
+    top: 1px;
+    left: 50%;
     z-index: 1000;
-    font-size: .5vw;
-    color: rgba(255,255,255,.8);
-    right: 0;
-    bottom: 1px;
-    background: rgba(0,0,0,.5);
-    margin-right: .25vw;
+    padding: 0 4px;
+    border-radius: 0 0 2px 2px;
+    background: black;
+    color: rgba(255,255,255,.5);
+    font-size: 10px;
+    line-height: 1.5;
+    opacity: 1;
+    transition: .3s ease;
+    transform: translateX(-50%);
+}
+
+.copyright[hidden] {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */
-@media screen and (max-width: 1150px) {
+@media screen and (min-width: 1150px) {
     .copyright {
-        top: 1px;
-        bottom: initial;
-        font-size: 2vw;
-        margin-right: .5vw;
+        top: auto;
+        bottom: 0;
+        border-radius: 2px 2px 0px 0px;
     }
 }
