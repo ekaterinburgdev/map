@@ -45,15 +45,6 @@ a {
     text-decoration: none;
 }
 
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
 button {
     font-family: inherit;
 }

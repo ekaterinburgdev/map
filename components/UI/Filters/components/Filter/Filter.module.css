@@ -1,23 +1,12 @@
 .filter {
     position: relative;
-    overflow: auto;
     padding: 0 16px;
     opacity: 0;
     box-sizing: content-box;
     visibility: hidden;
-
     max-height: 0;
-
     will-change: padding;
     transition: opacity 150ms ease, padding 200ms ease;
-
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.filter::-webkit-scrollbar {
-    display: none;
 }
 
 .filter_active {
@@ -26,6 +15,5 @@
     padding-bottom: 16px;
     opacity: 1;
     visibility: visible;
-
     max-height: 100vh;
 }

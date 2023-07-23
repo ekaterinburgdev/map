@@ -1,11 +1,12 @@
 .filters__body {
     display: flex;
     flex-direction: column;
-    overflow: auto;
-    background: #1e2841;
-    border-radius: 16px;
     padding: 8px;
     gap: 2px;
+    background: #1e2841;
+    border-radius: 16px;
+
+    @mixin scroll;
 }
 
 .filters__item {

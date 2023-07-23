@@ -1,6 +1,12 @@
 {
     "plugins": [
         "postcss-nesting",
-        "autoprefixer"
+        "autoprefixer",
+        [
+            "postcss-mixins",
+            {
+                "mixinsFiles": "styles/**/mixins/*.css"
+            }
+        ]
     ]
 }
