@@ -2,7 +2,7 @@
     position: fixed;
     z-index: 1000;
     right: 8px;
-    bottom: 16px;
+    bottom: 8px;
 }
 
 /* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */

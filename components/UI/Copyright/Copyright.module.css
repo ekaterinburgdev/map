@@ -9,8 +9,15 @@
     color: rgba(255,255,255,.5);
     font-size: 10px;
     line-height: 1.5;
+    opacity: 1;
+    transition: .3s ease;
     transform: translateX(-50%);
-    border-radius: 0 0 2px 2px;
+}
+
+.copyright[hidden] {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */

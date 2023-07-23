@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
 import { SOURCES_BY_TYPE } from 'common/constants/sources';
+import { MapContext } from 'components/UI/Map/providers/MapProvider';
 import { FilterType } from '../Filters/Filters.types';
+
 import styles from './Copyright.module.css';
 
 function getSource(activeFilter) {
@@ -27,11 +29,12 @@ function getSource(activeFilter) {
 }
 
 export function Copyright() {
+    const { loading } = useContext(MapContext);
     const activeFilter = useSelector(activeFilterSelector);
     const copyright = getSource(activeFilter);
 
     return (
-        <div className={styles.copyright}>
+        <div className={styles.copyright} hidden={loading}>
             <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">
                 OpenStreetMap
             </a>
