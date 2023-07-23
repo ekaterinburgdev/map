@@ -7,7 +7,7 @@ export const SOURCES_BY_TYPE = {
     howoldthishouse: {
         name: 'Карта возраста домов',
         link: 'https://how-old-is-this.house/',
-        data: 'https://how-old-is-this.house/dataset?p=h-menu',
+        data: 'https://how-old-is-this.house/dataset?p=h-ekb',
     },
     domaekb: {
         name: 'Жилые дома Екатеринбурга',
