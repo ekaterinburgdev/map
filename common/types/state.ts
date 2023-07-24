@@ -1,5 +1,3 @@
-import { LatLngExpression } from 'leaflet';
-
 import { HouseClient } from 'common/data/base/houseBase';
 import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
 import { DTPObject } from 'common/data/dtp/dtp';
@@ -25,7 +23,6 @@ export interface LinesData {
     lines: {
         type: LineType;
         id: number;
-        coords: LatLngExpression[];
     }[];
     points: {
         type: LineType;

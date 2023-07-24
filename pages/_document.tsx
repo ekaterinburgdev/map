@@ -10,8 +10,6 @@ export default function Document() {
     return (
         <Html lang="ru" style={{ background: 'black' }}>
             <Head>
-                {/* eslint-disable-next-line @next/next/no-title-in-document-head */}
-                <title>{siteTitle}</title>
                 <meta name="theme-color" content="#000000" />
                 <meta name="description" content={siteDescription} />
 

@@ -6,8 +6,7 @@ Map for Ekaterinburg urbanists
 
 ## Tools
 
-- [Leaflet](https://leafletjs.com/)
-- [React Leaflet](https://react-leaflet.js.org/)
+- [Maplibre GL](https://github.com/alex3165/react-mapbox-gl)
 - [Next.js](https://nextjs.org/)
 - [Vercel Serverless](https://vercel.com/)
 

@@ -10,7 +10,7 @@ dependencies:
     version: 1.9.5(react-redux@8.1.1)(react@18.2.0)
   autoprefixer:
     specifier: ^10.4.14
-    version: 10.4.14(postcss@8.4.21)
+    version: 10.4.14(postcss@8.4.27)
   classnames:
     specifier: ^2.3.2
     version: 2.3.2
@@ -23,9 +23,6 @@ dependencies:
   geojson:
     specifier: ^0.5.0
     version: 0.5.0
-  leaflet:
-    specifier: ^1.9.4
-    version: 1.9.4
   lodash:
     specifier: ^4.17.21
     version: 4.17.21
@@ -40,10 +37,10 @@ dependencies:
     version: 13.4.9(@babel/core@7.20.12)(react-dom@18.2.0)(react@18.2.0)
   postcss-mixins:
     specifier: ^9.0.4
-    version: 9.0.4(postcss@8.4.21)
+    version: 9.0.4(postcss@8.4.27)
   postcss-nesting:
     specifier: ^12.0.0
-    version: 12.0.0(postcss@8.4.21)
+    version: 12.0.0(postcss@8.4.27)
   qs:
     specifier: ^6.11.2
     version: 6.11.2
@@ -56,9 +53,6 @@ dependencies:
   react-focus-lock:
     specifier: ^2.9.5
     version: 2.9.5(@types/react@18.2.15)(react@18.2.0)
-  react-leaflet:
-    specifier: ^4.2.1
-    version: 4.2.1(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0)
   react-map-gl:
     specifier: ^7.0.25
     version: 7.1.2(empty-npm-package@1.0.0)(maplibre-gl@2.4.0)(react-dom@18.2.0)(react@18.2.0)
@@ -875,18 +869,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-leaflet/core@2.1.0(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Qk7Pfu8BSarKGqILj4x7bCSZ1pjuAPZ+qmRwH5S7mDS91VSbVVsJSrW4qA+GPrro8t69gFYVMWb1Zc4yFmPiVg==}
-    peerDependencies:
-      leaflet: ^1.9.0
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    dependencies:
-      leaflet: 1.9.4
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-    dev: false
-
   /@react-stately/utils@3.6.0(react@18.2.0):
     resolution: {integrity: sha512-rptF7iUWDrquaYvBAS4QQhOBQyLBncDeHF03WnHXAxnuPJXNcr9cXJtjJPGCs036ZB8Q2hc9BGG5wNyMkF5v+Q==}
     peerDependencies:
@@ -1449,6 +1431,22 @@ packages:
       normalize-range: 0.1.2
       picocolors: 1.0.0
       postcss: 8.4.21
+      postcss-value-parser: 4.2.0
+    dev: false
+
+  /autoprefixer@10.4.14(postcss@8.4.27):
+    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
+    engines: {node: ^10 || ^12 || >=14}
+    hasBin: true
+    peerDependencies:
+      postcss: ^8.1.0
+    dependencies:
+      browserslist: 4.21.5
+      caniuse-lite: 1.0.30001482
+      fraction.js: 4.2.0
+      normalize-range: 0.1.2
+      picocolors: 1.0.0
+      postcss: 8.4.27
       postcss-value-parser: 4.2.0
     dev: false
 
@@ -3118,10 +3116,6 @@ packages:
       language-subtag-registry: 0.3.22
     dev: true
 
-  /leaflet@1.9.4:
-    resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
-    dev: false
-
   /levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -3581,27 +3575,27 @@ packages:
     hasBin: true
     dev: true
 
-  /postcss-js@4.0.1(postcss@8.4.21):
+  /postcss-js@4.0.1(postcss@8.4.27):
     resolution: {integrity: sha512-dDLF8pEO191hJMtlHFPRa8xsizHaM82MLfNkUHdUtVEV3tgTp5oj+8qbEqYM57SLfc74KSbw//4SeJma2LRVIw==}
     engines: {node: ^12 || ^14 || >= 16}
     peerDependencies:
       postcss: ^8.4.21
     dependencies:
       camelcase-css: 2.0.1
-      postcss: 8.4.21
+      postcss: 8.4.27
     dev: false
 
-  /postcss-mixins@9.0.4(postcss@8.4.21):
+  /postcss-mixins@9.0.4(postcss@8.4.27):
     resolution: {integrity: sha512-XVq5jwQJDRu5M1XGkdpgASqLk37OqkH4JCFDXl/Dn7janOJjCTEKL+36cnRVy7bMtoBzALfO7bV7nTIsFnUWLA==}
     engines: {node: '>=14.0'}
     peerDependencies:
       postcss: ^8.2.14
     dependencies:
       fast-glob: 3.3.0
-      postcss: 8.4.21
-      postcss-js: 4.0.1(postcss@8.4.21)
-      postcss-simple-vars: 7.0.1(postcss@8.4.21)
-      sugarss: 4.0.1(postcss@8.4.21)
+      postcss: 8.4.27
+      postcss-js: 4.0.1(postcss@8.4.27)
+      postcss-simple-vars: 7.0.1(postcss@8.4.27)
+      sugarss: 4.0.1(postcss@8.4.27)
     dev: false
 
   /postcss-nesting@11.2.2(postcss@8.4.21):
@@ -3615,14 +3609,14 @@ packages:
       postcss-selector-parser: 6.0.13
     dev: false
 
-  /postcss-nesting@12.0.0(postcss@8.4.21):
+  /postcss-nesting@12.0.0(postcss@8.4.27):
     resolution: {integrity: sha512-knqwW65kxssmyIFadRSimaiRyLVRd0MdwfabesKw6XvGLwSOCJ+4zfvNQQCOOYij5obwpZzDpODuGRv2PCyiUw==}
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
     dependencies:
       '@csstools/selector-specificity': 3.0.0(postcss-selector-parser@6.0.13)
-      postcss: 8.4.21
+      postcss: 8.4.27
       postcss-selector-parser: 6.0.13
     dev: false
 
@@ -3634,13 +3628,13 @@ packages:
       util-deprecate: 1.0.2
     dev: false
 
-  /postcss-simple-vars@7.0.1(postcss@8.4.21):
+  /postcss-simple-vars@7.0.1(postcss@8.4.27):
     resolution: {integrity: sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==}
     engines: {node: '>=14.0'}
     peerDependencies:
       postcss: ^8.2.1
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.27
     dev: false
 
   /postcss-value-parser@4.2.0:
@@ -3779,19 +3773,6 @@ packages:
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
-    dev: false
-
-  /react-leaflet@4.2.1(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p9chkvhcKrWn/H/1FFeVSqLdReGwn2qmiobOQGO3BifX+/vV/39qhY8dGqbdcPh1e6jxh/QHriLXr7a4eLFK4Q==}
-    peerDependencies:
-      leaflet: ^1.9.0
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    dependencies:
-      '@react-leaflet/core': 2.1.0(leaflet@1.9.4)(react-dom@18.2.0)(react@18.2.0)
-      leaflet: 1.9.4
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /react-map-gl@7.1.2(empty-npm-package@1.0.0)(maplibre-gl@2.4.0)(react-dom@18.2.0)(react@18.2.0):
@@ -4227,13 +4208,13 @@ packages:
       react: 18.2.0
     dev: false
 
-  /sugarss@4.0.1(postcss@8.4.21):
+  /sugarss@4.0.1(postcss@8.4.27):
     resolution: {integrity: sha512-WCjS5NfuVJjkQzK10s8WOBY+hhDxxNt/N6ZaGwxFZ+wN3/lKKFSaaKUNecULcTTvE4urLcKaZFQD8vO0mOZujw==}
     engines: {node: '>=12.0'}
     peerDependencies:
       postcss: ^8.3.3
     dependencies:
-      postcss: 8.4.21
+      postcss: 8.4.27
     dev: false
 
   /supercluster@7.1.5:
