@@ -13,6 +13,7 @@ export const designCode = {
         try {
             const result = dtp.features.find((item) => item.properties.id === id);
 
+            // @ts-ignore
             return Promise.resolve({
                 ...result.properties,
                 street: result.properties.street,

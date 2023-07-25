@@ -13,6 +13,8 @@ import { LinesSource } from './VectorMap/LinesSource';
 import { DesignCodeSource } from './VectorMap/DesignCodeSource';
 import { MapContext } from './providers/MapProvider';
 
+import 'maplibre-gl/dist/maplibre-gl.css';
+
 function MapLayers() {
     return (
         <>

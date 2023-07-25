@@ -32,9 +32,8 @@ export function DesignCodeCardContent({ placemark }: DesignCodeCardContentProps)
                     const imageSrc = `${DESIGN_MAP_HOST}${imageData.src}`;
 
                     return (
-                        <a href={imageSrc} target="_blank" rel="noreferrer">
+                        <a key={imageData.src} href={imageSrc} target="_blank" rel="noreferrer">
                             <img
-                                key={image.id}
                                 src={imageSrc}
                                 width={imageData.width}
                                 height={imageData.width}
