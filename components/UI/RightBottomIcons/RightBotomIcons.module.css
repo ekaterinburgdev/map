@@ -1,0 +1,9 @@
+.rightBottomIcons {
+    position: fixed;
+    bottom: 8px;
+    right: 8px;
+    color: white;
+    z-index: 401;
+    display: flex;
+    gap: 4px;
+}
