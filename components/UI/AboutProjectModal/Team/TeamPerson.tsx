@@ -31,11 +31,12 @@ function Person({ name, role, photo }: ITeamPerson) {
 }
 
 export default function TeamPerson(person: ITeamPerson) {
-    if (person.link) {
+    const { link } = person;
+    if (link) {
         return (
             <a
                 className={cx('team-person', 'team-person_link')}
-                href={person.link}
+                href={link}
                 target="_blank"
                 rel="noopener noreferrer nofollow"
             >

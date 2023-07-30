@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import teamMock from './team.json';
+import teamMock from 'components/UI/AboutProjectModal/Team/team-mock.json';
 import TeamPerson from './TeamPerson';
 import styles from './TeamGrid.module.css';
 import { ITeam } from './types';

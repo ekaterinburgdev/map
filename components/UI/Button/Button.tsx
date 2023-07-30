@@ -26,6 +26,6 @@ export function Button({ text, type, onClick, link }: TButtonProps) {
         );
     }
     return (
-        <button className={classNames(styles.button, buttonStylesByType[type])} onClick={onClick}>{text}</button>
+        <button type="button" className={classNames(styles.button, buttonStylesByType[type])} onClick={onClick}>{text}</button>
     );
 }

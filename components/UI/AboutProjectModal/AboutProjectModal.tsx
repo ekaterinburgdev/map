@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from 'components/UI/AboutProjectModal/AboutProjectModal.module.css';
 import { Team } from 'components/UI/AboutProjectModal/Team';
-import { Partners } from 'components/UI/AboutProjectModal/Partners';
+// import { Partners } from 'components/UI/AboutProjectModal/Partners';
 import { JoinUs } from 'components/UI/AboutProjectModal/JoinUs';
 
 type TNewModalProps = {
