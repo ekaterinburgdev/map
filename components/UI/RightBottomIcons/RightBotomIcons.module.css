@@ -7,3 +7,10 @@
     display: flex;
     gap: 4px;
 }
+
+@media screen and (max-width: 1150px) {
+    .rightBottomIcons {
+        bottom: initial;
+        top: 8px;
+    }
+}

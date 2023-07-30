@@ -9,7 +9,6 @@ import { MobileFilters } from 'components/UI/Filters';
 import { RightSidebar } from 'components/UI/RightSidebar/RightSidebar';
 import { MobileCard } from 'components/UI/Card';
 import { useIsMobile } from 'common/isMobile';
-import { EditButtonLink } from 'components/Model/EditButtonLink/EditButtonLink';
 import { RightBottomIcons } from 'components/UI/RightBottomIcons/RightBottomIcons';
 import { MapContextProvider } from './UI/Map/providers/MapProvider';
 import { Footer } from './UI/Footer/Footer';
@@ -28,11 +27,10 @@ export default function App() {
                         <>
                             <LeftSidebar />
                             <RightSidebar />
-                            <RightBottomIcons />
                         </>
                     )}
                     <Copyright />
-                    {/* <EditButtonLink /> */}
+                    <RightBottomIcons />
                     <Footer />
                     {isMobile && (
                         <>
