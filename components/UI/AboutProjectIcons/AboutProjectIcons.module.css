@@ -1,4 +1,4 @@
-.rightBottomIcons {
+.aboutProjectIcons {
     position: fixed;
     bottom: 8px;
     right: 8px;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (max-width: 1150px) {
-    .rightBottomIcons {
+    .aboutProjectIcons {
         bottom: initial;
         top: 8px;
     }

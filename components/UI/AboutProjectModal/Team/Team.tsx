@@ -1,6 +1,6 @@
 import React from 'react';
-import { TeamGrid } from 'components/UI/NewModal/TeamGrid/TeamGrid';
-import styles from './NewModal.module.css';
+import styles from 'components/UI/AboutProjectModal/AboutProjectModal.module.css';
+import { TeamGrid } from './TeamGrid';
 
 export function Team() {
     return (

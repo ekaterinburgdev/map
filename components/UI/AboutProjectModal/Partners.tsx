@@ -1,11 +1,11 @@
 import React from 'react';
 import Image from 'next/image';
-import stolicaUrala from 'components/UI/NewModal/stolica-urala.svg';
-import atom from 'components/UI/NewModal/atom.svg';
-import madeInUral from 'components/UI/NewModal/made-in-ural.svg';
-import unknownOrg from 'components/UI/NewModal/unknown-org.svg';
-import cityAdministration from 'components/UI/NewModal/city-administration.svg';
-import styles from './NewModal.module.css';
+import stolicaUrala from 'components/UI/AboutProjectModal/svg/tolica-urala.svg';
+import cityAdministration from 'components/UI/AboutProjectModal/svf/city-administration.svg';
+import styles from 'components/UI/NewModal/AboutProjectModal.module.css';
+import madeInUral from 'components/UI/AboutProjectModal/svg/made-in-ural.svg';
+import unknownOrg from 'components/UI/AboutProjectModal/svg/unknown-org.svg';
+import atom from 'components/UI/AboutProjectModal/svg/atom.svg';
 
 export function Partners() {
     return (

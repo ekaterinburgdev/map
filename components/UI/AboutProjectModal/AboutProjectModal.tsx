@@ -1,21 +1,21 @@
 import React from 'react';
-import { Team } from 'components/UI/NewModal/Team';
-import { Partners } from 'components/UI/NewModal/Partners';
-import { JoinUs } from 'components/UI/NewModal/JoinUs';
-import styles from './NewModal.module.css';
+import styles from 'components/UI/AboutProjectModal/AboutProjectModal.module.css';
+import { Team } from 'components/UI/AboutProjectModal/Team';
+import { Partners } from 'components/UI/AboutProjectModal/Partners';
+import { JoinUs } from 'components/UI/AboutProjectModal/JoinUs';
 
 type TNewModalProps = {
     isOpen: boolean;
     onClose: VoidFunction;
 };
 
-export function NewModal({ isOpen, onClose }: TNewModalProps) {
+export function AboutProjectModal({ isOpen, onClose }: TNewModalProps) {
     if (!isOpen) return null;
 
     return (
         <>
-            <div className={styles.newModal}>
-                <div className={styles.newModal__content}>
+            <div className={styles.aboutProjectModal}>
+                <div className={styles.aboutProjectModal__content}>
                     <h3 className={styles.h3}>Раскрываем город в деталях</h3>
                     <div className={styles.paragraphs}>
                         <p className={styles.largeText}>Мы - Код Екатеринбурга. Сообщество независимых энтузиастов, которые хотят сделать Екатеринбург лучше.</p>
@@ -24,7 +24,7 @@ export function NewModal({ isOpen, onClose }: TNewModalProps) {
                         <p className={styles.largeText}>Мы создаём единую базу данных о городе, визуализируя его и превращая неочевидную информацию в понятную и доступную.</p>
                     </div>
                     <Team />
-                    <Partners />
+                    {/* <Partners /> */}
                     <JoinUs />
                 </div>
             </div>

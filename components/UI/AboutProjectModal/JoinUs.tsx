@@ -1,6 +1,6 @@
 import React from 'react';
+import styles from 'components/UI/AboutProjectModal/AboutProjectModal.module.css';
 import { Button, ButtonType } from 'components/UI/Button/Button';
-import styles from './NewModal.module.css';
 
 export function JoinUs() {
     return (
