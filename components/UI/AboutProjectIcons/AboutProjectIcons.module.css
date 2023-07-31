@@ -5,6 +5,7 @@
     color: white;
     z-index: 401;
     display: flex;
+    align-items: center;
     gap: 4px;
 }
 
