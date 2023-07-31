@@ -32,6 +32,21 @@
     border: none;
 }
 
+.serviceName {
+    display: flex;
+    gap: 12px;
+    font-size: 20px;
+    line-height: 22px;
+    align-items: center;
+}
+
+.serviceName p {
+    margin: 0;
+    font-size: 20px;
+    line-height: 22px;
+    align-items: center;
+}
+
 .h3 {
     margin: 0;
     font-size: 48px;
