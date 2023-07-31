@@ -1,13 +1,17 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { MapItemType } from 'common/types/map-item';
+import { AboutProjectContext } from 'components/providers/AboutProjectProvider';
 
 type PopupId = string;
 
 export function usePopup() {
+    const { close: closeAboutProject } = useContext(AboutProjectContext);
+
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
     const [popupType, setPopupType] = useState<MapItemType>(null);
 
     const openPopup = useCallback((id: PopupId, type: MapItemType) => {
+        closeAboutProject();
         window.location.hash = `${type}-${id}`;
     }, []);
 
