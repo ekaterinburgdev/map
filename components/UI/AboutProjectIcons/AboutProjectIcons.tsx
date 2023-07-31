@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import styles from 'components/UI/AboutProjectIcons/AboutProjectIcons.module.css';
 import { Button, ButtonType } from 'components/UI/Button/Button';
 import { AboutProjectContext } from 'components/providers/AboutProjectProvider';
-import githubLogo from './github-color.svg';
+import githubLogo from './github-icon.svg';
 
 export function AboutProjectIcons() {
     const { open } = useContext(AboutProjectContext);
