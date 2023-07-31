@@ -20,6 +20,11 @@
     gap: 32px;
 }
 
+.aboutProjectModal__content_mobile {
+    padding: 20px;
+    @mixin scroll;
+}
+
 .backdrop {
     z-index: 402;
     position: fixed;
