@@ -1,5 +1,6 @@
 .aboutProjectModal {
-    z-index: 500;
+    /* to cover projects panel's z-index: 1000 */
+    z-index: 1001;
     position: fixed;
     top: 50%;
     left: 50%;
