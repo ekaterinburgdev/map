@@ -70,6 +70,10 @@
     gap: 16px;
 }
 
+.paragraphs a {
+    text-decoration: underline;
+}
+
 .largeText {
     margin: 0;
     font-size: 18px;
