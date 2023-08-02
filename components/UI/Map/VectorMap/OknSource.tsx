@@ -17,40 +17,77 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useEffect(() => {
-        let activeObject = null;
+    let activeObject = null;
 
-        ekbMap?.current?.on?.('click', OKN_LAYER_ID, (e) => {
+    useEffect(() => {
+        ekbMap.current.on('click', OKN_LAYER_ID, (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
             openPopup(item.properties?.id, MapItemType.OKN);
         });
+    });
 
-        ekbMap?.current?.on('mousemove', 'ekb-okn-protect-polygon-layer', (e) => {
+    useEffect(() => {
+        const setActiveObject = (objectId, layerId) => {
+            ekbMap.current.setFeatureState(
+                { source: layerId, id: objectId },
+                { hover: true },
+            );
+            ekbMap.current.getCanvas().style.cursor = 'pointer';
+        };
+
+        const clearActiveObject = (objectId, layerId) => {
+            ekbMap.current.setFeatureState(
+                { source: layerId, id: objectId },
+                { hover: false },
+            );
+            ekbMap.current.getCanvas().style.cursor = '';
+        };
+
+        const handleMouseMove = (e, layerId) => {
             if (e.features.length > 0) {
                 if (activeObject !== null) {
-                    ekbMap?.current?.setFeatureState(
-                        { source: 'ekb-okn-protect-source', id: activeObject },
-                        { hover: false },
-                    );
+                    clearActiveObject(activeObject, layerId);
                 }
                 activeObject = e.features[0].id;
-                ekbMap.current.getCanvas().style.cursor = 'pointer';
-                ekbMap?.current?.setFeatureState(
-                    { source: 'ekb-okn-protect-source', id: activeObject },
-                    { hover: true },
-                );
+                setActiveObject(activeObject, layerId);
+            }
+        };
+
+        const handleMouseLeave = (e, layerId) => {
+            if (activeObject !== null) {
+                clearActiveObject(activeObject, layerId);
+            }
+            activeObject = null;
+        };
+
+        ekbMap.current.on('mousemove', OKN_LAYER_ID, (e) => {
+            const item = e.target.queryRenderedFeatures(e.point)[0];
+            if (item) {
+                if (activeObject !== null) {
+                    clearActiveObject(activeObject, 'ekb-okn-source');
+                }
+                activeObject = item.id;
+                setActiveObject(activeObject, 'ekb-okn-source');
             }
         });
 
-        ekbMap?.current?.on('mouseleave', 'ekb-okn-protect-polygon-layer', () => {
+        ekbMap.current.on('mouseleave', OKN_LAYER_ID, (e) => {
             if (activeObject !== null) {
-                ekbMap.current.setFeatureState(
-                    { source: 'ekb-okn-protect-source', id: activeObject },
-                    { hover: false },
-                );
-                ekbMap.current.getCanvas().style.cursor = '';
+                clearActiveObject(activeObject, 'ekb-okn-source');
             }
             activeObject = null;
+        });
+
+        [
+            'protect',
+            'security',
+            'objects',
+        ].forEach((type) => {
+            ekbMap.current.on('mousemove', `ekb-okn-${type}-polygon-layer`, (e) =>
+                handleMouseMove(e, `ekb-okn-${type}-source`));
+
+            ekbMap.current.on('mouseleave', `ekb-okn-${type}-polygon-layer`, (e) =>
+                handleMouseLeave(e, `ekb-okn-${type}-source`));
         });
     }, [ekbMap, openPopup]);
 
@@ -77,7 +114,12 @@ export function OknSource() {
         type: 'circle',
         source: 'ekb-okn-source',
         paint: {
-            'circle-radius': 8,
+            'circle-radius': [
+                'case',
+                ['boolean', ['feature-state', 'hover'], false],
+                12,
+                10,
+            ],
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
