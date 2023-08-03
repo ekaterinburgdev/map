@@ -1,0 +1,17 @@
+.button {
+    border: none;
+    border-radius: 40px;
+    padding: 8px 12px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.button_yellow {
+    background: #FFD400;
+    color: black;
+}
+
+.button_black {
+    background: black;
+    color: white;
+}

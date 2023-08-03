@@ -11,7 +11,7 @@ import { Info } from 'components/UI/Card/components/Info/Info';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 
-import { EditObjectButtonLink } from 'components/Model/EditButtonLink/EditObjectButtonLink';
+import { EditObjectButtonLink } from 'components/Model/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 
 import { usePopup } from 'components/UI/Map/providers/usePopup';
