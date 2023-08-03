@@ -76,5 +76,23 @@
     "role": "Менеджер",
     "link": null,
     "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/621ef9bb-6209-4a11-8dcf-ff03e828e96a.jpeg"
+  },
+  {
+    "name": "Дарья Петрова",
+    "role": "frontend-разработчик",
+    "link": null,
+    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/d94d8fe5-b6d4-4cd1-b493-26f6f67d3648.jpg"
+  },
+  {
+    "name": "Анна Хохлова",
+    "role": "Финансовый аналитик",
+    "link": null,
+    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/f67afaa2-6ca2-4cd1-9b16-f97070a4c9bd.jpg"
+  },
+  {
+    "name": "Дмитрий Шаповалов",
+    "role": "Системный аналитик",
+    "link": null,
+    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/356f9007-4e1b-4841-ac43-66553f86bf4a.jpg"
   }
 ]
