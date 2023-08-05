@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
 import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
@@ -7,6 +7,7 @@ import { FilterType } from 'components/UI/Filters/Filters.types';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
 import { MapItemType } from 'common/types/map-item';
 import { OknAreaType } from 'common/data/okn/oknConstants';
+import { clearActiveObject, getLayerActiveStyle, setActiveObject } from 'components/helpers/activeObject';
 import { usePopup } from '../providers/usePopup';
 
 const OKN_LAYER_ID = 'ekb-okn-layer';
@@ -17,95 +18,80 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    let activeObject = null;
+    const activeObject = useRef(null);
 
     useEffect(() => {
-        ekbMap.current.on('click', OKN_LAYER_ID, (e) => {
+        const map = ekbMap.current;
+        let active = activeObject.current;
+
+        const handlePointClick = (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
-            openPopup(item.properties?.id, MapItemType.OKN);
-        });
-    });
-
-    useEffect(() => {
-        const setActiveObject = (objectId, layerId) => {
-            ekbMap.current.setFeatureState(
-                { source: layerId, id: objectId },
-                { hover: true },
-            );
-            ekbMap.current.getCanvas().style.cursor = 'pointer';
+            openPopup(item?.properties?.id, MapItemType.OKN);
         };
 
-        const clearActiveObject = (objectId, layerId) => {
-            ekbMap.current.setFeatureState(
-                { source: layerId, id: objectId },
-                { hover: false },
-            );
-            ekbMap.current.getCanvas().style.cursor = '';
-        };
-
-        const handleMouseMove = (e, layerId) => {
-            if (e.features.length > 0) {
-                if (activeObject !== null) {
-                    clearActiveObject(activeObject, layerId);
-                }
-                activeObject = e.features[0].id;
-                setActiveObject(activeObject, layerId);
-            }
-        };
-
-        const handleMouseLeave = (e, layerId) => {
-            if (activeObject !== null) {
-                clearActiveObject(activeObject, layerId);
-            }
-            activeObject = null;
-        };
-
-        ekbMap.current.on('mousemove', OKN_LAYER_ID, (e) => {
+        const handleMouseMove = (e: mapboxgl.MapMouseEvent, layerId: string) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
             if (item) {
-                if (activeObject !== null) {
-                    clearActiveObject(activeObject, 'ekb-okn-source');
+                if (active !== null) {
+                    clearActiveObject(map, active, layerId);
                 }
-                activeObject = item.id;
-                setActiveObject(activeObject, 'ekb-okn-source');
+                active = item.id;
+                setActiveObject(map, active, layerId);
             }
-        });
+        };
 
-        ekbMap.current.on('mouseleave', OKN_LAYER_ID, (e) => {
-            if (activeObject !== null) {
-                clearActiveObject(activeObject, 'ekb-okn-source');
+        const handleMouseLeave = (layerId) => {
+            if (active !== null) {
+                clearActiveObject(map, active, layerId);
             }
-            activeObject = null;
+            active = null;
+        };
+
+        const handlePointMouseMove = (e) => handleMouseMove(e, 'ekb-okn-source');
+        const handlePointMouseLeave = () => handleMouseLeave('ekb-okn-source');
+
+        map.on('click', OKN_LAYER_ID, handlePointClick);
+        map.on('mousemove', OKN_LAYER_ID, handlePointMouseMove);
+        map.on('mouseleave', OKN_LAYER_ID, handlePointMouseLeave);
+
+        const polygonsHandlers = ['protect', 'security', 'objects'].map((type) => {
+            const layerId = `ekb-okn-${type}-polygon-layer`;
+            const moveHandler = (e) => handleMouseMove(e, `ekb-okn-${type}-source`);
+            const leaveHandler = () => handleMouseLeave(`ekb-okn-${type}-source`);
+            map.on('mousemove', layerId, moveHandler);
+            map.on('mouseleave', layerId, leaveHandler);
+
+            return { layerId, moveHandler, leaveHandler };
         });
 
-        [
-            'protect',
-            'security',
-            'objects',
-        ].forEach((type) => {
-            ekbMap.current.on('mousemove', `ekb-okn-${type}-polygon-layer`, (e) =>
-                handleMouseMove(e, `ekb-okn-${type}-source`));
+        return () => {
+            map.off('click', OKN_LAYER_ID, handlePointClick);
+            map.off('mousemove', OKN_LAYER_ID, handlePointMouseMove);
+            map.off('mouseleave', OKN_LAYER_ID, handlePointMouseLeave);
 
-            ekbMap.current.on('mouseleave', `ekb-okn-${type}-polygon-layer`, (e) =>
-                handleMouseLeave(e, `ekb-okn-${type}-source`));
-        });
+            polygonsHandlers.forEach(({ layerId, moveHandler, leaveHandler }) => {
+                map.off('mousemove', layerId, moveHandler);
+                map.off('mouseleave', layerId, leaveHandler);
+            });
+        };
     }, [ekbMap, openPopup]);
 
     if (activeFilter !== FilterType.OKN || !activeFilterParams) {
         return null;
     }
 
-    const colors = Object.entries(activeFilterParams)
-        // @ts-ignore
-        .filter(([, { value, type }]) => value && type === 'objects')
-        .map(([category]) => [
-            ['==', ['get', 'category'], category],
-            OBJECTS_CONFIG[category].color,
-        ]);
+    const activeItems = Object.entries(activeFilterParams)
+    // @ts-ignore
+        .filter(([, { value, type }]) => value && type === 'objects');
 
-    const strokeColors = Object.entries(activeFilterParams)
-        // @ts-ignore
-        .filter(([, { value, type }]) => value && type === 'objects')
+    if (activeItems.length === 0) {
+        return null;
+    }
+
+    const colors = activeItems
+        .map(([category]) => [['==', ['get', 'category'], category], OBJECTS_CONFIG[category].color]);
+
+    const strokeColors = activeItems
         .map(([category]) => [['==', ['get', 'category'], category], '#000']);
 
     const layerStyle: CircleLayer = {
@@ -113,12 +99,8 @@ export function OknSource() {
         type: 'circle',
         source: 'ekb-okn-source',
         paint: {
-            'circle-radius': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                12,
-                10,
-            ],
+            // @ts-ignore
+            'circle-radius': getLayerActiveStyle(10, 12),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -133,12 +115,8 @@ export function OknSource() {
         source,
         paint: {
             'fill-color': AREA_CONFIG[zone].color,
-            'fill-opacity': [
-                'case',
-                ['boolean', ['feature-state', 'hover'], false],
-                0.8,
-                0.5,
-            ],
+            // @ts-ignore
+            'fill-opacity': getLayerActiveStyle(0.5, 0.8),
         },
     });
 
