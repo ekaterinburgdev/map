@@ -119,13 +119,13 @@ export function OknSource() {
 
     return (
         <>
-            <Source id={LAYERS.points.source} data={LAYERS.points.data} type="geojson">
+            <Source id={LAYERS.points.source} data={LAYERS.points.data} type="geojson" generateId>
                 <Layer {...layerStyle} />
             </Source>
 
             {Object.keys(LAYERS).map((layerId) => (
                 activeFilterParams[LAYERS[layerId].zone]?.value && (
-                    <Source id={LAYERS[layerId].source} data={LAYERS[layerId].data} type="geojson">
+                    <Source id={LAYERS[layerId].source} data={LAYERS[layerId].data} type="geojson" generateId>
                         <Layer {...getZoneStyle(layerId)} />
                         <Layer {...getZoneOutlineStyle(layerId)} />
                     </Source>
