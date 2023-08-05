@@ -1,16 +1,42 @@
-import React, { useEffect, useRef } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
-import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
-import { FilterType } from 'components/UI/Filters/Filters.types';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
+import { FilterType } from 'components/UI/Filters/Filters.types';
+import { getLayerActiveStyle } from 'components/helpers/activeObject';
 import { MapItemType } from 'common/types/map-item';
 import { OknAreaType } from 'common/data/okn/oknConstants';
-import { clearActiveObject, getLayerActiveStyle, setActiveObject } from 'components/helpers/activeObject';
 import { usePopup } from '../providers/usePopup';
+import useMapHoverObject from '../providers/useMapHoverObject';
 
-const OKN_LAYER_ID = 'ekb-okn-layer';
+const LAYERS = {
+    points: {
+        data: '/ekb-okn.json',
+        layer: 'ekb-okn-layer',
+        source: 'ekb-okn-source',
+        zone: null,
+    },
+    protect: {
+        data: '/ekb-okn-protect.json',
+        layer: 'ekb-okn-protect-layer',
+        source: 'ekb-okn-protect-source',
+        zone: OknAreaType.ProtectZone,
+    },
+    security: {
+        data: '/ekb-okn-security.json',
+        layer: 'ekb-okn-security-layer',
+        source: 'ekb-okn-security-source',
+        zone: OknAreaType.SecurityZone,
+    },
+    objects: {
+        data: '/ekb-okn-objects.json',
+        layer: 'ekb-okn-objects-layer',
+        source: 'ekb-okn-objects-source',
+        zone: OknAreaType.ObjectZone,
+    },
+};
 
 export function OknSource() {
     const ekbMap = useMap();
@@ -18,62 +44,22 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    const activeObject = useRef(null);
+    useMapHoverObject(LAYERS.points.layer, LAYERS.points.source);
+    useMapHoverObject(LAYERS.protect.layer, LAYERS.protect.source);
+    useMapHoverObject(LAYERS.security.layer, LAYERS.security.source);
+    useMapHoverObject(LAYERS.objects.layer, LAYERS.objects.source);
 
     useEffect(() => {
         const map = ekbMap.current;
-        let active = activeObject.current;
 
         const handlePointClick = (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
             openPopup(item?.properties?.id, MapItemType.OKN);
         };
 
-        const handleMouseMove = (e: mapboxgl.MapMouseEvent, layerId: string) => {
-            const item = e.target.queryRenderedFeatures(e.point)[0];
-            if (item) {
-                if (active !== null) {
-                    clearActiveObject(map, active, layerId);
-                }
-                active = item.id;
-                setActiveObject(map, active, layerId);
-            }
-        };
+        map.on('click', 'ekb-okn-layer', handlePointClick);
 
-        const handleMouseLeave = (layerId) => {
-            if (active !== null) {
-                clearActiveObject(map, active, layerId);
-            }
-            active = null;
-        };
-
-        const handlePointMouseMove = (e) => handleMouseMove(e, 'ekb-okn-source');
-        const handlePointMouseLeave = () => handleMouseLeave('ekb-okn-source');
-
-        map.on('click', OKN_LAYER_ID, handlePointClick);
-        map.on('mousemove', OKN_LAYER_ID, handlePointMouseMove);
-        map.on('mouseleave', OKN_LAYER_ID, handlePointMouseLeave);
-
-        const polygonsHandlers = ['protect', 'security', 'objects'].map((type) => {
-            const layerId = `ekb-okn-${type}-polygon-layer`;
-            const moveHandler = (e) => handleMouseMove(e, `ekb-okn-${type}-source`);
-            const leaveHandler = () => handleMouseLeave(`ekb-okn-${type}-source`);
-            map.on('mousemove', layerId, moveHandler);
-            map.on('mouseleave', layerId, leaveHandler);
-
-            return { layerId, moveHandler, leaveHandler };
-        });
-
-        return () => {
-            map.off('click', OKN_LAYER_ID, handlePointClick);
-            map.off('mousemove', OKN_LAYER_ID, handlePointMouseMove);
-            map.off('mouseleave', OKN_LAYER_ID, handlePointMouseLeave);
-
-            polygonsHandlers.forEach(({ layerId, moveHandler, leaveHandler }) => {
-                map.off('mousemove', layerId, moveHandler);
-                map.off('mouseleave', layerId, leaveHandler);
-            });
-        };
+        return () => { map.off('click', 'ekb-okn-layer', handlePointClick); };
     }, [ekbMap, openPopup]);
 
     if (activeFilter !== FilterType.OKN || !activeFilterParams) {
@@ -95,9 +81,9 @@ export function OknSource() {
         .map(([category]) => [['==', ['get', 'category'], category], '#000']);
 
     const layerStyle: CircleLayer = {
-        id: OKN_LAYER_ID,
+        id: LAYERS.points.layer,
         type: 'circle',
-        source: 'ekb-okn-source',
+        source: LAYERS.points.source,
         paint: {
             // @ts-ignore
             'circle-radius': getLayerActiveStyle(10, 12),
@@ -109,23 +95,23 @@ export function OknSource() {
         },
     };
 
-    const getZoneStyle = (source: string, type: string, zone: OknAreaType): FillLayer => ({
-        id: `ekb-okn-${type}-polygon-layer`,
+    const getZoneStyle = (type: string): FillLayer => ({
+        id: LAYERS[type].layer,
         type: 'fill',
-        source,
+        source: LAYERS[type].source,
         paint: {
-            'fill-color': AREA_CONFIG[zone].color,
+            'fill-color': AREA_CONFIG[LAYERS[type].zone].color,
             // @ts-ignore
             'fill-opacity': getLayerActiveStyle(0.5, 0.8),
         },
     });
 
-    const getZoneOutlineStyle = (source: string, type: string, zone: OknAreaType): LineLayer => ({
-        id: `ekb-okn-${type}-outline-layer`,
+    const getZoneOutlineStyle = (type: string): LineLayer => ({
+        id: `${LAYERS[type].layer}-outline`,
         type: 'line',
-        source,
+        source: LAYERS[type].source,
         paint: {
-            'line-color': AREA_CONFIG[zone].color,
+            'line-color': AREA_CONFIG[LAYERS[type].zone].color,
             'line-width': 3,
             'line-dasharray': [2, 2],
         },
@@ -133,63 +119,18 @@ export function OknSource() {
 
     return (
         <>
-            <Source id="ekb-okn-source" type="geojson" data="/ekb-okn.json">
+            <Source id={LAYERS.points.source} data={LAYERS.points.data} type="geojson">
                 <Layer {...layerStyle} />
             </Source>
-            {activeFilterParams[OknAreaType.ProtectZone]?.value && (
-                <Source id="ekb-okn-protect-source" type="geojson" data="/ekb-okn-protect.json">
-                    <Layer
-                        {...getZoneStyle(
-                            'ekb-okn-protect-source',
-                            'protect',
-                            OknAreaType.ProtectZone,
-                        )}
-                    />
-                    <Layer
-                        {...getZoneOutlineStyle(
-                            'ekb-okn-protect-source',
-                            'protect',
-                            OknAreaType.ProtectZone,
-                        )}
-                    />
-                </Source>
-            )}
-            {activeFilterParams[OknAreaType.SecurityZone]?.value && (
-                <Source id="ekb-okn-security-source" type="geojson" data="/ekb-okn-security.json">
-                    <Layer
-                        {...getZoneStyle(
-                            'ekb-okn-security-source',
-                            'security',
-                            OknAreaType.SecurityZone,
-                        )}
-                    />
-                    <Layer
-                        {...getZoneOutlineStyle(
-                            'ekb-okn-security-source',
-                            'security',
-                            OknAreaType.SecurityZone,
-                        )}
-                    />
-                </Source>
-            )}
-            {activeFilterParams[OknAreaType.ObjectZone]?.value && (
-                <Source id="ekb-okn-objects-source" type="geojson" data="/ekb-okn-objects.json">
-                    <Layer
-                        {...getZoneStyle(
-                            'ekb-okn-objects-source',
-                            'objects',
-                            OknAreaType.ObjectZone,
-                        )}
-                    />
-                    <Layer
-                        {...getZoneOutlineStyle(
-                            'ekb-okn-objects-source',
-                            'objects',
-                            OknAreaType.ObjectZone,
-                        )}
-                    />
-                </Source>
-            )}
+
+            {Object.keys(LAYERS).map((layerId) => (
+                activeFilterParams[LAYERS[layerId].zone]?.value && (
+                    <Source id={LAYERS[layerId].source} data={LAYERS[layerId].data} type="geojson">
+                        <Layer {...getZoneStyle(layerId)} />
+                        <Layer {...getZoneOutlineStyle(layerId)} />
+                    </Source>
+                )
+            ))}
         </>
     );
 }
