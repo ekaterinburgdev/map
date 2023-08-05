@@ -6,10 +6,10 @@ import { activeFilterSelector, activeFilterParamsSelector } from 'state/features
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { SEVERITY_CONFIG } from 'components/Model/DTP/DTP.constants';
 import { MapItemType } from 'common/types/map-item';
+import { getLayerActiveStyle } from 'components/helpers/activeObject';
 import dtp from '../../../../public/ekb-dtp.json';
 import { usePopup } from '../providers/usePopup';
 import useMapHoverObject from '../providers/useMapHoverObject';
-import { getLayerActiveStyle } from 'components/helpers/activeObject';
 
 const DTP_LAYER_ID = 'dtp-point';
 
