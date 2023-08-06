@@ -28,17 +28,18 @@ export function OknSource() {
         return null;
     }
 
-    const colors = Object.entries(activeFilterParams)
-        // @ts-ignore
-        .filter(([, { value, type }]) => value && type === 'objects')
-        .map(([category]) => [
-            ['==', ['get', 'category'], category],
-            OBJECTS_CONFIG[category].color,
-        ]);
+    const activeItems = Object.entries(activeFilterParams)
+    // @ts-ignore
+        .filter(([, { value, type }]) => value && type === 'objects');
 
-    const strokeColors = Object.entries(activeFilterParams)
-        // @ts-ignore
-        .filter(([, { value, type }]) => value && type === 'objects')
+    if (activeItems.length === 0) {
+        return null;
+    }
+
+    const colors = activeItems
+        .map(([category]) => [['==', ['get', 'category'], category], OBJECTS_CONFIG[category].color]);
+
+    const strokeColors = activeItems
         .map(([category]) => [['==', ['get', 'category'], category], '#000']);
 
     const layerStyle: CircleLayer = {
