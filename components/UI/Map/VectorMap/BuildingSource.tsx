@@ -1,12 +1,18 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
+import { ExpressionSpecification } from 'maplibre-gl';
 import { AGE_FILTERS_DATA, FLOOR_FILTERS_DATA, WEAR_TEAR_FILTERS_DATA } from 'components/Model/Houses/Houses.constants';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { MapItemType } from 'common/types/map-item';
+import { colorLuminance } from 'components/helpers/colorLuminance';
+import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import { usePopup } from '../providers/usePopup';
 import useMapHoverObject from '../providers/useMapHoverObject';
+
+const DEFAULT_BULDING_COLOR_NORMAL = '#0c1021';
+const DEFAULT_BULDING_COLOR_ACTIVE = '#96a4bd';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
     if (
@@ -27,7 +33,10 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                         ...layer,
                         paint: {
                             ...layer.paint,
-                            'fill-extrusion-color': '#0c1021',
+                            'fill-extrusion-color': getLayerStyle<string>({
+                                initial: DEFAULT_BULDING_COLOR_NORMAL,
+                                active: DEFAULT_BULDING_COLOR_ACTIVE,
+                            }),
                         },
                     };
                 }
@@ -43,9 +52,15 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                 if (item.from >= range.min && item.to <= range.max) {
                     return item;
                 }
-                return { ...item, color: '#0c1021' };
+                return { ...item, color: DEFAULT_BULDING_COLOR_NORMAL };
             })
-            .map((item) => [item.from, item.color])
+            .map((item) => [item.from, item.color]);
+
+        const colorsNormal = colors
+            .flat(2);
+
+        const colorsActive = colors
+            .map(([from, color]) => [from, colorLuminance(color, 0.4)])
             .flat(2);
 
         const newStyle = {
@@ -57,18 +72,17 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                     if (rangeData[0]?.from > 0) {
                         // @ts-ignore
                         values.push(0);
-                        values.push('#0c1021');
+                        values.push(DEFAULT_BULDING_COLOR_NORMAL);
                     }
+
                     return {
                         ...layer,
                         paint: {
                             ...layer.paint,
-                            'fill-extrusion-color': [
-                                'case',
-                                ['boolean', ['feature-state', 'active'], false],
-                                '#f23c34',
-                                ['interpolate', ['linear'], ['to-number', ['get', field]], ...colors],
-                            ],
+                            'fill-extrusion-color': getLayerStyle<ExpressionSpecification>({
+                                initial: ['interpolate', ['linear'], ['to-number', ['get', field]], ...colorsNormal],
+                                active: ['interpolate', ['linear'], ['to-number', ['get', field]], ...colorsActive],
+                            }),
                         },
                     };
                 }
