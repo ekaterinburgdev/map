@@ -6,18 +6,18 @@
     box-sizing: border-box;
 }
 
-html,
-body {
-    background: black;
-    padding: 0;
-    margin: 0;
-    font-family: 'Iset Sans', sans-serif;
-    color: white;
+html {
+    overflow: hidden;
 }
 
 body {
-    padding: 0;
     margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Iset Sans', sans-serif;
+    line-height: 1.4;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -27,10 +27,6 @@ body {
     -moz-font-feature-settings: 'kern';
     -ms-font-feature-settings: 'kern' 1;
     font-feature-settings: 'kern';
-    font-size: 1em;
-    line-height: 1.4;
-    font-weight: 400;
-    overflow: hidden;
 }
 
 ::selection {
