@@ -3,10 +3,10 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 12px;
+    line-height: 1.2;
     column-gap: 1px;
-    transition: .2s ease;
+    transition: .15s ease;
 }
 
 .barchart:has(:active) .barchart__item {
@@ -52,4 +52,14 @@
 .barchart__item:not(.barchart__item_active) .barchart__percent,
 .barchart__item:not(.barchart__item_active) .barchart__value {
     color: var(--histogram-color-disabled);
+}
+
+@media screen and (min-width: 1440px) {
+    .barchart {
+        font-size: 14px;
+    }
+
+    .team-barchart__percent {
+        font-size: 11px;
+    }
 }

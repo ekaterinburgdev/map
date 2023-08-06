@@ -1,7 +1,8 @@
 .buttonLink {
     display: inline-flex;
     align-items: center;
-    padding: 8px 12px;
+    padding: .5em .8em;
+    font-size: 14px;
     border: 0;
     border-radius: 6px;
     background: #3c465a;
@@ -9,6 +10,12 @@
     cursor: pointer;
     column-gap: 4px;
     transition: .15s ease;
+}
+
+@media screen and (min-width: 1440px) {
+    .buttonLink {
+        font-size: 15px;
+    }
 }
 
 @media (hover) {

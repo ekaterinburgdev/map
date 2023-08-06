@@ -5,8 +5,8 @@
 }
 
 .sources__title {
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 16px;
+    line-height: 1.3;
     font-weight: 400;
     margin: 0;
 }
@@ -31,4 +31,11 @@
 
 .sources__listItem:hover {
     color: #6e81a2;
+}
+
+
+@media screen and (min-width: 1440px) {
+    .sources__title {
+        font-size: 18px;
+    }
 }

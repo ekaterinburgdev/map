@@ -1,18 +1,19 @@
 .filters__body {
     display: flex;
     flex-direction: column;
-    padding: 8px;
     gap: 2px;
-    background: #1e2841;
+    padding: .5em;
+    padding-right: 16px;
     border-radius: 16px;
+    background: #1e2841;
+    font-size: 15px;
+    line-height: 1.33;
 
     @mixin scroll;
 }
 
 .filters__item {
     background: #141d34;
-    font-size: 18px;
-    line-height: 1.33;
 }
 
 .filters__item:first-child {
@@ -21,10 +22,18 @@
 }
 
 .filters__item:last-child {
-    border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
 }
 
-.filters__caption {
-    font-size: 16px;
+@media screen and (min-width: 1440px) {
+    .filters__body {
+        font-size: 16px;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .filters__body {
+        font-size: 17px;
+    }
 }

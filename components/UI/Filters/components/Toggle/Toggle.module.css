@@ -2,11 +2,12 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: .75em;
     position: relative;
     cursor: pointer;
     user-select: none;
-    padding: 12px 16px;
     transition: .15s ease;
+    padding: .75em 1em;
 
     --border-width: 2px;
 

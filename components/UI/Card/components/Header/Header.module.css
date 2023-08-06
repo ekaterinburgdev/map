@@ -6,14 +6,24 @@
 
 .header__title {
     margin: 12px 0 0;
-    font-size: 32px;
+    font-size: 30px;
     font-weight: 500;
     line-height: 1;
 }
 
 .header__description {
     margin: 4px 0 0;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+}
+
+@media screen and (min-width: 1150px) {
+    .header__title {
+        font-size: 32px;
+    }
+
+    .header__description {
+        font-size: 16px;
+    }
 }
