@@ -44,10 +44,10 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject(LAYERS.points.layer, LAYERS.points.source);
-    useMapHoverObject(LAYERS.protect.layer, LAYERS.protect.source);
-    useMapHoverObject(LAYERS.security.layer, LAYERS.security.source);
-    useMapHoverObject(LAYERS.objects.layer, LAYERS.objects.source);
+    useMapHoverObject(LAYERS.points.layer);
+    useMapHoverObject(LAYERS.protect.layer);
+    useMapHoverObject(LAYERS.security.layer);
+    useMapHoverObject(LAYERS.objects.layer);
 
     useEffect(() => {
         const map = ekbMap.current;

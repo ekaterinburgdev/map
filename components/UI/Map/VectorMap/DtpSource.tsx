@@ -19,7 +19,7 @@ export function DtpSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject(DTP_LAYER_ID, 'ekb-dtp-source');
+    useMapHoverObject(DTP_LAYER_ID);
 
     useEffect(() => {
         ekbMap?.current?.on?.('click', DTP_LAYER_ID, (e) => {

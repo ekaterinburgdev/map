@@ -17,7 +17,7 @@ export function LinesSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject('ekb-points-layer', 'ekb-points-source');
+    useMapHoverObject('ekb-points-layer');
 
     useEffect(() => {
         ekbMap?.current?.on?.('click', 'ekb-points-layer', (e) => {

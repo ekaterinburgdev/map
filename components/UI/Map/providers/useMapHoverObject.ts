@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useMap } from 'react-map-gl';
 import { clearActiveObject, setActiveObject } from 'components/helpers/activeObject';
 
-function useMapHoverObject(layerId : string, sourceId: string) {
+function useMapHoverObject(layerId : string) {
     const map = useMap().current;
     const hoverObject = useRef(null);
 
@@ -10,17 +10,17 @@ function useMapHoverObject(layerId : string, sourceId: string) {
         const handleMouseMove = (e : mapboxgl.MapMouseEvent) => {
             const item = e.target.queryRenderedFeatures(e.point, { layers: [layerId] })[0];
             if (item) {
-                if (hoverObject.current !== null) {
-                    clearActiveObject(map, hoverObject.current, sourceId);
+                if (hoverObject.current && item.id !== hoverObject.current.id) {
+                    clearActiveObject(map, hoverObject.current);
                 }
-                hoverObject.current = item.id;
-                setActiveObject(map, hoverObject.current, sourceId);
+                hoverObject.current = item;
+                setActiveObject(map, item);
             }
         };
 
         const handleMouseLeave = () => {
-            if (hoverObject.current !== null) {
-                clearActiveObject(map, hoverObject.current, sourceId);
+            if (hoverObject?.current?.id) {
+                clearActiveObject(map, hoverObject.current);
             }
             hoverObject.current = null;
         };
