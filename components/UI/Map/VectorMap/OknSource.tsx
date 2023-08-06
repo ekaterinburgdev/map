@@ -95,7 +95,7 @@ export function OknSource() {
     };
 
     const getZoneStyle = (type: string): FillLayer => ({
-        id: LAYERS[type].layer,
+        id: LAYERS[type].layerId,
         type: 'fill',
         source: LAYERS[type].sourceId,
         paint: {
@@ -105,7 +105,7 @@ export function OknSource() {
     });
 
     const getZoneOutlineStyle = (type: string): LineLayer => ({
-        id: `${LAYERS[type].layer}-outline`,
+        id: `${LAYERS[type].layerId}-outline`,
         type: 'line',
         source: LAYERS[type].sourceId,
         paint: {
@@ -123,7 +123,7 @@ export function OknSource() {
 
             {Object.keys(LAYERS).map((layerKey) => (
                 activeFilterParams[LAYERS[layerKey].zone]?.value && (
-                    <Source id={LAYERS[layerKey].sourceId} data={LAYERS[layerKey].data} type="geojson" generateId>
+                    <Source id={LAYERS[layerKey].sourceId} data={LAYERS[layerKey].dataPath} type="geojson" generateId>
                         <Layer {...getZoneStyle(layerKey)} />
                         <Layer {...getZoneOutlineStyle(layerKey)} />
                     </Source>
