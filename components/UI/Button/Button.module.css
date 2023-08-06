@@ -2,7 +2,7 @@
     padding: 9px 14px 7px;
     border: none;
     border-radius: 40px;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.33;
     cursor: pointer;
     transition: .15s ease;
@@ -16,4 +16,10 @@
 .button_black {
     background: black;
     color: white;
+}
+
+@media screen and (min-width: 1200px) {
+    .button {
+        font-size: 18px;
+    }
 }
