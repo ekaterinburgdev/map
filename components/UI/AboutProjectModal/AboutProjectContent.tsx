@@ -12,16 +12,16 @@ export function AboutProjectContent() {
                 <Image src={mapService} alt="Карта Екатеринбурга" />
                 <p>Карта <br /> Екатеринбурга</p>
             </div>
-            <h3 className={styles.h3}>Раскрываем город в деталях</h3>
+            <h3 className={styles.h3}>Раскрываем город в&nbsp;деталях</h3>
             <div className={styles.paragraphs}>
-                <p className={styles.largeText}>Мы создаём единую базу данных о городе, визуализируем её и превращаем неочевидную информацию в понятную и доступную.</p>
-                <p className={styles.largeText}>Наша цель - разработать платформу, на которой будут собраны различные данные о городе: возраст домов, этажность, объекты культурного наследия, ДТП и много чего ещё.</p>
-                <p className={styles.largeText}>Проект является полностью открытым. Кто угодно может его контрибьютить или форкнуть. Заходите на <a href="https://github.com/ekaterinburgdev/map">гитхаб</a>.</p>
+                <p className={styles.largeText}>Мы&nbsp;создаём единую базу данных о&nbsp;городе, визуализируем её&nbsp;и&nbsp;превращаем неочевидную информацию в&nbsp;понятную и&nbsp;доступную.</p>
+                <p className={styles.largeText}>Наша цель&nbsp;&mdash; разработать платформу, на&nbsp;которой будут собраны различные данные о&nbsp;городе: возраст домов, этажность, объекты культурного наследия, ДТП и&nbsp;много чего ещё.</p>
+                <p className={styles.largeText}>Проект является полностью открытым. Кто угодно может его контрибьютить или форкнуть. Заходите на&nbsp;<a href="https://github.com/ekaterinburgdev/map">гитхаб</a>.</p>
             </div>
             <h4 className={styles.h4}>Планы</h4>
             <div className={styles.paragraphs}>
-                <p className={styles.largeText}>Это бета-версия сервиса. В будущем мы планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать все города в мире и много чего ещё. Чтобы ничего не пропустить подписывайтесь на телеграм-канал.</p>
-                <p className={styles.largeText}>Если у вас есть предложения, что ещё добавить или улучшить, оставьте <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none">фидбек</a>.</p>
+                <p className={styles.largeText}>Это бета-версия сервиса. В&nbsp;будущем мы&nbsp;планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать все города в&nbsp;мире и&nbsp;много чего ещё. Чтобы ничего не&nbsp;пропустить подписывайтесь на&nbsp;телеграм-канал.</p>
+                <p className={styles.largeText}>Если у&nbsp;вас есть предложения, что ещё добавить или улучшить, оставьте <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none">фидбек</a>.</p>
             </div>
             <Team />
             {/* <Partners /> */}

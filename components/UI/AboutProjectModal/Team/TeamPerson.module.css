@@ -9,7 +9,7 @@
 }
 
 .team-person_link .team-person__name span {
-    transition: 0.15s ease box-shadow;
+    transition: .15s ease box-shadow;
     box-shadow: 0 1px 0 rgba(255, 255, 255, 0.31448);
 }
 
@@ -70,7 +70,7 @@
     margin-bottom: 0.2em;
     color: white;
     font-size: 3.5vw;
-    transition: 0.15s ease color;
+    transition: .15s ease color;
 }
 
 a.team-person {
@@ -135,10 +135,10 @@ a.team-person {
     }
 
     .team-person__name {
-        font-size: 1.1vw;
+        font-size: .8vw;
     }
 
     .team-person__role {
-        font-size: 1.1vw;
+        font-size: .8vw;
     }
 }
