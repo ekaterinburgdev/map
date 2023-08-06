@@ -8,12 +8,16 @@ import { LINES_CONFIG } from 'components/Model/Lines/Lines.constants';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from 'components/UI/Map/providers/usePopup';
 import { LineType } from 'common/data/lines/lineType';
+import { getLayerStyle } from 'components/helpers/getLayerStyle';
+import useMapHoverObject from '../providers/useMapHoverObject';
 
 export function LinesSource() {
     const ekbMap = useMap();
     const { openPopup } = usePopup();
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
+
+    useMapHoverObject('ekb-points-layer');
 
     useEffect(() => {
         ekbMap?.current?.on?.('click', 'ekb-points-layer', (e) => {
@@ -48,7 +52,7 @@ export function LinesSource() {
         type: 'circle',
         source: 'ekb-points-source',
         paint: {
-            'circle-radius': 8,
+            'circle-radius': getLayerStyle<number>({ initial: 8, active: 10 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -73,7 +77,7 @@ export function LinesSource() {
             <Source id="ekb-lines-source" type="geojson" data="/ekb-color-lines.json">
                 <Layer {...linesLayerStyle} />
             </Source>
-            <Source id="ekb-points-source" type="geojson" data="/ekb-color-points.json">
+            <Source id="ekb-points-source" type="geojson" data="/ekb-color-points.json" generateId>
                 <Layer {...pointLayerStyle} />
             </Source>
         </>
