@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useMap } from 'react-map-gl';
-import { clearActiveObject, setActiveObject } from 'components/helpers/activeObject';
+import { clearActiveObject, setActiveObject } from 'components/helpers/getLayerStyle';
 
 function useMapHoverObject(layerId : string) {
     const map = useMap().current;

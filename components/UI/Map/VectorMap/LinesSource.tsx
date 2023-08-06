@@ -8,7 +8,7 @@ import { LINES_CONFIG } from 'components/Model/Lines/Lines.constants';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from 'components/UI/Map/providers/usePopup';
 import { LineType } from 'common/data/lines/lineType';
-import { getLayerActiveStyle } from 'components/helpers/activeObject';
+import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import useMapHoverObject from '../providers/useMapHoverObject';
 
 export function LinesSource() {
@@ -52,7 +52,7 @@ export function LinesSource() {
         type: 'circle',
         source: 'ekb-points-source',
         paint: {
-            'circle-radius': getLayerActiveStyle<number>({ initial: 8, active: 10 }),
+            'circle-radius': getLayerStyle<number>({ initial: 8, active: 10 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,

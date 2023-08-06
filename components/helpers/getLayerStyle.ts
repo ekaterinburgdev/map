@@ -1,7 +1,7 @@
 import type { MapRef } from 'react-map-gl';
 import type { DataDrivenPropertyValueSpecification, ExpressionInputType, ExpressionSpecification, FeatureIdentifier } from 'maplibre-gl';
 
-export function getLayerActiveStyle<T extends ExpressionInputType | ExpressionSpecification>(
+export function getLayerStyle<T extends ExpressionInputType | ExpressionSpecification>(
     { initial, active }: { initial: T; active: T },
 ): DataDrivenPropertyValueSpecification<T> {
     return [

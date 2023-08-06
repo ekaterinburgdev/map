@@ -5,7 +5,7 @@ import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
 import { FilterType } from 'components/UI/Filters/Filters.types';
-import { getLayerActiveStyle } from 'components/helpers/activeObject';
+import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import { MapItemType } from 'common/types/map-item';
 import { OknAreaType } from 'common/data/okn/oknConstants';
 import { usePopup } from '../providers/usePopup';
@@ -85,7 +85,7 @@ export function OknSource() {
         type: 'circle',
         source: LAYERS.points.sourceId,
         paint: {
-            'circle-radius': getLayerActiveStyle<number>({ initial: 10, active: 12 }),
+            'circle-radius': getLayerStyle<number>({ initial: 10, active: 12 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -100,7 +100,7 @@ export function OknSource() {
         source: LAYERS[type].sourceId,
         paint: {
             'fill-color': AREA_CONFIG[LAYERS[type].zone].color,
-            'fill-opacity': getLayerActiveStyle<number>({ initial: 0.5, active: 0.8 }),
+            'fill-opacity': getLayerStyle<number>({ initial: 0.5, active: 0.8 }),
         },
     });
 

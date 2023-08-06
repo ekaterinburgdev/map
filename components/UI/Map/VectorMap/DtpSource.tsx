@@ -6,7 +6,7 @@ import { activeFilterSelector, activeFilterParamsSelector } from 'state/features
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { SEVERITY_CONFIG } from 'components/Model/DTP/DTP.constants';
 import { MapItemType } from 'common/types/map-item';
-import { getLayerActiveStyle } from 'components/helpers/activeObject';
+import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import dtp from '../../../../public/ekb-dtp.json';
 import { usePopup } from '../providers/usePopup';
 import useMapHoverObject from '../providers/useMapHoverObject';
@@ -66,7 +66,7 @@ export function DtpSource() {
         type: 'circle',
         source: 'ekb-dtp-source',
         paint: {
-            'circle-radius': getLayerActiveStyle<number>({ initial: 8, active: 10 }),
+            'circle-radius': getLayerStyle<number>({ initial: 8, active: 10 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             // @ts-ignore
