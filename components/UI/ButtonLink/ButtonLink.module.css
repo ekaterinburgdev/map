@@ -1,11 +1,23 @@
 .buttonLink {
-    border: 0;
-    cursor: pointer;
-    padding: 8px 12px;
-    border-radius: 6px;
-    background: rgba(60, 70, 90);
-    color: #9baac3;
     display: inline-flex;
-    column-gap: 4px;
     align-items: center;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 6px;
+    background: #3c465a;
+    color: #9baac3;
+    cursor: pointer;
+    column-gap: 4px;
+    transition: .15s ease;
+}
+
+@media (hover) {
+    .buttonLink:hover {
+        background: #49556f;
+    }
+}
+
+.buttonLink:active {
+    color: #b2c3df;
+    background: #606f8e;
 }

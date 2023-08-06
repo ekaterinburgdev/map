@@ -6,6 +6,11 @@
     font-size: 14px;
     line-height: 18px;
     column-gap: 1px;
+    transition: .2s ease;
+}
+
+.barchart:has(:active) .barchart__item {
+    opacity: 0.78;
 }
 
 .barchart__itemWrapper {
@@ -21,7 +26,7 @@
     border-radius: 4px 4px 0 0;
     width: 100%;
     background-color: currentColor;
-    transition: all 0.2s ease;
+    transition: .2s ease;
     cursor: pointer;
 }
 

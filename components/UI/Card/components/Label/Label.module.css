@@ -16,7 +16,7 @@
 
 .label__wrapper_clickable {
     cursor: pointer;
-    transition: opacity 150ms ease-out;
+    transition: opacity .15s ease;
 }
 
 .label__wrapper_clickable:hover {

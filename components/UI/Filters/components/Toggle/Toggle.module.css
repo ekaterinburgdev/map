@@ -6,6 +6,7 @@
     cursor: pointer;
     user-select: none;
     padding: 12px 16px;
+    transition: .15s ease;
 
     --border-width: 2px;
 
@@ -20,6 +21,16 @@
     }
 }
 
+@media (hover) {
+    .toggle:hover {
+        background: #11192d;
+    }
+}
+
+.toggle:active {
+    background: #06112b;
+}
+
 .toggle__control {
     position: relative;
     height: 24px;
@@ -28,7 +39,7 @@
     box-sizing: border-box;
     border: #0F182E var(--border-width) solid;
     background-color: #3a4154;
-    transition: background-color 0.15s ease;
+    transition: .15s ease;
     font-size: 9px;
     
     &:after {
@@ -38,10 +49,11 @@
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background: white;
-        transition: transform 0.15s ease-out;
+        background-color: rgb(240, 240, 240);
+        transition: .15s ease;
     }
 }
+
 
 .toggle__background {
     position: absolute;
@@ -65,5 +77,9 @@
     &:not(:checked) ~ .toggle__control:after {
         transform: translateX(0);
         background: #9b9ea8;
+    }
+
+    &:hover ~ .toggle__control:after {
+        background-color: rgb(245, 245, 245);
     }
 }

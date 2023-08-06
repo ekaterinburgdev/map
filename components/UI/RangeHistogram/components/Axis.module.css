@@ -10,7 +10,7 @@
 }
 
 .axis__item {
-    transition: all 0.3s ease;
+    transition: .15s ease;
     cursor: pointer;
     text-align: center;
     flex-basis: var(--axis-item-basis);
