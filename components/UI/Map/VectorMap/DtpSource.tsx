@@ -66,7 +66,7 @@ export function DtpSource() {
         type: 'circle',
         source: 'ekb-dtp-source',
         paint: {
-            'circle-radius': getLayerActiveStyle<number>(8, 10),
+            'circle-radius': getLayerActiveStyle<number>({ initial: 8, active: 10 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             // @ts-ignore

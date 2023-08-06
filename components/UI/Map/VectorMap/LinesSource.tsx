@@ -52,7 +52,7 @@ export function LinesSource() {
         type: 'circle',
         source: 'ekb-points-source',
         paint: {
-            'circle-radius': getLayerActiveStyle<number>(8, 10),
+            'circle-radius': getLayerActiveStyle<number>({ initial: 8, active: 10 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,

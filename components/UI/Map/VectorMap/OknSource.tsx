@@ -13,27 +13,27 @@ import useMapHoverObject from '../providers/useMapHoverObject';
 
 const LAYERS = {
     points: {
-        data: '/ekb-okn.json',
-        layer: 'ekb-okn-layer',
-        source: 'ekb-okn-source',
+        dataPath: '/ekb-okn.json',
+        layerId: 'ekb-okn-layer',
+        sourceId: 'ekb-okn-source',
         zone: null,
     },
     protect: {
-        data: '/ekb-okn-protect.json',
-        layer: 'ekb-okn-protect-layer',
-        source: 'ekb-okn-protect-source',
+        dataPath: '/ekb-okn-protect.json',
+        layerId: 'ekb-okn-protect-layer',
+        sourceId: 'ekb-okn-protect-source',
         zone: OknAreaType.ProtectZone,
     },
     security: {
-        data: '/ekb-okn-security.json',
-        layer: 'ekb-okn-security-layer',
-        source: 'ekb-okn-security-source',
+        dataPath: '/ekb-okn-security.json',
+        layerId: 'ekb-okn-security-layer',
+        sourceId: 'ekb-okn-security-source',
         zone: OknAreaType.SecurityZone,
     },
     objects: {
-        data: '/ekb-okn-objects.json',
-        layer: 'ekb-okn-objects-layer',
-        source: 'ekb-okn-objects-source',
+        dataPath: '/ekb-okn-objects.json',
+        layerId: 'ekb-okn-objects-layer',
+        sourceId: 'ekb-okn-objects-source',
         zone: OknAreaType.ObjectZone,
     },
 };
@@ -44,10 +44,10 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject(LAYERS.points.layer);
-    useMapHoverObject(LAYERS.protect.layer);
-    useMapHoverObject(LAYERS.security.layer);
-    useMapHoverObject(LAYERS.objects.layer);
+    useMapHoverObject(LAYERS.points.layerId);
+    useMapHoverObject(LAYERS.protect.layerId);
+    useMapHoverObject(LAYERS.security.layerId);
+    useMapHoverObject(LAYERS.objects.layerId);
 
     useEffect(() => {
         const map = ekbMap.current;
@@ -81,11 +81,11 @@ export function OknSource() {
         .map(([category]) => [['==', ['get', 'category'], category], '#000']);
 
     const layerStyle: CircleLayer = {
-        id: LAYERS.points.layer,
+        id: LAYERS.points.layerId,
         type: 'circle',
-        source: LAYERS.points.source,
+        source: LAYERS.points.sourceId,
         paint: {
-            'circle-radius': getLayerActiveStyle<number>(10, 12),
+            'circle-radius': getLayerActiveStyle<number>({ initial: 10, active: 12 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -97,17 +97,17 @@ export function OknSource() {
     const getZoneStyle = (type: string): FillLayer => ({
         id: LAYERS[type].layer,
         type: 'fill',
-        source: LAYERS[type].source,
+        source: LAYERS[type].sourceId,
         paint: {
             'fill-color': AREA_CONFIG[LAYERS[type].zone].color,
-            'fill-opacity': getLayerActiveStyle<number>(0.5, 0.8),
+            'fill-opacity': getLayerActiveStyle<number>({ initial: 0.5, active: 0.8 }),
         },
     });
 
     const getZoneOutlineStyle = (type: string): LineLayer => ({
         id: `${LAYERS[type].layer}-outline`,
         type: 'line',
-        source: LAYERS[type].source,
+        source: LAYERS[type].sourceId,
         paint: {
             'line-color': AREA_CONFIG[LAYERS[type].zone].color,
             'line-width': 3,
@@ -117,15 +117,15 @@ export function OknSource() {
 
     return (
         <>
-            <Source id={LAYERS.points.source} data={LAYERS.points.data} type="geojson" generateId>
+            <Source id={LAYERS.points.sourceId} data={LAYERS.points.dataPath} type="geojson" generateId>
                 <Layer {...layerStyle} />
             </Source>
 
-            {Object.keys(LAYERS).map((layerId) => (
-                activeFilterParams[LAYERS[layerId].zone]?.value && (
-                    <Source id={LAYERS[layerId].source} data={LAYERS[layerId].data} type="geojson" generateId>
-                        <Layer {...getZoneStyle(layerId)} />
-                        <Layer {...getZoneOutlineStyle(layerId)} />
+            {Object.keys(LAYERS).map((layerKey) => (
+                activeFilterParams[LAYERS[layerKey].zone]?.value && (
+                    <Source id={LAYERS[layerKey].sourceId} data={LAYERS[layerKey].data} type="geojson" generateId>
+                        <Layer {...getZoneStyle(layerKey)} />
+                        <Layer {...getZoneOutlineStyle(layerKey)} />
                     </Source>
                 )
             ))}
