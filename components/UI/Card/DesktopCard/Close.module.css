@@ -8,16 +8,21 @@
     height: 48px;
     border-radius: 100px;
     position: absolute;
-    top: 3px;
-    right: 4px;
+    top: 2px;
+    right: 0;
     z-index: 1;
-    transition: all .15s ease-out;
+    transition: .15s ease;
     line-height: 1;
     cursor: pointer;
     color: #fff;
 }
 
-.close:hover {
-    background-color: #000;
-    transform: scale(1.3);
+@media (hover) {
+    .close:hover {
+        background-color: #111725;
+    }
+}
+
+.close:active {
+    background-color: #06080d;
 }
