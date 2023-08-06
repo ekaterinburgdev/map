@@ -26,8 +26,9 @@
     line-height: 18px;
     font-weight: 400;
     text-decoration: underline;
+    transition: .15s ease;
 }
 
 .sources__listItem:hover {
-    opacity: .8;
+    color: #6e81a2;
 }

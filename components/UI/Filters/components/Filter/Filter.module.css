@@ -6,7 +6,7 @@
     visibility: hidden;
     max-height: 0;
     will-change: padding;
-    transition: opacity 150ms ease, padding 200ms ease;
+    transition: opacity .15s ease, padding-top .2s ease;
 }
 
 .filter_active {
