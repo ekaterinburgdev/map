@@ -85,7 +85,7 @@ export function OknSource() {
         type: 'circle',
         source: LAYERS.points.source,
         paint: {
-            'circle-radius': getLayerActiveStyle(10, 12),
+            'circle-radius': getLayerActiveStyle<number>(10, 12),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -100,7 +100,7 @@ export function OknSource() {
         source: LAYERS[type].source,
         paint: {
             'fill-color': AREA_CONFIG[LAYERS[type].zone].color,
-            'fill-opacity': getLayerActiveStyle(0.5, 0.8),
+            'fill-opacity': getLayerActiveStyle<number>(0.5, 0.8),
         },
     });
 
