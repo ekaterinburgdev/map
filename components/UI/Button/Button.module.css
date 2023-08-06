@@ -1,9 +1,11 @@
 .button {
+    padding: 9px 14px 7px;
     border: none;
     border-radius: 40px;
-    padding: 8px 12px;
     font-size: 18px;
+    line-height: 1.33;
     cursor: pointer;
+    transition: .15s ease;
 }
 
 .button_yellow {
