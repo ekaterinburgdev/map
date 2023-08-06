@@ -1,7 +1,7 @@
 .checkbox {
     --checkbox-color: #3c4669;
     position: relative;
-    display: inline-flex;
+    display: flex;
     align-items: baseline;
     font-size: 1em;
     cursor: pointer;
