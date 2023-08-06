@@ -1,15 +1,12 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
+import { AGE_FILTERS_DATA, FLOOR_FILTERS_DATA, WEAR_TEAR_FILTERS_DATA } from 'components/Model/Houses/Houses.constants';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
-import {
-    AGE_FILTERS_DATA,
-    FLOOR_FILTERS_DATA,
-    WEAR_TEAR_FILTERS_DATA,
-} from 'components/Model/Houses/Houses.constants';
-import { MapItemType } from 'common/types/map-item';
 import { FilterType } from 'components/UI/Filters/Filters.types';
+import { MapItemType } from 'common/types/map-item';
 import { usePopup } from '../providers/usePopup';
+import useMapHoverObject from '../providers/useMapHoverObject';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
     if (
@@ -62,12 +59,16 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                         values.push(0);
                         values.push('#0c1021');
                     }
-
                     return {
                         ...layer,
                         paint: {
                             ...layer.paint,
-                            'fill-extrusion-color': values.concat(colors),
+                            'fill-extrusion-color': [
+                                'case',
+                                ['boolean', ['feature-state', 'active'], false],
+                                '#f23c34',
+                                ['interpolate', ['linear'], ['to-number', ['get', field]], ...colors],
+                            ],
                         },
                     };
                 }
@@ -111,6 +112,8 @@ export function BuildingSource() {
             range: activeFilterParams,
         });
     }, [activeFilter, activeFilterParams, ekbMap]);
+
+    useMapHoverObject('building');
 
     useEffect(() => {
         const map = ekbMap?.current?.getMap?.();
