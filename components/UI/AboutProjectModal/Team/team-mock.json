@@ -18,24 +18,6 @@
     "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/f362a062-8585-4b06-bbe0-0052de6f219c.jpeg"
   },
   {
-    "name": "Виктория Браун",
-    "role": "Аналитик",
-    "link": null,
-    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/4b870d1f-aeb1-47ef-af5b-d38b3b8b25a5.jpg"
-  },
-  {
-    "name": "Олег Донцов",
-    "role": "frontend-разработчик",
-    "link": null,
-    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/ea3e5fbd-7aec-462c-b211-3d547fed004d.jpg"
-  },
-  {
-    "name": "Татьяна Кихтенко",
-    "role": "frontend-разработчик",
-    "link": null,
-    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/122c1b28-ad56-4856-a8c4-6d10c2ee1a26.jpeg"
-  },
-  {
     "name": "Александр Кряжев",
     "role": "Веб-дизайнер",
     "link": null,
@@ -52,12 +34,6 @@
     "role": "frontend-разработчик",
     "link": null,
     "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/9711409c-ccbc-4c82-b9ab-446878d25da8.jpg"
-  },
-  {
-    "name": "Евгений Рамазанов",
-    "role": "Продакт менеджер и редактор",
-    "link": "https://t.me/overedited",
-    "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/302afe4e-7dd7-4cbe-8606-112367dddfc8.jpeg"
   },
   {
     "name": "Александр Чабин",
