@@ -11,7 +11,7 @@ export function AboutProjectIcons() {
     return (
         <>
             <div className={styles.aboutProjectIcons}>
-                <a href="https://github.com/ekaterinburgdev/map" target="_blank" rel="noreferrer">
+                <a className={styles.aboutProjectIcons__gh} href="https://github.com/ekaterinburgdev/map" target="_blank" rel="noreferrer">
                     <Image src={githubLogo} alt="github" />
                 </a>
                 <Button text="О проекте" type={ButtonType.BLACK} onClick={open} />
