@@ -1,6 +1,6 @@
 .copyright {
     position: fixed;
-    top: 1px;
+    top: 0;
     left: 50%;
     z-index: 1000;
     padding: 0 4px;
