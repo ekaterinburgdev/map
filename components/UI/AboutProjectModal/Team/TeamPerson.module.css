@@ -60,7 +60,6 @@
 }
 
 .team-person__caption {
-    padding-left: 10%;
     font-size: max(15px, 0.9vmax);
     line-height: 1.2;
 }
