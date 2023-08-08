@@ -1,5 +1,4 @@
 .button {
-    padding: 9px 14px 7px;
     border: none;
     border-radius: 40px;
     font-size: 16px;
@@ -16,6 +15,14 @@
 .button_black {
     background: black;
     color: white;
+}
+
+.button_paddings_small {
+    padding: 8px 12px;
+}
+
+.button_paddings_large {
+    padding: 12px 32px;
 }
 
 @media screen and (min-width: 1200px) {
