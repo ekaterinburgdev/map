@@ -63,7 +63,7 @@
     .team-grid__item {
         position: relative;
         margin: 0;
-        padding: 0 2vw 100px;
+        padding: 0 2vw 60%;
         transform: none;
 
 &:nth-child(n) {
@@ -78,6 +78,6 @@
 
 @media screen and (min-width: 1440px) {
     .team-grid__item {
-        padding: 0 1vw 150px;
+        padding: 0 1vw 65%;
     }
 }
