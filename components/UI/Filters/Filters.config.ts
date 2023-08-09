@@ -30,11 +30,11 @@ export const FILTERS_CONFIG: FilterConfig = {
         component: DesignCodeFilter,
     },
     [FilterType.DTP]: {
-        title: 'Дорожно-транспортные происшествия',
+        title: 'ДТП',
         component: DTPFilter,
     },
     [FilterType.Line]: {
-        title: 'Цветные линии Екатеринбурга',
+        title: 'Туристические маршруты',
         component: LinesFilter,
     },
 };
