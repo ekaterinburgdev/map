@@ -12,7 +12,6 @@ import { usePopup } from '../providers/usePopup';
 import useMapObjectState from '../providers/useMapObjectState';
 
 const DEFAULT_BULDING_COLOR_NORMAL = '#0c1021';
-const DEFAULT_BULDING_COLOR_HOVER = '#96a4bd';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
     if (
@@ -33,10 +32,7 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                         ...layer,
                         paint: {
                             ...layer.paint,
-                            'fill-extrusion-color': getLayerStyle<string>({
-                                initial: DEFAULT_BULDING_COLOR_NORMAL,
-                                hover: DEFAULT_BULDING_COLOR_HOVER,
-                            }),
+                            'fill-extrusion-color': DEFAULT_BULDING_COLOR_NORMAL,
                         },
                     };
                 }
