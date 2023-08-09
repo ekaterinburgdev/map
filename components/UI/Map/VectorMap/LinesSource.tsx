@@ -9,7 +9,7 @@ import { MapItemType } from 'common/types/map-item';
 import { usePopup } from 'components/UI/Map/providers/usePopup';
 import { LineType } from 'common/data/lines/lineType';
 import { getLayerStyle } from 'components/helpers/getLayerStyle';
-import useMapHoverObject from '../providers/useMapHoverObject';
+import useMapObjectState from '../providers/useMapObjectState';
 
 export function LinesSource() {
     const ekbMap = useMap();
@@ -17,7 +17,7 @@ export function LinesSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject('ekb-points-layer');
+    useMapObjectState('ekb-points-layer');
 
     useEffect(() => {
         ekbMap?.current?.on?.('click', 'ekb-points-layer', (e) => {
@@ -52,7 +52,7 @@ export function LinesSource() {
         type: 'circle',
         source: 'ekb-points-source',
         paint: {
-            'circle-radius': getLayerStyle<number>({ initial: 8, active: 10 }),
+            'circle-radius': getLayerStyle<number>({ initial: 8, hover: 10, active: 12 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,

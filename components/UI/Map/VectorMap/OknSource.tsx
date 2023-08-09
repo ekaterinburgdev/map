@@ -9,7 +9,7 @@ import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import { MapItemType } from 'common/types/map-item';
 import { OknAreaType } from 'common/data/okn/oknConstants';
 import { usePopup } from '../providers/usePopup';
-import useMapHoverObject from '../providers/useMapHoverObject';
+import useMapObjectState from '../providers/useMapObjectState';
 
 const LAYERS = {
     points: {
@@ -44,10 +44,10 @@ export function OknSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject(LAYERS.points.layerId);
-    useMapHoverObject(LAYERS.protect.layerId);
-    useMapHoverObject(LAYERS.security.layerId);
-    useMapHoverObject(LAYERS.objects.layerId);
+    useMapObjectState(LAYERS.points.layerId);
+    useMapObjectState(LAYERS.protect.layerId);
+    useMapObjectState(LAYERS.security.layerId);
+    useMapObjectState(LAYERS.objects.layerId);
 
     useEffect(() => {
         const map = ekbMap.current;
@@ -85,7 +85,7 @@ export function OknSource() {
         type: 'circle',
         source: LAYERS.points.sourceId,
         paint: {
-            'circle-radius': getLayerStyle<number>({ initial: 10, active: 12 }),
+            'circle-radius': getLayerStyle<number>({ initial: 10, hover: 12, active: 13 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             'circle-stroke-width': 1,
@@ -100,7 +100,11 @@ export function OknSource() {
         source: LAYERS[type].sourceId,
         paint: {
             'fill-color': AREA_CONFIG[LAYERS[type].zone].color,
-            'fill-opacity': getLayerStyle<number>({ initial: 0.5, active: 0.8 }),
+            'fill-opacity': getLayerStyle<number>({
+                initial: 0.5,
+                hover: 0.8,
+                active: 0.8,
+            }),
         },
     });
 

@@ -9,10 +9,9 @@ import { MapItemType } from 'common/types/map-item';
 import { colorLuminance } from 'components/helpers/colorLuminance';
 import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import { usePopup } from '../providers/usePopup';
-import useMapHoverObject from '../providers/useMapHoverObject';
+import useMapObjectState from '../providers/useMapObjectState';
 
 const DEFAULT_BULDING_COLOR_NORMAL = '#0c1021';
-const DEFAULT_BULDING_COLOR_ACTIVE = '#96a4bd';
 
 export function setBuildingStyle({ map, range, field, rangeData }) {
     if (
@@ -33,10 +32,7 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                         ...layer,
                         paint: {
                             ...layer.paint,
-                            'fill-extrusion-color': getLayerStyle<string>({
-                                initial: DEFAULT_BULDING_COLOR_NORMAL,
-                                active: DEFAULT_BULDING_COLOR_ACTIVE,
-                            }),
+                            'fill-extrusion-color': DEFAULT_BULDING_COLOR_NORMAL,
                         },
                     };
                 }
@@ -59,8 +55,12 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
         const colorsNormal = colors
             .flat(2);
 
-        const colorsActive = colors
+        const colorsHover = colors
             .map(([from, color]) => [from, colorLuminance(color, 0.4)])
+            .flat(2);
+
+        const colorsActive = colors
+            .map(([from, color]) => [from, colorLuminance(color, 0.55)])
             .flat(2);
 
         const newStyle = {
@@ -81,6 +81,7 @@ export function setBuildingStyle({ map, range, field, rangeData }) {
                             ...layer.paint,
                             'fill-extrusion-color': getLayerStyle<ExpressionSpecification>({
                                 initial: ['interpolate', ['linear'], ['to-number', ['get', field]], ...colorsNormal],
+                                hover: ['interpolate', ['linear'], ['to-number', ['get', field]], ...colorsHover],
                                 active: ['interpolate', ['linear'], ['to-number', ['get', field]], ...colorsActive],
                             }),
                         },
@@ -127,7 +128,7 @@ export function BuildingSource() {
         });
     }, [activeFilter, activeFilterParams, ekbMap]);
 
-    useMapHoverObject('building');
+    useMapObjectState('building');
 
     useEffect(() => {
         const map = ekbMap?.current?.getMap?.();
