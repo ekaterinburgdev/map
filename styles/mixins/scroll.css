@@ -30,7 +30,6 @@
         
         &:hover::-webkit-scrollbar-thumb {
             background: $color;
-            box-shadow: inset -2px 0 0 $background;
         }
         
         &::-webkit-scrollbar-thumb:active {
