@@ -7,7 +7,7 @@ export enum ButtonType {
     YELLOW = 'yellow',
 }
 
-export enum ButtonPaddings {
+export enum ButtonSize {
     SMALL = 'small',
     LARGE = 'large',
 }
@@ -17,21 +17,21 @@ const buttonStylesByType: Record<ButtonType, any> = {
     [ButtonType.YELLOW]: styles.button_yellow,
 };
 
-const buttonStylesByPaddings: Record<ButtonPaddings, any> = {
-    [ButtonPaddings.SMALL]: styles.button_paddings_small,
-    [ButtonPaddings.LARGE]: styles.button_paddings_large,
+const buttonStylesBySize: Record<ButtonSize, any> = {
+    [ButtonSize.SMALL]: styles.button_size_small,
+    [ButtonSize.LARGE]: styles.button_size_large,
 };
 
 type TButtonProps = {
     text: string;
     type: ButtonType;
-    paddings: ButtonPaddings;
+    size: ButtonSize;
     onClick: VoidFunction;
     link?: string;
 };
 
-export function Button({ text, type, paddings, onClick, link }: TButtonProps) {
-    const className = classNames(styles.button, buttonStylesByType[type], buttonStylesByPaddings[paddings]);
+export function Button({ text, type, size, onClick, link }: TButtonProps) {
+    const className = classNames(styles.button, buttonStylesByType[type], buttonStylesBySize[size]);
 
     if (link) {
         return (

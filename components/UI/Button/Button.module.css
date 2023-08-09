@@ -17,11 +17,11 @@
     color: white;
 }
 
-.button_paddings_small {
+.button_size_small {
     padding: 8px 12px;
 }
 
-.button_paddings_large {
+.button_size_large {
     padding: 12px 32px;
 }
 
