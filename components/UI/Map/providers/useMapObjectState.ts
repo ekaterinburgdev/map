@@ -6,7 +6,7 @@ function setObjectState(
     map: MapRef,
     mapObject: FeatureIdentifier,
     settings: { [key: string]: boolean },
-    cursorPointer?: boolean,
+    cursorPointer = true,
 ) {
     map.getCanvas().style.cursor = cursorPointer ? 'pointer' : 'default';
     map.setFeatureState(mapObject, settings);
