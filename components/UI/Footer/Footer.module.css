@@ -1,0 +1,19 @@
+@media screen and (max-width: 1150px) {
+    .footer [style*="--projects-panel"] {
+        top: 8px;
+        bottom: auto !important;
+        left: 8px;
+    }
+    
+    .footer [class*="modal__content"] {
+        top: 72px;
+        bottom: auto;
+        transform-origin: 20px 10px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .footer [style*="--projects-panel"] {
+        top: 1px;
+    }
+}

@@ -25,8 +25,7 @@
 @media screen and (max-width: 1150px) {
     .aboutProjectIcons {
         bottom: initial;
-        top: 8px;
-        flex-direction: column-reverse;
+        top: 14px;
         align-items: end;
     }
 }

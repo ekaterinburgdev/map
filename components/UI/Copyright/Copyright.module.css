@@ -20,8 +20,7 @@
     visibility: hidden;
 }
 
-/* kinda MAX_MOBILE_WIDTH constant but media-queries can't work with css-variables :( */
-@media screen and (min-width: 1150px) {
+@media screen and (min-width: 991px) {
     .copyright {
         top: auto;
         bottom: 0;
