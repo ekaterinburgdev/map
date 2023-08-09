@@ -35,21 +35,6 @@ export default function Document() {
             </Head>
 
             <body>
-                {process.env.NODE_ENV === 'production' && (
-                    // eslint-disable-next-line react/no-danger
-                    <script dangerouslySetInnerHTML={{ __html:
-`if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-        .register('/sw.js')
-        .then((serviceWorker) => {
-            console.debug('Service Worker registered: ', serviceWorker);
-        })
-        .catch((error) => {
-            console.error('Error registering the Service Worker: ', error);
-        });
-}` }}
-                    />
-                )}
                 <script async src="https://tally.so/widgets/embed.js" />
                 <Main />
                 <NextScript />
