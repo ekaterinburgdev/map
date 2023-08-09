@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
 
-&,
-&:hover {
-     text-decoration: none;
- }
+    &,
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .team-person_link .team-person__name span {
@@ -26,7 +26,7 @@
     padding: 0;
     margin: 0;
     transform: scale(1);
-    transition: 0.1s ease transform;
+    transition: .15s ease transform;
 }
 
 .team-person:hover .team-person__inner {
@@ -59,62 +59,40 @@
     pointer-events: none;
 }
 
+.team-person__name,
 .team-person__caption {
-    font-size: max(15px, 0.9vmax);
+    font-size: clamp(14px, 1vw, 17px);
     line-height: 1.2;
 }
 
 .team-person__name {
-    margin-top: 1em;
-    margin-bottom: 0.2em;
+    margin-top: .4em;
+    margin-bottom: .2em;
     color: white;
-    font-size: 3.5vw;
     transition: .15s ease color;
 }
 
 a.team-person {
-.team-person__name {
-&:after {
-     content: "";
-     box-shadow: 0 0 1px currentColor;
- }
-}
+    .team-person__name {
+        &:after {
+            content: "";
+            box-shadow: 0 0 1px currentColor;
+        }
+    }
 
-&:hover {
-.team-person__name {
-    color: #ffd400;
-}
-}
+    &:hover {
+        .team-person__name {
+            color: #ffd400;
+        }
+    }
 }
 
 .team-person__role {
     color: #757575;
-    font-size: 3vw;
     line-height: 1.2;
 
-&::first-letter {
-     text-transform: lowercase;
- }
-}
-
-@media screen and (min-width: 560px) {
-    .team-person__name {
-        font-size: 2.5vw;
-    }
-
-    .team-person__role {
-        font-size: 2.5vw;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .team-person__name {
-        display: inline-block;
-        font-size: 1.8vw;
-    }
-
-    .team-person__role {
-        font-size: 1.8vw;
+    &::first-letter {
+        text-transform: lowercase;
     }
 }
 
@@ -125,19 +103,5 @@ a.team-person {
 
     .team-person_link:hover .team-person__name span {
         box-shadow: 0 1px 0 #ffd500;
-    }
-}
-
-@media screen and (min-width: 1200px) {
-    .team-person__caption {
-        position: absolute;
-    }
-
-    .team-person__name {
-        font-size: .8vw;
-    }
-
-    .team-person__role {
-        font-size: .8vw;
     }
 }

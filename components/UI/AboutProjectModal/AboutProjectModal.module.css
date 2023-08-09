@@ -10,12 +10,13 @@
     border-radius: 16px;
     background: #141d34;
     max-height: calc(100vh - 120px);
+    overflow-x: hidden;
 
     @mixin scroll;
 }
 
 .aboutProjectModal__content {
-    padding-right: 40px;
+    padding-right: 20px;
     display: flex;
     flex-direction: column;
     gap: 32px;

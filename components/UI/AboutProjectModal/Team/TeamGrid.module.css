@@ -11,7 +11,7 @@
 .team-grid__item {
     position: relative;
     margin: 0;
-    padding: 0 1vw 40px;
+    padding: 0 2vw 40px;
 
 &:nth-child(3n-1) {
      transform: translate(0, 50%);
@@ -39,17 +39,23 @@
     }
 
     .team-grid__item {
-        padding: 0 1vw 30%;
+        padding: 0 1.5vw 30%;
 
-&:nth-child(n) {
-     transform: none;
-     margin: 0;
- }
+        &:nth-child(n) {
+            transform: none;
+            margin: 0;
+        }
 
-&:nth-child(2n) {
-     transform: translate(0, 50%);
- }
+        &:nth-child(2n) {
+            transform: translate(0, 50%);
+        }
+    }
 }
+
+@media screen and (min-width: 991px) {
+    .team-grid__item {
+        padding: 0 1vw 30%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
@@ -66,18 +72,18 @@
         padding: 0 2vw 60%;
         transform: none;
 
-&:nth-child(n) {
-     transform: none;
- }
+        &:nth-child(n) {
+            transform: none;
+        }
 
-&:nth-child(2n) {
-     transform: translate(0, 50%);
- }
-}
+        &:nth-child(2n) {
+            transform: translate(0, 50%);
+        }
+    }
 }
 
 @media screen and (min-width: 1440px) {
     .team-grid__item {
-        padding: 0 1vw 65%;
+        padding: 0 1vw 40%;
     }
 }
