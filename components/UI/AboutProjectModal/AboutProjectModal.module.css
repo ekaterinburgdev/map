@@ -98,9 +98,10 @@
 }
 
 .joinUs {
-    padding: 24px;
     display: flex;
     flex-direction: column;
-    align-items: center;
     gap: 24px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
 }
