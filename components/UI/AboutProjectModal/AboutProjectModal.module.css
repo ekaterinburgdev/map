@@ -82,12 +82,8 @@
     color: #9BAAC3;
 }
 
-.team {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-}
-
+.plans,
+.team,
 .partners {
     display: flex;
     flex-direction: column;
