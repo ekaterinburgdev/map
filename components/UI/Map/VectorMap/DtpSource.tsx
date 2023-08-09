@@ -9,7 +9,7 @@ import { MapItemType } from 'common/types/map-item';
 import { getLayerStyle } from 'components/helpers/getLayerStyle';
 import dtp from '../../../../public/ekb-dtp.json';
 import { usePopup } from '../providers/usePopup';
-import useMapHoverObject from '../providers/useMapHoverObject';
+import useMapObjectState from '../providers/useMapObjectState';
 
 const DTP_LAYER_ID = 'dtp-point';
 
@@ -19,7 +19,7 @@ export function DtpSource() {
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
-    useMapHoverObject(DTP_LAYER_ID);
+    useMapObjectState(DTP_LAYER_ID);
 
     useEffect(() => {
         ekbMap?.current?.on?.('click', DTP_LAYER_ID, (e) => {
@@ -66,7 +66,7 @@ export function DtpSource() {
         type: 'circle',
         source: 'ekb-dtp-source',
         paint: {
-            'circle-radius': getLayerStyle<number>({ initial: 8, active: 10 }),
+            'circle-radius': getLayerStyle<number>({ initial: 8, hover: 10, active: 12 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
             // @ts-ignore
