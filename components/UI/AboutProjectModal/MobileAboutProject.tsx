@@ -9,7 +9,7 @@ export function MobileAboutProject() {
     const { isOpened, close } = useContext(AboutProjectContext);
 
     return (
-        <Sheet isOpen={isOpened} onClose={close} snapPoints={[0.5]}>
+        <Sheet detent="full-height" isOpen={isOpened} onClose={close}>
             <Sheet.Container>
                 <Sheet.Header />
                 <Sheet.Content>
