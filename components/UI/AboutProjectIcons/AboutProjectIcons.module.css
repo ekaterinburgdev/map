@@ -5,8 +5,21 @@
     color: white;
     z-index: 401;
     display: flex;
-    align-items: center;
     gap: 4px;
+    vertical-align: middle;
+    transition: .15s ease;
+}
+
+.aboutProjectIcons__gh img {
+    vertical-align: middle;
+}
+
+.aboutProjectIcons__gh:hover {
+    filter: contrast(0.75);
+} 
+
+.aboutProjectIcons__gh:active {
+    filter: contrast(0.7);
 }
 
 @media screen and (max-width: 1150px) {

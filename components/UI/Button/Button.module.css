@@ -7,6 +7,14 @@
     transition: .15s ease;
 }
 
+.button:hover {
+    filter: contrast(0.75);
+}
+
+.button:active {
+    filter: contrast(0.65);
+}
+
 .button_yellow {
     background: #FFD400;
     color: black;
