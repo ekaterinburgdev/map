@@ -5,6 +5,9 @@ import mapService from 'components/UI/AboutProjectModal/svg/map-service.svg';
 import { Button, ButtonSize, ButtonType } from '../Button/Button';
 import { TeamGrid } from './Team/TeamGrid';
 
+import githubIcon from './icon-github.svg';
+import telegramIcon from './icon-telegram.svg';
+
 export function AboutProjectContent() {
     return (
         <article className={styles.aboutProjectModal__content}>
@@ -15,13 +18,13 @@ export function AboutProjectContent() {
 
             <h2>Раскрываем город в&nbsp;деталях</h2>
             <p>Когда был построен ваш дом? Как много высоких зданий в&nbsp;центре? Сколько в&nbsp;городе объектов культурного наследия? Где чаще всего происходят ДТП? Чтобы ответить на&nbsp;эти и&nbsp;миллион других вопросов, мы&nbsp;разработали карту Екатеринбурга&nbsp;&mdash; сервис, где собраны и&nbsp;визуализированы все данные о&nbsp;городе.</p>
-            <p>Проект является полностью открытым. Кто угодно может в&nbsp;него законтрибьютить или форкнуть. Заходите на&nbsp;<a href="https://github.com/ekaterinburgdev/map" target="_blank" rel="noreferrer">гитхаб</a>.</p>
+            <p>Проект является полностью открытым. Кто угодно может в&nbsp;него законтрибьютить или форкнуть. Заходите на&nbsp;<a href="https://github.com/ekaterinburgdev/map" target="_blank" rel="noreferrer"><Image src={githubIcon} height={16} alt="" />гитхаб</a>.</p>
 
             <h3>Цель</h3>
             <p>Мы&nbsp;создаём единую базу данных о&nbsp;городе, визуализируем её&nbsp;и&nbsp;превращаем неочевидную информацию в&nbsp;понятную и&nbsp;доступную.</p>
 
             <h3>Планы</h3>
-            <p>Это бета-версия сервиса. В&nbsp;будущем мы&nbsp;планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать данные обо всех городах в&nbsp;мире и&nbsp;много чего ещё. Чтобы ничего не&nbsp;пропустить подписывайтесь на&nbsp;<a href="https://t.me/ekaterinburgdev" target="_blank" rel="noreferrer">телеграм-канал</a>.</p>
+            <p>Это бета-версия сервиса. В&nbsp;будущем мы&nbsp;планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать данные обо всех городах в&nbsp;мире и&nbsp;много чего ещё. Чтобы ничего не&nbsp;пропустить подписывайтесь на&nbsp;<a href="https://t.me/ekaterinburgdev" target="_blank" rel="noreferrer"><Image src={telegramIcon} height={16} alt="" />телеграм-канал</a>.</p>
             <p>Если у&nbsp;вас есть предложения, что ещё добавить или улучшить, оставьте <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none" target="_blank" rel="noreferrer">фидбек</a>.</p>
 
             <h3>Источники данных</h3>

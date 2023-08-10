@@ -35,13 +35,20 @@
         color: #9baac3;
         font-size: 18px;
         line-height: 24px;
-    }
     
-    p a {
-        text-decoration: underline;
-        
-        &:hover {
-            text-decoration: none;
+        a {
+            color: white;
+            text-decoration: underline;
+            
+            &:hover {
+                text-decoration: none;
+            }
+
+            img {
+                vertical-align: -.3ex;
+                margin-left: .2125em;
+                margin-right: .275em;
+            }
         }
     }
 
