@@ -1,6 +1,7 @@
 .copyright {
     position: fixed;
-    top: 0;
+    top: auto;
+    bottom: 0;
     left: 50%;
     z-index: 1000;
     padding: 0 4px;
@@ -10,8 +11,6 @@
     font-size: 10px;
     line-height: 1.5;
     opacity: 1;
-    transition: .3s ease;
-    transform: translateX(-50%);
 }
 
 .copyright[hidden] {
@@ -20,10 +19,12 @@
     visibility: hidden;
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (max-width: 1150px) {
     .copyright {
-        top: auto;
-        bottom: 0;
+        left: initial;
+        right: 0;
+        bottom: calc(10% + 8px);
         border-radius: 2px 2px 0px 0px;
+        writing-mode: vertical-lr;
     }
 }

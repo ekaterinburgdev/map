@@ -1,5 +1,5 @@
 export type HeaderProps = {
     coordinates: [number, number];
-    title: string;
+    title?: string;
     description?: string;
 };

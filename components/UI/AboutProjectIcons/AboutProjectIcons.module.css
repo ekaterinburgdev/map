@@ -25,7 +25,7 @@
 @media screen and (max-width: 1150px) {
     .aboutProjectIcons {
         bottom: initial;
-        top: 14px;
+        top: 8px;
         align-items: end;
     }
 }
