@@ -30,12 +30,11 @@ export default function Document() {
                 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
                 <link rel="manifest" href="/site.webmanifest" />
 
-                <link rel="dns-prefetch" href="https://tiles.ekaterinburg.io/" />
-                <link rel="dns-prefetch" href="https://map-api.ekaterinburg.io/" />
+                <link rel="dns-prefetch" href="https://tiles.baremaps.com/" />
+                <link rel="dns-prefetch" href="https://cartography-zeta.vercel.app/" />
             </Head>
 
             <body>
-                <script async src="https://tally.so/widgets/embed.js" />
                 <Main />
                 <NextScript />
                 <script async src="https://tally.so/widgets/embed.js" />
