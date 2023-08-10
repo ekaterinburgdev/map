@@ -56,7 +56,7 @@
     @mixin scroll;
 }
 
-.serviceName {
+.aboutProjectModal__serviceName {
     display: flex;
     gap: 12px;
     align-items: center;

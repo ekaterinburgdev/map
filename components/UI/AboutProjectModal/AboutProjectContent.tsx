@@ -8,7 +8,7 @@ import { TeamGrid } from './Team/TeamGrid';
 export function AboutProjectContent() {
     return (
         <article className={styles.aboutProjectModal__content}>
-            <div className={styles.serviceName}>
+            <div className={styles.aboutProjectModal__serviceName}>
                 <Image src={mapService} alt="" />
                 <p>Карта <br /> Екатеринбурга</p>
             </div>
