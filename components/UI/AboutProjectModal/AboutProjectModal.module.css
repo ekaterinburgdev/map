@@ -7,7 +7,8 @@
     overflow-x: hidden;
     max-width: 650px;
     max-height: calc(100vh - 120px);
-    padding: 32px 40px 48px 40px;
+    padding-top: 6px;
+    padding-right: 40px;
     border-radius: 16px;
     background: #141d34;
     transform: translate(-50%, -50%);
@@ -16,7 +17,7 @@
 }
 
 .aboutProjectModal__content {
-    padding-right: 24px;
+    padding: 8px 24px 48px;
 
     h2 {
         margin: 32px 0;
@@ -58,9 +59,10 @@
     }
 }
 
-.aboutProjectModal__content_mobile {
-    padding: 20px;
-    @mixin scroll;
+@media screen and (min-width: 768px) {
+    .aboutProjectModal__content {
+        padding: 26px 40px;
+    }
 }
 
 .aboutProjectModal__serviceName {
