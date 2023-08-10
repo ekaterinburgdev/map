@@ -11,11 +11,11 @@ export function AboutProjectModal() {
 
     return (
         <>
-            <div className={styles.aboutProjectModal}>
+            <div className={styles.aboutProjectModal} role="dialog" aria-modal="true">
                 <Close close={close} />
                 <AboutProjectContent />
             </div>
-            <div className={styles.backdrop} onClick={close} />
+            <div className={styles.backdrop} onClick={close} aria-hidden />
         </>
     );
 }
