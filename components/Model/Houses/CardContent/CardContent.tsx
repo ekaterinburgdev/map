@@ -142,12 +142,10 @@ export function HousesCardContent() {
 
     return (
         <div className={styles.popup}>
-            {placemark?.attributes.Address && (
-                <Header
-                    coordinates={placemark?.attributes.borders?.coordinates?.[0]}
-                    title={placemark?.attributes.Address}
-                />
-            )}
+            <Header
+                coordinates={placemark?.attributes.borders?.coordinates?.[0]}
+                title={placemark?.attributes.Address}
+            />
             {(isEmergency || aboutHouse?.length > 0) && (
                 <Section>
                     {isEmergency && (
