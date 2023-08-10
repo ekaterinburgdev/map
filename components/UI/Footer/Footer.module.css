@@ -14,6 +14,6 @@
 
 @media screen and (max-width: 600px) {
     .footer [style*="--projects-panel"] {
-        top: 1px;
+        top: -6px;
     }
 }

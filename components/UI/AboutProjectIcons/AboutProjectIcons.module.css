@@ -1,17 +1,17 @@
 .aboutProjectIcons {
     position: fixed;
-    bottom: 8px;
+    top: 8px;
     right: 8px;
-    color: white;
     z-index: 401;
     display: flex;
     gap: 4px;
-    vertical-align: middle;
+    color: white;
     transition: .15s ease;
 }
 
 .aboutProjectIcons__gh img {
     vertical-align: middle;
+    height: 100%;
 }
 
 .aboutProjectIcons__gh:hover {
@@ -22,10 +22,10 @@
     filter: contrast(0.7);
 }
 
-@media screen and (max-width: 1150px) {
+@media screen and (min-width: 1150px) {
     .aboutProjectIcons {
-        bottom: initial;
-        top: 8px;
-        align-items: end;
+        top: auto;
+        right: 8px;
+        bottom: 8px;
     }
 }
