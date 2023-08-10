@@ -93,7 +93,7 @@ export const FLOOR_FILTERS_DATA: HistogramDataWithoutValues = [
 
 export const WEAR_TEAR_FILTERS_DATA: HistogramDataWithoutValues = [
     {
-        from: 1,
+        from: 0,
         to: 10,
         color: '#006b29',
     },
