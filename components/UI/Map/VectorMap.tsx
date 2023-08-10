@@ -46,7 +46,6 @@ export function VectorMap() {
             mapStyle="https://cartography-zeta.vercel.app/style.json"
             // @ts-ignore
             mapLib={maplibregl}
-            antialias
             reuseMaps
             onLoad={() => setLoading(false)}
         >
