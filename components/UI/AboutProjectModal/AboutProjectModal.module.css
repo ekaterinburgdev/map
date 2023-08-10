@@ -40,6 +40,11 @@
             text-decoration: none;
         }
     }
+
+    footer {
+        margin-top: 64px;
+        text-align: center;
+    }
 }
 
 .aboutProjectModal__content {
@@ -49,6 +54,22 @@
 .aboutProjectModal__content_mobile {
     padding: 20px;
     @mixin scroll;
+}
+
+.serviceName {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 20px;
+    line-height: 22px;
+
+    p {
+        align-items: center;
+        margin: 0;
+        font-size: 20px;
+        line-height: 1.1;
+        color: white;
+    }
 }
 
 .backdrop {
@@ -61,25 +82,4 @@
     border: none;
     background: rgba(0, 0, 0, 0.6);
     touch-action: none;
-}
-
-.serviceName {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    font-size: 20px;
-    line-height: 22px;
-}
-
-.serviceName p {
-    align-items: center;
-    margin: 0;
-    font-size: 20px;
-    line-height: 1.1;
-    color: white;
-}
-
-.joinUs {
-    margin-top: 64px;
-    text-align: center;
 }

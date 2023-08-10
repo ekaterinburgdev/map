@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import styles from 'components/UI/AboutProjectModal/AboutProjectModal.module.css';
 import mapService from 'components/UI/AboutProjectModal/svg/map-service.svg';
-import { JoinUs } from 'components/UI/AboutProjectModal/JoinUs';
+import { Button, ButtonSize, ButtonType } from '../Button/Button';
 import { TeamGrid } from './Team/TeamGrid';
 
 export function AboutProjectContent() {
@@ -33,7 +33,10 @@ export function AboutProjectContent() {
 
             <TeamGrid />
 
-            <JoinUs />
+            <footer>
+                <h3 className={styles.h3}>Присоединяйся к нам</h3>
+                <Button text="Стать частью команды или помочь проекту" type={ButtonType.YELLOW} size={ButtonSize.LARGE} onClick={() => { }} link="https://tally.so#tally-open=wL9Vd1&tally-width=650&tally-overlay=1&tally-emoji-animation=none" />
+            </footer>
         </article>
     );
 }
