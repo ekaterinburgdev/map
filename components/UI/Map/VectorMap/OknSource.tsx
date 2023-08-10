@@ -129,7 +129,6 @@ export function OknSource() {
                     </Source>
                 )
             ))}
-
             <Source id={LAYERS.points.sourceId} data={LAYERS.points.dataPath} type="geojson" generateId>
                 <Layer {...layerStyle} />
             </Source>
