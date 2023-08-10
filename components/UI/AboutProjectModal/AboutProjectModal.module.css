@@ -13,6 +13,10 @@
     transform: translate(-50%, -50%);
 
     @mixin scroll;
+}
+
+.aboutProjectModal__content {
+    padding-right: 24px;
 
     h2 {
         margin: 32px 0;
@@ -28,7 +32,7 @@
 
     p {
         margin-bottom: 16px;
-        color: #9BAAC3;
+        color: #9baac3;
         font-size: 18px;
         line-height: 24px;
     }
@@ -47,10 +51,6 @@
     }
 }
 
-.aboutProjectModal__content {
-    padding-right: 24px;
-}
-
 .aboutProjectModal__content_mobile {
     padding: 20px;
     @mixin scroll;
@@ -66,9 +66,9 @@
     p {
         align-items: center;
         margin: 0;
+        color: white;
         font-size: 20px;
         line-height: 1.1;
-        color: white;
     }
 }
 
