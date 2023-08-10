@@ -19,7 +19,7 @@ const BUILDING_LAYER_ID = 'building';
 
 const DEFAULT_BULDING_COLOR_NORMAL = '#0c1021';
 
-function setBuildingColor(map, field, color) {
+function setBuildingColor(map, color, field: string = '_unknown_') {
     map.setStyle({
         ...map?.getStyle(),
         layers: map?.getStyle().layers.map((layer) => {
@@ -53,7 +53,7 @@ function setBuildingStyle({ map, range, field, rangeData }) {
             map?.getStyle
         )
     ) {
-        setBuildingColor(map, field, DEFAULT_BULDING_COLOR_NORMAL);
+        setBuildingColor(map, DEFAULT_BULDING_COLOR_NORMAL);
         return;
     }
 
@@ -79,12 +79,12 @@ function setBuildingStyle({ map, range, field, rangeData }) {
 
     setBuildingColor(
         map,
-        field,
         getLayerStyle<ExpressionSpecification>({
             initial: getColor(colorsInitial),
             hover: getColor(colorsHover),
             active: getColor(colorsActive),
         }),
+        field,
     );
 }
 
