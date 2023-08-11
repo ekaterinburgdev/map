@@ -30,6 +30,34 @@ export function AboutProjectContent() {
             <h3>Источники данных</h3>
             <p>Мы&nbsp;используем данные из&nbsp;открытых источников. У&nbsp;нас настроено автообновление данных, поэтому информация на&nbsp;карте всегда актуальна. Все используемые источники перечислены ниже. Если у&nbsp;вас есть своя уникальная база данных и&nbsp;вы&nbsp;хотите поделиться ей&nbsp;с&nbsp;нами, напишите, пожалуйста, на&nbsp;почту <a href="mailto:mail@ekaterinburg.city">mail@ekaterinburg.city</a>. А&nbsp;мы&nbsp;обязательно укажем ваше авторство.</p>
 
+            <dl>
+                <dt>Данные о домах</dt>
+                <dd>
+                    <a href="https://how-old-is-this.house/" target="_blank" rel="noreferrer">how-old-is-this.house</a>
+                    <a href="https://mingkh.ru/" target="_blank" rel="noreferrer">mingkh.ru</a>
+                    <a href="https://domaekb.ru/" target="_blank" rel="noreferrer">domaekb.ru</a>
+                </dd>
+
+                <dt>Объекты культурного наследия</dt>
+                <dd>
+                    <a href="https://opendata.mkrf.ru/opendata/7705851331-egrkn" target="_blank" rel="noreferrer">open.mkrf.ru</a>
+                    <a href="https://okn.midural.ru/" target="_blank" rel="noreferrer">okn.midural.ru</a>
+                </dd>
+
+                <dt>Объекты Дизайн-кода Екатеринбурга</dt>
+                <dd><a href="https://map.ekaterinburg.design/" target="_blank" rel="noreferrer">map.ekaterinburg.design</a></dd>
+
+                <dt>Туристические маршруты</dt>
+                <dd>
+                    <a href="https://ekbredline.ru/" target="_blank" rel="noreferrer">ekbredline.ru</a>
+                    <a href="http://tourism.ekburg.ru/" target="_blank" rel="noreferrer">tourism.ekburg.ru</a>
+                    <a href="https://www.izi.travel/ru/085f-mesta-v-ekaterinburge-svyazannye-s-carskoy-semyoy" target="_blank" rel="noreferrer">izi.travel</a>
+                </dd>
+
+                <dt>ДТП</dt>
+                <dd><a href="https://dtp-stat.ru/" target="_blank" rel="noreferrer">dtp-stat.ru</a></dd>
+            </dl>
+
             <h3>Команда проекта</h3>
             <p>Мы&nbsp;&mdash; Код Екатеринбурга. Сообщество независимых энтузиастов, которые хотят сделать Екатеринбург лучше.</p>
             <p>В&nbsp;нашей команде участвуют крутые ребята из&nbsp;IT-компаний Екатеринбурга и&nbsp;других городов. И&nbsp;мы&nbsp;всегда ждём новых профессионалов, чтобы развивать город вместе. Если вы&nbsp;аналитик данных, гис-аналитик, бекендер, дизайнер интерфейсов, дизайнер карт или эксперты по&nbsp;парсингу данных, приходите к&nbsp;нам!</p>

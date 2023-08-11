@@ -31,7 +31,7 @@
         line-height: 1.125;
     }
 
-    p {
+    dl, p {
         margin-bottom: 16px;
         color: #9baac3;
         font-size: 18px;
@@ -40,9 +40,10 @@
         a {
             color: white;
             text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, .5);
             
             &:hover {
-                text-decoration: none;
+                text-decoration-color: rgb(255, 255, 255);
             }
 
             img {
@@ -51,6 +52,23 @@
                 margin-right: .25em;
             }
         }
+    }
+
+    dl {
+        margin-top: 12px;
+        margin-bottom: 48px;
+    }
+
+    dt {
+        font-weight: 600;
+        margin-top: 24px;
+    }
+
+    dd {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        margin: 0;
     }
 
     footer {
