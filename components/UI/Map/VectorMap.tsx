@@ -49,6 +49,8 @@ export function VectorMap() {
             antialias
             reuseMaps
             onLoad={() => setLoading(false)}
+            // Disable RTL plugin
+            RTLTextPlugin={null}
         >
             {!loading && <MapLayers />}
         </Map>
