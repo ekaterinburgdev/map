@@ -8,9 +8,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "devPreinstall": "husky install",
-    "check-types": "tsc --noEmit"
+    "test": "pnpm run /^test:/",
+    "test:js": "next lint",
+    "test:types": "tsc --noEmit",
+    "devPreinstall": "husky install"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",

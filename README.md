@@ -30,5 +30,5 @@ pnpm i
 3. Run local server
 
 ```
-pnpm run dev
+pnpm dev
 ```
