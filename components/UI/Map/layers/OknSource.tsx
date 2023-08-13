@@ -5,7 +5,7 @@ import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Model/OKN/Okn.constants';
 import { FilterType } from 'components/UI/Filters/Filters.types';
-import { getLayerStyle } from 'components/helpers/getLayerStyle';
+import { getLayerStyle } from 'components/UI/Map/helpers/getFeatureState';
 import { MapItemType } from 'common/types/map-item';
 import { OknAreaType } from 'common/data/okn/oknConstants';
 import { usePopup } from '../providers/usePopup';

@@ -8,7 +8,7 @@ import { LINES_CONFIG } from 'components/Model/Lines/Lines.constants';
 import { MapItemType } from 'common/types/map-item';
 import { usePopup } from 'components/UI/Map/providers/usePopup';
 import { LineType } from 'common/data/lines/lineType';
-import { getLayerStyle } from 'components/helpers/getLayerStyle';
+import { getLayerStyle } from 'components/UI/Map/helpers/getFeatureState';
 import useMapObjectState from '../providers/useMapObjectState';
 
 export function LinesSource() {

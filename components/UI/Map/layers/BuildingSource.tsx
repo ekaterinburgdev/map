@@ -10,8 +10,8 @@ import {
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 import { MapItemType } from 'common/types/map-item';
-import { colorLuminance } from 'components/helpers/colorLuminance';
-import { getLayerStyle } from 'components/helpers/getLayerStyle';
+import { colorLuminance } from 'components/UI/Map/helpers/colorLuminance';
+import { getLayerStyle } from 'components/UI/Map/helpers/getFeatureState';
 import { usePopup } from '../providers/usePopup';
 import useMapObjectState from '../providers/useMapObjectState';
 

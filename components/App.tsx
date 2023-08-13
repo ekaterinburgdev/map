@@ -16,7 +16,7 @@ import { AboutProjectModal } from 'components/UI/AboutProjectModal/AboutProjectM
 import { MapContextProvider } from './UI/Map/providers/MapProvider';
 import { Footer } from './UI/Footer/Footer';
 import { Copyright } from './UI/Copyright/Copyright';
-import { VectorMap } from './UI/Map/VectorMap';
+import { Map } from './UI/Map/Map';
 
 export default function App() {
     const isMobile = useIsMobile();
@@ -26,7 +26,7 @@ export default function App() {
             <MapProvider>
                 <AboutProjectProvider>
                     <MapContextProvider>
-                        <VectorMap />
+                        <Map />
                         {!isMobile && (
                             <>
                                 <LeftSidebar />

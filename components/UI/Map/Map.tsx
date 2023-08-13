@@ -2,15 +2,15 @@
 
 import React, { useContext } from 'react';
 
-import { Map } from 'react-map-gl';
+import MapGl from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
 import { COORDS_EKATERINBURG } from 'common/constants/coords';
 
-import { BuildingSource } from './VectorMap/BuildingSource';
-import { OknSource } from './VectorMap/OknSource';
-import { DtpSource } from './VectorMap/DtpSource';
-import { LinesSource } from './VectorMap/LinesSource';
-import { DesignCodeSource } from './VectorMap/DesignCodeSource';
+import { BuildingSource } from './layers/BuildingSource';
+import { OknSource } from './layers/OknSource';
+import { DtpSource } from './layers/DtpSource';
+import { LinesSource } from './layers/LinesSource';
+import { DesignCodeSource } from './layers/DesignCodeSource';
 import { MapContext } from './providers/MapProvider';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -27,11 +27,11 @@ function MapLayers() {
     );
 }
 
-export function VectorMap() {
+export function Map() {
     const { loading, setLoading } = useContext(MapContext);
 
     return (
-        <Map
+        <MapGl
             id="ekbMap"
             initialViewState={{
                 latitude: COORDS_EKATERINBURG[0],
@@ -53,6 +53,6 @@ export function VectorMap() {
             RTLTextPlugin={null}
         >
             {!loading && <MapLayers />}
-        </Map>
+        </MapGl>
     );
 }

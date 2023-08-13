@@ -8,7 +8,7 @@ import { DESIGN_CODE_ITEMS_COLORS } from 'components/Model/DesignCode/DesignCode
 import { MapItemType } from 'common/types/map-item';
 import { DESIGN_MAP_HOST } from 'common/data/designCode/designCode';
 import styles from 'common/data/designCode/DesignCodeMarker.module.css';
-import { getLayerStyle } from 'components/helpers/getLayerStyle';
+import { getLayerStyle } from 'components/UI/Map/helpers/getFeatureState';
 import { usePopup } from '../providers/usePopup';
 import geojson from '../../../../public/ekb-design-code.json';
 import useMapObjectState from '../providers/useMapObjectState';
