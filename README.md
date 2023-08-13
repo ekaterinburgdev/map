@@ -1,14 +1,21 @@
 # Ekaterinburg Map
 
-Map for Ekaterinburg urbanists
+3D map for Ekaterinburg urbanists. Buildings data, walking routes, cultural heritage sites and more.
 
-**[map.ekaterinburg.city](https://map.ekaterinburg.city)**
+**[map.ekaterinburg.city](https://map.ekaterinburg.city/)**
 
-## Tools
+<img src="https://github.com/ekaterinburgdev/map/assets/22644149/bae75345-f76b-4598-b862-683a2eee545e" alt="" width="65%">
 
-- [Maplibre GL](https://github.com/alex3165/react-mapbox-gl)
-- [Next.js](https://nextjs.org/)
-- [Vercel Serverless](https://vercel.com/)
+## About
+
+There are a lot of interesting objects and buidlings in Ekaterinburg. We have collected several layers of data so that urbanists have easy access to them and can analyze them
+
+### Features
+
+- Speed and performance with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
+- Visualization for [Ekaterinburg opendata](https://github.com/ekaterinburgdev/map-api)
+- Detailed object cards
+- Data layers are automatically [updated from the source](https://github.com/ekaterinburgdev/map-updater)
 
 ## Development
 
