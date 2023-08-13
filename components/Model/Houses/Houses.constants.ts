@@ -87,7 +87,7 @@ export const FLOOR_FILTERS_DATA: HistogramDataWithoutValues = [
     {
         from: 31,
         to: 52,
-        color: '#ffff00',
+        color: '#ffea00',
     },
 ];
 
