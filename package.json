@@ -1,9 +1,9 @@
 {
   "name": "map",
-  "version": "1.0.0",
-  "homepage": "https://map.ekaterinburg.dev",
-  "license": "MIT",
   "private": true,
+  "homepage": "https://map.ekaterinburg.city",
+  "author": "ekaterinburg.dev",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -17,7 +17,6 @@
     "autoprefixer": "^10.4.14",
     "classnames": "^2.3.2",
     "ekb": "^1.1.3",
-    "framer-motion": "^10.15.1",
     "lodash": "^4.17.21",
     "mapbox-gl": "npm:empty-npm-package@1.0.0",
     "maplibre-gl": "^3.3.0",
