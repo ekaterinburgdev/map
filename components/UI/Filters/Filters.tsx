@@ -23,9 +23,11 @@ export function Filters() {
     return (
         <div className={styles.filters__body}>
             {(Object.entries(FILTERS_CONFIG) as [FilterType, FilterConfigItem][]).map(
-                ([type, { component: Component, title }], idx) => {
+                ([type, { component: Component, title, source, isVerified }], idx) => {
                     const id = `id:${type}-${idx}`;
                     const isActive = type === activeFilter;
+
+                    const sourceHost = source && new URL(source.link).host;
 
                     return (
                         <div key={id} className={styles.filters__item}>
@@ -37,6 +39,7 @@ export function Filters() {
                                 label={title}
                             />
                             <Filter isActive={isActive}>
+                                {!isVerified && <div className={styles.filters__notice}>Данные {source && <a href={source.link} target="_blank" rel="noreferrer">{sourceHost}</a>} содержат неточности. <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none">Оставьте фидбек</a> — помогите улучшить карту</div>}
                                 {isActive && <Component />}
                             </Filter>
                         </div>

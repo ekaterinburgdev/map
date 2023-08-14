@@ -26,6 +26,21 @@
     border-bottom-left-radius: 8px;
 }
 
+.filters__notice {
+    margin-top: -12px;
+    margin-right: -16px;
+    margin-bottom: 20px;
+    margin-left: -16px;
+    padding: 12px 16px;
+    background: #767533;
+    color: #fffcd2;
+    font-size: 14px;
+}
+
+.filters__notice a {
+    text-decoration: underline;
+}
+
 @media screen and (min-width: 1440px) {
     .filters__body {
         font-size: 16px;
