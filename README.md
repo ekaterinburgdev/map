@@ -8,6 +8,8 @@
 
 ## About
 
+> This is a technical pre-release for collecting feedback, not an analysis tool.
+
 There are a lot of interesting objects and buidlings in Ekaterinburg. We have collected several layers of data so that urbanists have easy access to them and can analyze them
 
 ### Features
@@ -15,7 +17,7 @@ There are a lot of interesting objects and buidlings in Ekaterinburg. We have co
 - Speed and performance with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
 - Visualization for [Ekaterinburg opendata](https://github.com/ekaterinburgdev/map-api)
 - Detailed object cards
-- Data layers are automatically [updated from the source](https://github.com/ekaterinburgdev/map-updater)
+- Some [data layers](https://github.com/ekaterinburgdev/map/tree/main/public) are automatically [updated from the source](https://github.com/ekaterinburgdev/map-updater)
 
 ## Development
 
