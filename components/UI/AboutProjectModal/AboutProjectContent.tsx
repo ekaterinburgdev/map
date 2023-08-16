@@ -25,10 +25,10 @@ export function AboutProjectContent() {
 
             <h3>Планы</h3>
             <p>Это бета-версия сервиса. В&nbsp;будущем мы&nbsp;планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать данные обо всех городах в&nbsp;мире и&nbsp;много чего ещё. Чтобы ничего не&nbsp;пропустить подписывайтесь на&nbsp;<a href="https://t.me/ekaterinburgdev" target="_blank" rel="noreferrer"><Image src={telegramIcon} height={16} alt="" />телеграм-канал</a>.</p>
-            <p>Если у&nbsp;вас есть предложения, что ещё добавить или улучшить, оставьте <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none" target="_blank" rel="noreferrer">фидбек</a>.</p>
 
             <h3>Источники данных</h3>
-            <p>Мы&nbsp;используем данные из&nbsp;открытых источников. У&nbsp;нас настроено автообновление данных, поэтому информация на&nbsp;карте всегда актуальна. Все используемые источники перечислены ниже. Если у&nbsp;вас есть своя уникальная база данных и&nbsp;вы&nbsp;хотите поделиться ей&nbsp;с&nbsp;нами, напишите, пожалуйста, на&nbsp;почту <a href="mailto:mail@ekaterinburg.city">mail@ekaterinburg.city</a>. А&nbsp;мы&nbsp;обязательно укажем ваше авторство.</p>
+            <p>Мы&nbsp;используем данные из&nbsp;публичных источников, которые содержат неточности. Ваш <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none" target="_blank" rel="noreferrer">фидбек</a> поможет улучшить нам карту.</p>
+            <p>Все используемые источники перечислены ниже. Если у&nbsp;вас есть своя уникальная база данных и&nbsp;вы&nbsp;хотите поделиться ей&nbsp;с&nbsp;нами, напишите, пожалуйста, на&nbsp;почту <a href="mailto:mail@ekaterinburg.city">mail@ekaterinburg.city</a>. А&nbsp;мы&nbsp;обязательно укажем ваше авторство.</p>
 
             <dl>
                 <dt>Данные о домах</dt>
