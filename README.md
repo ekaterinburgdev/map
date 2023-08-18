@@ -4,7 +4,8 @@
 
 **[map.ekaterinburg.city](https://map.ekaterinburg.city/)**
 
-<img src="https://github.com/ekaterinburgdev/map/assets/22644149/bae75345-f76b-4598-b862-683a2eee545e" alt="" width="65%">
+<img src="https://github.com/ekaterinburgdev/map/assets/22644149/da549cf5-e54b-4984-b763-1d757d711bae" alt="" width="65%">
+
 
 ## About
 
