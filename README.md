@@ -24,13 +24,13 @@ The map contains layers of data about objects in the city so that urbanists can 
 
 | Data layer                              | Download                 | Sources | Autoupdate | Status |
 |-----------------------------------------|--------------------------|---------|--------|------------|
-| Cultural heritage sites (objects)       | ⬇️ [okn‑objects](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-objects.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
-| Cultural heritage sites (protect zone)  | ⬇️ [okn‑protect](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-protect.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
-| Cultural heritage sites (security zone) | ⬇️ [okn‑security](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-security.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
 | Design code objects                     | ⬇️ [design‑code](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-design-code.json) | [map.ekaterinburg.design](https://map.ekaterinburg.design) | 🔄 | ✅ |
 | Traffic collision                       | ⬇️ [dtp](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-dtp.json) | [dtp-stat.ru](https://dtp-stat.ru) | 🔄 | ✅ | 
 | Touristic route (points)                | ⬇️ [color-points](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-color-points.json)       | [tourism.ekburg.ru](http://tourism.ekburg.ru) | — | ✅ |
 | Touristic route (lines)                 | ⬇️ [color-lines](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-color-lines.json)     | [ekbredline.ru](http://ekbredline.ru) | — | ✅ |
+| Cultural heritage sites (objects)       | ⬇️ [okn‑objects](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-objects.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
+| Cultural heritage sites (protect zone)  | ⬇️ [okn‑protect](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-protect.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
+| Cultural heritage sites (security zone) | ⬇️ [okn‑security](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-security.json) | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html) | — | 🚧 |
 | Houses data                             | _Not available for download now.<br />We use [these recommendations](https://github.com/kachkaev/tooling-for-how-old-is-this-house#tooling-for-how-old-is-thishouse)_ | [openstreetmap.org](https://www.openstreetmap.org/)<br />[how-old-is-this.house](https://how-old-is-this.house/)<br />[mingkh.ru](https://mingkh.ru/)<br />[domaekb.ru](https://domaekb.ru) | — | 🚧 |
 
 - ✅ — Verified source
