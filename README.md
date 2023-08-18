@@ -14,7 +14,7 @@ The map contains layers of data about objects in the city so that urbanists can 
 
 ### Features
 
-- Speed and performance with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
+- Speed and performance map with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
 - Visualization for [Ekaterinburg opendata](https://github.com/ekaterinburgdev/map-api)
 - Detailed object cards
 
