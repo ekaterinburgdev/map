@@ -27,8 +27,9 @@ export function AboutProjectContent() {
             <p>Это бета-версия сервиса. В&nbsp;будущем мы&nbsp;планируем добавить новые слои данных, показывать сразу несколько слоёв, разработать API, визуализировать данные обо всех городах в&nbsp;мире и&nbsp;много чего ещё. Чтобы ничего не&nbsp;пропустить подписывайтесь на&nbsp;<a href="https://t.me/ekaterinburgdev" target="_blank" rel="noreferrer"><Image src={telegramIcon} height={16} alt="" />телеграм-канал</a>.</p>
 
             <h3>Источники данных</h3>
-            <p>Мы&nbsp;используем данные из&nbsp;публичных источников, которые содержат неточности. <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none" target="_blank" rel="noreferrer">Оставьте фидбек</a>, помогите нам улучшить карту.</p>
-            <p>Все используемые источники перечислены ниже. Если у&nbsp;вас есть своя уникальная база данных и&nbsp;вы&nbsp;хотите поделиться ей&nbsp;с&nbsp;нами, напишите, пожалуйста, на&nbsp;почту <a href="mailto:mail@ekaterinburg.city">mail@ekaterinburg.city</a>. А&nbsp;мы&nbsp;обязательно укажем ваше авторство.</p>
+            <p>Мы&nbsp;используем данные из&nbsp;публичных источников. Они не&nbsp;всегда точные, но&nbsp;других нет. Если вы&nbsp;заметили ошибку, пожалуйста, <a href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none" target="_blank" rel="noreferrer">оставьте фидбек</a>, помогите нам улучшить карту и&nbsp;данные.</p>
+            <p>Все наши источники перечислены ниже, а&nbsp;данные карты доступны <a href="https://github.com/ekaterinburgdev/map#map-data" target="_blank" rel="noreferrer">в&nbsp;репозитории</a>.</p>
+            <p>Если у&nbsp;вас есть своя уникальная база данных и&nbsp;вы&nbsp;хотите поделиться ей&nbsp;с&nbsp;нами, напишите, пожалуйста, на&nbsp;почту <a href="mailto:mail@ekaterinburg.city">mail@ekaterinburg.city</a>. Мы&nbsp;обязательно укажем ваше авторство, а&nbsp;данные навсегда останутся открытыми.</p>
 
             <dl>
                 <dt>Данные о домах</dt>
