@@ -10,6 +10,6 @@ type TEditObjectButtonLinkProps = {
 
 export function EditObjectButtonLink({ address }: TEditObjectButtonLinkProps) {
     return (
-        <ButtonLink text="Дополнить или поправить" link={getEditObjectLink(address)} icon={IconType.Edit} />
+        <ButtonLink text="Дополнить или поправить…" link={getEditObjectLink(address)} icon={IconType.Edit} />
     );
 }
