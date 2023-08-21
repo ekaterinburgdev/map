@@ -34,6 +34,7 @@ export function AboutProjectContent() {
             <dl>
                 <dt>Данные о домах</dt>
                 <dd>
+                    <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">openstreetmap.org</a>
                     <a href="https://how-old-is-this.house/" target="_blank" rel="noreferrer">how-old-is-this.house</a>
                     <a href="https://mingkh.ru/" target="_blank" rel="noreferrer">mingkh.ru</a>
                     <a href="https://domaekb.ru/" target="_blank" rel="noreferrer">domaekb.ru</a>
