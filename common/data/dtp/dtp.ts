@@ -4,13 +4,14 @@ import { DTP_YEARS_RANGE } from 'components/Model/DTP/DTP.constants';
 
 import dtpData from '../../../public/ekb-dtp.json';
 
-import { getById } from '../base/getById';
+import { fetchAPI } from '../dataHelpers';
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
 
 export const dtp = {
     async getObject(id: string) {
-        return getById.getObject(id, '/dtps');
+        // eslint-disable-next-line @typescript-eslint/return-await
+        return await fetchAPI(`/api/dtp?id=${id}`);
     },
     async getSeverityFilters() {
         const dtpBySeverity = Object.entries(
@@ -56,14 +57,13 @@ export interface DTPFiltersParams {
 }
 
 export type DTPObject = {
-    id: string;
-    attributes: DTPObjectAttributes;
-};
-
-export type DTPObjectAttributes = {
+    properties: DTPObjectProperties;
     geometry: {
         coordinates: [number, number];
     };
+};
+
+export type DTPObjectProperties = {
     vehicles: DTPVehicle[];
     dead_count: number;
     injured_count: number;

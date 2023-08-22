@@ -41,19 +41,19 @@ export const MODEL_CONFIG = {
     [MapItemType.RedLines]: {
         cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: lines.getRedObject,
+            oneItemRequest: lines.getObject,
         },
     },
     [MapItemType.PinkLines]: {
         cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: lines.getPinkObject,
+            oneItemRequest: lines.getObject,
         },
     },
     [MapItemType.BlueLines]: {
         cardContent: LinesCardContent,
         requests: {
-            oneItemRequest: lines.getBlueObject,
+            oneItemRequest: lines.getObject,
         },
     },
 } as const;

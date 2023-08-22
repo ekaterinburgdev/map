@@ -10,16 +10,17 @@ type TLinesCardContentProps = {
 };
 
 export function LinesCardContent({ placemark }: TLinesCardContentProps) {
+    if (!placemark) return null;
+
     return (
         <div className={styles.popup}>
             <Header
-                coordinates={placemark?.attributes.geometry.coordinates}
-                title={placemark?.attributes.iconCaption || placemark.attributes.name}
+                coordinates={placemark?.geometry.coordinates}
+                title={placemark.properties.title || placemark.properties.description}
             />
-            {placemark?.attributes.description && placemark?.attributes.description.startsWith('http') && (
+            {placemark.properties.description?.startsWith('http') && (
                 <Section>
-                    {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                    <Link link={placemark?.attributes.description} text="Подробнее об объекте" />
+                    <Link href={placemark.properties.description} text="Подробнее об объекте" />
                 </Section>
             )}
         </div>

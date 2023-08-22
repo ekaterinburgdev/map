@@ -1,23 +1,8 @@
-import { HouseClient } from 'common/data/base/houseBase';
-import { DesignCodeObject } from 'common/data/designCode/designCodeObject';
-import { DTPObject } from 'common/data/dtp/dtp';
 import { OknAreaType } from 'common/data/okn/oknConstants';
 import { LineObject, LineType } from 'common/data/lines/lineType';
-import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
 import { FilterType } from 'components/UI/Filters/Filters.types';
 
 import { MapItemType } from './map-item';
-
-export interface DataLayerBaseState<T> {
-    data: T[];
-    mapItemType: MapItemType;
-}
-
-export type HousesState = DataLayerBaseState<HouseClient>;
-export type OKNState = DataLayerBaseState<OknObjectWithGeometry>;
-export type OKNAreaState = DataLayerBaseState<OknObjectWithGeometry>;
-export type DTPState = DataLayerBaseState<DTPObject>;
-export type DesignCodeState = DataLayerBaseState<DesignCodeObject>;
 
 export interface LinesData {
     lines: {

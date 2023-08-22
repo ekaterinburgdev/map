@@ -1,5 +1,5 @@
-import { OknObjectWithGeometry } from 'common/data/okn/oknObject';
+import { OknObject } from 'common/data/okn/oknObject';
 
 export interface OKNCardContentProps {
-    placemark: OknObjectWithGeometry;
+    placemark: OknObject;
 }

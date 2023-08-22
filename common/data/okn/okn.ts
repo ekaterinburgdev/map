@@ -1,15 +1,12 @@
-import { getById } from '../base/getById';
-import { parseJsonWithSingleQuotes } from '../dataHelpers';
 import oknMeta from '../../../public/okn-meta.json';
+import oknObjects from '../../../public/ekb-okn.json';
 import { OknObject } from './oknObject';
 
 export const okn = {
-    async getObject(id: string): Promise<OknObject> {
-        return getById.getObject(id, '/okn-objects').then((x) => {
-            x.attributes.img = parseJsonWithSingleQuotes(x.attributes?.img);
-            x.attributes.document = parseJsonWithSingleQuotes(x.attributes?.document);
-            return x;
-        });
+    getObject(id: string): Promise<OknObject> {
+        return Promise.resolve(
+            oknObjects.features.find((f) => String(f.properties.id) === id) as unknown as OknObject,
+        );
     },
 
     async getObjectsCount() {
