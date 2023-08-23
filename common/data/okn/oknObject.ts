@@ -1,20 +1,14 @@
 import { OknObjectSignificanceType } from './oknConstants';
 
 export interface OknObject {
-    id: string;
-    attributes: OknAttributes;
+    properties: OknProperties;
+    geometry: OknGeometry;
 }
 
-export interface OknObjectWithGeometry {
-    id: string;
-    attributes: OknAttributesWithGeometry;
-}
-
-export interface OknAttributes {
+export interface OknProperties {
+    id: number;
     name: string;
     address: string;
-    createdAt: Date;
-    updatedAt: Date;
     okn_number: string;
     date: string;
     type: string;
@@ -28,15 +22,9 @@ export interface OknAttributes {
     }[];
     isExist?: string;
     comment?: string;
-    CoordinatesHash: string;
-}
-
-export interface OknAttributesWithGeometry extends OknAttributes {
-    geometry: OknGeometry;
 }
 
 export interface OknGeometry {
-    id: string;
     coordinates: [lat: number, lng: number];
     type?: string;
 }

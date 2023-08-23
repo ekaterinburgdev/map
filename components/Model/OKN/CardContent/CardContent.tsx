@@ -13,65 +13,65 @@ import styles from './CardContent.module.css';
 
 export function OKNCardContent({ placemark }: OKNCardContentProps) {
     const { title, description } = useMemo(() => {
-        const indexOfComma = placemark?.attributes.name?.indexOf(',') || -1;
+        const indexOfComma = placemark?.properties.name?.indexOf(',') || -1;
 
         if (indexOfComma === -1) {
-            return { title: placemark?.attributes.name };
+            return { title: placemark?.properties.name };
         }
 
         return {
-            title: placemark?.attributes.name.slice(0, indexOfComma),
-            description: placemark?.attributes.name.slice(indexOfComma + 1),
+            title: placemark?.properties.name.slice(0, indexOfComma),
+            description: placemark?.properties.name.slice(indexOfComma + 1),
         };
-    }, [placemark?.attributes.name]);
+    }, [placemark?.properties.name]);
 
-    return placemark?.attributes ? (
+    return placemark?.properties ? (
         <div className={styles.popup}>
-            {placemark?.attributes.img && (
+            {placemark?.properties.img && (
                 <a
-                    href={placemark?.attributes.img.url}
+                    href={placemark?.properties.img.url}
                     target="_blank"
                     rel="noreferrer"
                     className={styles.popup__imageLink}
                 >
                     <img
-                        key={placemark?.attributes.img.title}
-                        src={placemark?.attributes.img.url}
+                        key={placemark?.properties.img.title}
+                        src={placemark?.properties.img.url}
                         width={400}
                         height={256}
                         className={styles.popup__image}
-                        alt={placemark?.attributes.name}
+                        alt={placemark?.properties.name}
                     />
                 </a>
             )}
             <div className={styles.popup__content}>
                 <Header
-                    coordinates={placemark?.attributes.geometry.coordinates}
+                    coordinates={placemark?.geometry.coordinates}
                     title={title}
                     description={description}
                 />
-                {placemark?.attributes.address && (
+                {placemark?.properties.address && (
                     <address className={styles.popup__address}>
-                        {placemark?.attributes.address}
+                        {placemark?.properties.address}
                     </address>
                 )}
-                {placemark?.attributes.date && (
+                {placemark?.properties.date && (
                     <Section>
-                        <ConstructionInfo date={placemark?.attributes.date} />
+                        <ConstructionInfo date={placemark?.properties.date} />
                     </Section>
                 )}
                 <Section>
                     <OKNInfo
-                        number={placemark?.attributes.okn_number}
-                        status={placemark?.attributes.isExist}
+                        number={placemark?.properties.okn_number}
+                        status={placemark?.properties.isExist}
                     />
                 </Section>
                 <Section>
                     <Sources sources={['okn']} />
                 </Section>
-                {placemark?.attributes?.address && (
+                {placemark?.properties?.address && (
                     <Section>
-                        <EditObjectButtonLink address={placemark?.attributes?.address} />
+                        <EditObjectButtonLink address={placemark?.properties?.address} />
                     </Section>
                 )}
             </div>

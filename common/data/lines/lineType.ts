@@ -5,16 +5,14 @@ export enum LineType {
 }
 
 export interface LineObject {
-    id: number;
-    attributes: {
-        iconCaption?: string;
-        name?: string;
+    properties: {
+        id: number;
+        title?: string;
         description: null | string;
-        geometry: {
-            id: string;
-            coordinates: [lat: number, lng: number];
-            type?: string;
-        };
-        image?: string;
+    };
+    geometry: {
+        id: string;
+        coordinates: [lat: number, lng: number];
+        type?: string;
     };
 }

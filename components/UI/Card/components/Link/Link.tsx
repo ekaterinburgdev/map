@@ -3,13 +3,13 @@ import styles from './Link.module.css';
 
 type TLinkProps = {
     text?: string;
-    link: string;
+    href: string;
 };
 
-export function Link({ link, text }:TLinkProps) {
+export function Link({ href, text }: TLinkProps) {
     return (
-        <a href={link} target="_blank" rel="noreferrer" className={styles.link}>
-            {text || link}
+        <a href={href} target="_blank" rel="noreferrer" className={styles.link}>
+            {text || href}
         </a>
     );
 }

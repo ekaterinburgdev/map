@@ -14,24 +14,24 @@ import { Participants } from './components/Participants/Participants';
 
 export function DTPCardContent({ placemark }: DTPCardContentProps) {
     const { title, description } = useMemo(() => {
-        const indexOfComma = placemark?.attributes.category?.indexOf(',') || -1;
+        const indexOfComma = placemark?.properties.category?.indexOf(',') || -1;
 
         if (indexOfComma === -1) {
-            return { title: placemark?.attributes.category };
+            return { title: placemark?.properties.category };
         }
 
         return {
-            title: placemark?.attributes.category.slice(0, indexOfComma),
-            description: placemark?.attributes.category.slice(indexOfComma + 1),
+            title: placemark?.properties.category.slice(0, indexOfComma),
+            description: placemark?.properties.category.slice(indexOfComma + 1),
         };
-    }, [placemark?.attributes.category]);
+    }, [placemark?.properties.category]);
 
     const date = useMemo(() => {
-        if (!placemark?.attributes.datetime) {
+        if (!placemark?.properties.datetime) {
             return null;
         }
 
-        const parsedDate = new Date(placemark.attributes.datetime);
+        const parsedDate = new Date(placemark.properties.datetime);
 
         return parsedDate.toLocaleString('ru-RU', {
             day: 'numeric',
@@ -40,20 +40,20 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
             hour: 'numeric',
             minute: 'numeric',
         });
-    }, [placemark?.attributes.datetime]);
+    }, [placemark?.properties.datetime]);
 
     const environment = useMemo(() => {
         const result: InfoProps['infos'] = [];
 
-        if (placemark?.attributes.light) {
+        if (placemark?.properties.light) {
             result.push({
                 name: 'Время суток',
-                text: placemark.attributes.light,
+                text: placemark.properties.light,
             });
         }
 
-        if (placemark?.attributes.weather?.length) {
-            const [firstCondition, ...conditions] = placemark.attributes.weather;
+        if (placemark?.properties.weather?.length) {
+            const [firstCondition, ...conditions] = placemark.properties.weather;
             const joinedConditions = [
                 firstCondition,
                 ...conditions.map((condition) => condition.toLowerCase()),
@@ -65,8 +65,8 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
             });
         }
 
-        if (placemark?.attributes.road_conditions?.length) {
-            const [firstCondition, ...conditions] = placemark.attributes.road_conditions;
+        if (placemark?.properties.road_conditions?.length) {
+            const [firstCondition, ...conditions] = placemark.properties.road_conditions;
             const joinedConditions = [
                 firstCondition,
                 ...conditions.map((condition) => condition.toLowerCase()),
@@ -80,32 +80,32 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
 
         return result;
     }, [
-        placemark?.attributes.road_conditions,
-        placemark?.attributes.weather,
-        placemark?.attributes.light,
+        placemark?.properties.road_conditions,
+        placemark?.properties.weather,
+        placemark?.properties.light,
     ]);
 
-    return placemark?.attributes ? (
+    return placemark?.properties ? (
         <div className={styles.popup}>
             <Header
-                coordinates={placemark?.attributes.geometry.coordinates}
+                coordinates={placemark?.geometry.coordinates}
                 title={title}
                 description={description}
             />
             {date && <p className={styles.popup__extraText}>{date}</p>}
-            {placemark?.attributes.address && (
+            {placemark?.properties.address && (
                 <address className={styles.popup__extraText}>
-                    {placemark?.attributes.address}
+                    {placemark?.properties.address}
                 </address>
             )}
             <Section>
                 <Info infos={environment} nameColor="#9baac3" />
             </Section>
-            {placemark?.attributes.participants_count && (
+            {placemark?.properties.participants_count && (
                 <Section>
                     <Participants
-                        participants={placemark.attributes.participants}
-                        vehicles={placemark.attributes.vehicles}
+                        participants={placemark.properties.participants}
+                        vehicles={placemark.properties.vehicles}
                     />
                 </Section>
             )}
