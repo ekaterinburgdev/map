@@ -18,7 +18,6 @@ export function HouseFloorFilter() {
 
     const getHouses = useCallback(
         async (range: MinMax) => {
-            // houseFloor.getObjectsPolygonsByRange(range.min, range.max)
             dispatch(setFilterParams({ activeFilterParams: range }));
         },
         [dispatch],

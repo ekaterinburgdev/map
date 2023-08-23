@@ -10,10 +10,13 @@ export function usePopup() {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
     const [popupType, setPopupType] = useState<MapItemType>(null);
 
-    const openPopup = useCallback((id: PopupId, type: MapItemType) => {
-        closeAboutProject();
-        window.location.hash = `${type}-${id}`;
-    }, []);
+    const openPopup = useCallback(
+        (id: PopupId, type: MapItemType) => {
+            closeAboutProject();
+            window.location.hash = `${type}-${id}`;
+        },
+        [closeAboutProject],
+    );
 
     const closePopup = useCallback(() => {
         setPopupType(null);

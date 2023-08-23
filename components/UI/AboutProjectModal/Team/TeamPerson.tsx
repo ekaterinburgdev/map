@@ -16,15 +16,12 @@ function Person({ name, role, photo }: ITeamPerson) {
             <figcaption className={cx('team-person__caption')}>
                 {name && (
                     <div className={cx('team-person__name')}>
+                        {/* eslint-disable-next-line react/no-danger */}
                         <span dangerouslySetInnerHTML={{ __html: name }} />
                     </div>
                 )}
-                {role && (
-                    <div
-                        className={cx('team-person__role')}
-                        dangerouslySetInnerHTML={{ __html: role }}
-                    />
-                )}
+                {/* eslint-disable-next-line react/no-danger */}
+                {role && <div dangerouslySetInnerHTML={{ __html: role }} className={cx('team-person__role')} />}
             </figcaption>
         </figure>
     );

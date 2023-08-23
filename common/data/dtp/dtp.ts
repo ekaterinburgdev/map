@@ -9,9 +9,8 @@ import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';
 
 export const dtp = {
-    async getObject(id: string) {
-        // eslint-disable-next-line @typescript-eslint/return-await
-        return await fetchAPI(`/api/dtp?id=${id}`);
+    async getObject(id: string): Promise<object> {
+        return fetchAPI(`/api/dtp?id=${id}`);
     },
     async getSeverityFilters() {
         const dtpBySeverity = Object.entries(

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useRef, useState } from 'react';
+import React, { PropsWithChildren, useRef } from 'react';
 import classNames from 'classnames';
 
 import styles from './Filter.module.css';
@@ -9,9 +9,6 @@ export interface FilterProps extends PropsWithChildren {
 
 export function Filter({ children, isActive }: FilterProps) {
     const spoilerRef = useRef<HTMLDivElement>();
-
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [updateCount, setUpdateCount] = useState<number>(0);
 
     return (
         <div
