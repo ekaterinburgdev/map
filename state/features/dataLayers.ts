@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ToggleDataPayload, SetFilterParamsPayload, SetFilterPayload } from 'common/types/state';
+import { ToggleDataPayload, SetFilterParamsPayload, SetFilterPayload, State } from 'state/state';
+import { FilterType } from 'components/UI/Filters/Filters.types';
 
-import { initialState } from '../constants/dataLayers';
+export const initialState: State['dataLayer'] = {
+    activeFilter: Object.values(FilterType)[0],
+    activeFilterParams: null,
+};
 
 const dataLayerSlice = createSlice({
     name: 'dataLayer',

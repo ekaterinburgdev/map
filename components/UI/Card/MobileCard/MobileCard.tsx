@@ -2,7 +2,7 @@ import Sheet from 'react-modal-sheet';
 import * as React from 'react';
 import { useContext } from 'react';
 import { Card } from 'components/UI/Card/Card';
-import { MapContext } from 'components/UI/Map/providers/MapProvider';
+import { MapContext } from 'components/Map/providers/MapProvider';
 
 export function MobileCard() {
     const { popupId, closePopup } = useContext(MapContext);

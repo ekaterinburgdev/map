@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
-import { MapContext } from 'components/UI/Map/providers/MapProvider';
+import { MapContext } from 'components/Map/providers/MapProvider';
 import { FILTERS_CONFIG } from '../Filters/Filters.config';
 
 import styles from './Copyright.module.css';
@@ -19,11 +19,7 @@ export function Copyright() {
             {copyright && (
                 <>
                     {' · '}
-                    <a
-                        href={copyright}
-                        target="_blank"
-                        rel="noreferrer"
-                    >
+                    <a href={copyright} target="_blank" rel="noreferrer">
                         {new URL(copyright.link).host}
                     </a>
                 </>

@@ -1,4 +1,4 @@
-import { round } from 'common/round';
+import { round } from 'helpers/round';
 
 export function getPercent(min: number, max: number, value: number) {
     return Math.round(((value - min) / (max - min)) * 1000) / 10;

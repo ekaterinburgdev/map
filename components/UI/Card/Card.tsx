@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from 'react';
 import { CardLoader } from 'components/UI/Card/components/Loader/Loader';
-import { MODEL_CONFIG } from 'components/Model/config';
-import { MapContext } from 'components/UI/Map/providers/MapProvider';
+import { MODEL_CONFIG } from 'components/Layers/config';
+import { MapContext } from 'components/Map/providers/MapProvider';
 
 export function Card() {
     const { popupId, popupType } = useContext(MapContext);
