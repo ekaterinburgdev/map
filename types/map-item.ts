@@ -6,4 +6,5 @@ export enum MapItemType {
     PinkLines = 'pinkLines',
     BlueLines = 'blueLines',
     OKN = 'okn',
+    Camera = 'camera',
 }

@@ -9,7 +9,6 @@ import { DTPFilter } from 'components/Layers/DTP/Filter/DTPFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
 import { FilterConfig, FilterType } from '../../types/Filters.types';
 
-// @ts-ignore
 export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.HouseAge]: {
         title: 'Возраст домов',
@@ -50,6 +49,11 @@ export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.Line]: {
         title: 'Туристические маршруты',
         component: <LinesFilter />,
+        isVerified: true,
+    },
+    [FilterType.Camera]: {
+        title: 'Веб-камеры',
+        component: null,
         isVerified: true,
     },
 };

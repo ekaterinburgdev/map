@@ -9,6 +9,8 @@ import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
 import { DTPCardContent } from './DTP/CardContent/CardContent';
 import { HousesCardContent } from './Houses/CardContent/CardContent';
 import { OKNCardContent } from './OKN/CardContent';
+import { CameraCardContent } from './Cameras/CameraCardContent';
+import { camera } from './Cameras/camera';
 
 export const MODEL_CONFIG = {
     [MapItemType.Houses]: {
@@ -38,5 +40,9 @@ export const MODEL_CONFIG = {
     [MapItemType.BlueLines]: {
         cardContent: LinesCardContent,
         requests: { oneItemRequest: lines.getObject },
+    },
+    [MapItemType.Camera]: {
+        cardContent: CameraCardContent,
+        requests: { oneItemRequest: camera.getObject },
     },
 } as const;

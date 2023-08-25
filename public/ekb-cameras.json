@@ -1,0 +1,61 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [60.593746, 56.83323]
+      },
+      "properties": {
+        "id": "ekb_malysheva_28_1",
+        "streamHlsUrl": "/cameras/ekb_malysheva_28_1/compressed/index.m3u8",
+        "address": "Екатеринбург, Малышева д. 28",
+        "directionDescription": "Север",
+        "angle": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [60.593, 56.833]
+      },
+      "properties": {
+        "id": "ekb_malysheva_28_2",
+        "streamHlsUrl": "/cameras/ekb_malysheva_28_2/compressed/index.m3u8",
+        "address": "Екатеринбург, Малышева д. 28",
+        "directionDescription": "Юг",
+        "angle": 180
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [60.5938, 56.83135]
+      },
+      "properties": {
+        "id": "ekb_khokhryakova_39_1",
+        "streamHlsUrl": "/cameras/ekb_khokhryakova_39_1/compressed/index.m3u8",
+        "address": "Екатеринбург, Хохрякова д. 39",
+        "directionDescription": "Север",
+        "angle": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [60.5936, 56.831221]
+      },
+      "properties": {
+        "id": "ekb_khokhryakova_39_2",
+        "streamHlsUrl": "/cameras/ekb_khokhryakova_39_2/compressed/index.m3u8",
+        "address": "Екатеринбург, Хохрякова д. 39",
+        "directionDescription": "Юг",
+        "angle": 180
+      }
+    }
+  ]
+}

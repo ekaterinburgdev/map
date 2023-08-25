@@ -14,6 +14,7 @@ import { DesignCodeSource } from './layers/DesignCodeSource';
 import { MapContext } from './providers/MapProvider';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { CameraSource } from './layers/CameraSource';
 
 function MapLayers() {
     return (
@@ -23,6 +24,7 @@ function MapLayers() {
             <DtpSource />
             <LinesSource />
             <DesignCodeSource />
+            <CameraSource />
         </>
     );
 }

@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/cameras/:splat*",
+      "destination": "http://89.108.76.228:8888/:splat*"
+    }
+  ]
+}
