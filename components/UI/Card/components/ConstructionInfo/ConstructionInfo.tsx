@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 
-import { getYearNameByValue } from 'common/getYearNameByValue';
+import { getYearNameByValue } from 'helpers/getYearNameByValue';
 import { Info } from 'components/UI/Card/components/Info/Info';
 
 import { YEAR_RE } from './ConstructionInfo.constants';

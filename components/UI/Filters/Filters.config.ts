@@ -1,11 +1,11 @@
-import { HouseAgeFilter } from 'components/Model/Houses/Filter/Age/HouseAgeFilter';
-import { HouseFloorFilter } from 'components/Model/Houses/Filter/Floor/HouseFloorFilter';
-import { HouseWearTearFilter } from 'components/Model/Houses/Filter/WearTear/HouseWearTearFilter';
-import { DesignCodeFilter } from 'components/Model/DesignCode/Filter/DesignCodeFilter';
-import { OknFilter } from 'components/Model/OKN/Filter/Okn/OknFilter';
-import { LinesFilter } from 'components/Model/Lines/Filter/LinesFilter';
-import { DTPFilter } from 'components/Model/DTP/Filter/DTPFilter';
-import { SOURCES_BY_TYPE } from 'common/constants/sources';
+import { HouseAgeFilter } from 'components/Layers/Houses/Filter/Age/HouseAgeFilter';
+import { HouseFloorFilter } from 'components/Layers/Houses/Filter/Floor/HouseFloorFilter';
+import { HouseWearTearFilter } from 'components/Layers/Houses/Filter/WearTear/HouseWearTearFilter';
+import { DesignCodeFilter } from 'components/Layers/DesignCode/Filter/DesignCodeFilter';
+import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
+import { LinesFilter } from 'components/Layers/Lines/Filter/LinesFilter';
+import { DTPFilter } from 'components/Layers/DTP/Filter/DTPFilter';
+import { SOURCES_BY_TYPE } from 'constants/sources';
 import { FilterConfig, FilterType } from './Filters.types';
 
 // @ts-ignore

@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 
 import { IconType } from 'components/UI/Icons/Icons.types';
-import { useCopyHref } from 'components/helpers/useCopyHref';
+import { useCopyHref } from 'helpers/useCopyHref';
 
 import { Label } from '../Label/Label';
 

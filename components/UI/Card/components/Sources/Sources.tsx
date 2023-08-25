@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SOURCES_BY_TYPE } from 'common/constants/sources';
+import { SOURCES_BY_TYPE } from 'constants/sources';
 import { SourcesProps } from './Sources.types';
 
 import styles from './Sources.module.css';

@@ -2,7 +2,7 @@ import Sheet from 'react-modal-sheet';
 import * as React from 'react';
 import { useContext } from 'react';
 import { AboutProjectContent } from 'components/UI/AboutProjectModal/AboutProjectContent';
-import { AboutProjectContext } from 'components/providers/AboutProjectProvider';
+import { AboutProjectContext } from 'state/providers/AboutProjectProvider';
 
 export function MobileAboutProject() {
     const { isOpened, close } = useContext(AboutProjectContext);

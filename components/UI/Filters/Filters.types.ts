@@ -1,5 +1,10 @@
 import { FunctionComponent } from 'react';
-import { Source } from 'common/types/sources';
+
+export interface Source {
+    name: string;
+    link: string;
+    data: string;
+}
 
 export enum FilterType {
     HouseAge = 'houseAge',

@@ -1,4 +1,4 @@
-import { State } from 'common/types/state';
+import { State } from 'state/state';
 
 export const activeFilterSelector = (state: State) => state.dataLayer.activeFilter;
 
