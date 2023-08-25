@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { ReactNode } from 'react';
 
 export interface Source {
     name: string;
@@ -18,7 +18,7 @@ export enum FilterType {
 
 export interface FilterConfigItem {
     title: string;
-    component: FunctionComponent;
+    component: ReactNode;
     source?: Source;
     isVerified: boolean;
 }

@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useReducer, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { setFilter } from 'state/features/dataLayers';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { lines } from 'components/Layers/Lines/lines';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';

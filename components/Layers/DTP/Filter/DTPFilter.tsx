@@ -7,7 +7,7 @@ import { dtp, DTPFiltersParams } from 'components/Layers/DTP/dtp';
 
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { MinMax } from 'components/UI/RangeHistogram/types';
 import { RangeBaseFilter } from 'components/UI/RangeBaseFilter/RangeBaseFilter';
 

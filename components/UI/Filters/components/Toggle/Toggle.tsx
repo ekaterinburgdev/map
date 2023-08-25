@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { FilterType } from '../../Filters.types';
+import { FilterType } from '../../../../../types/Filters.types';
 
 import styles from './Toggle.module.css';
 
@@ -27,9 +27,11 @@ export function Toggle({ id, label, onClick, type, isActive }: ToggleProps) {
                 checked={isActive}
                 onChange={onChange}
                 onKeyDown={(e) => {
-                    if ((e.key === 'Enter')
-                    || (e.key === 'ArrowRight' && !isActive)
-                    || (e.key === 'ArrowLeft' && isActive)) {
+                    if (
+                        e.key === 'Enter' ||
+                        (e.key === 'ArrowRight' && !isActive) ||
+                        (e.key === 'ArrowLeft' && isActive)
+                    ) {
                         onChange();
                     }
                 }}

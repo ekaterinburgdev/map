@@ -34,8 +34,8 @@ export function Map() {
         <MapGl
             id="ekbMap"
             initialViewState={{
-                latitude: COORDS_EKATERINBURG[0],
-                longitude: COORDS_EKATERINBURG[1],
+                latitude: COORDS_EKATERINBURG[1],
+                longitude: COORDS_EKATERINBURG[0],
                 zoom: 15,
                 pitch: 30,
             }}

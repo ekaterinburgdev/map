@@ -1,4 +1,4 @@
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { OknAreaType } from 'components/Layers/OKN/oknConstants';
 import { LineObject, LineType } from 'components/Layers/Lines/lineType';
 

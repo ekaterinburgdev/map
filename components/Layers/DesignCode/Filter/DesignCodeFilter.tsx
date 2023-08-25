@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import groupBy from 'lodash/groupBy';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { setFilter } from 'state/features/dataLayers';
 
 import designCode from '../../../../public/ekb-design-code.json';

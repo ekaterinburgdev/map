@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'components/Layers/OKN/Okn.constants';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
 import { OknAreaType } from 'components/Layers/OKN/oknConstants';
 import { MapItemType } from 'types/map-item';

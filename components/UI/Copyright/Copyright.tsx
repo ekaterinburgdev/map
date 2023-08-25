@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
 import { MapContext } from 'components/Map/providers/MapProvider';
-import { FILTERS_CONFIG } from '../Filters/Filters.config';
+import { FILTERS_CONFIG } from '../../Layers/Filters.config';
 
 import styles from './Copyright.module.css';
 

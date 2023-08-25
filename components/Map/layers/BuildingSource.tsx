@@ -8,7 +8,7 @@ import {
     WEAR_TEAR_FILTERS_DATA,
 } from 'components/Layers/Houses/Houses.constants';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { MapItemType } from 'types/map-item';
 import { colorLuminance } from 'components/Map/helpers/colorLuminance';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
