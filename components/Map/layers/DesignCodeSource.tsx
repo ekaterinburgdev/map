@@ -3,7 +3,7 @@ import { useMap, Source, Layer, Marker, CircleLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { DESIGN_CODE_ITEMS_COLORS } from 'components/Layers/DesignCode/DesignCode.constants';
 import { MapItemType } from 'types/map-item';
 import { DESIGN_MAP_HOST } from 'components/Layers/DesignCode/designCode';

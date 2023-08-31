@@ -1,6 +1,6 @@
 @import './font.css';
 @import './modal.css';
-@import "./tally-widget.css";
+@import './tally-widget.css';
 
 * {
     box-sizing: border-box;
@@ -41,4 +41,8 @@ a {
 
 button {
     font-family: inherit;
+}
+
+video {
+    width: 100%;
 }

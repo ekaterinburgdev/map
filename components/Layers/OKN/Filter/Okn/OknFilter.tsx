@@ -8,7 +8,7 @@ import { okn } from 'components/Layers/OKN/okn';
 import { Checkbox } from 'components/UI/Checkbox/Checkbox';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { Section } from 'components/UI/Card/components/Section/Section';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 
 import { AREA_CONFIG, OBJECTS_CONFIG } from '../../Okn.constants';

@@ -3,7 +3,7 @@ import { Source, Layer, useMap } from 'react-map-gl';
 import type { CircleLayer, LineLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
-import { FilterType } from 'components/UI/Filters/Filters.types';
+import { FilterType } from 'types/Filters.types';
 import { LINES_CONFIG } from 'components/Layers/Lines/Lines.constants';
 import { MapItemType } from 'types/map-item';
 import { usePopup } from 'components/Map/providers/usePopup';
