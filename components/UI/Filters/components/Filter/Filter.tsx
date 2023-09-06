@@ -13,7 +13,9 @@ export function Filter({ children, isActive }: FilterProps) {
     return (
         <div
             ref={spoilerRef}
-            className={classNames(styles.filter, { [styles.filter_active]: isActive })}
+            className={classNames(styles.filter, {
+                [styles.filter_active]: isActive,
+            })}
             aria-hidden={!isActive}
         >
             {isActive && children}

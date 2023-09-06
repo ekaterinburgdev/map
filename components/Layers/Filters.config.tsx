@@ -7,6 +7,7 @@ import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
 import { LinesFilter } from 'components/Layers/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Layers/DTP/Filter/DTPFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
+import { QuarterFilter } from 'components/Layers/Quarter/Filter/QuarterFilter';
 import { FilterConfig, FilterType } from '../../types/Filters.types';
 
 // @ts-ignore
@@ -50,6 +51,11 @@ export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.Line]: {
         title: 'Туристические маршруты',
         component: <LinesFilter />,
+        isVerified: true,
+    },
+    [FilterType.Quarter]: {
+        title: 'Квартальные',
+        component: <QuarterFilter />,
         isVerified: true,
     },
 };

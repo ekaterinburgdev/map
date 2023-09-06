@@ -1,6 +1,6 @@
 .sources {
     display: flex;
-    gap: 8px;
+    gap: 4px;
     flex-direction: column;
 }
 
@@ -21,18 +21,7 @@
 
 .sources__listItem {
     list-style: none;
-    color: #55647d;
-    font-size: 14px;
-    line-height: 18px;
-    font-weight: 400;
-    text-decoration: underline;
-    transition: .15s ease;
 }
-
-.sources__listItem:hover {
-    color: #6e81a2;
-}
-
 
 @media screen and (width >= 1440px) {
     .sources__title {

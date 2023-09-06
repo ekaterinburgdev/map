@@ -1,0 +1,21 @@
+.popup {
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+    padding: 16px 8px 16px 16px;
+}
+
+.mainLink {
+    color: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.description {
+    margin-top: 8px;
+    position: relative;
+    svg {
+        position: relative;
+        top: 2px;
+        left: 2px;
+    }
+}

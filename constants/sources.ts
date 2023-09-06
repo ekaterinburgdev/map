@@ -29,4 +29,9 @@ export const SOURCES_BY_TYPE = {
         link: 'https://dtp-stat.ru/',
         data: 'https://dtp-stat.ru/opendata',
     },
+    ekb: {
+        name: 'екатеринбург.рф',
+        link: 'https://екатеринбург.рф/справка/квартальные',
+        data: null,
+    },
 } as const;

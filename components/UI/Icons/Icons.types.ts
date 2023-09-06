@@ -10,6 +10,8 @@ export enum IconType {
     PublicTransport = 'publicTransport',
     Children = 'children',
     Edit = 'edit',
+    Download = 'download',
+    External = 'external',
 }
 
 export type IconBaseProps = { color?: string; mix?: string };

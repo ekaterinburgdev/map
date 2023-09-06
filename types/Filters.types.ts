@@ -14,6 +14,7 @@ export enum FilterType {
     DesignCode = 'designCode',
     DTP = 'dtp',
     Line = 'line',
+    Quarter = 'quarter',
 }
 
 export interface FilterConfigItem {

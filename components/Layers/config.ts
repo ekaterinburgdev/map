@@ -5,6 +5,8 @@ import { okn } from 'components/Layers/OKN/okn';
 
 import { lines } from 'components/Layers/Lines/lines';
 import { LinesCardContent } from 'components/Layers/Lines/CardContent/CardContent';
+import { QuarterCardContent } from 'components/Layers/Quarter/CardContent/CardContent';
+import { quarter } from 'components/Layers/Quarter/quarter';
 import { DesignCodeCardContent } from './DesignCode/CardContent/CardContent';
 import { DTPCardContent } from './DTP/CardContent/CardContent';
 import { HousesCardContent } from './Houses/CardContent/CardContent';
@@ -38,5 +40,9 @@ export const MODEL_CONFIG = {
     [MapItemType.BlueLines]: {
         cardContent: LinesCardContent,
         requests: { oneItemRequest: lines.getObject },
+    },
+    [MapItemType.Quarter]: {
+        cardContent: QuarterCardContent,
+        requests: { oneItemRequest: quarter.getObject },
     },
 } as const;
