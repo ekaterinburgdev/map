@@ -1,0 +1,22 @@
+.health__progress__container {
+    position: relative;
+    height: 10px;
+    width: 100%;
+    display: grid;
+    background: #38465f;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+.completed {
+    border-radius: 100px 0 0 100px;
+    height: 10px;
+}
+.not__completed {
+    border-radius: 0 100px 100px 0;
+    height: 10px;
+    background: #38465f;
+}
+.health__progressbar__icon {
+    position: absolute;
+    top: -10px;
+}
