@@ -15,6 +15,7 @@ import { usePopup } from 'components/Map/providers/usePopup';
 import { MapContext } from 'components/Map/providers/MapProvider';
 import { HouseObject } from 'components/Layers/Houses/houseBase';
 
+import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
 export function HousesCardContent() {
@@ -100,6 +101,7 @@ export function HousesCardContent() {
             result.push({
                 name: 'Износ',
                 text: `${placemark?.attributes?.WearAndTear}%`,
+                content: <HealthProgress percent={placemark?.attributes?.WearAndTear} />,
             });
         }
 

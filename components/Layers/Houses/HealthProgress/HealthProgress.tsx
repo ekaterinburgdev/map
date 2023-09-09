@@ -1,50 +1,36 @@
-import { FC, useEffect, useState } from 'react'
-import { WEAR_TEAR_FILTERS_DATA } from '../Houses.constants'
-import styles from './HealthProgress.module.css'
+import { useMemo } from 'react';
+import Heart from 'components/UI/Icons/Heart';
+import { WEAR_TEAR_FILTERS_DATA } from '../Houses.constants';
+import styles from './HealthProgress.module.css';
 
 type Props = {
     percent: number;
 };
 
-const HealthProgress: FC<Props> = ({ percent }: Props) => {
-    const [color, setColor] = useState<string | null>(null);
-
-    useEffect(() => {
-        WEAR_TEAR_FILTERS_DATA.map(({ from, to, color }) => {
-            if (percent >= from && percent <= to) setColor(color);
-        });
-    }, [percent]);
+function HealthProgress({ percent }: Props) {
+    const healthColor = useMemo(() => WEAR_TEAR_FILTERS_DATA.find(({ from, to }) => percent >= from && percent <= to).color, [percent]);
 
     return (
         <div
-            className={styles.health__progress__container}
-            style={{
-                gridTemplateColumns: `${100 - percent}fr ${percent}fr`,
-            }}
+            className={styles.health_progress__track}
         >
             <div
-                className={styles.completed}
+                className={styles.health_progress__thumb}
                 style={{
-                    background: color,
+                    backgroundColor: healthColor,
+                    width: `${100 - percent}%`,
                 }}
-            ></div>
-            <div className={styles.not__completed}></div>
-            {/* <div
-                className={styles.health__progressbar__icon}
+            />
+            <div
+                className={styles.health_progressbar__icon}
                 style={{
-                    left: `${97 - percent}%`,
+                    right: `${percent - 6}%`,
                 }}
             >
-                <AiFillHeart
-                    size="30px"
-                    style={{ stroke: '#1E2841', strokeWidth: '100', fill: color }}
-                />
-            </div> */}
-            {/* <img src='/health-progress-heart.svg' alt="" style={{
-                fill: color,
-            }} /> */}
+                <Heart color={healthColor} />
+            </div>
         </div>
     );
-};
+}
 
 export default HealthProgress;

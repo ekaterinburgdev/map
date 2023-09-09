@@ -1,22 +1,19 @@
-.health__progress__container {
+.health_progress__track,
+.health_progress__thumb {
+    height: 6px;
+}
+
+.health_progress__track {
     position: relative;
-    height: 10px;
-    width: 100%;
+    width: 289px;
     display: grid;
-    background: #38465f;
+    background-color: #38465f;
     border-radius: 5px;
-    margin-left: 20px;
 }
-.completed {
-    border-radius: 100px 0 0 100px;
-    height: 10px;
+.health_progress__thumb {
+    border-radius: 10px 0 0 10px;
 }
-.not__completed {
-    border-radius: 0 100px 100px 0;
-    height: 10px;
-    background: #38465f;
-}
-.health__progressbar__icon {
+.health_progressbar__icon {
     position: absolute;
-    top: -10px;
+    top: -6px;
 }
