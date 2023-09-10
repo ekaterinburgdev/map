@@ -1,13 +1,15 @@
 import { useMemo } from 'react';
+import BrokenHeart from 'components/UI/Icons/BrokenHeart';
 import Heart from 'components/UI/Icons/Heart';
 import { WEAR_TEAR_FILTERS_DATA } from '../Houses.constants';
 import styles from './HealthProgress.module.css';
 
 type Props = {
     percent: number;
+    isEmergency: boolean
 };
 
-function HealthProgress({ percent }: Props) {
+function HealthProgress({ percent, isEmergency }: Props) {
     const healthColor = useMemo(() => WEAR_TEAR_FILTERS_DATA.find(({ from, to }) => percent >= from && percent <= to).color, [percent]);
 
     return (
@@ -20,14 +22,12 @@ function HealthProgress({ percent }: Props) {
                     backgroundColor: healthColor,
                     width: `${100 - percent}%`,
                 }}
-            />
-            <div
-                className={styles.health_progressbar__icon}
-                style={{
-                    right: `${percent - 6}%`,
-                }}
             >
-                <Heart color={healthColor} />
+                <div
+                    className={styles.health_progressbar__icon}
+                >
+                    {isEmergency ? <BrokenHeart color={healthColor} /> : <Heart color={healthColor} />}
+                </div>
             </div>
         </div>
     );

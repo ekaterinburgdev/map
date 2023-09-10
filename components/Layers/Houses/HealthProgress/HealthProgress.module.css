@@ -4,16 +4,17 @@
 }
 
 .health_progress__track {
-    position: relative;
     width: 289px;
     display: grid;
     background-color: #38465f;
     border-radius: 5px;
 }
 .health_progress__thumb {
-    border-radius: 10px 0 0 10px;
+    position: relative;
+    border-radius: 10px;
 }
 .health_progressbar__icon {
     position: absolute;
-    top: -6px;
+    top: -7px;
+    right: -10px
 }

@@ -101,7 +101,7 @@ export function HousesCardContent() {
             result.push({
                 name: 'Износ',
                 text: `${placemark?.attributes?.WearAndTear}%`,
-                content: <HealthProgress percent={placemark?.attributes?.WearAndTear} />,
+                content: <HealthProgress percent={placemark?.attributes?.WearAndTear} isEmergency={isEmergency} />,
             });
         }
 
@@ -120,12 +120,7 @@ export function HousesCardContent() {
         }
 
         return result;
-    }, [
-        placemark?.attributes?.Management_company,
-        placemark?.attributes?.WearAndTear,
-        placemark?.attributes?.Series,
-        placemark?.attributes?.Floors,
-    ]);
+    }, [placemark?.attributes?.Management_company, placemark?.attributes?.WearAndTear, placemark?.attributes?.Series, placemark?.attributes?.Floors, isEmergency]);
 
     if (loading) {
         return (
