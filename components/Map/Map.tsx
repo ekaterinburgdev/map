@@ -21,7 +21,7 @@ function MapLayers() {
             <BuildingSource />
             <OknSource />
             <DtpSource />
-            <LinesSource />
+            {/* <LinesSource /> */}
             <DesignCodeSource />
         </>
     );
