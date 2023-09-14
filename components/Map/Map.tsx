@@ -9,7 +9,7 @@ import { COORDS_EKATERINBURG } from 'constants/coords';
 import { BuildingSource } from './layers/BuildingSource';
 import { OknSource } from './layers/OknSource';
 import { DtpSource } from './layers/DtpSource';
-import { LinesSource } from './layers/LinesSource';
+// import { LinesSource } from './layers/LinesSource';
 import { DesignCodeSource } from './layers/DesignCodeSource';
 import { MapContext } from './providers/MapProvider';
 

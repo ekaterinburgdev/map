@@ -4,7 +4,7 @@ import { HouseFloorFilter } from 'components/Layers/Houses/Filter/Floor/HouseFlo
 import { HouseWearTearFilter } from 'components/Layers/Houses/Filter/WearTear/HouseWearTearFilter';
 import { DesignCodeFilter } from 'components/Layers/DesignCode/Filter/DesignCodeFilter';
 import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
-import { LinesFilter } from 'components/Layers/Lines/Filter/LinesFilter';
+// import { LinesFilter } from 'components/Layers/Lines/Filter/LinesFilter';
 import { DTPFilter } from 'components/Layers/DTP/Filter/DTPFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
 import { FilterConfig, FilterType } from '../../types/Filters.types';
@@ -47,9 +47,9 @@ export const FILTERS_CONFIG: FilterConfig = {
         source: SOURCES_BY_TYPE.dtp,
         isVerified: true,
     },
-    [FilterType.Line]: {
-        title: 'Туристические маршруты',
-        component: <LinesFilter />,
-        isVerified: true,
-    },
+    // [FilterType.Line]: {
+    //     title: 'Туристические маршруты',
+    //     component: <LinesFilter />,
+    //     isVerified: true,
+    // },
 };
