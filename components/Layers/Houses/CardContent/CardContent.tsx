@@ -100,7 +100,8 @@ export function HousesCardContent() {
         if (placemark?.attributes?.WearAndTear) {
             result.push({
                 name: 'Износ',
-                text: `${placemark?.attributes?.WearAndTear}%`,
+                // eslint-disable-next-line no-irregular-whitespace
+                text: `${placemark?.attributes?.WearAndTear} %`,
                 content: <HealthProgress percent={placemark?.attributes?.WearAndTear} isEmergency={isEmergency} />,
             });
         }
