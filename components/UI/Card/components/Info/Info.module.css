@@ -22,6 +22,6 @@
 }
 
 
-.info__text > span {
-    margin-right: 12px;
+.info__text {
+    gap: 12px;
 }

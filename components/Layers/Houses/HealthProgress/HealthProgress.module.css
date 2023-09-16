@@ -4,7 +4,8 @@
 }
 
 .health_progress__track {
-    width: 289px;
+    width: 100%;
+    max-width: 289px;
     display: grid;
     background-color: #38465f;
     border-radius: 5px;
