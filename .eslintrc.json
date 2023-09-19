@@ -19,6 +19,7 @@
     "react/require-default-props": "off",
     "react/jsx-no-useless-fragment": "off",
     "react/jsx-one-expression-per-line": "off",
+    "react/react-in-jsx-scope": "off",
     
     "import/extensions": ["error", "never", { "svg": "always", "json": "always", "css": "always" }],
     "import/prefer-default-export": "off",
@@ -35,7 +36,9 @@
     "@next/next/no-img-element": "off",
     "max-len": "off",
     "function-paren-newline": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "linebreak-style": "off"
+    
   },
   "ignorePatterns": ["next.config.js", "scripts/**/*.*js"]
 }

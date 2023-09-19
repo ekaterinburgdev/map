@@ -17,4 +17,11 @@
 .info__text {
     font-size: 16px;
     line-height: 20px;
+    display: flex;
+    align-items: center;
+}
+
+
+.info__text {
+    gap: 12px;
 }

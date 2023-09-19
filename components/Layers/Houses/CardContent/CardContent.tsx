@@ -15,6 +15,7 @@ import { usePopup } from 'components/Map/providers/usePopup';
 import { MapContext } from 'components/Map/providers/MapProvider';
 import { HouseObject } from 'components/Layers/Houses/houseBase';
 
+import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
 export function HousesCardContent() {
@@ -99,7 +100,9 @@ export function HousesCardContent() {
         if (placemark?.attributes?.WearAndTear) {
             result.push({
                 name: 'Износ',
-                text: `${placemark?.attributes?.WearAndTear}%`,
+                // eslint-disable-next-line no-irregular-whitespace
+                text: `${placemark?.attributes?.WearAndTear} %`,
+                content: <HealthProgress percent={placemark?.attributes?.WearAndTear} isEmergency={isEmergency} />,
             });
         }
 
@@ -118,12 +121,7 @@ export function HousesCardContent() {
         }
 
         return result;
-    }, [
-        placemark?.attributes?.Management_company,
-        placemark?.attributes?.WearAndTear,
-        placemark?.attributes?.Series,
-        placemark?.attributes?.Floors,
-    ]);
+    }, [placemark?.attributes?.Management_company, placemark?.attributes?.WearAndTear, placemark?.attributes?.Series, placemark?.attributes?.Floors, isEmergency]);
 
     if (loading) {
         return (

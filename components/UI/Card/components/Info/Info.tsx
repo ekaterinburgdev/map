@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 
 import { InfoProps } from './Info.types';
@@ -12,7 +11,7 @@ export function Info({ infos, nameColor, textColor, rowDirection }: InfoProps) {
                 [styles.info_row]: rowDirection,
             })}
         >
-            {infos.map(({ name, text }) => (
+            {infos.map(({ name, text, content }) => (
                 <div key={name}>
                     {name && (
                         <div className={styles.info__name} style={{ color: nameColor }}>
@@ -21,7 +20,8 @@ export function Info({ infos, nameColor, textColor, rowDirection }: InfoProps) {
                     )}
                     {text && (
                         <div className={styles.info__text} style={{ color: textColor }}>
-                            {text}
+                            <span>{text}</span>
+                            {content}
                         </div>
                     )}
                 </div>
