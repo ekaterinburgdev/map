@@ -39,4 +39,8 @@ export const MODEL_CONFIG = {
         cardContent: LinesCardContent,
         requests: { oneItemRequest: lines.getObject },
     },
+    [MapItemType.Population]: {
+        cardContent: LinesCardContent,
+        requests: { oneItemRequest: lines.getObject },
+    },
 } as const;

@@ -52,4 +52,9 @@ export const FILTERS_CONFIG: FilterConfig = {
         component: <LinesFilter />,
         isVerified: true,
     },
+    [FilterType.Population]: {
+        title: 'Население',
+        component: null,
+        isVerified: true,
+    },
 };
