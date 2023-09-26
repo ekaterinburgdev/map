@@ -1,9 +1,24 @@
 import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
-import houseMeta from '../../../public/houses-meta.json';
 import { HouseSourceType } from './Houses.constants';
+
+type Meta = Record<string, number | null>;
+
+let cache: Meta = null;
+async function getHouseMeta(): Promise<Meta> {
+    return fetch('https://map-backend.netlify.app/house-meta.json')
+        .then((res) => res.json())
+        .then((data) => ({
+            years: data.years.map((item) => item.count || null),
+            levels: data.levels.map((item) => item.count || null),
+            health: data.health.map((item) => item.count || null),
+        }));
+}
 
 export const houseBase = {
     async getFilterValues(_: HistogramDataWithoutValues, filterName: HouseSourceType) {
+        const houseMeta = cache || (await getHouseMeta());
+        cache = houseMeta;
+
         switch (filterName) {
             case HouseSourceType.Year:
                 return Promise.resolve(houseMeta.years);
