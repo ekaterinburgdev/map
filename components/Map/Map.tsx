@@ -43,7 +43,7 @@ export function Map() {
             maxZoom={20}
             // hash
             style={{ width: '100vw', height: '100vh', color: 'black' }}
-            mapStyle="https://cartography-zeta.vercel.app/style.json"
+            mapStyle="https://map-backend.netlify.app/style.json"
             // @ts-ignore
             mapLib={maplibregl}
             antialias
