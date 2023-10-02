@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
@@ -12,14 +13,30 @@ export function usePopup() {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
     const [popupType, setPopupType] = useState<MapItemType>(null);
 
-    const activeFilter = useSelector(activeFilterSelector);
+    const router = useRouter();
+    const atciveFilter = useSelector(activeFilterSelector);
 
     const openPopup = useCallback(
         (id: PopupId, type: MapItemType) => {
             closeAboutProject();
-            window.location.hash = `${type}-${id}&filter-${activeFilter}`;
+            window.location.hash = `${type}-${id}`;
+
+            if (!router.query.filter) {
+                router.push({
+                    pathname: router.pathname,
+                    query: { filter: atciveFilter },
+                    hash: window.location.hash,
+                });
+            } else {
+                router.query.filter = atciveFilter;
+                router.push({
+                    pathname: router.pathname,
+                    query: router.query,
+                    hash: window.location.hash,
+                });
+            }
         },
-        [activeFilter, closeAboutProject],
+        [atciveFilter, closeAboutProject, router],
     );
 
     const closePopup = useCallback(() => {
