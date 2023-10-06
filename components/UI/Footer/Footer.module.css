@@ -1,19 +1,35 @@
-@media screen and (max-width: 1150px) {
+.footer [style*="--projects-panel"] {
+    top: -6px;
+    right: auto;
+    bottom: auto;
+    left: 8px;
+    transform-origin: left bottom;
+}
+
+.footer [class*="modal__content"] {
+    top: 72px;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    transform-origin: 20px 10px;
+}
+
+@media screen and (min-width: 600px) {
     .footer [style*="--projects-panel"] {
         top: 8px;
-        bottom: auto !important;
-        left: 8px;
-    }
-    
-    .footer [class*="modal__content"] {
-        top: 72px;
-        bottom: auto;
-        transform-origin: 20px 10px;
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 1024px) {
     .footer [style*="--projects-panel"] {
-        top: -6px;
+        top: auto;
+        bottom: 8px;
+        left: 8px;
+    }
+
+    .footer [class*="modal__content"] {
+        top: auto;
+        bottom: 0;
+        transform-origin: 20px calc(100% - 10px);
     }
 }

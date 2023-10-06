@@ -9,7 +9,6 @@ export function Footer() {
                 projects={[PROJECT_MAP, ...PRODUCTION_PROJECTS]}
                 activeProjectId={PROJECT_MAP.id}
                 theme={Theme.DARK}
-                style={{ left: '8px', bottom: '8px' }}
             />
         </div>
     );
