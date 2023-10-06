@@ -13,7 +13,7 @@
     max-height: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
     .tally-overlay {
         background: rgba(0, 0, 0, 0.5);
     }

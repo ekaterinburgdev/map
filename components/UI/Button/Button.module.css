@@ -35,13 +35,13 @@
 }
 
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
     .button {
         font-size: 16px;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 1200px) {
     .button {
         font-size: 18px;
     }

@@ -29,7 +29,7 @@
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 1200px) {
     .close {
         top: 2px;
         width: 48px;

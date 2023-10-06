@@ -12,7 +12,7 @@
     transition: .15s ease;
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (width >= 1440px) {
     .buttonLink {
         font-size: 15px;
     }

@@ -14,13 +14,13 @@
     transform-origin: 20px 10px;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
     .footer [style*="--projects-panel"] {
         top: 8px;
     }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >= 1024px) {
     .footer [style*="--projects-panel"] {
         top: auto;
         bottom: 8px;

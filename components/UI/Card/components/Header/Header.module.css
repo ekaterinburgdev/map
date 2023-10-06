@@ -18,7 +18,7 @@
     line-height: 20px;
 }
 
-@media screen and (min-width: 1150px) {
+@media screen and (width >= 1150px) {
     .header__title {
         font-size: 32px;
     }
