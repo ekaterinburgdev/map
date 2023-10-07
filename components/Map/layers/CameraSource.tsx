@@ -72,6 +72,7 @@ export function CameraSource() {
                                 transition: 'all .1s',
                                 rotate: `${feature.properties.angle}deg`,
                                 transform: getTransform(),
+                                cursor: 'pointer',
                             }}
                             onMouseEnter={() => setIsHovered(feature.properties.id)}
                             onMouseLeave={() => setIsHovered(feature.properties.id)}

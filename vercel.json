@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/cameras/:splat*",
-      "destination": "http://89.108.76.228:8888/:splat*"
+      "destination": "http://194.87.209.134:8888/:splat*"
     }
   ]
 }
