@@ -28,13 +28,13 @@
     text-decoration: none;
 }
 
-@media screen and (min-width: 560px) {
+@media screen and (width >= 560px) {
     .team-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
     .team-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -53,13 +53,13 @@
     }
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (width >= 991px) {
     .team-grid__item {
         padding-bottom: 30%;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 1200px) {
     .team-grid {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -83,7 +83,7 @@
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (width >= 1440px) {
     .team-grid__item {
         padding-bottom: 40%;
     }

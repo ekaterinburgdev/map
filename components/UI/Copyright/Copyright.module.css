@@ -20,7 +20,7 @@
     visibility: hidden;
 }
 
-@media screen and (min-width: 1150px) {
+@media screen and (width >= 1150px) {
     .copyright {
         top: auto;
         left: 50%;

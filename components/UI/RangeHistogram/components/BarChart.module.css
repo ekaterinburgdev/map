@@ -54,7 +54,7 @@
     color: var(--histogram-color-disabled);
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (width >= 1440px) {
     .barchart {
         font-size: 14px;
     }

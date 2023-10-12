@@ -96,7 +96,7 @@ a.team-person {
     }
 }
 
-@media screen and (min-width: 991px) {
+@media screen and (width >= 991px) {
     .team-person_link .team-person__name span {
         box-shadow: 0 1px 0 rgba(255, 255, 255, 0.31448);
     }
