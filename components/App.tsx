@@ -9,7 +9,7 @@ import { LeftSidebar } from 'components/UI/LeftSidebar/LeftSidebar';
 import { MobileFilters } from 'components/UI/Filters';
 import { RightSidebar } from 'components/UI/RightSidebar/RightSidebar';
 import { MobileCard } from 'components/UI/Card';
-import { useIsMobile } from 'helpers/isMobile';
+import { useIsDesktop } from 'helpers/isDesktop';
 import { MobileAboutProject } from 'components/UI/AboutProjectModal/MobileAboutProject';
 import { AboutProjectProvider } from 'state/providers/AboutProjectProvider';
 import { AboutProjectModal } from 'components/UI/AboutProjectModal/AboutProjectModal';
@@ -19,7 +19,7 @@ import { Copyright } from './UI/Copyright/Copyright';
 import { Map } from './Map/Map';
 
 export default function App() {
-    const isMobile = useIsMobile();
+    const isDesktop = useIsDesktop();
 
     return (
         <Provider store={store}>
@@ -27,7 +27,7 @@ export default function App() {
                 <AboutProjectProvider>
                     <MapContextProvider>
                         <Map />
-                        {!isMobile ? (
+                        {isDesktop ? (
                             <>
                                 <LeftSidebar />
                                 <RightSidebar />
