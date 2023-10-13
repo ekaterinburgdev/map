@@ -4,7 +4,8 @@ import { SetFilterParamsPayload, SetFilterPayload, State, ToggleDataPayload } fr
 import { FilterType } from 'types/Filters.types';
 
 export const initialState: State['dataLayer'] = {
-    activeFilter: Object.values(FilterType)[0],
+    activeFilter:
+        (window.location.hash.split('/')[1] as FilterType) || Object.values(FilterType)[0],
     activeFilterParams: null,
 };
 

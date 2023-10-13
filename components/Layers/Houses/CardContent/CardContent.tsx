@@ -33,7 +33,7 @@ export function HousesCardContent() {
         }
 
         try {
-            const [lat, lng] = popupId.split('_');
+            const [lat, lng] = popupId.split('/')[0].split('_');
 
             const house = map.queryRenderedFeatures(map.project({ lat: +lat, lng: +lng }), {
                 layers: ['building'],
