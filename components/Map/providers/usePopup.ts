@@ -31,7 +31,7 @@ export function usePopup() {
     }, []);
 
     const handleOpenPopup = useCallback(() => {
-        const [type, ...id] = window.location.hash.slice(1).split('-');
+        const [type, ...id] = window.location.hash.slice(1).split('/')[0].split('-');
 
         setOpenedPopup(id.join('-'));
         setPopupType(type as MapItemType);
