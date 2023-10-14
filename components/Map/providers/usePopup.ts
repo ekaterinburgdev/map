@@ -1,6 +1,9 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { MapItemType } from 'types/map-item';
+import { useSelector } from 'react-redux';
+import { setHash } from 'helpers/hash';
+import { activeFilterSelector } from 'state/features/selectors';
 import { AboutProjectContext } from 'state/providers/AboutProjectProvider';
+import { MapItemType } from 'types/map-item';
 
 type PopupId = string;
 
@@ -10,12 +13,14 @@ export function usePopup() {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
     const [popupType, setPopupType] = useState<MapItemType>(null);
 
+    const activeFilter: string = useSelector(activeFilterSelector);
+
     const openPopup = useCallback(
         (id: PopupId, type: MapItemType) => {
             closeAboutProject();
-            window.location.hash = `${type}-${id}`;
+            setHash(type, id, activeFilter);
         },
-        [closeAboutProject],
+        [activeFilter, closeAboutProject],
     );
 
     const closePopup = useCallback(() => {
@@ -26,7 +31,7 @@ export function usePopup() {
     }, []);
 
     const handleOpenPopup = useCallback(() => {
-        const [type, ...id] = window.location.hash.slice(1).split('-');
+        const [type, ...id] = window.location.hash.slice(1).split('/')[0].split('-');
 
         setOpenedPopup(id.join('-'));
         setPopupType(type as MapItemType);

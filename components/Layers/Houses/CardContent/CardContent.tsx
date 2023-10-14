@@ -1,20 +1,21 @@
 'use client';
 
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import { useContext, useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl';
 
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Label } from 'components/UI/Card/components/Label/Label';
-import { Info } from 'components/UI/Card/components/Info/Info';
+import { HouseObject } from 'components/Layers/Houses/houseBase';
+import { MapContext } from 'components/Map/providers/MapProvider';
+import { usePopup } from 'components/Map/providers/usePopup';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
+import { Header } from 'components/UI/Card/components/Header/Header';
+import { Info } from 'components/UI/Card/components/Info/Info';
+import { Label } from 'components/UI/Card/components/Label/Label';
+import { Section } from 'components/UI/Card/components/Section/Section';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { usePopup } from 'components/Map/providers/usePopup';
-import { MapContext } from 'components/Map/providers/MapProvider';
-import { HouseObject } from 'components/Layers/Houses/houseBase';
 
+import { getLatLngFromHash } from 'helpers/hash';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
@@ -33,7 +34,7 @@ export function HousesCardContent() {
         }
 
         try {
-            const [lat, lng] = popupId.split('_');
+            const [lat, lng] = getLatLngFromHash();
 
             const house = map.queryRenderedFeatures(map.project({ lat: +lat, lng: +lng }), {
                 layers: ['building'],
@@ -102,7 +103,12 @@ export function HousesCardContent() {
                 name: 'Износ',
                 // eslint-disable-next-line no-irregular-whitespace
                 text: `${placemark?.attributes?.WearAndTear} %`,
-                content: <HealthProgress percent={placemark?.attributes?.WearAndTear} isEmergency={isEmergency} />,
+                content: (
+                    <HealthProgress
+                        percent={placemark?.attributes?.WearAndTear}
+                        isEmergency={isEmergency}
+                    />
+                ),
             });
         }
 
@@ -121,7 +127,13 @@ export function HousesCardContent() {
         }
 
         return result;
-    }, [placemark?.attributes?.Management_company, placemark?.attributes?.WearAndTear, placemark?.attributes?.Series, placemark?.attributes?.Floors, isEmergency]);
+    }, [
+        placemark?.attributes?.Management_company,
+        placemark?.attributes?.WearAndTear,
+        placemark?.attributes?.Series,
+        placemark?.attributes?.Floors,
+        isEmergency,
+    ]);
 
     if (loading) {
         return (
