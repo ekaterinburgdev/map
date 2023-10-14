@@ -1,9 +1,9 @@
+import { setHash } from 'helpers/hash';
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector } from 'state/features/selectors';
 import { AboutProjectContext } from 'state/providers/AboutProjectProvider';
 import { MapItemType } from 'types/map-item';
-import { setHash } from 'utils/hash';
 
 type PopupId = string;
 

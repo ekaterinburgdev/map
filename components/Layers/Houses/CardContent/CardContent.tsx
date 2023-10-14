@@ -15,7 +15,7 @@ import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 
-import { getLatLngFromHash } from 'utils/hash';
+import { getLatLngFromHash } from 'helpers/hash';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
