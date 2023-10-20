@@ -19,7 +19,7 @@ export function Copyright() {
             {copyright && (
                 <>
                     {' · '}
-                    <a href={copyright} target="_blank" rel="noreferrer">
+                    <a href={copyright.link} target="_blank" rel="noreferrer">
                         {new URL(copyright.link).host}
                     </a>
                 </>
