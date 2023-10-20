@@ -15,6 +15,7 @@ export enum FilterType {
     DTP = 'dtp',
     Line = 'line',
     Quarter = 'quarter',
+    HouseFacades = 'houseFacades',
 }
 
 export interface FilterConfigItem {

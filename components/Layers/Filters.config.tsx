@@ -58,4 +58,9 @@ export const FILTERS_CONFIG: FilterConfig = {
         source: [SOURCES_BY_TYPE.ekb_quarter],
         isVerified: true,
     },
+    [FilterType.HouseFacades]: {
+        title: '«Дизайн фасадов Екатеринбурга»',
+        component: null,
+        isVerified: true,
+    },
 };

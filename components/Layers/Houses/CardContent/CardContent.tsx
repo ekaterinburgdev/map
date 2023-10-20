@@ -1,12 +1,10 @@
-'use client';
-
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl';
-
 import { HouseObject } from 'components/Layers/Houses/houseBase';
 import { MapContext } from 'components/Map/providers/MapProvider';
 import { usePopup } from 'components/Map/providers/usePopup';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
+import Facade from 'components/UI/Card/components/Facade/Facade';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Info } from 'components/UI/Card/components/Info/Info';
 import { Label } from 'components/UI/Card/components/Label/Label';
@@ -14,8 +12,8 @@ import { Section } from 'components/UI/Card/components/Section/Section';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-
 import { getLatLngFromHash } from 'helpers/hash';
+import facades from '../../../../public/ekb-facades.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
@@ -45,6 +43,7 @@ export function HousesCardContent() {
             setPlacemark({
                 id: popupId,
                 attributes: {
+                    osmId: house['osm:id'] || null,
                     Address: [house['addr:street'], house['addr:housenumber']]
                         .filter(Boolean)
                         .join(', '),
@@ -168,6 +167,12 @@ export function HousesCardContent() {
             {placemark?.attributes.Year && (
                 <Section>
                     <ConstructionInfo date={String(placemark?.attributes.Year)} />
+                </Section>
+            )}
+
+            {facades[placemark?.attributes?.osmId] && (
+                <Section>
+                    <Facade facade={facades[placemark?.attributes?.osmId]} />
                 </Section>
             )}
             <Section>

@@ -46,6 +46,7 @@ export interface HouseObject {
 }
 
 export interface HouseAttributes {
+    osmId: number | null;
     Address: string;
     Management_company: string;
     Series: string;

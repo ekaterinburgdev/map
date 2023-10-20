@@ -1,7 +1,13 @@
+import {
+    ColorSpecification,
+    DataDrivenPropertyValueSpecification,
+    ExpressionSpecification,
+} from 'maplibre-gl';
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
-import { ExpressionSpecification } from 'maplibre-gl';
+import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
+import { colorLuminance } from 'components/Map/helpers/colorLuminance';
 import {
     AGE_FILTERS_DATA,
     FLOOR_FILTERS_DATA,
@@ -10,30 +16,42 @@ import {
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 import { FilterType } from 'types/Filters.types';
 import { MapItemType } from 'types/map-item';
-import { colorLuminance } from 'components/Map/helpers/colorLuminance';
-import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
-import { usePopup } from '../providers/usePopup';
 import useMapObjectState from '../providers/useMapObjectState';
+import { usePopup } from '../providers/usePopup';
 
 const BUILDING_LAYER_ID = 'building';
 
 const DEFAULT_BULDING_COLOR_NORMAL = '#0c1021';
 
-function setBuildingColor(map, color, field: string = '_unknown_') {
+interface SetBuildingStyleProps {
+    map: mapboxgl.Map;
+    color: DataDrivenPropertyValueSpecification<ColorSpecification | ExpressionSpecification>;
+    caseCondition?: (string | string[])[];
+    layerProps?: Record<string, any>;
+}
+
+export function setBuildingColor({
+    map,
+    color,
+    caseCondition = ['has', '_unknown_'],
+    layerProps,
+}: SetBuildingStyleProps) {
     map.setStyle({
         ...map?.getStyle(),
-        layers: map?.getStyle().layers.map((layer) => {
+        layers: map?.getStyle().layers.map((layer: any) => {
             if (layer.id === BUILDING_LAYER_ID) {
                 return {
                     ...layer,
+                    ...layerProps,
                     paint: {
                         ...layer.paint,
                         'fill-extrusion-color': [
                             'case',
-                            ['has', field],
+                            caseCondition,
                             color,
                             DEFAULT_BULDING_COLOR_NORMAL,
                         ],
+                        ...layerProps?.paint,
                     },
                 };
             }
@@ -53,7 +71,7 @@ function setBuildingStyle({ map, range, field, rangeData }) {
             map?.getStyle
         )
     ) {
-        setBuildingColor(map, DEFAULT_BULDING_COLOR_NORMAL);
+        setBuildingColor({ map, color: DEFAULT_BULDING_COLOR_NORMAL });
         return;
     }
 
@@ -77,15 +95,15 @@ function setBuildingStyle({ map, range, field, rangeData }) {
         ...style.flat(2),
     ];
 
-    setBuildingColor(
+    setBuildingColor({
         map,
-        getLayerStyle<ExpressionSpecification>({
+        color: getLayerStyle<ExpressionSpecification>({
             initial: getColor(colorsInitial),
             hover: getColor(colorsHover),
             active: getColor(colorsActive),
         }),
-        field,
-    );
+        caseCondition: ['has', field],
+    });
 }
 
 const ageRangeData = AGE_FILTERS_DATA.map((item) => ({ ...item, value: 1 }));
@@ -105,6 +123,7 @@ export function BuildingSource() {
             [FilterType.HouseAge]: 'building:year',
             [FilterType.HouseFloor]: 'building:levels',
             [FilterType.HouseWearTear]: 'building:health',
+            [FilterType.HouseFacades]: 'building:facade',
         }[activeFilter];
 
         const rangeData = {
