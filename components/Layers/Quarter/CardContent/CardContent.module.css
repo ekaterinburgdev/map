@@ -13,9 +13,30 @@
 .description {
     margin-top: 8px;
     position: relative;
+    height: 35px;
+    width: 368px;
+    background-color: #ffd400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
     svg {
         position: relative;
         top: 2px;
         left: 2px;
+
+        path {
+            fill: #000;
+        }
+    }
+    a {
+        color: #000;
+    }
+    a:hover {
+        color: #000;
+        
+        path {
+            fill: #000;
+        }
     }
 }
