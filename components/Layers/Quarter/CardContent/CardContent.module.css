@@ -15,7 +15,7 @@
     position: relative;
     svg {
         position: relative;
-        top: 2px;
+        top: 0;
         left: 2px;
         path {
             fill: #000;
