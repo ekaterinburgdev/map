@@ -1,13 +1,10 @@
-import React from 'react';
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { Info } from 'components/UI/Card/components/Info/Info';
 import { QuarterObject } from 'components/Layers/Quarter/quarterObject';
-import { Link } from 'components/UI/Card/components/Link/Link';
 import { Header } from 'components/UI/Card/components/Header/Header';
-import linkStyles from 'components/UI/Card/components/Link/Link.module.css';
-import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
+import { Info } from 'components/UI/Card/components/Info/Info';
+import { Section } from 'components/UI/Card/components/Section/Section';
 import sectionStyles from 'components/UI/Card/components/Section/Section.module.css';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
+import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { Icon } from 'components/UI/Icons';
 import { IconType } from 'components/UI/Icons/Icons.types';
 import styles from './CardContent.module.css';
@@ -24,10 +21,10 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
             <Header title={placemark.quarterTitle} />
 
             <div className={styles.description}>
-                <Link className={linkStyles.link_size_l} href={placemark.url}>
+                <a href={placemark.url}>
                     Посмотреть телефон и почту квартального
                     <Icon type={IconType.External} />
-                </Link>
+                </a>
             </div>
 
             <Section>
@@ -38,10 +35,10 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
                             name: 'Район',
                             text: placemark.districtTitle,
                         },
-                        {
-                            name: 'Границы квартала',
-                            text: placemark.quarterDescription,
-                        },
+                        // {
+                        //     name: 'Границы квартала',
+                        //     text: placemark.quarterDescription,
+                        // },
                     ]}
                 />
             </Section>

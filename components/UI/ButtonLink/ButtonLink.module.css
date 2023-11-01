@@ -11,7 +11,7 @@
     cursor: pointer;
     column-gap: 4px;
     transition: .15s ease;
-    width: 368px;
+    width: 100%;
 }
 
 @media screen and (width >= 1440px) {
