@@ -21,7 +21,7 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
             <Header title={placemark.quarterTitle} />
 
             <div className={styles.description}>
-                <a href={placemark.url}>
+                <a href={placemark.url} target="_blank" rel="noreferrer">
                     Посмотреть телефон и почту квартального&nbsp;
                     <Icon type={IconType.External} color="#000" />
                 </a>
