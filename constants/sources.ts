@@ -21,7 +21,7 @@ export const SOURCES_BY_TYPE = {
     },
     ekaterinburgdesign: {
         name: 'Дизайн-код Ектеринбурга',
-        link: 'https://ekaterinburg.design',
+        link: 'https://map.ekaterinburg.design',
         data: 'https://map.ekaterinburg.design/api/map',
     },
     dtp: {
@@ -29,7 +29,7 @@ export const SOURCES_BY_TYPE = {
         link: 'https://dtp-stat.ru/',
         data: 'https://dtp-stat.ru/opendata',
     },
-    ekb: {
+    ekb_quarter: {
         name: 'екатеринбург.рф',
         link: 'https://екатеринбург.рф/справка/квартальные',
         data: null,
