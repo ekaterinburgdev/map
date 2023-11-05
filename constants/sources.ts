@@ -1,4 +1,9 @@
 export const SOURCES_BY_TYPE = {
+    osm: {
+        name: 'OpenStreetMap',
+        link: 'https://www.openstreetmap.org/',
+        data: null,
+    },
     okn: {
         name: 'Объекты культурного наследия Свердловской области',
         link: 'https://okn.midural.ru/kategorii/obekty-kulturnogo-naslediya-sverdlovskoy-oblasti',
