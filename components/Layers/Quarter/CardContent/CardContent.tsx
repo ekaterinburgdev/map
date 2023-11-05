@@ -1,4 +1,5 @@
 import { QuarterObject } from 'components/Layers/Quarter/quarterObject';
+import { Button, ButtonSize, ButtonType } from 'components/UI/Button/Button';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Info } from 'components/UI/Card/components/Info/Info';
 import { Section } from 'components/UI/Card/components/Section/Section';
@@ -21,10 +22,19 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
             <Header title={placemark.quarterTitle} />
 
             <div className={styles.description}>
-                <a href={placemark.url} target="_blank" rel="noreferrer">
+                {/* <a href={placemark.url} target="_blank" rel="noreferrer">
                     Посмотреть телефон и почту квартального&nbsp;
                     <Icon type={IconType.External} color="#000" />
-                </a>
+                </a> */}
+                <Button
+                    size={ButtonSize.SMALL}
+                    onClick={() => {}}
+                    link={placemark.url}
+                    type={ButtonType.YELLOW}
+                >
+                    Посмотреть телефон и почту квартального&nbsp;
+                    <Icon type={IconType.External} color="#000" />
+                </Button>
             </div>
 
             <Section>

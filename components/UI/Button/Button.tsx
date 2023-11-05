@@ -1,4 +1,3 @@
-import React from 'react';
 import classNames from 'classnames';
 import styles from './Button.module.css';
 
@@ -23,22 +22,28 @@ const buttonStylesBySize: Record<ButtonSize, any> = {
 };
 
 type TButtonProps = {
-    text: string;
+    text?: string;
     type: ButtonType;
     size: ButtonSize;
     onClick: VoidFunction;
     link?: string;
+    children?: React.ReactNode;
 };
 
-export function Button({ text, type, size, onClick, link }: TButtonProps) {
+export function Button({ text, type, size, onClick, link, children }: TButtonProps) {
     const className = classNames(styles.button, buttonStylesByType[type], buttonStylesBySize[size]);
 
     if (link) {
         return (
-            <a className={className} href={link}>{text}</a>
+            <a className={className} href={link}>
+                {text || children}
+            </a>
         );
     }
+
     return (
-        <button type="button" className={className} onClick={onClick}>{text}</button>
+        <button type="button" className={className} onClick={onClick}>
+            {text}
+        </button>
     );
 }

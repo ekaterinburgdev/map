@@ -5,20 +5,16 @@
     font-size: 15px;
     line-height: 1.33;
     cursor: pointer;
-    transition: .15s ease;
-}
-
-.button:hover {
-    filter: contrast(0.75);
-}
-
-.button:active {
-    filter: contrast(0.65);
+    transition: all 0.15s ease;
 }
 
 .button_yellow {
-    background: #FFD400;
+    background: #ffd400;
     color: black;
+}
+
+.button_yellow:hover {
+    background: #e1bb00;
 }
 
 .button_black {
@@ -33,7 +29,6 @@
 .button_size_large {
     padding: 12px 32px;
 }
-
 
 @media screen and (width >= 768px) {
     .button {

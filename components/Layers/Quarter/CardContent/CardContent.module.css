@@ -15,26 +15,16 @@
     position: relative;
     svg {
         position: relative;
-        top: 0;
+        top: 2px;
         left: 2px;
         path {
             fill: #000;
         }
     }
     a {
-        color: #000;
-        height: 35px;
+        border-radius: 8px;
+        font-size: 16px;
         width: 100%;
-        background-color: #ffd400;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 6px;
-    }
-    a:hover {
-        color: #000;
-        path {
-            fill: #000;
-        }
+        text-align: center;
     }
 }
