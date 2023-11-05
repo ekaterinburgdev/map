@@ -1,12 +1,13 @@
-import React, { useMemo } from 'react';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
+import { useMemo } from 'react';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Section } from 'components/UI/Card/components/Section/Section';
+import { Sources } from 'components/UI/Card/components/Sources/Sources';
+import DownloadButton from 'components/UI/DownloadButton/DownloadButton';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { OknObject } from '../oknObject';
-import { OKNInfo } from './components/OKNInfo/OKNInfo';
 import styles from './CardContent.module.css';
+import { OKNInfo } from './components/OKNInfo/OKNInfo';
 
 export function OKNCardContent({ placemark }: { placemark: OknObject }) {
     const { title, description } = useMemo(() => {
@@ -62,6 +63,9 @@ export function OKNCardContent({ placemark }: { placemark: OknObject }) {
                         number={placemark?.properties.okn_number}
                         status={placemark?.properties.isExist}
                     />
+                </Section>
+                <Section>
+                    <DownloadButton type="brown" />
                 </Section>
                 <Section>
                     <Sources sources={['okn']} />
