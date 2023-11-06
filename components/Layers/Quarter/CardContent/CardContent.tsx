@@ -54,7 +54,7 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
             </Section>
 
             <Section>
-                <Sources sources={['ekb']} />
+                <Sources sources={['ekb_quarter']} />
             </Section>
             <Section>
                 <div className={sectionStyles.block_inline}>

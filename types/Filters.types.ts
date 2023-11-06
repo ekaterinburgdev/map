@@ -20,7 +20,7 @@ export enum FilterType {
 export interface FilterConfigItem {
     title: string;
     component: ReactNode;
-    source?: Source;
+    source?: Source[];
     isVerified: boolean;
 }
 
