@@ -16,15 +16,14 @@ export function Copyright() {
             <a href="https://www.openstreetmap.org/" target="_blank" rel="noreferrer">
                 OpenStreetMap
             </a>
-            {copyright &&
-                copyright.map((elem) => (
-                    <>
-                        {' · '}
-                        <a href={elem.link} target="_blank" rel="noreferrer">
-                            {elem.name}
-                        </a>
-                    </>
-                ))}
+            {copyright && (
+                <>
+                    {' · '}
+                    <a href={copyright.link} target="_blank" rel="noreferrer">
+                        {new URL(copyright.link).host}
+                    </a>
+                </>
+            )}
         </div>
     );
 }
