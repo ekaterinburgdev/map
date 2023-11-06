@@ -5,6 +5,7 @@ import React, { useContext } from 'react';
 import MapGl from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
 import { COORDS_EKATERINBURG } from 'constants/coords';
+import { MAX_ZOOM, MIN_ZOOM } from 'constants/map';
 
 import { BuildingSource } from './layers/BuildingSource';
 import { OknSource } from './layers/OknSource';
@@ -39,8 +40,8 @@ export function Map() {
                 zoom: 15,
                 pitch: 30,
             }}
-            minZoom={11}
-            maxZoom={20}
+            minZoom={MIN_ZOOM}
+            maxZoom={MAX_ZOOM}
             // hash
             style={{ width: '100vw', height: '100vh', color: 'black' }}
             mapStyle="https://map-backend.netlify.app/style.json"

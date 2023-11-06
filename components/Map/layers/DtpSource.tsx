@@ -1,17 +1,18 @@
 import React, { useEffect } from 'react';
 import { Source, Layer, useMap } from 'react-map-gl';
-import type { CircleLayer } from 'react-map-gl';
+import type { CircleLayer, HeatmapLayer } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { FilterType } from 'types/Filters.types';
 import { SEVERITY_CONFIG } from 'components/Layers/DTP/DTP.constants';
 import { MapItemType } from 'types/map-item';
-import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
+import { MAX_ZOOM, MIN_ZOOM } from 'constants/map';
 import dtp from '../../../public/ekb-dtp.json';
 import { usePopup } from '../providers/usePopup';
 import useMapObjectState from '../providers/useMapObjectState';
 
 const DTP_LAYER_ID = 'dtp-point';
+const DTP_LAYER_HEATMAP_ID = 'dtp-point-heatmap';
 
 export function DtpSource() {
     const ekbMap = useMap();
@@ -66,13 +67,46 @@ export function DtpSource() {
         type: 'circle',
         source: 'ekb-dtp-source',
         paint: {
-            'circle-radius': getLayerStyle<number>({ initial: 8, hover: 10, active: 12 }),
             // @ts-ignore
             'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
-            // @ts-ignore
             'circle-stroke-width': 1,
             // @ts-ignore
             'circle-stroke-color': ['case'].concat(...strokeColors).concat(['rgba(0, 0, 0, 0)']),
+            'circle-radius': ['interpolate', ['linear'], ['zoom'], MIN_ZOOM, 1, MAX_ZOOM, 12],
+        },
+    };
+
+    const heatmapStyle: HeatmapLayer = {
+        id: DTP_LAYER_HEATMAP_ID,
+        source: 'ekb-dtp-source',
+        type: 'heatmap',
+        paint: {
+            'heatmap-weight': {
+                type: 'exponential',
+                property: 'weight',
+                stops: [
+                    [0, 0],
+                    [1, 1],
+                ],
+            },
+            'heatmap-intensity': 1,
+            'heatmap-color': [
+                'interpolate',
+                ['linear'],
+                ['heatmap-density'],
+                0,
+                'rgba(0, 0, 255, 0)',
+                0.2,
+                'rgb(0, 255, 0)',
+                0.4,
+                'rgb(255, 255, 0)',
+                0.6,
+                'rgb(255, 0, 0)',
+                1,
+                'rgb(255, 0, 0)',
+            ],
+            'heatmap-radius': ['interpolate', ['linear'], ['zoom'], MIN_ZOOM, 2, MAX_ZOOM, 50],
+            'heatmap-opacity': ['interpolate', ['linear'], ['zoom'], MIN_ZOOM, 1, MAX_ZOOM, 0],
         },
     };
 
@@ -80,6 +114,7 @@ export function DtpSource() {
         <>
             <Source generateId id="ekb-dtp-source" type="geojson" data={data}>
                 <Layer {...layerStyle} />
+                <Layer {...heatmapStyle} />
             </Source>
         </>
     );
