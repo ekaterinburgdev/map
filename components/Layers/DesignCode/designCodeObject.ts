@@ -13,6 +13,7 @@ export enum DesignCodeItemType {
     CommemorativePlaque = 'Памятные таблички',
     Transport = 'Транспорт',
     WallPlate = 'Настенные таблички',
+    ColumnsWithArrows = 'Столбы со стрелками',
 }
 
 export interface DesignCodeObject {

@@ -13,4 +13,5 @@ export const DESIGN_CODE_ITEMS_COLORS = {
     [DesignCodeItemType.TrafficLight]: '#965a14',
     [DesignCodeItemType.Transport]: '#006d4e',
     [DesignCodeItemType.WallPlate]: '#a00041',
+    [DesignCodeItemType.ColumnsWithArrows]: '#86e621',
 };
