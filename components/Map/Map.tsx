@@ -14,6 +14,7 @@ import { DesignCodeSource } from './layers/DesignCodeSource';
 import { MapContext } from './providers/MapProvider';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
+import { ModelSource } from './layers/ModelSource';
 
 function MapLayers() {
     return (
@@ -23,6 +24,7 @@ function MapLayers() {
             <DtpSource />
             <LinesSource />
             <DesignCodeSource />
+            <ModelSource />
         </>
     );
 }
@@ -40,7 +42,7 @@ export function Map() {
                 pitch: 30,
             }}
             minZoom={11}
-            maxZoom={20}
+            maxZoom={23}
             // hash
             style={{ width: '100vw', height: '100vh', color: 'black' }}
             mapStyle="https://map-backend.netlify.app/style.json"
