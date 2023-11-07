@@ -12,6 +12,7 @@
 .info__name {
     font-size: 12px;
     line-height: 14px;
+    white-space: nowrap;
 }
 
 .info__text {
@@ -20,7 +21,6 @@
     display: flex;
     align-items: center;
 }
-
 
 .info__text {
     gap: 12px;

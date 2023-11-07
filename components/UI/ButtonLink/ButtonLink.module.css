@@ -1,5 +1,6 @@
 .buttonLink {
     display: inline-flex;
+    justify-content: center;
     align-items: center;
     padding: .5em .8em;
     font-size: 14px;
@@ -10,6 +11,7 @@
     cursor: pointer;
     column-gap: 4px;
     transition: .15s ease;
+    width: 100%;
 }
 
 @media screen and (width >= 1440px) {

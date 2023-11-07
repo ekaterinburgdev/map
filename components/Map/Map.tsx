@@ -12,6 +12,7 @@ import { OknSource } from './layers/OknSource';
 import { DtpSource } from './layers/DtpSource';
 import { LinesSource } from './layers/LinesSource';
 import { DesignCodeSource } from './layers/DesignCodeSource';
+import { QuarterSource } from './layers/QuarterSource';
 import { MapContext } from './providers/MapProvider';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -24,6 +25,7 @@ function MapLayers() {
             <DtpSource />
             <LinesSource />
             <DesignCodeSource />
+            <QuarterSource />
         </>
     );
 }

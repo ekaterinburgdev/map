@@ -1,4 +1,9 @@
 export const SOURCES_BY_TYPE = {
+    osm: {
+        name: 'OpenStreetMap',
+        link: 'https://www.openstreetmap.org/',
+        data: null,
+    },
     okn: {
         name: 'Объекты культурного наследия Свердловской области',
         link: 'https://okn.midural.ru/kategorii/obekty-kulturnogo-naslediya-sverdlovskoy-oblasti',
@@ -28,5 +33,10 @@ export const SOURCES_BY_TYPE = {
         name: 'Карта ДТП',
         link: 'https://dtp-stat.ru/',
         data: 'https://dtp-stat.ru/opendata',
+    },
+    ekb_quarter: {
+        name: 'екатеринбург.рф',
+        link: 'https://екатеринбург.рф/справка/квартальные',
+        data: null,
     },
 } as const;

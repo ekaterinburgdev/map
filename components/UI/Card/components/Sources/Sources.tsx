@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { SOURCES_BY_TYPE } from 'constants/sources';
+import { Link } from 'components/UI/Card/components/Link/Link';
 import { SourcesProps } from './Sources.types';
 
 import styles from './Sources.module.css';
@@ -15,9 +16,7 @@ export function Sources({ sources }: SourcesProps) {
 
                     return (
                         <li key={link} className={styles.sources__listItem}>
-                            <a href={data || link} target="_blank" rel="noreferrer">
-                                {name}
-                            </a>
+                            <Link href={data || link} text={name} />
                         </li>
                     );
                 })}

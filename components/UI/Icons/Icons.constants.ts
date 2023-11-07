@@ -10,6 +10,8 @@ import { Bycicle } from './Bycicle';
 import { Bike } from './Bike';
 import { PublicTransport } from './PublicTransport';
 import { Children } from './Children';
+import { Download } from './Download';
+import { External } from './External';
 
 export const ICON_BY_TYPE: Record<IconType, (props: IconBaseProps) => JSX.Element> = {
     [IconType.Copy]: Copy,
@@ -23,4 +25,6 @@ export const ICON_BY_TYPE: Record<IconType, (props: IconBaseProps) => JSX.Elemen
     [IconType.PublicTransport]: PublicTransport,
     [IconType.Children]: Children,
     [IconType.Edit]: Edit,
+    [IconType.Download]: Download,
+    [IconType.External]: External,
 };

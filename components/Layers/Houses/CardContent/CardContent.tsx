@@ -171,7 +171,7 @@ export function HousesCardContent() {
                 </Section>
             )}
             <Section>
-                <Sources sources={['howoldthishouse', 'mingkh', 'domaekb']} />
+                <Sources sources={['osm', 'howoldthishouse', 'mingkh', 'domaekb']} />
             </Section>
             <Section>
                 <EditObjectButtonLink address={placemark?.attributes.Address} />

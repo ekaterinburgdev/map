@@ -6,7 +6,12 @@
     visibility: hidden;
     max-height: 0;
     will-change: padding;
-    transition: opacity .15s ease, padding-top .2s ease;
+    transition:
+        opacity 0.15s ease,
+        padding-top 0.2s ease;
+    &:empty {
+        display: none;
+    }
 }
 
 .filter_active {

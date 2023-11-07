@@ -10,6 +10,10 @@ html {
     overflow: hidden;
 }
 
+:root {
+    --color-text-secondary: 155, 170, 195;
+}
+
 body {
     margin: 0;
     padding: 0;
