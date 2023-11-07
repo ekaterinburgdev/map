@@ -22,7 +22,3 @@
     visibility: visible;
     max-height: 100vh;
 }
-
-.filter_no_paddingTop {
-    padding-top: 0;
-}
