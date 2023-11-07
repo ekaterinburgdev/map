@@ -25,7 +25,7 @@ export function QuarterSource() {
         const handlePointClick = (e) => {
             const item = e.target.queryRenderedFeatures(e.point)[0];
 
-            openPopup(decodeURI(item?.properties?.quarterTitle), MapItemType.Quarter);
+            openPopup(item?.properties?.id, MapItemType.Quarter);
         };
 
         map.on('click', QUARTER_LAYER_ID, handlePointClick);
