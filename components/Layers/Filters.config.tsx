@@ -8,6 +8,7 @@ import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
 import { QuarterFilter } from 'components/Layers/Quarter/Filter/QuarterFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
 import { FilterConfig, FilterType } from '../../types/Filters.types';
+import { FacadeFilter } from './Facade/Filter/FacadeFilter';
 
 // @ts-ignore
 export const FILTERS_CONFIG: FilterConfig = {
@@ -60,7 +61,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     },
     [FilterType.HouseFacades]: {
         title: '«Дизайн фасадов Екатеринбурга»',
-        component: null,
+        component: <FacadeFilter />,
         isVerified: true,
     },
 };

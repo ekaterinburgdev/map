@@ -1,13 +1,13 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
-import { activeFilterSelector } from 'state/features/selectors';
-import { FilterType } from 'types/Filters.types';
 import { BUILDING_LAYER_ID } from 'constants/map';
 import { DEFAULT_BULDING_COLOR_NORMAL } from 'constants/colors';
-import useMapObjectState from '../providers/useMapObjectState';
+import { activeFilterSelector } from 'state/features/selectors';
+import { FilterType } from 'types/Filters.types';
+import facades from '../../../public/Facade Design Code 2023 (2).json';
 import { getLayerStyle } from '../helpers/getFeatureState';
-import facades from '../../../public/ekb-facades.json';
+import useMapObjectState from '../providers/useMapObjectState';
 
 const FACADES_IDS = Object.keys(facades);
 
