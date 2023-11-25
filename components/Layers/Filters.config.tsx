@@ -60,7 +60,7 @@ export const FILTERS_CONFIG: FilterConfig = {
         isVerified: true,
     },
     [FilterType.HouseFacades]: {
-        title: 'Дизайн фасадов Екатеринбурга',
+        title: 'Дизайн-код фасадов',
         component: <FacadeFilter />,
         source: [SOURCES_BY_TYPE.ekaterinburgdesign],
         isVerified: true,

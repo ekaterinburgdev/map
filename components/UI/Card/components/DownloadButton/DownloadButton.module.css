@@ -11,6 +11,11 @@
     p {
         margin: 5px;
     }
+
+    svg {
+        min-height: 14px;
+        min-width: 12px;
+    }
 }
 .primary {
     color: #81ff00;
