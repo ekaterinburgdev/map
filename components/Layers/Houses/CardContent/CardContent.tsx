@@ -176,7 +176,13 @@ export function HousesCardContent() {
                 </Section>
             )}
             <Section>
-                <Sources sources={['osm', 'howoldthishouse', 'mingkh', 'domaekb']} />
+                <Sources
+                    sources={
+                        facades[placemark?.attributes?.osmId]
+                            ? ['osm', 'howoldthishouse', 'mingkh', 'domaekb', 'ekaterinburgdesign']
+                            : ['osm', 'howoldthishouse', 'mingkh', 'domaekb']
+                    }
+                />
             </Section>
             <Section>
                 <EditObjectButtonLink address={placemark?.attributes.Address} />
