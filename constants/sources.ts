@@ -39,4 +39,9 @@ export const SOURCES_BY_TYPE = {
         link: 'https://екатеринбург.рф/справка/квартальные',
         data: null,
     },
+    design_objects_map: {
+        name: 'Карта объектов «Дизайн-кода»',
+        link: 'https://map.ekaterinburg.design',
+        data: 'https://map.ekaterinburg.design',
+    },
 } as const;
