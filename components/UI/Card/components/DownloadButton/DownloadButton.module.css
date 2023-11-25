@@ -1,0 +1,45 @@
+.download_button {
+    height: 100%;
+    min-height: 34px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+    padding: 0px 12px;
+    transition: all 0.15s ease;
+    
+    p {
+        margin: 5px;
+    }
+
+    svg {
+        min-height: 14px;
+        min-width: 12px;
+    }
+}
+.primary {
+    color: #81ff00;
+    background-color: rgba(129, 255, 0, 0.16);
+}
+.primary:hover {
+    background-color: rgba(129, 255, 0, 0.24);
+}
+.primary:active {
+    background-color: rgba(129, 255, 0, 0.32);
+}
+.secondary {
+    color: #c8a563;
+    background-color: rgba(200, 165, 99, 0.16);
+}
+.secondary:hover {
+    background-color: rgba(200, 165, 99, 0.24);
+}
+.secondary:active {
+    background-color: rgba(200, 165, 99, 0.32);
+}
+.file_name {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    gap: 4px;
+}

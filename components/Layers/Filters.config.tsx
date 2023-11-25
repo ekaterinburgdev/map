@@ -8,6 +8,7 @@ import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
 import { QuarterFilter } from 'components/Layers/Quarter/Filter/QuarterFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
 import { FilterConfig, FilterType } from '../../types/Filters.types';
+import { FacadeFilter } from './Facade/Filter/FacadeFilter';
 
 // @ts-ignore
 export const FILTERS_CONFIG: FilterConfig = {
@@ -38,7 +39,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.DesignCode]: {
         title: '«Дизайн-код Екатеринбурга»',
         component: <DesignCodeFilter />,
-        source: [SOURCES_BY_TYPE.ekaterinburgdesign],
+        source: [SOURCES_BY_TYPE.design_objects_map],
         isVerified: true,
     },
     [FilterType.DTP]: {
@@ -56,6 +57,12 @@ export const FILTERS_CONFIG: FilterConfig = {
         title: 'Квартальные',
         component: <QuarterFilter />,
         source: [SOURCES_BY_TYPE.ekb_quarter],
+        isVerified: true,
+    },
+    [FilterType.HouseFacades]: {
+        title: 'Дизайн-код фасадов',
+        component: <FacadeFilter />,
+        source: [SOURCES_BY_TYPE.ekaterinburgdesign],
         isVerified: true,
     },
 };

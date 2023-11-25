@@ -1,12 +1,10 @@
-'use client';
-
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl';
-
 import { HouseObject } from 'components/Layers/Houses/houseBase';
 import { MapContext } from 'components/Map/providers/MapProvider';
 import { usePopup } from 'components/Map/providers/usePopup';
 import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
+import Facade from 'components/UI/Card/components/Facade/Facade';
 import { Header } from 'components/UI/Card/components/Header/Header';
 import { Info } from 'components/UI/Card/components/Info/Info';
 import { Label } from 'components/UI/Card/components/Label/Label';
@@ -14,8 +12,9 @@ import { Section } from 'components/UI/Card/components/Section/Section';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-
 import { getLatLngFromHash } from 'helpers/hash';
+import { useIsDesktop } from 'helpers/isDesktop';
+import facades from '../../../../public/Facade Design Code 2023 (3)_extracted.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
@@ -23,6 +22,7 @@ export function HousesCardContent() {
     const { popupId } = usePopup();
     const { ekbMap } = useMap();
     const { loading } = useContext(MapContext);
+    const isDesktop = useIsDesktop();
 
     const [placemark, setPlacemark] = useState<HouseObject | null>(null);
 
@@ -45,6 +45,7 @@ export function HousesCardContent() {
             setPlacemark({
                 id: popupId,
                 attributes: {
+                    osmId: house['osm:id'] || null,
                     Address: [house['addr:street'], house['addr:housenumber']]
                         .filter(Boolean)
                         .join(', '),
@@ -148,7 +149,7 @@ export function HousesCardContent() {
     }
 
     return (
-        <div className={styles.popup}>
+        <div className={isDesktop ? styles.popup : styles.popup_mobile}>
             <Header
                 coordinates={placemark?.attributes.borders?.coordinates?.[0]}
                 title={placemark?.attributes.Address}
@@ -170,8 +171,20 @@ export function HousesCardContent() {
                     <ConstructionInfo date={String(placemark?.attributes.Year)} />
                 </Section>
             )}
+
+            {facades[placemark?.attributes?.osmId] && (
+                <Section>
+                    <Facade facade={facades[placemark?.attributes?.osmId]} />
+                </Section>
+            )}
             <Section>
-                <Sources sources={['osm', 'howoldthishouse', 'mingkh', 'domaekb']} />
+                <Sources
+                    sources={
+                        facades[placemark?.attributes?.osmId]
+                            ? ['osm', 'howoldthishouse', 'mingkh', 'domaekb', 'ekaterinburgdesign']
+                            : ['osm', 'howoldthishouse', 'mingkh', 'domaekb']
+                    }
+                />
             </Section>
             <Section>
                 <EditObjectButtonLink address={placemark?.attributes.Address} />

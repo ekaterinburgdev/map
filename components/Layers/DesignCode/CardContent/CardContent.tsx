@@ -44,7 +44,7 @@ export function DesignCodeCardContent({ placemark }: { placemark?: DesignCodeObj
                 })}
             </Section>
             <Section>
-                <Sources sources={['ekaterinburgdesign']} />
+                <Sources sources={['design_objects_map']} />
             </Section>
         </div>
     ) : null;

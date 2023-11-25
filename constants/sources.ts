@@ -27,7 +27,7 @@ export const SOURCES_BY_TYPE = {
     ekaterinburgdesign: {
         name: 'Дизайн-код Ектеринбурга',
         link: 'https://ekaterinburg.design',
-        data: 'https://map.ekaterinburg.design/api/map',
+        data: 'https://ekaterinburg.design',
     },
     dtp: {
         name: 'Карта ДТП',
@@ -38,5 +38,10 @@ export const SOURCES_BY_TYPE = {
         name: 'екатеринбург.рф',
         link: 'https://екатеринбург.рф/справка/квартальные',
         data: null,
+    },
+    design_objects_map: {
+        name: 'Карта объектов «Дизайн-кода»',
+        link: 'https://map.ekaterinburg.design',
+        data: 'https://map.ekaterinburg.design',
     },
 } as const;

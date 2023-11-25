@@ -35,7 +35,7 @@ export function Button({ text, type, size, onClick, link, children }: TButtonPro
 
     if (link) {
         return (
-            <a className={className} href={link}>
+            <a className={className} href={link} target="_blank" rel="noreferrer">
                 {text || children}
             </a>
         );

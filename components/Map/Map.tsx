@@ -1,18 +1,19 @@
 'use client';
 
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
-import MapGl from 'react-map-gl';
 import maplibregl from 'maplibre-gl';
+import MapGl from 'react-map-gl';
 import { COORDS_EKATERINBURG } from 'constants/coords';
 import { MAX_ZOOM, MIN_ZOOM } from 'constants/map';
 
 import { BuildingSource } from './layers/BuildingSource';
-import { OknSource } from './layers/OknSource';
+import { DesignCodeSource } from './layers/DesignCodeSource';
 import { DtpSource } from './layers/DtpSource';
 import { LinesSource } from './layers/LinesSource';
-import { DesignCodeSource } from './layers/DesignCodeSource';
+import { OknSource } from './layers/OknSource';
 import { QuarterSource } from './layers/QuarterSource';
+import { FacadeSource } from './layers/FacadeSource';
 import { MapContext } from './providers/MapProvider';
 
 import 'maplibre-gl/dist/maplibre-gl.css';
@@ -26,6 +27,7 @@ function MapLayers() {
             <LinesSource />
             <DesignCodeSource />
             <QuarterSource />
+            <FacadeSource />
         </>
     );
 }
@@ -40,7 +42,7 @@ export function Map() {
                 latitude: COORDS_EKATERINBURG[1],
                 longitude: COORDS_EKATERINBURG[0],
                 zoom: 15,
-                pitch: 30,
+                pitch: 0,
             }}
             minZoom={MIN_ZOOM}
             maxZoom={MAX_ZOOM}
