@@ -13,7 +13,7 @@ import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { getLatLngFromHash } from 'helpers/hash';
-import facades from '../../../../public/Facade Design Code 2023 (2).json';
+import facades from '../../../../public/Facade Design Code 2023 (3)_extracted.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
