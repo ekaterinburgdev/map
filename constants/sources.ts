@@ -20,7 +20,7 @@ export const SOURCES_BY_TYPE = {
         data: null,
     },
     mingkh: {
-        name: 'МинЖКХ Екатеринбурга',
+        name: 'МинЖКХ',
         link: 'https://mingkh.ru',
         data: null,
     },
