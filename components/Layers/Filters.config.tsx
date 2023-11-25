@@ -39,7 +39,7 @@ export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.DesignCode]: {
         title: '«Дизайн-код Екатеринбурга»',
         component: <DesignCodeFilter />,
-        source: [SOURCES_BY_TYPE.ekaterinburgdesign],
+        source: [SOURCES_BY_TYPE.design_objects_map],
         isVerified: true,
     },
     [FilterType.DTP]: {
