@@ -22,7 +22,7 @@ export default function DownloadButton({ type, name, link }: Props) {
             rel="noreferrer"
         >
             <div className={styles.file_name}>
-                <DownloadIcon color={COLORS[type]} />
+                <div className={styles.icon}><DownloadIcon color={COLORS[type]} /></div>
                 <p>{name}</p>
             </div>
         </a>
