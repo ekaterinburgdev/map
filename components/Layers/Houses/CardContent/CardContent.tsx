@@ -13,6 +13,7 @@ import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
 import { getLatLngFromHash } from 'helpers/hash';
+import { useIsDesktop } from 'helpers/isDesktop';
 import facades from '../../../../public/Facade Design Code 2023 (3)_extracted.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
@@ -21,6 +22,7 @@ export function HousesCardContent() {
     const { popupId } = usePopup();
     const { ekbMap } = useMap();
     const { loading } = useContext(MapContext);
+    const isDesktop = useIsDesktop();
 
     const [placemark, setPlacemark] = useState<HouseObject | null>(null);
 
@@ -147,7 +149,7 @@ export function HousesCardContent() {
     }
 
     return (
-        <div className={styles.popup}>
+        <div className={isDesktop ? styles.popup : styles.popup_mobile}>
             <Header
                 coordinates={placemark?.attributes.borders?.coordinates?.[0]}
                 title={placemark?.attributes.Address}
