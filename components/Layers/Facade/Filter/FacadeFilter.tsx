@@ -12,7 +12,7 @@ export function FacadeFilter() {
             <p>
                 <Link
                     href="https://ekaterinburg.design/files/ekaterinburg-city-centre-design-code.pdf"
-                    text="Подробнее о дизайн-кода в туристском центре"
+                    text="Стандарт дизайн-кода фасадов в туристском центре"
                 />
             </p>
         </div>
