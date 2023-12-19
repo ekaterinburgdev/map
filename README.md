@@ -9,8 +9,6 @@
 
 ## About
 
-> 🚧 This is a technical release for collecting feedback, not an analysis tool
-
 The map contains layers of data about objects in the city so that urbanists can easily access them to work with them.
 
 ### Features
@@ -52,3 +50,6 @@ pnpm i
 ```
 pnpm dev
 ```
+
+## Activity
+![Alt](https://repobeats.axiom.co/api/embed/5c6cd2ad59ea3b7fde917c1aa66a1914235c84af.svg "Repobeats analytics image")
