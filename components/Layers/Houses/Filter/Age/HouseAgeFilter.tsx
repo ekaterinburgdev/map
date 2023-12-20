@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { useRouter } from 'next/router';
 import { MinMax } from 'components/UI/RangeHistogram/types';
 
 import { houseBase } from 'components/Layers/Houses/houseBase';
@@ -12,6 +13,15 @@ import { CURRENT_YEAR, EKATERINBURG_FOUNDATION_YEAR } from './HouseAgeFilter.con
 
 export function HouseAgeFilter() {
     const dispatch = useDispatch();
+    const router = useRouter();
+    const { filter, ...rest } = router.query;
+
+    useEffect(() => {
+        router.push({
+            pathname: router.pathname,
+            query: { ...rest },
+        });
+    }, []);
 
     const getHouses = useCallback(
         async (range: MinMax) => {

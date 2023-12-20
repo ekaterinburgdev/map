@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useContext, useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl';
 import { HouseObject } from 'components/Layers/Houses/houseBase';
@@ -12,7 +13,6 @@ import { Section } from 'components/UI/Card/components/Section/Section';
 import { Sources } from 'components/UI/Card/components/Sources/Sources';
 import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
 import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { getLatLngFromHash } from 'helpers/hash';
 import { useIsDesktop } from 'helpers/isDesktop';
 import facades from '../../../../public/Facade Design Code 2023 (3)_extracted.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
@@ -22,6 +22,7 @@ export function HousesCardContent() {
     const { popupId } = usePopup();
     const { ekbMap } = useMap();
     const { loading } = useContext(MapContext);
+    const { query } = useRouter();
     const isDesktop = useIsDesktop();
 
     const [placemark, setPlacemark] = useState<HouseObject | null>(null);
@@ -34,7 +35,7 @@ export function HousesCardContent() {
         }
 
         try {
-            const [lat, lng] = getLatLngFromHash();
+            const [lat, lng] = (query.id as string).split('_');
 
             const house = map.queryRenderedFeatures(map.project({ lat: +lat, lng: +lng }), {
                 layers: ['building'],
@@ -64,7 +65,7 @@ export function HousesCardContent() {
         } catch (error) {
             console.error(error);
         }
-    }, [ekbMap, popupId, loading]);
+    }, [ekbMap, popupId, loading, query.id]);
 
     useEffect(() => {
         const map = ekbMap?.getMap?.();

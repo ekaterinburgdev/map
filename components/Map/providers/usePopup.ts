@@ -1,7 +1,5 @@
+import { useRouter } from 'next/router';
 import { useCallback, useContext, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
-import { setHash } from 'helpers/hash';
-import { activeFilterSelector } from 'state/features/selectors';
 import { AboutProjectContext } from 'state/providers/AboutProjectProvider';
 import { MapItemType } from 'types/map-item';
 
@@ -13,45 +11,53 @@ export function usePopup() {
     const [popupId, setOpenedPopup] = useState<PopupId>(null);
     const [popupType, setPopupType] = useState<MapItemType>(null);
 
-    const activeFilter: string = useSelector(activeFilterSelector);
+    const router = useRouter();
 
     const openPopup = useCallback(
         (id: PopupId, type: MapItemType) => {
             closeAboutProject();
-            setHash(type, id, activeFilter);
+            router.push({
+                pathname: router.pathname,
+                query: { ...router.query, type, id },
+            });
         },
-        [activeFilter, closeAboutProject],
+        [closeAboutProject, router],
     );
 
     const closePopup = useCallback(() => {
         setPopupType(null);
         setOpenedPopup(null);
 
-        window.location.hash = '';
-    }, []);
+        router.push({
+            pathname: router.pathname,
+            query: {},
+        });
+    }, [router]);
 
     const handleOpenPopup = useCallback(() => {
-        const [type, ...id] = window.location.hash.slice(1).split('/')[0].split('-');
+        const { type, id } = router.query;
 
-        setOpenedPopup(id.join('-'));
+        setOpenedPopup((id as PopupId).replace('_', '-'));
         setPopupType(type as MapItemType);
-    }, []);
+    }, [router.query]);
 
     useEffect(() => {
-        window.addEventListener('hashchange', handleOpenPopup, false);
+        window.addEventListener('popstate', handleOpenPopup, false);
 
         return () => {
-            window.removeEventListener('hashchange', handleOpenPopup, false);
+            window.removeEventListener('popstate', handleOpenPopup, false);
         };
     }, [handleOpenPopup]);
 
     useEffect(() => {
-        if (!window.location.hash) {
+        const { type, id } = router.query;
+
+        if (!type && !id) {
             return;
         }
 
         handleOpenPopup();
-    }, [handleOpenPopup]);
+    }, [handleOpenPopup, router.query]);
 
     return {
         popupId,

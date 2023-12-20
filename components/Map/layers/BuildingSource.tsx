@@ -3,6 +3,7 @@ import {
     DataDrivenPropertyValueSpecification,
     ExpressionSpecification,
 } from 'maplibre-gl';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
@@ -13,7 +14,7 @@ import {
     FLOOR_FILTERS_DATA,
     WEAR_TEAR_FILTERS_DATA,
 } from 'components/Layers/Houses/Houses.constants';
-import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
+import { activeFilterParamsSelector } from 'state/features/selectors';
 import { FilterType } from 'types/Filters.types';
 import { MapItemType } from 'types/map-item';
 import useMapObjectState from '../providers/useMapObjectState';
@@ -112,7 +113,9 @@ const healthRangeData = WEAR_TEAR_FILTERS_DATA.map((item) => ({ ...item, value: 
 
 export function BuildingSource() {
     const ekbMap = useMap();
-    const activeFilter = useSelector(activeFilterSelector);
+    const router = useRouter();
+    const activeFilter = router.query.filter as FilterType;
+    // const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
     const { openPopup } = usePopup();
 
@@ -124,13 +127,13 @@ export function BuildingSource() {
             [FilterType.HouseFloor]: 'building:levels',
             [FilterType.HouseWearTear]: 'building:health',
             [FilterType.HouseFacades]: 'building:facade',
-        }[activeFilter];
+        }[activeFilter || FilterType.HouseAge];
 
         const rangeData = {
             [FilterType.HouseAge]: ageRangeData,
             [FilterType.HouseFloor]: levelsRangeData,
             [FilterType.HouseWearTear]: healthRangeData,
-        }[activeFilter];
+        }[activeFilter || FilterType.HouseAge];
 
         setBuildingStyle({
             map,

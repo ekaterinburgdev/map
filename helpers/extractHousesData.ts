@@ -1,7 +1,9 @@
 const fs = require('fs');
+const path = require('path');
 
-const FILE_PATH = 'D:/Documents/map/public/Facade Design Code 2023 (3).json';
-const NEW_FILE_PATH = 'D:/Documents/map/public/Facade Design Code 2023 (3)_extracted.json';
+const FILE_NAME = 'Facade Design Code 2023 (3)';
+const FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}.json`);
+const NEW_FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}_extracted.json`);
 
 fs.readFile(FILE_PATH, 'utf8', (err, data) => {
     if (err) {
