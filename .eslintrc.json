@@ -3,7 +3,9 @@
     "next/core-web-vitals",
     "plugin:prettier/recommended",
     "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended"
   ],
   "ignorePatterns": ["next.config.js", "scripts/**/*.*js"],
   "parserOptions": {
@@ -12,18 +14,17 @@
   "rules": {
     "@next/next/no-img-element": "off",
 
-    "no-irregular-whitespace": "off",
-
+    // TODO: remove this rule
     "@typescript-eslint/no-explicit-any": "off",
+    // TODO: remove this rule
     "@typescript-eslint/ban-ts-comment": "off",
+    // TODO: remove this rule
+    "jsx-a11y/click-events-have-key-events": "off",
+    // TODO: remove this rule
+    "jsx-a11y/no-static-element-interactions": "off",
 
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
-      }
-    ],
-    "import/no-restricted-imports": [
+    "no-irregular-whitespace": "off",
+    "no-restricted-imports": [
       "error",
       {
         "patterns": [
@@ -34,6 +35,14 @@
         ]
       }
     ],
+    
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
+      }
+    ],
+   
     "import/no-restricted-paths": [
       "error",
       {
