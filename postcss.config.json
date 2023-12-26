@@ -1,24 +1,24 @@
 {
-    "plugins": [
-        "postcss-flexbugs-fixes",
-        "postcss-nesting",
-        [
-            "postcss-preset-env",
-            {
-                "stage": 3,
-                "features": {
-                    "custom-properties": false
-                },
-                "autoprefixer": {
-                    "flexbox": "no-2009"
-                }
-            }
-        ],
-        [
-            "postcss-mixins",
-            {
-                "mixinsFiles": "styles/**/mixins/*.css"
-            }
-        ]
+  "plugins": [
+    "postcss-flexbugs-fixes",
+    "postcss-nesting",
+    [
+      "postcss-preset-env",
+      {
+        "stage": 3,
+        "features": {
+          "custom-properties": false
+        },
+        "autoprefixer": {
+          "flexbox": "no-2009"
+        }
+      }
+    ],
+    [
+      "postcss-mixins",
+      {
+        "mixinsFiles": "styles/**/mixins/*.css"
+      }
     ]
+  ]
 }

@@ -4,34 +4,34 @@ import { CONTENTS_CONFIG } from 'components/Layers/Content.config';
 import { MapContext } from 'components/Map/providers/MapProvider';
 
 export function Card() {
-    const { popupId, popupType } = useContext(MapContext);
-    const [popupData, setPopupData] = useState<any>();
-    const [loading, setLoading] = useState<boolean>(false);
+  const { popupId, popupType } = useContext(MapContext);
+  const [popupData, setPopupData] = useState<any>();
+  const [loading, setLoading] = useState<boolean>(false);
 
-    useEffect(() => {
-        async function fetchData() {
-            if (!popupId || !popupType) {
-                return;
-            }
+  useEffect(() => {
+    async function fetchData() {
+      if (!popupId || !popupType) {
+        return;
+      }
 
-            setLoading(true);
+      setLoading(true);
 
-            const requestFunction = CONTENTS_CONFIG[popupType].oneItemRequest;
+      const requestFunction = CONTENTS_CONFIG[popupType].oneItemRequest;
 
-            const data = await requestFunction(popupId);
+      const data = await requestFunction(popupId);
 
-            setPopupData(data);
-            setLoading(false);
-        }
+      setPopupData(data);
+      setLoading(false);
+    }
 
-        fetchData();
-    }, [popupId, popupType]);
+    fetchData();
+  }, [popupId, popupType]);
 
-    const CardContent = useMemo(() => {
-        setLoading(true);
+  const CardContent = useMemo(() => {
+    setLoading(true);
 
-        return CONTENTS_CONFIG[popupType]?.cardContent || (() => null);
-    }, [popupType]);
+    return CONTENTS_CONFIG[popupType]?.cardContent || (() => null);
+  }, [popupType]);
 
-    return loading ? <CardLoader /> : <CardContent placemark={popupData} />;
+  return loading ? <CardLoader /> : <CardContent placemark={popupData} />;
 }

@@ -1,39 +1,39 @@
 @define-mixin scroll $background: #1e2841, $color: #455068, $color-active: #5b677d {
+  & {
+    overflow-y: auto;
+  }
+
+  /* FF */
+  @supports (scrollbar-width: thin) {
     & {
-        overflow-y: auto;
+      scrollbar-color: $color transparent;
+      scrollbar-width: thin;
+      overflow-y: auto;
+      padding-right: 8px;
+    }
+  }
+
+  /* Safari, Chrome */
+  @supports not (scrollbar-width: thin) {
+    & {
+      overflow-y: scroll;
+      padding-right: 0;
     }
 
-    /* FF */
-    @supports (scrollbar-width: thin) {
-        & {
-            scrollbar-color: $color transparent;
-            scrollbar-width: thin;
-            overflow-y: auto;
-            padding-right: 8px;
-        }
+    &::-webkit-scrollbar {
+      width: 8px;
     }
 
-    /* Safari, Chrome */
-    @supports not (scrollbar-width: thin) {
-        & {
-            overflow-y: scroll;
-            padding-right: 0;
-        }
-
-        &::-webkit-scrollbar {
-            width: 8px;
-        }
-        
-        &::-webkit-scrollbar-thumb {
-            border-radius: 16px;
-        }
-        
-        &:hover::-webkit-scrollbar-thumb {
-            background: $color;
-        }
-        
-        &::-webkit-scrollbar-thumb:active {
-            background: $color-active; 
-        }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 16px;
     }
+
+    &:hover::-webkit-scrollbar-thumb {
+      background: $color;
+    }
+
+    &::-webkit-scrollbar-thumb:active {
+      background: $color-active;
+    }
+  }
 }

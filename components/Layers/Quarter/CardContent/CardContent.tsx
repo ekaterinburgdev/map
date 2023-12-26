@@ -11,59 +11,56 @@ import { IconType } from 'shared/UI/Icons/Icons.types';
 import styles from './CardContent.module.css';
 
 type QuarterCardContentProps = {
-    placemark?: QuarterObject;
+  placemark?: QuarterObject;
 };
 
 export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
-    if (!placemark) return null;
+  if (!placemark) return null;
 
-    return (
-        <div className={styles.popup}>
-            <Header title={placemark.quarterTitle} />
+  return (
+    <div className={styles.popup}>
+      <Header title={placemark.quarterTitle} />
 
-            <div className={styles.description}>
-                {/* <a href={placemark.url} target="_blank" rel="noreferrer">
+      <div className={styles.description}>
+        {/* <a href={placemark.url} target="_blank" rel="noreferrer">
                     Посмотреть телефон и почту квартального&nbsp;
                     <Icon type={IconType.External} color="#000" />
                 </a> */}
-                <Button
-                    size={ButtonSize.SMALL}
-                    onClick={() => {}}
-                    link={placemark.url}
-                    type={ButtonType.YELLOW}
-                >
-                    Посмотреть телефон и почту квартального&nbsp;
-                    <Icon type={IconType.External} color="#000" />
-                </Button>
-            </div>
+        <Button
+          size={ButtonSize.SMALL}
+          onClick={() => {}}
+          link={placemark.url}
+          type={ButtonType.YELLOW}
+        >
+          Посмотреть телефон и почту квартального&nbsp;
+          <Icon type={IconType.External} color="#000" />
+        </Button>
+      </div>
 
-            <Section>
-                <Info
-                    nameColor="#9baac3"
-                    infos={[
-                        {
-                            name: 'Район',
-                            text: placemark.districtTitle,
-                        },
-                        // {
-                        //     name: 'Границы квартала',
-                        //     text: placemark.quarterDescription,
-                        // },
-                    ]}
-                />
-            </Section>
+      <Section>
+        <Info
+          nameColor="#9baac3"
+          infos={[
+            {
+              name: 'Район',
+              text: placemark.districtTitle,
+            },
+            // {
+            //     name: 'Границы квартала',
+            //     text: placemark.quarterDescription,
+            // },
+          ]}
+        />
+      </Section>
 
-            <Section>
-                <Sources sources={['ekb_quarter']} />
-            </Section>
-            <Section>
-                <div className={sectionStyles.block_inline}>
-                    <EditObjectButtonLink
-                        text="Дополнить или поправить"
-                        address={placemark?.quarterTitle}
-                    />
-                </div>
-            </Section>
+      <Section>
+        <Sources sources={['ekb_quarter']} />
+      </Section>
+      <Section>
+        <div className={sectionStyles.block_inline}>
+          <EditObjectButtonLink text="Дополнить или поправить" address={placemark?.quarterTitle} />
         </div>
-    );
+      </Section>
+    </div>
+  );
 }

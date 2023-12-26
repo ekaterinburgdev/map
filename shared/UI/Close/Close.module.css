@@ -1,38 +1,37 @@
 .close {
-    position: sticky;
-    top: 0;
-    right: 0;
-    z-index: 1;
-    float: right;
-    width: 32px;
-    height: 32px;
-    margin: 0;
-    padding: 0;
-    border: none;
-    border-radius: 50%;
-    background: none;
-    color: #fff;
-    line-height: 1;
-    cursor: pointer;
-    transition: .15s ease;
-    appearance: none;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  float: right;
+  width: 32px;
+  height: 32px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: none;
+  color: #fff;
+  line-height: 1;
+  cursor: pointer;
+  transition: 0.15s ease;
+  appearance: none;
 }
 
 @media (hover) {
-    .close:hover {
-        background-color: #111725;
-    }
+  .close:hover {
+    background-color: #111725;
+  }
 }
 
 .close:active {
-    background-color: #06080d;
+  background-color: #06080d;
 }
 
-
 @media screen and (width >= 1200px) {
-    .close {
-        top: 2px;
-        width: 48px;
-        height: 48px;
-    }
+  .close {
+    top: 2px;
+    width: 48px;
+    height: 48px;
+  }
 }

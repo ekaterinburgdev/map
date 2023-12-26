@@ -1,8 +1,8 @@
 export interface HistogramDatum {
-    from: number;
-    to: number;
-    value: number;
-    color: string;
+  from: number;
+  to: number;
+  value: number;
+  color: string;
 }
 export type HistogramDatumWithoutValues = Omit<HistogramDatum, 'value'>;
 

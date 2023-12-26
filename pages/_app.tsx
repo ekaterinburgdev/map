@@ -6,12 +6,12 @@ import 'styles/globals.css';
 import 'ekb/style.css';
 
 export default function App({ Component, pageProps }: AppProps) {
-    return (
-        <>
-            <Head>
-                <title>Инфокарта Екатеринбурга</title>
-            </Head>
-            <Component {...pageProps} />
-        </>
-    );
+  return (
+    <>
+      <Head>
+        <title>Инфокарта Екатеринбурга</title>
+      </Head>
+      <Component {...pageProps} />
+    </>
+  );
 }

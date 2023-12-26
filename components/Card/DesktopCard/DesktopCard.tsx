@@ -5,18 +5,18 @@ import { Close } from 'shared/UI/Close';
 import styles from './DesktopCard.module.css';
 
 export function DesktopCard() {
-    const { popupId, closePopup } = useContext(MapContext);
+  const { popupId, closePopup } = useContext(MapContext);
 
-    if (!popupId) {
-        return <></>;
-    }
+  if (!popupId) {
+    return <></>;
+  }
 
-    return (
-        <div className={styles.DesktopCard}>
-            <div className={styles.DesktopCard__header}>
-                <Close close={closePopup} />
-            </div>
-            <Card />
-        </div>
-    );
+  return (
+    <div className={styles.DesktopCard}>
+      <div className={styles.DesktopCard__header}>
+        <Close close={closePopup} />
+      </div>
+      <Card />
+    </div>
+  );
 }

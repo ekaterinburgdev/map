@@ -1,42 +1,42 @@
 .axis {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    font-size: 11px;
-    line-height: 18px;
-    column-gap: 1px;
-    margin: 0 calc(-1 * var(--histogram-padding-x));
-    color: var(--histogram-color-active);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  font-size: 11px;
+  line-height: 18px;
+  column-gap: 1px;
+  margin: 0 calc(-1 * var(--histogram-padding-x));
+  color: var(--histogram-color-active);
 }
 
 .axis__item {
-    transition: .15s ease;
-    cursor: pointer;
-    text-align: center;
-    flex-basis: var(--axis-item-basis);
-    white-space: nowrap;
+  transition: 0.15s ease;
+  cursor: pointer;
+  text-align: center;
+  flex-basis: var(--axis-item-basis);
+  white-space: nowrap;
 }
 
 .axis__item:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .axis__item:not(.axis__item_active) {
-    color: var(--histogram-color-disabled);
+  color: var(--histogram-color-disabled);
 }
 
 .axis__item:not(.axis__item_active):hover {
-    color: var(--histogram-color-active);
+  color: var(--histogram-color-active);
 }
 
 @media screen and (width >= 768px) {
-    .axis {
-        font-size: 13px;
-    }
+  .axis {
+    font-size: 13px;
+  }
 }
 
 @media screen and (width >= 1200px) {
-    .axis {
-        font-size: 14px;
-    }
+  .axis {
+    font-size: 14px;
+  }
 }

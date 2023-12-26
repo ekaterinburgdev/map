@@ -1,27 +1,27 @@
 .histogram {
-    --histogram-color-active: white;
-    --histogram-color-disabled: #2c3a5e;
+  --histogram-color-active: white;
+  --histogram-color-disabled: #2c3a5e;
 
-    --histogram-thumb-color-active: white;
-    --histogram-thumb-color-disabled: #55647d;
+  --histogram-thumb-color-active: white;
+  --histogram-thumb-color-disabled: #55647d;
 
-    --histogram-padding-x: 10px;
+  --histogram-padding-x: 10px;
 }
 
 .histogram {
-    position: relative;
-    padding-top: 32px;
-    padding-right: var(--histogram-padding-x);
-    padding-bottom: 0;
-    padding-left: var(--histogram-padding-x);
-    box-sizing: content-box;
-    user-select: none;
+  position: relative;
+  padding-top: 32px;
+  padding-right: var(--histogram-padding-x);
+  padding-bottom: 0;
+  padding-left: var(--histogram-padding-x);
+  box-sizing: content-box;
+  user-select: none;
 }
 
 .histogram__range {
-    margin-top: 1px;
+  margin-top: 1px;
 }
 
 .histogram__axis {
-    margin-top: 8px;
+  margin-top: 8px;
 }

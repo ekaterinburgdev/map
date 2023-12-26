@@ -1,14 +1,14 @@
 .popup {
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
-    padding: 16px 8px 16px 16px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  padding: 16px 8px 16px 16px;
 }
 
 .popup__extraText {
-    margin: 8px 16px 0 0;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 20px;
-    font-size: 16px;
-    color: #9baac3;
+  margin: 8px 16px 0 0;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  font-size: 16px;
+  color: #9baac3;
 }

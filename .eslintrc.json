@@ -1,5 +1,10 @@
 {
-  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   "ignorePatterns": ["next.config.js", "scripts/**/*.*js"],
   "parserOptions": {
     "project": "./tsconfig.json"
@@ -18,7 +23,7 @@
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
     ],
-    "no-restricted-imports": [
+    "import/no-restricted-imports": [
       "error",
       {
         "patterns": [

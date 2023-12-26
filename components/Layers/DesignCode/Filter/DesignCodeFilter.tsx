@@ -14,44 +14,44 @@ import styles from './DesignCodeFilter.module.css';
 const DESIGN_CODE_ITEMS = groupBy(designCode.features, (item) => item.properties.type);
 
 export function DesignCodeFilter() {
-    const dispatch = useDispatch();
-    const [designCodeFilterState, dispatchDesignCodeAction] = useReducer(
-        designCodeReducer,
-        designCondeInitalState,
-    );
+  const dispatch = useDispatch();
+  const [designCodeFilterState, dispatchDesignCodeAction] = useReducer(
+    designCodeReducer,
+    designCondeInitalState,
+  );
 
-    const onChange = useCallback(
-        (designCodeItemType: DesignCodeItemType) => async () => {
-            dispatchDesignCodeAction({ type: 'toggle', designCodeItemType });
-        },
-        [],
-    );
+  const onChange = useCallback(
+    (designCodeItemType: DesignCodeItemType) => async () => {
+      dispatchDesignCodeAction({ type: 'toggle', designCodeItemType });
+    },
+    [],
+  );
 
-    useEffect(() => {
-        dispatch(
-            setFilter({
-                activeFilter: FilterType.DesignCode,
-                activeFilterParams: designCodeFilterState,
-            }),
-        );
-    }, [designCodeFilterState, dispatch]);
-
-    return (
-        <div>
-            {Object.entries(DESIGN_CODE_ITEMS).map(([type, items], i) => (
-                <Checkbox
-                    id={`design-code-${i}`}
-                    checked={designCodeFilterState[type]}
-                    color={DESIGN_CODE_ITEMS_COLORS[type]}
-                    // @ts-ignore
-                    onClick={onChange(type)}
-                    mix={styles.DesignCodeFilter__checkboxContent}
-                    key={`filter-design-code-${type}`}
-                >
-                    {type}
-                    <span className={styles.DesignCodeFilter__objectsCount}>{items.length}</span>
-                </Checkbox>
-            ))}
-        </div>
+  useEffect(() => {
+    dispatch(
+      setFilter({
+        activeFilter: FilterType.DesignCode,
+        activeFilterParams: designCodeFilterState,
+      }),
     );
+  }, [designCodeFilterState, dispatch]);
+
+  return (
+    <div>
+      {Object.entries(DESIGN_CODE_ITEMS).map(([type, items], i) => (
+        <Checkbox
+          id={`design-code-${i}`}
+          checked={designCodeFilterState[type]}
+          color={DESIGN_CODE_ITEMS_COLORS[type]}
+          // @ts-ignore
+          onClick={onChange(type)}
+          mix={styles.DesignCodeFilter__checkboxContent}
+          key={`filter-design-code-${type}`}
+        >
+          {type}
+          <span className={styles.DesignCodeFilter__objectsCount}>{items.length}</span>
+        </Checkbox>
+      ))}
+    </div>
+  );
 }

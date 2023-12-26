@@ -1,16 +1,16 @@
 .DesktopCard {
-    position: relative;
-    background: #1e2841 !important;
-    border-radius: 10px !important;
-    max-height: calc(90vh - 2vw) !important;
-    overflow-y: auto;
-    overflow-x: hidden;
-    
-    @mixin scroll;
+  position: relative;
+  background: #1e2841 !important;
+  border-radius: 10px !important;
+  max-height: calc(90vh - 2vw) !important;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  @mixin scroll;
 }
 
 .DesktopCard__header {
-    position: absolute;
-    right: 0;
-    top: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }

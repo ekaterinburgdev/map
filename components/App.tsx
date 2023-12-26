@@ -19,33 +19,33 @@ import { Copyright } from './Copyright/Copyright';
 import { Map } from './Map/Map';
 
 export default function App() {
-    const isDesktop = useIsDesktop();
+  const isDesktop = useIsDesktop();
 
-    return (
-        <Provider store={store}>
-            <MapProvider>
-                <AboutProjectProvider>
-                    <MapContextProvider>
-                        <Map />
-                        {isDesktop ? (
-                            <>
-                                <LeftSidebar />
-                                <RightSidebar />
-                                <AboutProjectModal />
-                            </>
-                        ) : (
-                            <>
-                                <MobileFilters />
-                                <MobileCard />
-                                <MobileAboutProject />
-                            </>
-                        )}
-                        <Copyright />
-                        <AboutProjectIcons />
-                        <Footer />
-                    </MapContextProvider>
-                </AboutProjectProvider>
-            </MapProvider>
-        </Provider>
-    );
+  return (
+    <Provider store={store}>
+      <MapProvider>
+        <AboutProjectProvider>
+          <MapContextProvider>
+            <Map />
+            {isDesktop ? (
+              <>
+                <LeftSidebar />
+                <RightSidebar />
+                <AboutProjectModal />
+              </>
+            ) : (
+              <>
+                <MobileFilters />
+                <MobileCard />
+                <MobileAboutProject />
+              </>
+            )}
+            <Copyright />
+            <AboutProjectIcons />
+            <Footer />
+          </MapContextProvider>
+        </AboutProjectProvider>
+      </MapProvider>
+    </Provider>
+  );
 }

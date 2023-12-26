@@ -12,50 +12,50 @@ import useMapObjectState from 'components/Map/providers/useMapObjectState';
 const FACADES_IDS = Object.keys(facades);
 
 function FacadeStyles() {
-    const ekbMap = useMap();
+  const ekbMap = useMap();
 
-    useEffect(() => {
-        const map = ekbMap?.current?.getMap?.();
+  useEffect(() => {
+    const map = ekbMap?.current?.getMap?.();
 
-        map.setStyle({
-            ...map?.getStyle(),
-            layers: map?.getStyle().layers.map((layer) => {
-                if (layer.id === BUILDING_LAYER_ID) {
-                    return {
-                        ...layer,
-                        paint: {
-                            // @ts-ignore
-                            ...layer.paint,
-                            'fill-extrusion-color': [
-                                'match',
-                                ['get', 'osm:id'],
-                                ['literal'].concat(FACADES_IDS),
-                                getLayerStyle<string>({
-                                    initial: 'rgba(129, 255, 0, 0.75)',
-                                    hover: 'rgba(129, 255, 0, 0.90)',
-                                    active: 'rgba(129, 255, 0, 1)',
-                                }),
-                                DEFAULT_BULDING_COLOR_NORMAL,
-                            ],
-                        },
-                    };
-                }
-                return layer;
-            }),
-        });
-    }, [ekbMap]);
+    map.setStyle({
+      ...map?.getStyle(),
+      layers: map?.getStyle().layers.map((layer) => {
+        if (layer.id === BUILDING_LAYER_ID) {
+          return {
+            ...layer,
+            paint: {
+              // @ts-ignore
+              ...layer.paint,
+              'fill-extrusion-color': [
+                'match',
+                ['get', 'osm:id'],
+                ['literal'].concat(FACADES_IDS),
+                getLayerStyle<string>({
+                  initial: 'rgba(129, 255, 0, 0.75)',
+                  hover: 'rgba(129, 255, 0, 0.90)',
+                  active: 'rgba(129, 255, 0, 1)',
+                }),
+                DEFAULT_BULDING_COLOR_NORMAL,
+              ],
+            },
+          };
+        }
+        return layer;
+      }),
+    });
+  }, [ekbMap]);
 
-    useMapObjectState('building');
+  useMapObjectState('building');
 
-    return null;
+  return null;
 }
 
 export function FacadeSource() {
-    const activeFilter = useSelector(activeFilterSelector);
+  const activeFilter = useSelector(activeFilterSelector);
 
-    if (activeFilter !== FilterType.HouseFacades) {
-        return null;
-    }
+  if (activeFilter !== FilterType.HouseFacades) {
+    return null;
+  }
 
-    return <FacadeStyles />;
+  return <FacadeStyles />;
 }

@@ -1,12 +1,12 @@
 import { DTPObjectProperties } from 'components/Layers/DTP/dtp';
 
 export type ParticipantsProps = {
-    participants: DTPObjectProperties['participants'];
-    vehicles?: DTPObjectProperties['vehicles'];
+  participants: DTPObjectProperties['participants'];
+  vehicles?: DTPObjectProperties['vehicles'];
 };
 
 export enum HealthStatusType {
-    Dead = 'скончался',
-    Injured = 'пострадал',
-    NotInjured = 'не пострадал',
+  Dead = 'скончался',
+  Injured = 'пострадал',
+  NotInjured = 'не пострадал',
 }
