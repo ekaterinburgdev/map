@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
-import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
+import { Sources } from 'components/Card/components/Sources/Sources';
+import { ConstructionInfo } from 'components/Card/components/ConstructionInfo/ConstructionInfo';
+import { Header } from 'components/Card/components/Header/Header';
+import { Section } from 'components/Card/components/Section/Section';
+import { EditObjectButtonLink } from 'components/EditObjectButtonLink/EditObjectButtonLink';
 import { OknObject } from '../oknObject';
 import { OKNInfo } from './components/OKNInfo/OKNInfo';
 import styles from './CardContent.module.css';

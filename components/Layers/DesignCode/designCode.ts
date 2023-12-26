@@ -1,5 +1,5 @@
 import groupBy from 'lodash/groupBy';
-import dtp from '../../../public/ekb-design-code.json';
+import dtp from 'public/ekb-design-code.json';
 import { DesignCodeItemType, DesignCodeObject } from './designCodeObject';
 
 export const DESIGN_MAP_HOST = 'https://map.ekaterinburg.design';

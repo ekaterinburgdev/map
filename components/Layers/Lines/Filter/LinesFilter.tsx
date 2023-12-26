@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { setFilter } from 'state/features/dataLayers';
 import { FilterType } from 'types/Filters.types';
 import { lines } from 'components/Layers/Lines/lines';
-import { Checkbox } from 'components/UI/Checkbox/Checkbox';
-import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
+import { Checkbox } from 'shared/UI/Checkbox/Checkbox';
+import { FilterLoader } from 'shared/UI/Loader/FilterLoader/FilterLoader';
 
 import { LineType } from '../lineType';
 import { LINES_CONFIG } from '../Lines.constants';

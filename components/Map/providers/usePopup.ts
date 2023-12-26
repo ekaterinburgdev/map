@@ -1,6 +1,6 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { setHash } from 'helpers/hash';
+import { setHash } from 'shared/helpers/hash';
 import { activeFilterSelector } from 'state/features/selectors';
 import { AboutProjectContext } from 'state/providers/AboutProjectProvider';
 import { MapItemType } from 'types/map-item';

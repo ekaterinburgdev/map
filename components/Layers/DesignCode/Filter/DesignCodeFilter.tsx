@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import groupBy from 'lodash/groupBy';
-import { Checkbox } from 'components/UI/Checkbox/Checkbox';
+import { Checkbox } from 'shared/UI/Checkbox/Checkbox';
 import { FilterType } from 'types/Filters.types';
 import { setFilter } from 'state/features/dataLayers';
 
-import designCode from '../../../../public/ekb-design-code.json';
+import designCode from 'public/ekb-design-code.json';
 import { DESIGN_CODE_ITEMS_COLORS } from '../DesignCode.constants';
 import { DesignCodeItemType } from '../designCodeObject';
 import { designCodeReducer, designCondeInitalState } from './DesignCodeFilter.state';

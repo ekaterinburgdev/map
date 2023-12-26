@@ -2,9 +2,9 @@ import React, { useMemo } from 'react';
 
 import { DTPParticipant } from 'components/Layers/DTP/dtp';
 
-import { Info } from 'components/UI/Card/components/Info/Info';
-import { Label } from 'components/UI/Card/components/Label/Label';
-import { getYearNameByValue } from 'helpers/getYearNameByValue';
+import { Info } from 'components/Card/components/Info/Info';
+import { Label } from 'components/Card/components/Label/Label';
+import { getYearNameByValue } from 'shared/helpers/getYearNameByValue';
 import { HealthStatusType } from '../Participants.types';
 import styles from './Participant.module.css';
 

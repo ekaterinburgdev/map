@@ -7,11 +7,11 @@ import { FilterType } from 'types/Filters.types';
 import { DESIGN_CODE_ITEMS_COLORS } from 'components/Layers/DesignCode/DesignCode.constants';
 import { MapItemType } from 'types/map-item';
 import { DESIGN_MAP_HOST } from 'components/Layers/DesignCode/designCode';
-import styles from 'helpers/DesignCodeMarker.module.css';
+import styles from 'shared/helpers/DesignCodeMarker.module.css';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
-import { usePopup } from '../providers/usePopup';
-import geojson from '../../../public/ekb-design-code.json';
-import useMapObjectState from '../providers/useMapObjectState';
+import geojson from 'public/ekb-design-code.json';
+import { usePopup } from 'components/Map/providers/usePopup';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
 
 const DESIGN_CODE_LAYER_ID = 'design-code-point';
 

@@ -16,8 +16,8 @@ import {
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
 import { FilterType } from 'types/Filters.types';
 import { MapItemType } from 'types/map-item';
-import useMapObjectState from '../providers/useMapObjectState';
-import { usePopup } from '../providers/usePopup';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
+import { usePopup } from 'components/Map/providers/usePopup';
 
 const BUILDING_LAYER_ID = 'building';
 

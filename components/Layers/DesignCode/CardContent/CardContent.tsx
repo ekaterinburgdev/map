@@ -1,10 +1,10 @@
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Label } from 'components/UI/Card/components/Label/Label';
-import { Section } from 'components/UI/Card/components/Section/Section';
+import { Header } from 'components/Card/components/Header/Header';
+import { Label } from 'components/Card/components/Label/Label';
+import { Section } from 'components/Card/components/Section/Section';
 
 import { DESIGN_MAP_HOST } from 'components/Layers/DesignCode/designCode';
 import styles from 'styles/CardContent.module.css';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
+import { Sources } from 'components/Card/components/Sources/Sources';
 import { DESIGN_CODE_MARKER_COLOR_BY_TYPE } from '../MapData/MapData.constants';
 
 import { DesignCodeObject } from '../designCodeObject';

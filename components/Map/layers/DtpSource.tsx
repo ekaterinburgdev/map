@@ -7,9 +7,9 @@ import { FilterType } from 'types/Filters.types';
 import { SEVERITY_CONFIG } from 'components/Layers/DTP/DTP.constants';
 import { MapItemType } from 'types/map-item';
 import { MAX_ZOOM, MIN_ZOOM } from 'constants/map';
-import dtp from '../../../public/ekb-dtp.json';
-import { usePopup } from '../providers/usePopup';
-import useMapObjectState from '../providers/useMapObjectState';
+import dtp from 'public/ekb-dtp.json';
+import { usePopup } from 'components/Map/providers/usePopup';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
 
 const DTP_LAYER_ID = 'dtp-point';
 const DTP_LAYER_HEATMAP_ID = 'dtp-point-heatmap';

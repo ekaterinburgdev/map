@@ -1,4 +1,4 @@
-import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import { HistogramDataWithoutValues } from 'shared/UI/RangeHistogram';
 import { HouseSourceType } from './Houses.constants';
 
 type Meta = Record<string, number | null>;

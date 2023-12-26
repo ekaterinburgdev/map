@@ -4,18 +4,18 @@ import { MapProvider } from 'react-map-gl';
 
 import { store } from 'state';
 
-import { AboutProjectIcons } from 'components/UI/AboutProjectIcons/AboutProjectIcons';
-import { LeftSidebar } from 'components/UI/LeftSidebar/LeftSidebar';
-import { MobileFilters } from 'components/UI/Filters';
-import { RightSidebar } from 'components/UI/RightSidebar/RightSidebar';
-import { MobileCard } from 'components/UI/Card';
-import { useIsDesktop } from 'helpers/isDesktop';
-import { MobileAboutProject } from 'components/UI/AboutProjectModal/MobileAboutProject';
+import { AboutProjectIcons } from 'components/AboutProjectIcons/AboutProjectIcons';
+import { LeftSidebar } from 'components/LeftSidebar/LeftSidebar';
+import { MobileFilters } from 'components/Filters';
+import { RightSidebar } from 'components/RightSidebar/RightSidebar';
+import { MobileCard } from 'components/Card';
+import { useIsDesktop } from 'shared/helpers/isDesktop';
+import { MobileAboutProject } from 'components/AboutProjectModal/MobileAboutProject';
 import { AboutProjectProvider } from 'state/providers/AboutProjectProvider';
-import { AboutProjectModal } from 'components/UI/AboutProjectModal/AboutProjectModal';
+import { AboutProjectModal } from 'components/AboutProjectModal/AboutProjectModal';
 import { MapContextProvider } from './Map/providers/MapProvider';
-import { Footer } from './UI/Footer/Footer';
-import { Copyright } from './UI/Copyright/Copyright';
+import { Footer } from './Footer/Footer';
+import { Copyright } from './Copyright/Copyright';
 import { Map } from './Map/Map';
 
 export default function App() {

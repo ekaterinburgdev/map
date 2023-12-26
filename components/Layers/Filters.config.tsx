@@ -4,13 +4,12 @@ import { HouseAgeFilter } from 'components/Layers/Houses/Filter/Age/HouseAgeFilt
 import { HouseFloorFilter } from 'components/Layers/Houses/Filter/Floor/HouseFloorFilter';
 import { HouseWearTearFilter } from 'components/Layers/Houses/Filter/WearTear/HouseWearTearFilter';
 import { LinesFilter } from 'components/Layers/Lines/Filter/LinesFilter';
-import { OknFilter } from 'components/Layers/OKN/Filter/Okn/OknFilter';
+import { OknFilter } from 'components/Layers/OKN/Filter/OknFilter';
 import { QuarterFilter } from 'components/Layers/Quarter/Filter/QuarterFilter';
 import { SOURCES_BY_TYPE } from 'constants/sources';
-import { FilterConfig, FilterType } from '../../types/Filters.types';
+import { FilterConfig, FilterType } from 'types/Filters.types';
 import { FacadeFilter } from './Facade/Filter/FacadeFilter';
 
-// @ts-ignore
 export const FILTERS_CONFIG: FilterConfig = {
     [FilterType.HouseAge]: {
         title: 'Возраст домов',

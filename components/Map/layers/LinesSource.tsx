@@ -9,7 +9,7 @@ import { MapItemType } from 'types/map-item';
 import { usePopup } from 'components/Map/providers/usePopup';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
 import { LineType } from 'components/Layers/Lines/lineType';
-import useMapObjectState from '../providers/useMapObjectState';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
 
 export function LinesSource() {
     const ekbMap = useMap();

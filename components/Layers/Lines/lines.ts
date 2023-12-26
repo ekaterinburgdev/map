@@ -1,5 +1,5 @@
 import groupBy from 'lodash/groupBy';
-import data from '../../../public/ekb-color-points.json';
+import data from 'public/ekb-color-points.json';
 
 const linesByType = Object.entries(groupBy(data.features, (item) => item.properties.type))
     .map(([type, items]) => [type, items.length])

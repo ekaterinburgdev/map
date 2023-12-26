@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
-import BrokenHeart from 'components/UI/Icons/BrokenHeart';
-import Heart from 'components/UI/Icons/Heart';
+import BrokenHeart from 'shared/UI/Icons/BrokenHeart';
+import Heart from 'shared/UI/Icons/Heart';
 import { WEAR_TEAR_FILTERS_DATA } from '../Houses.constants';
 import styles from './HealthProgress.module.css';
 

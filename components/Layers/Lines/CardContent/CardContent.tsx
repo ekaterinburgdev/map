@@ -1,7 +1,7 @@
 import React from 'react';
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { Link } from 'components/UI/Card/components/Link/Link';
+import { Header } from 'components/Card/components/Header/Header';
+import { Section } from 'components/Card/components/Section/Section';
+import { Link } from 'components/Card/components/Link/Link';
 import styles from 'styles/CardContent.module.css';
 import { LineObject } from '../lineType';
 

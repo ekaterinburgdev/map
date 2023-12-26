@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'state/features/dataLayers';
 import { FilterType } from 'types/Filters.types';
-import { Link } from 'components/UI/Card/components/Link/Link';
+import { Link } from 'components/Card/components/Link/Link';
 import styles from './QuarterFilter.module.css';
 
 export function QuarterFilter() {

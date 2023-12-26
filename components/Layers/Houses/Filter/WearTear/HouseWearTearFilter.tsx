@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { HouseBaseFilter } from 'components/Layers/Houses/Filter/Base/HouseBaseFilter';
 import { houseBase } from 'components/Layers/Houses/houseBase';
 import { HouseSourceType, WEAR_TEAR_FILTERS_DATA } from 'components/Layers/Houses/Houses.constants';
-import { MinMax } from 'components/UI/RangeHistogram/types';
+import { MinMax } from 'shared/UI/RangeHistogram/types';
 import { setFilterParams } from 'state/features/dataLayers';
 
 export function HouseWearTearFilter() {

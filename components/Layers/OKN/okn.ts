@@ -1,5 +1,5 @@
-import oknMeta from '../../../public/okn-meta.json';
-import oknObjects from '../../../public/ekb-okn.json';
+import oknMeta from 'public/okn-meta.json';
+import oknObjects from 'public/ekb-okn.json';
 import { OknObject } from './oknObject';
 
 export const okn = {

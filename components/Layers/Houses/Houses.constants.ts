@@ -1,4 +1,4 @@
-import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import { HistogramDataWithoutValues } from 'shared/UI/RangeHistogram';
 
 export enum HouseSourceType {
     Year = 'Year',

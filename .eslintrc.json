@@ -1,43 +1,45 @@
 {
-  "extends": ["next/core-web-vitals", "airbnb", "airbnb-typescript"],
+  "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "ignorePatterns": ["next.config.js", "scripts/**/*.*js"],
   "parserOptions": {
     "project": "./tsconfig.json"
   },
   "rules": {
-    "indent": ["error", 4, { "SwitchCase": 1 }],
-    "no-param-reassign": ["error", { "props": false }],
-    "no-plusplus": "off",
-    "implicit-arrow-linebreak": "off",
+    "@next/next/no-img-element": "off",
 
-    "@typescript-eslint/indent": ["error", 4],
+    "no-irregular-whitespace": "off",
 
-    "react/jsx-indent": ["error", 4],
-    "react/jsx-indent-props": ["error", 4],
-    "react/jsx-props-no-spreading": "off",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
-    "react/require-default-props": "off",
-    "react/jsx-no-useless-fragment": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "react/react-in-jsx-scope": "off",
-    
-    "import/extensions": ["error", "never", { "svg": "always", "json": "always", "css": "always" }],
-    "import/prefer-default-export": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/ban-ts-comment": "off",
+
     "import/order": [
       "error",
       {
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
     ],
-
-    "jsx-a11y/click-events-have-key-events": "off",
-    "jsx-a11y/no-static-element-interactions": "off",
-    "object-curly-newline": "off",
-    "@next/next/no-img-element": "off",
-    "max-len": "off",
-    "function-paren-newline": "off",
-    "operator-linebreak": "off",
-    "linebreak-style": "off"
-    
-  },
-  "ignorePatterns": ["next.config.js", "scripts/**/*.*js"]
+    "no-restricted-imports": [
+      "error",
+      {
+        "patterns": [
+          {
+            "group": ["../../"],
+            "message": "Relative imports are not allowed."
+          }
+        ]
+      }
+    ],
+    "import/no-restricted-paths": [
+      "error",
+      {
+        "zones": [
+          // separate ui and logic
+          { "from": "./components", "target": "./shared" },
+          { "from": "./state", "target": "./shared" },
+          { "from": "./constants", "target": "./shared" },
+          { "from": "./pages", "target": "./shared" }
+        ]
+      }
+    ]
+  }
 }

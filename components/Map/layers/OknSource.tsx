@@ -8,8 +8,8 @@ import { FilterType } from 'types/Filters.types';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
 import { OknAreaType } from 'components/Layers/OKN/oknConstants';
 import { MapItemType } from 'types/map-item';
-import { usePopup } from '../providers/usePopup';
-import useMapObjectState from '../providers/useMapObjectState';
+import { usePopup } from 'components/Map/providers/usePopup';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
 
 const LAYERS = {
     points: {
@@ -128,9 +128,10 @@ export function OknSource() {
     return (
         <>
             {Object.keys(LAYERS).map(
-                (layerKey) =>
+                (layerKey, i) =>
                     activeFilterParams[LAYERS[layerKey].zone]?.value && (
                         <Source
+                            key={i}
                             id={LAYERS[layerKey].sourceId}
                             data={LAYERS[layerKey].dataPath}
                             type="geojson"

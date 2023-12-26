@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Label } from 'components/UI/Card/components/Label/Label';
+import { Label } from 'components/Card/components/Label/Label';
 
-import { Section } from 'components/UI/Card/components/Section/Section';
+import { Section } from 'components/Card/components/Section/Section';
 import { DTPParticipant, DTPVehicle } from 'components/Layers/DTP/dtp';
 import { healthStatusToType, HEALTH_STATUS_COLOR, Participant } from './Participant/Participant';
 import { ParticipantsProps, HealthStatusType } from './Participants.types';
@@ -44,7 +44,7 @@ export function Participants({ participants, vehicles }: ParticipantsProps) {
             <h3 className={styles.participants__title}>Участники</h3>
             <div className={styles.participants__participants}>
                 <>
-                    {vehicles.map((vehicle) => {
+                    {vehicles.map((vehicle, i) => {
                         const driverIndex = vehicle.participants.findIndex(
                             (participant) => participant.role === 'Водитель',
                         );
@@ -64,7 +64,7 @@ export function Participants({ participants, vehicles }: ParticipantsProps) {
                         const car = getVehicleName(vehicle);
 
                         return (
-                            <div className={styles.participants__vehicle}>
+                            <div className={styles.participants__vehicle} key={i}>
                                 <div className={styles.participants__driver}>
                                     <div className={styles.participants__carAndStatus}>
                                         <div className={styles.participants__car}>
@@ -95,16 +95,16 @@ export function Participants({ participants, vehicles }: ParticipantsProps) {
                                         </div>
                                     )}
                                 </div>
-                                {restParticipants.map((participant) => (
-                                    <Section>
+                                {restParticipants.map((participant, i) => (
+                                    <Section key={i}>
                                         <Participant participant={participant} />
                                     </Section>
                                 ))}
                             </div>
                         );
                     })}
-                    {participants.map((participant) => (
-                        <div className={styles.participants__participant}>
+                    {participants.map((participant, i) => (
+                        <div className={styles.participants__participant} key={i}>
                             <Participant participant={participant} />
                         </div>
                     ))}

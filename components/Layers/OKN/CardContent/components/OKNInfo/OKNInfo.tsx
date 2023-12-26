@@ -1,10 +1,10 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
 
-import { Info } from 'components/UI/Card/components/Info/Info';
-import { Label } from 'components/UI/Card/components/Label/Label';
-import { Icon } from 'components/UI/Icons';
-import { IconType } from 'components/UI/Icons/Icons.types';
+import { Info } from 'components/Card/components/Info/Info';
+import { Label } from 'components/Card/components/Label/Label';
+import { Icon } from 'shared/UI/Icons';
+import { IconType } from 'shared/UI/Icons/Icons.types';
 
 import styles from './OKNInfo.module.css';
 

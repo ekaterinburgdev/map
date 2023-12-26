@@ -6,7 +6,7 @@ import { FilterType } from 'types/Filters.types';
 import { getLayerStyle } from 'components/Map/helpers/getFeatureState';
 import { MapItemType } from 'types/map-item';
 import { usePopup } from 'components/Map/providers/usePopup';
-import useMapObjectState from '../providers/useMapObjectState';
+import useMapObjectState from 'components/Map/providers/useMapObjectState';
 import { colorLuminance } from '../helpers/colorLuminance';
 
 const QUARTER_LAYER_ID = 'ekb-quarter-inspectors-layer';

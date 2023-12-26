@@ -1,13 +1,13 @@
 import { QuarterObject } from 'components/Layers/Quarter/quarterObject';
-import { Button, ButtonSize, ButtonType } from 'components/UI/Button/Button';
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Info } from 'components/UI/Card/components/Info/Info';
-import { Section } from 'components/UI/Card/components/Section/Section';
-import sectionStyles from 'components/UI/Card/components/Section/Section.module.css';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
-import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
-import { Icon } from 'components/UI/Icons';
-import { IconType } from 'components/UI/Icons/Icons.types';
+import { Button, ButtonSize, ButtonType } from 'shared/UI/Button/Button';
+import sectionStyles from 'components/Card/components/Section/Section.module.css';
+import { Header } from 'components/Card/components/Header/Header';
+import { Info } from 'components/Card/components/Info/Info';
+import { Section } from 'components/Card/components/Section/Section';
+import { Sources } from 'components/Card/components/Sources/Sources';
+import { EditObjectButtonLink } from 'components/EditObjectButtonLink/EditObjectButtonLink';
+import { Icon } from 'shared/UI/Icons';
+import { IconType } from 'shared/UI/Icons/Icons.types';
 import styles from './CardContent.module.css';
 
 type QuarterCardContentProps = {

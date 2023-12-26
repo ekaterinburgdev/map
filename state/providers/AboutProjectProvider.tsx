@@ -19,13 +19,14 @@ interface Props {
 export function AboutProjectProvider({ children }: Props) {
     const [isOpened, setIsOpened] = useState(false);
 
-    const value = useMemo((): IAboutProjectContext => ({
-        isOpened,
-        open: () => setIsOpened(true),
-        close: () => setIsOpened(false),
-    }), [isOpened]);
-
-    return (
-        <AboutProjectContext.Provider value={value}>{children}</AboutProjectContext.Provider>
+    const value = useMemo(
+        (): IAboutProjectContext => ({
+            isOpened,
+            open: () => setIsOpened(true),
+            close: () => setIsOpened(false),
+        }),
+        [isOpened],
     );
+
+    return <AboutProjectContext.Provider value={value}>{children}</AboutProjectContext.Provider>;
 }

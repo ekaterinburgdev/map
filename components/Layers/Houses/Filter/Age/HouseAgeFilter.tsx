@@ -1,12 +1,12 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { MinMax } from 'components/UI/RangeHistogram/types';
+import { MinMax } from 'shared/UI/RangeHistogram/types';
 
 import { houseBase } from 'components/Layers/Houses/houseBase';
+import { AGE_FILTERS_DATA, HouseSourceType } from 'components/Layers/Houses/Houses.constants';
 import { setFilterParams } from 'state/features/dataLayers';
 
-import { AGE_FILTERS_DATA, HouseSourceType } from '../../Houses.constants';
 import { HouseBaseFilter } from '../Base/HouseBaseFilter';
 import { CURRENT_YEAR, EKATERINBURG_FOUNDATION_YEAR } from './HouseAgeFilter.constants';
 

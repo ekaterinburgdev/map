@@ -3,18 +3,18 @@ import { useMap } from 'react-map-gl';
 import { HouseObject } from 'components/Layers/Houses/houseBase';
 import { MapContext } from 'components/Map/providers/MapProvider';
 import { usePopup } from 'components/Map/providers/usePopup';
-import { ConstructionInfo } from 'components/UI/Card/components/ConstructionInfo/ConstructionInfo';
-import Facade from 'components/UI/Card/components/Facade/Facade';
-import { Header } from 'components/UI/Card/components/Header/Header';
-import { Info } from 'components/UI/Card/components/Info/Info';
-import { Label } from 'components/UI/Card/components/Label/Label';
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
-import { EditObjectButtonLink } from 'components/UI/EditObjectButtonLink/EditObjectButtonLink';
-import { FilterLoader } from 'components/UI/Filters/components/Loader/FilterLoader';
-import { getLatLngFromHash } from 'helpers/hash';
-import { useIsDesktop } from 'helpers/isDesktop';
-import facades from '../../../../public/Facade Design Code 2023 (3)_extracted.json';
+import { ConstructionInfo } from 'components/Card/components/ConstructionInfo/ConstructionInfo';
+import Facade from 'components/Card/components/Facade/Facade';
+import { Header } from 'components/Card/components/Header/Header';
+import { Info } from 'components/Card/components/Info/Info';
+import { Label } from 'components/Card/components/Label/Label';
+import { Section } from 'components/Card/components/Section/Section';
+import { Sources } from 'components/Card/components/Sources/Sources';
+import { EditObjectButtonLink } from 'components/EditObjectButtonLink/EditObjectButtonLink';
+import { FilterLoader } from 'shared/UI/Loader/FilterLoader/FilterLoader';
+import { getLatLngFromHash } from 'shared/helpers/hash';
+import { useIsDesktop } from 'shared/helpers/isDesktop';
+import facades from 'public/ekb-facades.json';
 import HealthProgress from '../HealthProgress/HealthProgress';
 import styles from './CardContent.module.css';
 
@@ -102,7 +102,6 @@ export function HousesCardContent() {
         if (placemark?.attributes?.WearAndTear) {
             result.push({
                 name: 'Износ',
-                // eslint-disable-next-line no-irregular-whitespace
                 text: `${placemark?.attributes?.WearAndTear} %`,
                 content: (
                     <HealthProgress

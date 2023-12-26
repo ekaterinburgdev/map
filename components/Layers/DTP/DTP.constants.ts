@@ -1,7 +1,7 @@
 import { range } from 'lodash';
 
-import { IconType } from 'components/UI/Icons/Icons.types';
-import { HistogramDataWithoutValues } from 'components/UI/RangeHistogram';
+import { IconType } from 'shared/UI/Icons/Icons.types';
+import { HistogramDataWithoutValues } from 'shared/UI/RangeHistogram';
 import { DtpParticipantType } from './dtpParticipantType';
 import { DtpSeverityType } from './dtpSeverityType';
 

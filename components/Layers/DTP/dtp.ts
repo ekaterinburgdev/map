@@ -1,9 +1,9 @@
 import groupBy from 'lodash/groupBy';
-import { Range } from 'components/UI/RangeHistogram/types';
+import { Range } from 'shared/UI/RangeHistogram/types';
 import { DTP_YEARS_RANGE } from 'components/Layers/DTP/DTP.constants';
-import { fetchAPI } from 'helpers/fetchApi';
+import { fetchAPI } from 'shared/helpers/fetchApi';
 
-import dtpData from '../../../public/ekb-dtp.json';
+import dtpData from 'public/ekb-dtp.json';
 
 import { DtpSeverityType } from './dtpSeverityType';
 import { DtpParticipantType } from './dtpParticipantType';

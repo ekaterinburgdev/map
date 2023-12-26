@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 
-import { Section } from 'components/UI/Card/components/Section/Section';
-import { Header } from 'components/UI/Card/components/Header/Header';
+import { Section } from 'components/Card/components/Section/Section';
+import { Header } from 'components/Card/components/Header/Header';
 
-import { Info } from 'components/UI/Card/components/Info/Info';
-import { Sources } from 'components/UI/Card/components/Sources/Sources';
+import { Info } from 'components/Card/components/Info/Info';
+import { Sources } from 'components/Card/components/Sources/Sources';
 
-import { InfoProps } from 'components/UI/Card/components/Info/Info.types';
+import { InfoProps } from 'components/Card/components/Info/Info.types';
 import { DTPCardContentProps } from './CardContent.types';
 
 import styles from './CardContent.module.css';

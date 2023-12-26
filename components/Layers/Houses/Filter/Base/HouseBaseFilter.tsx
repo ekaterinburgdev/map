@@ -1,6 +1,6 @@
 import React from 'react';
-import { HistogramData, MinMax } from 'components/UI/RangeHistogram/types';
-import { RangeBaseFilter } from 'components/UI/RangeBaseFilter/RangeBaseFilter';
+import { HistogramData, MinMax } from 'shared/UI/RangeHistogram/types';
+import { RangeBaseFilter } from 'shared/UI/RangeBaseFilter/RangeBaseFilter';
 
 export interface HouseBaseFilterProps {
     defaultMin: number;

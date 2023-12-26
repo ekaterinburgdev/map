@@ -1,4 +1,4 @@
-import { Link } from 'components/UI/Card/components/Link/Link';
+import { Link } from 'components/Card/components/Link/Link';
 
 import styles from './FacadeFilter.module.css';
 

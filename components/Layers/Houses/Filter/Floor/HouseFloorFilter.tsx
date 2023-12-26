@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { MinMax } from 'components/UI/RangeHistogram/types';
+import { MinMax } from 'shared/UI/RangeHistogram/types';
 import { houseBase } from 'components/Layers/Houses/houseBase';
 import { setFilterParams } from 'state/features/dataLayers';
 
-import { FLOOR_FILTERS_DATA, HouseSourceType } from '../../Houses.constants';
+import { FLOOR_FILTERS_DATA, HouseSourceType } from 'components/Layers/Houses/Houses.constants';
 import { HouseBaseFilter } from '../Base/HouseBaseFilter';
 import { MAX_FLOOR, MIN_FLOOR } from './HouseFloorFilter.constants';
 
