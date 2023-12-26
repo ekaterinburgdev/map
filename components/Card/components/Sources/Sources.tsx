@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { SOURCES_BY_TYPE } from 'constants/sources';
-import { Link } from 'components/Card/components/Link/Link';
+import { Link } from 'shared/UI/Link/Link';
 import { SourcesProps } from './Sources.types';
 
 import styles from './Sources.module.css';

@@ -1,4 +1,4 @@
-import { MapItemType } from 'types/map-item';
+import { MapItemType } from 'types/Content.types';
 
 export const MARKER_COLOR = {
   [MapItemType.DTP]: '#05B506',

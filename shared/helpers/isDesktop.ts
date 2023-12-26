@@ -1,4 +1,4 @@
-import { useMatchMedia } from './use-match-media';
+import { useMatchMedia } from './useMatchMedia';
 
 const DESKTOP_WIDTH_MIN = 1024;
 

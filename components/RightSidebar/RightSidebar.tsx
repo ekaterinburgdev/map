@@ -1,11 +1,6 @@
-import React from 'react';
-import { DesktopCard } from 'components/Card';
+import React, { ReactNode } from 'react';
 import styles from './RightSidebar.module.css';
 
-export function RightSidebar() {
-  return (
-    <div className={styles.rightSidebar}>
-      <DesktopCard />
-    </div>
-  );
+export function RightSidebar({ children }: { children: ReactNode }) {
+  return <div className={styles.rightSidebar}>{children}</div>;
 }

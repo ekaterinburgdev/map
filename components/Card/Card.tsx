@@ -1,10 +1,14 @@
-import React, { useContext, useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { CardLoader } from 'components/Card/components/Loader/Loader';
-import { CONTENTS_CONFIG } from 'components/Layers/Content.config';
-import { MapContext } from 'components/Map/providers/MapProvider';
+import { ContentConfig, MapItemType } from 'types/Content.types';
 
-export function Card() {
-  const { popupId, popupType } = useContext(MapContext);
+interface Props {
+  contentConfig: ContentConfig;
+  popupId?: string;
+  popupType: MapItemType | null;
+}
+
+export function Card({ contentConfig, popupId, popupType }: Props) {
   const [popupData, setPopupData] = useState<any>();
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -16,7 +20,7 @@ export function Card() {
 
       setLoading(true);
 
-      const requestFunction = CONTENTS_CONFIG[popupType].oneItemRequest;
+      const requestFunction = contentConfig[popupType].oneItemRequest;
 
       const data = await requestFunction(popupId);
 
@@ -25,13 +29,13 @@ export function Card() {
     }
 
     fetchData();
-  }, [popupId, popupType]);
+  }, [contentConfig, popupId, popupType]);
 
   const CardContent = useMemo(() => {
     setLoading(true);
 
-    return CONTENTS_CONFIG[popupType]?.cardContent || (() => null);
-  }, [popupType]);
+    return contentConfig[popupType]?.cardContent || (() => null);
+  }, [contentConfig, popupType]);
 
   return loading ? <CardLoader /> : <CardContent placemark={popupData} />;
 }

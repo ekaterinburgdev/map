@@ -35,23 +35,27 @@
         ]
       }
     ],
-    
+
     "import/order": [
       "error",
       {
         "groups": ["builtin", "external", "internal", "parent", "sibling", "index"]
       }
     ],
-   
+
     "import/no-restricted-paths": [
       "error",
       {
         "zones": [
           // separate ui and logic
-          { "from": "./components", "target": "./shared" },
-          { "from": "./state", "target": "./shared" },
           { "from": "./constants", "target": "./shared" },
-          { "from": "./pages", "target": "./shared" }
+          { "from": "./state", "target": "./shared" },
+          { "from": "./components", "target": "./shared" },
+          { "from": "./features", "target": "./shared" },
+          { "from": "./pages", "target": "./shared" },
+          { "from": "./types", "target": "./shared" },
+          { "from": "./state", "target": "./components" },
+          { "from": "./features", "target": "./components" }
         ]
       }
     ]

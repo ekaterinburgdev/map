@@ -1,11 +1,6 @@
-import React from 'react';
-import { Filters } from 'components/Filters/Filters';
+import React, { ReactNode } from 'react';
 import styles from './LeftSidebar.module.css';
 
-export function LeftSidebar() {
-  return (
-    <div className={styles.leftSidebar}>
-      <Filters />
-    </div>
-  );
+export function LeftSidebar({ children }: { children: ReactNode }) {
+  return <div className={styles.leftSidebar}>{children}</div>;
 }

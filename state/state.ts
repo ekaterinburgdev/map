@@ -1,8 +1,8 @@
 import { FilterType } from 'types/Filters.types';
-import { OknAreaType } from 'components/Layers/OKN/oknConstants';
-import { LineObject, LineType } from 'components/Layers/Lines/lineType';
+import { OknAreaType } from 'features/OKN/oknConstants';
+import { LineObject, LineType } from 'features/Lines/lineType';
 
-import { MapItemType } from 'types/map-item';
+import { MapItemType } from 'types/Content.types';
 
 export interface LinesData {
   lines: {
