@@ -1,1 +1,646 @@
-{"type":"FeatureCollection","name":"points","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59743752338986,56.840204906257284]},"properties":{"id":5,"type":"Красная линия","title":"Второй Дом Советов («Дом Чекиста»)","description":"https://www.ekbredline.ru/002-vtoroj-dom-sovetov.html?ysclid=laih1r2ewc564211445"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.594530008817614,56.842211486738236]},"properties":{"id":6,"type":"Красная линия","title":"Октябрьская площадь","description":"https://www.ekbredline.ru/003-oktyabrskaya-ploshhad.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59094389536465,56.843522688321386]},"properties":{"id":7,"type":"Красная линия","title":"Квартал «Екатеринбург Сити»","description":"https://www.ekbredline.ru/4.-kvartal-ekaterinburg-siti.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[[60.59633168599757,56.837780798523],[60.598584741570086,56.8379954409017]]},"properties":{"id":3,"type":"Красная линия","title":null,"description":"Красная линия"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.591855846429695,56.84468097603139]},"properties":{"id":8,"type":"Красная линия","title":"Ельцин Центр","description":"https://www.ekbredline.ru/005-elczin-czentr.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59602936365678,56.8425995600869]},"properties":{"id":9,"type":"Красная линия","title":"Сквер в честь 275-летия Екатеринбурга","description":"https://www.ekbredline.ru/006-skver-v-chest-275-letiya-ekaterinburga.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60104509451457,56.83952720135226]},"properties":{"id":10,"type":"Красная линия","title":"Набережная Рабочей Молодёжи","description":"https://www.ekbredline.ru/007-workersquay.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.600256525064175,56.83854222892105]},"properties":{"id":11,"type":"Красная линия","title":"Здание Екатеринбургской мужской гимназии (Гимназия № 9)","description":"https://www.ekbredline.ru/008-gymnasium9.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.603721939111416,56.83810412833311]},"properties":{"id":12,"type":"Красная линия","title":"Исторический сквер","description":"https://www.ekbredline.ru/009-historicalsquare.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.605406366372726,56.836542801879425]},"properties":{"id":13,"type":"Красная линия","title":"Музеи исторического сквера","description":"https://www.ekbredline.ru/010-watertower.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.606972776437296,56.838409917123016]},"properties":{"id":14,"type":"Красная линия","title":"Площадь труда","description":"https://www.ekbredline.ru/011-degenin.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.6083836183791,56.83914791645328]},"properties":{"id":15,"type":"Красная линия","title":"Памятный знак «Нулевой километр» у Главпочтамта","description":"https://www.ekbredline.ru/012-kilometerzero.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60590525724933,56.83913909581573]},"properties":{"id":16,"type":"Красная линия","title":"Дом Севастьянова (резиденция Президента РФ)","description":"https://www.ekbredline.ru/013-sevastyanovmansion.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.607353650117375,56.842781835428156]},"properties":{"id":18,"type":"Красная линия","title":"Литературный квартал","description":"https://www.ekbredline.ru/015-literaryquarter.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60900052645245,56.8445641196794]},"properties":{"id":19,"type":"Красная линия","title":"Храм-на-Крови","description":"https://www.ekbredline.ru/016-churchonblood.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.610706411385905,56.84529464786038]},"properties":{"id":20,"type":"Красная линия","title":"Усадьба Расторгуева — Харитонова (видовая площадка)","description":"https://www.ekbredline.ru/017-rastorguyevpalace.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61082442858172,56.842797269443395]},"properties":{"id":21,"type":"Красная линия","title":"Свердловская государственная академическая филармония (видовая площадка)","description":"https://www.ekbredline.ru/018-philharmonic.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.6110497341397,56.8420181830572]},"properties":{"id":22,"type":"Красная линия","title":"Фотографический музей «Дом Метенкова»","description":"https://www.ekbredline.ru/019-metenkovhouse.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61147888758207,56.84080395114876]},"properties":{"id":23,"type":"Красная линия","title":"Дом генерала А.Г. Качки (Музей истории Екатеринбурга)","description":"https://www.ekbredline.ru/020-historymuseum.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61456342794913,56.84001600186081]},"properties":{"id":25,"type":"Красная линия","title":"Типография «Уральский рабочий»","description":"https://www.ekbredline.ru/022-uralworkerprintinghouse.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.616403423333246,56.83977196990867]},"properties":{"id":26,"type":"Красная линия","title":"Площадь Парижской коммуны","description":"https://www.ekbredline.ru/023-pariscomm.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61663945772661,56.83920157488418]},"properties":{"id":27,"type":"Красная линия","title":"Екатеринбургский государственный академический театр оперы и балета","description":"https://www.ekbredline.ru/024-operaandballettheater.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61580260851394,56.83711397231052]},"properties":{"id":28,"type":"Красная линия","title":"Памятник Владимиру Высоцкому и Марине Влади","description":"https://www.ekbredline.ru/025-vladimirandmarina.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61456879236705,56.83637299229863]},"properties":{"id":29,"type":"Красная линия","title":"Небоскреб Высоцкий и музей Высоцкого","description":"https://www.ekbredline.ru/26.-neboskreb-vyisoczkij-i-muzej-v.-vyisoczkogo.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61074932672987,56.83508212290889]},"properties":{"id":30,"type":"Красная линия","title":"«Американская» гостиница","description":"https://www.ekbredline.ru/027-americanhotel.html"}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59607451367087,56.82610821249199]},"properties":{"id":9,"type":"Синяя линия","title":"Уральский государственный горный университет","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.612684763548764,56.844851304478055]},"properties":{"id":4,"type":"Синяя линия","title":"Храм Вознесения Господня","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.608487106440535,56.843773867710844]},"properties":{"id":2,"type":"Синяя линия","title":"Духовно-Просветительский центр «Царский»","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61084745037332,56.83956965594552]},"properties":{"id":6,"type":"Синяя линия","title":"Кинотеатр «Колизей»","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.602788082835154,56.82876699456687]},"properties":{"id":8,"type":"Синяя линия","title":"Часовня во имя святого Александра Невского","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.607522181746226,56.82578761637104]},"properties":{"id":11,"type":"Синяя линия","title":"Мультимедийный парк «Россия — Моя история»","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59864943432507,56.82288153772408]},"properties":{"id":10,"type":"Синяя линия","title":"Ново-Тихвинский женский монастырь","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60890284883817,56.84445517019446]},"properties":{"id":1,"type":"Синяя линия","title":"Храм-на-Крови","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60907987463278,56.84397083674574]},"properties":{"id":3,"type":"Синяя линия","title":"Часовня в честь великомученицы Елисаветы Феодоровны","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61655250894814,56.839106575729986]},"properties":{"id":5,"type":"Синяя линия","title":"Уральский государственный театр оперы и балета","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.603095866319734,56.83514884209803]},"properties":{"id":7,"type":"Синяя линия","title":"Каслинский чугунный павильон (Музей изобразительных искусств)","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.613717368997435,56.8403801104569]},"properties":{"id":30,"type":"Фиолетовая линия","title":"День рождения динозавров","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61349206344017,56.84046243344019]},"properties":{"id":31,"type":"Фиолетовая линия","title":"Кошка в высокой траве","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.61276250258802,56.84018165245528]},"properties":{"id":32,"type":"Фиолетовая линия","title":"Стрелы","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.607534877217965,56.8406211986279]},"properties":{"id":33,"type":"Фиолетовая линия","title":"Пазл Урал","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.607754818357044,56.84099164823714]},"properties":{"id":34,"type":"Фиолетовая линия","title":"Мы станем лучше","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.606601468480605,56.841836906411146]},"properties":{"id":35,"type":"Фиолетовая линия","title":"Health Bar","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.608669451630874,56.846778710694636]},"properties":{"id":36,"type":"Фиолетовая линия","title":"Зона отдыха Малая архитектурная форма","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.610788396752675,56.84690217391316]},"properties":{"id":37,"type":"Фиолетовая линия","title":"Красный человечек","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60817592517209,56.846340706881634]},"properties":{"id":38,"type":"Фиолетовая линия","title":"Гордый фонарь","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60182311312297,56.826539915318584]},"properties":{"id":7,"type":"Фиолетовая линия","title":"Coloured talismans and the old new spells","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60025133864017,56.82963393077623]},"properties":{"id":8,"type":"Фиолетовая линия","title":"Брайль-арт","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.600514195123665,56.8298986159942]},"properties":{"id":9,"type":"Фиолетовая линия","title":"Цветочный портал","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59914626852602,56.83139552262072]},"properties":{"id":10,"type":"Фиолетовая линия","title":"Стена ангелов","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.600744865098854,56.83340698820549]},"properties":{"id":11,"type":"Фиолетовая линия","title":"Тополь Потап","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.60057320372185,56.83387455019021]},"properties":{"id":12,"type":"Фиолетовая линия","title":"Зона отдыха Малая архитектурная форма","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59817530886237,56.83575944187241]},"properties":{"id":13,"type":"Фиолетовая линия","title":"Малахит","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59948422686158,56.840211054376724]},"properties":{"id":14,"type":"Фиолетовая линия","title":"Amor","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.598985335984715,56.83934664805119]},"properties":{"id":15,"type":"Фиолетовая линия","title":"Праздник","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59876941815891,56.83917023610371]},"properties":{"id":16,"type":"Фиолетовая линия","title":"Манифест о свободе и несвободе","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.58981888667609,56.83624755728051]},"properties":{"id":17,"type":"Фиолетовая линия","title":"Дракон","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.5896579541352,56.83500373212234]},"properties":{"id":18,"type":"Фиолетовая линия","title":"Зазеркалье","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59052698985598,56.83480965636645]},"properties":{"id":19,"type":"Фиолетовая линия","title":"Нейронный стрит-арт","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59191905633411,56.833627536629265]},"properties":{"id":20,"type":"Фиолетовая линия","title":"Молодой Юрий Гагарин","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.59118681327277,56.83491110494143]},"properties":{"id":21,"type":"Фиолетовая линия","title":"We are not alone","description":null}},{"type":"Feature","geometry":{"type":"Point","coordinates":[60.606577328600174,56.83437592252609]},"properties":{"id":22,"type":"Фиолетовая линия","title":"Madzarevic","description":null}}]}
+{
+    "type": "FeatureCollection",
+    "name": "points",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59743752338986, 56.840204906257284] },
+            "properties": {
+                "id": 5,
+                "type": "Красная линия",
+                "title": "Второй Дом Советов («Дом Чекиста»)",
+                "description": "https://www.ekbredline.ru/002-vtoroj-dom-sovetov.html?ysclid=laih1r2ewc564211445"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.594530008817614, 56.842211486738236]
+            },
+            "properties": {
+                "id": 6,
+                "type": "Красная линия",
+                "title": "Октябрьская площадь",
+                "description": "https://www.ekbredline.ru/003-oktyabrskaya-ploshhad.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59094389536465, 56.843522688321386] },
+            "properties": {
+                "id": 7,
+                "type": "Красная линия",
+                "title": "Квартал «Екатеринбург Сити»",
+                "description": "https://www.ekbredline.ru/4.-kvartal-ekaterinburg-siti.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    [60.59633168599757, 56.837780798523],
+                    [60.598584741570086, 56.8379954409017]
+                ]
+            },
+            "properties": {
+                "id": 3,
+                "type": "Красная линия",
+                "title": null,
+                "description": "Красная линия"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.591855846429695, 56.84468097603139] },
+            "properties": {
+                "id": 8,
+                "type": "Красная линия",
+                "title": "Ельцин Центр",
+                "description": "https://www.ekbredline.ru/005-elczin-czentr.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59602936365678, 56.8425995600869] },
+            "properties": {
+                "id": 9,
+                "type": "Красная линия",
+                "title": "Сквер в честь 275-летия Екатеринбурга",
+                "description": "https://www.ekbredline.ru/006-skver-v-chest-275-letiya-ekaterinburga.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60104509451457, 56.83952720135226] },
+            "properties": {
+                "id": 10,
+                "type": "Красная линия",
+                "title": "Набережная Рабочей Молодёжи",
+                "description": "https://www.ekbredline.ru/007-workersquay.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.600256525064175, 56.83854222892105] },
+            "properties": {
+                "id": 11,
+                "type": "Красная линия",
+                "title": "Здание Екатеринбургской мужской гимназии (Гимназия № 9)",
+                "description": "https://www.ekbredline.ru/008-gymnasium9.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.603721939111416, 56.83810412833311] },
+            "properties": {
+                "id": 12,
+                "type": "Красная линия",
+                "title": "Исторический сквер",
+                "description": "https://www.ekbredline.ru/009-historicalsquare.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.605406366372726, 56.836542801879425]
+            },
+            "properties": {
+                "id": 13,
+                "type": "Красная линия",
+                "title": "Музеи исторического сквера",
+                "description": "https://www.ekbredline.ru/010-watertower.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.606972776437296, 56.838409917123016]
+            },
+            "properties": {
+                "id": 14,
+                "type": "Красная линия",
+                "title": "Площадь труда",
+                "description": "https://www.ekbredline.ru/011-degenin.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.6083836183791, 56.83914791645328] },
+            "properties": {
+                "id": 15,
+                "type": "Красная линия",
+                "title": "Памятный знак «Нулевой километр» у Главпочтамта",
+                "description": "https://www.ekbredline.ru/012-kilometerzero.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60590525724933, 56.83913909581573] },
+            "properties": {
+                "id": 16,
+                "type": "Красная линия",
+                "title": "Дом Севастьянова (резиденция Президента РФ)",
+                "description": "https://www.ekbredline.ru/013-sevastyanovmansion.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.607353650117375, 56.842781835428156]
+            },
+            "properties": {
+                "id": 18,
+                "type": "Красная линия",
+                "title": "Литературный квартал",
+                "description": "https://www.ekbredline.ru/015-literaryquarter.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60900052645245, 56.8445641196794] },
+            "properties": {
+                "id": 19,
+                "type": "Красная линия",
+                "title": "Храм-на-Крови",
+                "description": "https://www.ekbredline.ru/016-churchonblood.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.610706411385905, 56.84529464786038] },
+            "properties": {
+                "id": 20,
+                "type": "Красная линия",
+                "title": "Усадьба Расторгуева — Харитонова (видовая площадка)",
+                "description": "https://www.ekbredline.ru/017-rastorguyevpalace.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61082442858172, 56.842797269443395] },
+            "properties": {
+                "id": 21,
+                "type": "Красная линия",
+                "title": "Свердловская государственная академическая филармония (видовая площадка)",
+                "description": "https://www.ekbredline.ru/018-philharmonic.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.6110497341397, 56.8420181830572] },
+            "properties": {
+                "id": 22,
+                "type": "Красная линия",
+                "title": "Фотографический музей «Дом Метенкова»",
+                "description": "https://www.ekbredline.ru/019-metenkovhouse.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61147888758207, 56.84080395114876] },
+            "properties": {
+                "id": 23,
+                "type": "Красная линия",
+                "title": "Дом генерала А.Г. Качки (Музей истории Екатеринбурга)",
+                "description": "https://www.ekbredline.ru/020-historymuseum.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61456342794913, 56.84001600186081] },
+            "properties": {
+                "id": 25,
+                "type": "Красная линия",
+                "title": "Типография «Уральский рабочий»",
+                "description": "https://www.ekbredline.ru/022-uralworkerprintinghouse.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.616403423333246, 56.83977196990867] },
+            "properties": {
+                "id": 26,
+                "type": "Красная линия",
+                "title": "Площадь Парижской коммуны",
+                "description": "https://www.ekbredline.ru/023-pariscomm.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61663945772661, 56.83920157488418] },
+            "properties": {
+                "id": 27,
+                "type": "Красная линия",
+                "title": "Екатеринбургский государственный академический театр оперы и балета",
+                "description": "https://www.ekbredline.ru/024-operaandballettheater.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61580260851394, 56.83711397231052] },
+            "properties": {
+                "id": 28,
+                "type": "Красная линия",
+                "title": "Памятник Владимиру Высоцкому и Марине Влади",
+                "description": "https://www.ekbredline.ru/025-vladimirandmarina.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61456879236705, 56.83637299229863] },
+            "properties": {
+                "id": 29,
+                "type": "Красная линия",
+                "title": "Небоскреб Высоцкий и музей Высоцкого",
+                "description": "https://www.ekbredline.ru/26.-neboskreb-vyisoczkij-i-muzej-v.-vyisoczkogo.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61074932672987, 56.83508212290889] },
+            "properties": {
+                "id": 30,
+                "type": "Красная линия",
+                "title": "«Американская» гостиница",
+                "description": "https://www.ekbredline.ru/027-americanhotel.html"
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59607451367087, 56.82610821249199] },
+            "properties": {
+                "id": 9,
+                "type": "Синяя линия",
+                "title": "Уральский государственный горный университет",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.612684763548764, 56.844851304478055]
+            },
+            "properties": {
+                "id": 4,
+                "type": "Синяя линия",
+                "title": "Храм Вознесения Господня",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.608487106440535, 56.843773867710844]
+            },
+            "properties": {
+                "id": 2,
+                "type": "Синяя линия",
+                "title": "Духовно-Просветительский центр «Царский»",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61084745037332, 56.83956965594552] },
+            "properties": {
+                "id": 6,
+                "type": "Синяя линия",
+                "title": "Кинотеатр «Колизей»",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.602788082835154, 56.82876699456687] },
+            "properties": {
+                "id": 8,
+                "type": "Синяя линия",
+                "title": "Часовня во имя святого Александра Невского",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.607522181746226, 56.82578761637104] },
+            "properties": {
+                "id": 11,
+                "type": "Синяя линия",
+                "title": "Мультимедийный парк «Россия — Моя история»",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59864943432507, 56.82288153772408] },
+            "properties": {
+                "id": 10,
+                "type": "Синяя линия",
+                "title": "Ново-Тихвинский женский монастырь",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60890284883817, 56.84445517019446] },
+            "properties": {
+                "id": 1,
+                "type": "Синяя линия",
+                "title": "Храм-на-Крови",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60907987463278, 56.84397083674574] },
+            "properties": {
+                "id": 3,
+                "type": "Синяя линия",
+                "title": "Часовня в честь великомученицы Елисаветы Феодоровны",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61655250894814, 56.839106575729986] },
+            "properties": {
+                "id": 5,
+                "type": "Синяя линия",
+                "title": "Уральский государственный театр оперы и балета",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.603095866319734, 56.83514884209803] },
+            "properties": {
+                "id": 7,
+                "type": "Синяя линия",
+                "title": "Каслинский чугунный павильон (Музей изобразительных искусств)",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.613717368997435, 56.8403801104569] },
+            "properties": {
+                "id": 30,
+                "type": "Фиолетовая линия",
+                "title": "День рождения динозавров",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61349206344017, 56.84046243344019] },
+            "properties": {
+                "id": 31,
+                "type": "Фиолетовая линия",
+                "title": "Кошка в высокой траве",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.61276250258802, 56.84018165245528] },
+            "properties": {
+                "id": 32,
+                "type": "Фиолетовая линия",
+                "title": "Стрелы",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.607534877217965, 56.8406211986279] },
+            "properties": {
+                "id": 33,
+                "type": "Фиолетовая линия",
+                "title": "Пазл Урал",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.607754818357044, 56.84099164823714] },
+            "properties": {
+                "id": 34,
+                "type": "Фиолетовая линия",
+                "title": "Мы станем лучше",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.606601468480605, 56.841836906411146]
+            },
+            "properties": {
+                "id": 35,
+                "type": "Фиолетовая линия",
+                "title": "Health Bar",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [60.608669451630874, 56.846778710694636]
+            },
+            "properties": {
+                "id": 36,
+                "type": "Фиолетовая линия",
+                "title": "Зона отдыха Малая архитектурная форма",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.610788396752675, 56.84690217391316] },
+            "properties": {
+                "id": 37,
+                "type": "Фиолетовая линия",
+                "title": "Красный человечек",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60817592517209, 56.846340706881634] },
+            "properties": {
+                "id": 38,
+                "type": "Фиолетовая линия",
+                "title": "Гордый фонарь",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60182311312297, 56.826539915318584] },
+            "properties": {
+                "id": 7,
+                "type": "Фиолетовая линия",
+                "title": "Coloured talismans and the old new spells",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60025133864017, 56.82963393077623] },
+            "properties": {
+                "id": 8,
+                "type": "Фиолетовая линия",
+                "title": "Брайль-арт",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.600514195123665, 56.8298986159942] },
+            "properties": {
+                "id": 9,
+                "type": "Фиолетовая линия",
+                "title": "Цветочный портал",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59914626852602, 56.83139552262072] },
+            "properties": {
+                "id": 10,
+                "type": "Фиолетовая линия",
+                "title": "Стена ангелов",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.600744865098854, 56.83340698820549] },
+            "properties": {
+                "id": 11,
+                "type": "Фиолетовая линия",
+                "title": "Тополь Потап",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.60057320372185, 56.83387455019021] },
+            "properties": {
+                "id": 12,
+                "type": "Фиолетовая линия",
+                "title": "Зона отдыха Малая архитектурная форма",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59817530886237, 56.83575944187241] },
+            "properties": {
+                "id": 13,
+                "type": "Фиолетовая линия",
+                "title": "Малахит",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59948422686158, 56.840211054376724] },
+            "properties": {
+                "id": 14,
+                "type": "Фиолетовая линия",
+                "title": "Amor",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.598985335984715, 56.83934664805119] },
+            "properties": {
+                "id": 15,
+                "type": "Фиолетовая линия",
+                "title": "Праздник",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59876941815891, 56.83917023610371] },
+            "properties": {
+                "id": 16,
+                "type": "Фиолетовая линия",
+                "title": "Манифест о свободе и несвободе",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.58981888667609, 56.83624755728051] },
+            "properties": {
+                "id": 17,
+                "type": "Фиолетовая линия",
+                "title": "Дракон",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.5896579541352, 56.83500373212234] },
+            "properties": {
+                "id": 18,
+                "type": "Фиолетовая линия",
+                "title": "Зазеркалье",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59052698985598, 56.83480965636645] },
+            "properties": {
+                "id": 19,
+                "type": "Фиолетовая линия",
+                "title": "Нейронный стрит-арт",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59191905633411, 56.833627536629265] },
+            "properties": {
+                "id": 20,
+                "type": "Фиолетовая линия",
+                "title": "Молодой Юрий Гагарин",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.59118681327277, 56.83491110494143] },
+            "properties": {
+                "id": 21,
+                "type": "Фиолетовая линия",
+                "title": "We are not alone",
+                "description": null
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": { "type": "Point", "coordinates": [60.606577328600174, 56.83437592252609] },
+            "properties": {
+                "id": 22,
+                "type": "Фиолетовая линия",
+                "title": "Madzarevic",
+                "description": null
+            }
+        }
+    ]
+}

@@ -1,0 +1,12 @@
+.LinesFilter__objectsCount {
+    margin-left: 8px;
+    color: #9baac3;
+}
+
+.LinesFilter__checkboxContent:not(:last-of-type) {
+    margin-bottom: 14px;
+}
+
+.LinesFilter__description {
+    color: #9baac3;
+}

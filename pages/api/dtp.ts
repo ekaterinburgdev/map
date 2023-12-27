@@ -1,4 +1,4 @@
-import dtpsJSON from '../../public/ekb-dtps.json';
+import dtpsJSON from 'public/ekb-dtps.json';
 
 export default async function handler(req, res) {
     const dtps = dtpsJSON as { features: { properties: { id: number } }[] };

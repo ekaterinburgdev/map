@@ -4,7 +4,8 @@ import { Html, Head, Main, NextScript } from 'next/document';
 export default function Document() {
     const siteTitle = 'Инфокарта Екатеринбурга';
     const siteUrl = 'https://map.ekaterinburg.city/';
-    const siteDescription = 'Вся информация о городе теперь собрана в одном месте: возраст домов, объекты культурного наследия, дтп — всё на свете.';
+    const siteDescription =
+        'Вся информация о городе теперь собрана в одном месте: возраст домов, объекты культурного наследия, дтп — всё на свете.';
     const ogImage = `${siteUrl}og-preview.jpg`;
 
     return (
@@ -40,7 +41,13 @@ export default function Document() {
                 <script async src="https://tally.so/widgets/embed.js" />
 
                 {/* eslint-disable-next-line react/no-danger */}
-                {process.env.YANDEX_METRIKA && <div dangerouslySetInnerHTML={{ __html: `<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");ym(${process.env.YANDEX_METRIKA}, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });</script><noscript><div><img src="https://mc.yandex.ru/watch/${process.env.YANDEX_METRIKA}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>` }} />}
+                {process.env.YANDEX_METRIKA && (
+                    <div
+                        dangerouslySetInnerHTML={{
+                            __html: `<script>(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)}) (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");ym(${process.env.YANDEX_METRIKA}, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true });</script><noscript><div><img src="https://mc.yandex.ru/watch/${process.env.YANDEX_METRIKA}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>`,
+                        }}
+                    />
+                )}
             </body>
         </Html>
     );
