@@ -8,55 +8,55 @@ import { MapItemType } from 'types/Content.types';
 type PopupId = string;
 
 export function usePopup() {
-  const { close: closeAboutProject } = useContext(AboutProjectContext);
+    const { close: closeAboutProject } = useContext(AboutProjectContext);
 
-  const [popupId, setOpenedPopup] = useState<PopupId>(null);
-  const [popupType, setPopupType] = useState<MapItemType>(null);
+    const [popupId, setOpenedPopup] = useState<PopupId>(null);
+    const [popupType, setPopupType] = useState<MapItemType>(null);
 
-  const activeFilter: string = useSelector(activeFilterSelector);
+    const activeFilter: string = useSelector(activeFilterSelector);
 
-  const openPopup = useCallback(
-    (id: PopupId, type: MapItemType) => {
-      closeAboutProject();
-      setHash(type, id, activeFilter);
-    },
-    [activeFilter, closeAboutProject],
-  );
+    const openPopup = useCallback(
+        (id: PopupId, type: MapItemType) => {
+            closeAboutProject();
+            setHash(type, id, activeFilter);
+        },
+        [activeFilter, closeAboutProject],
+    );
 
-  const closePopup = useCallback(() => {
-    setPopupType(null);
-    setOpenedPopup(null);
+    const closePopup = useCallback(() => {
+        setPopupType(null);
+        setOpenedPopup(null);
 
-    window.location.hash = '';
-  }, []);
+        window.location.hash = '';
+    }, []);
 
-  const handleOpenPopup = useCallback(() => {
-    const [type, ...id] = window.location.hash.slice(1).split('/')[0].split('-');
+    const handleOpenPopup = useCallback(() => {
+        const [type, ...id] = window.location.hash.slice(1).split('/')[0].split('-');
 
-    setOpenedPopup(id.join('-'));
-    setPopupType(type as MapItemType);
-  }, []);
+        setOpenedPopup(id.join('-'));
+        setPopupType(type as MapItemType);
+    }, []);
 
-  useEffect(() => {
-    window.addEventListener('hashchange', handleOpenPopup, false);
+    useEffect(() => {
+        window.addEventListener('hashchange', handleOpenPopup, false);
 
-    return () => {
-      window.removeEventListener('hashchange', handleOpenPopup, false);
+        return () => {
+            window.removeEventListener('hashchange', handleOpenPopup, false);
+        };
+    }, [handleOpenPopup]);
+
+    useEffect(() => {
+        if (!window.location.hash) {
+            return;
+        }
+
+        handleOpenPopup();
+    }, [handleOpenPopup]);
+
+    return {
+        popupId,
+        popupType,
+        openPopup,
+        closePopup,
     };
-  }, [handleOpenPopup]);
-
-  useEffect(() => {
-    if (!window.location.hash) {
-      return;
-    }
-
-    handleOpenPopup();
-  }, [handleOpenPopup]);
-
-  return {
-    popupId,
-    popupType,
-    openPopup,
-    closePopup,
-  };
 }

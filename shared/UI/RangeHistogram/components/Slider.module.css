@@ -1,85 +1,85 @@
 .slider {
-  position: absolute;
-  width: calc(100% - var(--histogram-padding-x) * 2);
+    position: absolute;
+    width: calc(100% - var(--histogram-padding-x) * 2);
 }
 
 .slider__track,
 .slider__range {
-  height: 2px;
+    height: 2px;
 }
 
 .slider__track {
-  position: absolute;
-  background-color: var(--histogram-thumb-color-disabled);
-  width: 100%;
-  z-index: 1;
+    position: absolute;
+    background-color: var(--histogram-thumb-color-disabled);
+    width: 100%;
+    z-index: 1;
 }
 
 .slider__range {
-  position: absolute;
-  background-color: var(--histogram-thumb-color-active);
-  z-index: 2;
+    position: absolute;
+    background-color: var(--histogram-thumb-color-active);
+    z-index: 2;
 }
 
 .thumb,
 .thumb::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
 }
 
 .thumb {
-  pointer-events: none;
-  position: absolute;
-  width: calc(100% - var(--histogram-padding-x));
-  height: 0;
+    pointer-events: none;
+    position: absolute;
+    width: calc(100% - var(--histogram-padding-x));
+    height: 0;
 }
 
 .thumb_left {
-  z-index: 3;
+    z-index: 3;
 }
 
 .thumb_right {
-  z-index: 4;
+    z-index: 4;
 }
 
 .thumb_zindex_5 {
-  z-index: 5;
+    z-index: 5;
 }
 
 /* For Chrome browsers */
 .thumb::-webkit-slider-thumb {
-  background-color: var(--histogram-thumb-color-active);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin-bottom: 2px;
-  pointer-events: all;
-  position: relative;
-  transition: all 0.3s ease;
-  transform: translate(-50%, 0);
+    background-color: var(--histogram-thumb-color-active);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-bottom: 2px;
+    pointer-events: all;
+    position: relative;
+    transition: all 0.3s ease;
+    transform: translate(-50%, 0);
 }
 
 .thumb:hover::-webkit-slider-thumb {
-  transform: scale(2);
+    transform: scale(2);
 }
 
 .thumb:focus::-webkit-slider-thumb {
-  transform: scale(2);
+    transform: scale(2);
 }
 
 /* For Firefox browsers */
 .thumb::-moz-range-thumb {
-  background-color: var(--histogram-thumb-color-active);
-  border: none;
-  border-radius: 50%;
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin-bottom: 2px;
-  pointer-events: all;
-  position: relative;
-  transform: translate(-50%, 0);
+    background-color: var(--histogram-thumb-color-active);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 12px;
+    width: 12px;
+    margin-bottom: 2px;
+    pointer-events: all;
+    position: relative;
+    transform: translate(-50%, 0);
 }

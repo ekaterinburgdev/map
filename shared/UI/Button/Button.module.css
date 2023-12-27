@@ -1,43 +1,43 @@
 .button {
-  display: inline-block;
-  border: none;
-  border-radius: 40px;
-  font-size: 15px;
-  line-height: 1.33;
-  cursor: pointer;
-  transition: all 0.15s ease;
+    display: inline-block;
+    border: none;
+    border-radius: 40px;
+    font-size: 15px;
+    line-height: 1.33;
+    cursor: pointer;
+    transition: all 0.15s ease;
 }
 
 .button_yellow {
-  background: #ffd400;
-  color: black;
+    background: #ffd400;
+    color: black;
 }
 
 .button_yellow:hover {
-  background: #e1bb00;
+    background: #e1bb00;
 }
 
 .button_black {
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
 
 .button_size_small {
-  padding: 8px 12px;
+    padding: 8px 12px;
 }
 
 .button_size_large {
-  padding: 12px 32px;
+    padding: 12px 32px;
 }
 
 @media screen and (width >= 768px) {
-  .button {
-    font-size: 16px;
-  }
+    .button {
+        font-size: 16px;
+    }
 }
 
 @media screen and (width >= 1200px) {
-  .button {
-    font-size: 18px;
-  }
+    .button {
+        font-size: 18px;
+    }
 }

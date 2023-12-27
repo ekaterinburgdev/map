@@ -12,19 +12,19 @@ import { FILTERS_CONFIG } from './Filters.config';
 import { Sidebars } from './Sidebars';
 
 export default function App() {
-  return (
-    <Provider store={store}>
-      <MapProvider>
-        <AboutProjectProvider>
-          <MapContextProvider>
-            <Map />
-            <Sidebars />
-            <Copyright filters={FILTERS_CONFIG} />
-            <AboutProjectIcons />
-            <Footer />
-          </MapContextProvider>
-        </AboutProjectProvider>
-      </MapProvider>
-    </Provider>
-  );
+    return (
+        <Provider store={store}>
+            <MapProvider>
+                <AboutProjectProvider>
+                    <MapContextProvider>
+                        <Map />
+                        <Sidebars />
+                        <Copyright filters={FILTERS_CONFIG} />
+                        <AboutProjectIcons />
+                        <Footer />
+                    </MapContextProvider>
+                </AboutProjectProvider>
+            </MapProvider>
+        </Provider>
+    );
 }

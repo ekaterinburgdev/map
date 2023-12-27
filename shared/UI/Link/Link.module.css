@@ -1,24 +1,24 @@
 .link {
-  color: rgba(var(--color-text-secondary), 1);
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 400;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(var(--color-text-secondary), 0.32);
-  &:hover,
-  &:hover path {
-    color: white;
-    fill: white;
-    border-bottom-color: rgba(var(--color-text-secondary), 0.6);
-  }
-  &:active {
-    border-bottom-color: white;
-  }
+    color: rgba(var(--color-text-secondary), 1);
+    font-size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(var(--color-text-secondary), 0.32);
+    &:hover,
+    &:hover path {
+        color: white;
+        fill: white;
+        border-bottom-color: rgba(var(--color-text-secondary), 0.6);
+    }
+    &:active {
+        border-bottom-color: white;
+    }
 }
 
 .link_size_l {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
 }

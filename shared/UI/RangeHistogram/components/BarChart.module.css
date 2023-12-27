@@ -1,65 +1,65 @@
 .barchart {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  font-size: 12px;
-  line-height: 1.2;
-  column-gap: 1px;
-  transition: 0.15s ease;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 12px;
+    line-height: 1.2;
+    column-gap: 1px;
+    transition: 0.15s ease;
 }
 
 .barchart:has(:active) .barchart__item {
-  opacity: 0.78;
+    opacity: 0.78;
 }
 
 .barchart__itemWrapper {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
 }
 
 .barchart__item {
-  display: flex;
-  justify-content: center;
-  border-radius: 4px 4px 0 0;
-  width: 100%;
-  background-color: currentColor;
-  transition: 0.2s ease;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px 4px 0 0;
+    width: 100%;
+    background-color: currentColor;
+    transition: 0.2s ease;
+    cursor: pointer;
 }
 
 .barchart__item:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .barchart__item:not(.barchart__item_active) {
-  background-color: var(--histogram-color-disabled);
+    background-color: var(--histogram-color-disabled);
 }
 
 .barchart__percent {
-  position: absolute;
-  top: -40px;
-  font-size: 11px;
-  white-space: nowrap;
+    position: absolute;
+    top: -40px;
+    font-size: 11px;
+    white-space: nowrap;
 }
 
 .barchart__value {
-  margin-top: -16px;
+    margin-top: -16px;
 }
 
 .barchart__item:not(.barchart__item_active) .barchart__percent,
 .barchart__item:not(.barchart__item_active) .barchart__value {
-  color: var(--histogram-color-disabled);
+    color: var(--histogram-color-disabled);
 }
 
 @media screen and (width >= 1440px) {
-  .barchart {
-    font-size: 14px;
-  }
+    .barchart {
+        font-size: 14px;
+    }
 
-  .team-barchart__percent {
-    font-size: 11px;
-  }
+    .team-barchart__percent {
+        font-size: 11px;
+    }
 }

@@ -1,33 +1,33 @@
 .label {
-  position: relative;
-  border-radius: 16px;
-  width: max-content;
+    position: relative;
+    border-radius: 16px;
+    width: max-content;
 }
 
 .label__wrapper {
-  padding: 3px 6px 2px;
-  border-radius: inherit;
-  font-size: 12px;
-  line-height: 14px;
-  width: max-content;
-  display: flex;
-  gap: 3px;
+    padding: 3px 6px 2px;
+    border-radius: inherit;
+    font-size: 12px;
+    line-height: 14px;
+    width: max-content;
+    display: flex;
+    gap: 3px;
 }
 
 .label__wrapper_clickable {
-  cursor: pointer;
-  transition: opacity 0.15s ease;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
 }
 
 .label__wrapper_clickable:hover {
-  opacity: 0.9;
+    opacity: 0.9;
 }
 
 .label__background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
 }

@@ -12,9 +12,9 @@ The map contains layers of data about objects in the city so that urbanists can 
 
 ### Features
 
-- Speed and performance map with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
-- Visualization for [Ekaterinburg opendata](https://github.com/ekaterinburgdev/map-api)
-- Detailed object cards
+-   Speed and performance map with [Maplibre GL](https://github.com/maplibre/maplibre-gl-js) and [React-mapbox-gl](https://github.com/alex3165/react-mapbox-gl)
+-   Visualization for [Ekaterinburg opendata](https://github.com/ekaterinburgdev/map-api)
+-   Detailed object cards
 
 ## Map data
 
@@ -30,9 +30,9 @@ The map contains layers of data about objects in the city so that urbanists can 
 | Cultural heritage sites (security zone) | ⬇️ [okn‑security](https://github.com/ekaterinburgdev/map/blob/main/public/ekb-okn-security.json)                                                                      |                                                                                  | [okn.midural.ru](https://okn.midural.ru/karta-obektov-kulturnogo-naslediya-sverdlovskoy-oblasti.html)                                                                                       | —           | 🚧     |
 | Houses data                             | _Not available for download now.<br />We use [these recommendations](https://github.com/kachkaev/tooling-for-how-old-is-this-house#tooling-for-how-old-is-thishouse)_ |                                                                                  | [openstreetmap.org](https://www.openstreetmap.org/)<br />[how-old-is-this.house](https://how-old-is-this.house/)<br />[mingkh.ru](https://mingkh.ru/)<br />[domaekb.ru](https://domaekb.ru) | —           | 🚧     |
 
-- ✅ — Verified source
-- 🚧 — Under construction. Contains inaccuracies, be careful!
-- 🔄 — [Autoupdate from sources](https://github.com/ekaterinburgdev/map-updater) (**now disabled**)
+-   ✅ — Verified source
+-   🚧 — Under construction. Contains inaccuracies, be careful!
+-   🔄 — [Autoupdate from sources](https://github.com/ekaterinburgdev/map-updater) (**now disabled**)
 
 ## Development
 

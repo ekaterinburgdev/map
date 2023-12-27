@@ -1,12 +1,12 @@
 import { OknAreaType, OknObjectSignificanceType } from '../oknConstants';
 
 export interface AreaAction {
-  type: 'toggle';
-  areaType: OknAreaType;
+    type: 'toggle';
+    areaType: OknAreaType;
 }
 export interface ObjectsAction {
-  type: 'toggle';
-  objectsType: OknObjectSignificanceType;
+    type: 'toggle';
+    objectsType: OknObjectSignificanceType;
 }
 
 export type AreaState = Record<OknAreaType, boolean>;

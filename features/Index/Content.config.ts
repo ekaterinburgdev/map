@@ -13,36 +13,36 @@ import { HousesCardContent } from 'features/Houses/CardContent/CardContent';
 import { OKNCardContent } from 'features/OKN/CardContent';
 
 export const CONTENTS_CONFIG: ContentConfig = {
-  [MapItemType.Houses]: {
-    cardContent: HousesCardContent,
-    oneItemRequest: () => Promise.resolve(),
-  },
-  [MapItemType.DesignCode]: {
-    cardContent: DesignCodeCardContent,
-    oneItemRequest: designCode.getObject,
-  },
-  [MapItemType.DTP]: {
-    cardContent: DTPCardContent,
-    oneItemRequest: dtp.getObject,
-  },
-  [MapItemType.OKN]: {
-    cardContent: OKNCardContent,
-    oneItemRequest: okn.getObject,
-  },
-  [MapItemType.RedLines]: {
-    cardContent: LinesCardContent,
-    oneItemRequest: lines.getObject,
-  },
-  [MapItemType.PinkLines]: {
-    cardContent: LinesCardContent,
-    oneItemRequest: lines.getObject,
-  },
-  [MapItemType.BlueLines]: {
-    cardContent: LinesCardContent,
-    oneItemRequest: lines.getObject,
-  },
-  [MapItemType.Quarter]: {
-    cardContent: QuarterCardContent,
-    oneItemRequest: quarter.getObject,
-  },
+    [MapItemType.Houses]: {
+        cardContent: HousesCardContent,
+        oneItemRequest: () => Promise.resolve(),
+    },
+    [MapItemType.DesignCode]: {
+        cardContent: DesignCodeCardContent,
+        oneItemRequest: designCode.getObject,
+    },
+    [MapItemType.DTP]: {
+        cardContent: DTPCardContent,
+        oneItemRequest: dtp.getObject,
+    },
+    [MapItemType.OKN]: {
+        cardContent: OKNCardContent,
+        oneItemRequest: okn.getObject,
+    },
+    [MapItemType.RedLines]: {
+        cardContent: LinesCardContent,
+        oneItemRequest: lines.getObject,
+    },
+    [MapItemType.PinkLines]: {
+        cardContent: LinesCardContent,
+        oneItemRequest: lines.getObject,
+    },
+    [MapItemType.BlueLines]: {
+        cardContent: LinesCardContent,
+        oneItemRequest: lines.getObject,
+    },
+    [MapItemType.Quarter]: {
+        cardContent: QuarterCardContent,
+        oneItemRequest: quarter.getObject,
+    },
 } as const;

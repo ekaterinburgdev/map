@@ -11,33 +11,33 @@ import { CONTENTS_CONFIG } from './Content.config';
 import { FILTERS_CONFIG } from './Filters.config';
 
 export function Sidebars() {
-  const isDesktop = useIsDesktop();
-  const popupProps = useContext(MapContext);
+    const isDesktop = useIsDesktop();
+    const popupProps = useContext(MapContext);
 
-  const cardProps = {
-    ...popupProps,
-    contentConfig: CONTENTS_CONFIG,
-  };
+    const cardProps = {
+        ...popupProps,
+        contentConfig: CONTENTS_CONFIG,
+    };
 
-  if (isDesktop) {
+    if (isDesktop) {
+        return (
+            <>
+                <LeftSidebar>
+                    <Filters filters={FILTERS_CONFIG} />
+                </LeftSidebar>
+                <RightSidebar>
+                    <DesktopCard {...cardProps} contentConfig={CONTENTS_CONFIG} />
+                </RightSidebar>
+                <AboutProjectModal />
+            </>
+        );
+    }
+
     return (
-      <>
-        <LeftSidebar>
-          <Filters filters={FILTERS_CONFIG} />
-        </LeftSidebar>
-        <RightSidebar>
-          <DesktopCard {...cardProps} contentConfig={CONTENTS_CONFIG} />
-        </RightSidebar>
-        <AboutProjectModal />
-      </>
+        <>
+            <MobileFilters filters={FILTERS_CONFIG} />
+            <MobileCard {...cardProps} contentConfig={CONTENTS_CONFIG} />
+            <MobileAboutProject />
+        </>
     );
-  }
-
-  return (
-    <>
-      <MobileFilters filters={FILTERS_CONFIG} />
-      <MobileCard {...cardProps} contentConfig={CONTENTS_CONFIG} />
-      <MobileAboutProject />
-    </>
-  );
 }

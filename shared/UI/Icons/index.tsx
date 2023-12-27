@@ -4,11 +4,11 @@ import { ICON_BY_TYPE } from './Icons.constants';
 import { IconType, IconBaseProps } from './Icons.types';
 
 type IconProps = IconBaseProps & {
-  type: IconType;
+    type: IconType;
 };
 
 export function Icon({ type, ...baseProps }: IconProps) {
-  const IconComponent = useMemo(() => ICON_BY_TYPE[type], [type]);
+    const IconComponent = useMemo(() => ICON_BY_TYPE[type], [type]);
 
-  return <IconComponent {...baseProps} />;
+    return <IconComponent {...baseProps} />;
 }

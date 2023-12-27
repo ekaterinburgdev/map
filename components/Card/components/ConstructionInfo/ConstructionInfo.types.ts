@@ -1,3 +1,3 @@
 export type ConstructionInfoProps = {
-  date: string;
+    date: string;
 };

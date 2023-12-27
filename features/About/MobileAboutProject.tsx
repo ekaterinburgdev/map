@@ -5,18 +5,18 @@ import { AboutProjectContent } from 'features/About/AboutProjectContent';
 import { AboutProjectContext } from 'features/About/AboutProjectProvider';
 
 export function MobileAboutProject() {
-  const { isOpened, close } = useContext(AboutProjectContext);
+    const { isOpened, close } = useContext(AboutProjectContext);
 
-  return (
-    <Sheet detent="full-height" isOpen={isOpened} onClose={close}>
-      <Sheet.Container>
-        <Sheet.Header />
-        <Sheet.Content>
-          <Sheet.Scroller>
-            <AboutProjectContent />
-          </Sheet.Scroller>
-        </Sheet.Content>
-      </Sheet.Container>
-    </Sheet>
-  );
+    return (
+        <Sheet detent="full-height" isOpen={isOpened} onClose={close}>
+            <Sheet.Container>
+                <Sheet.Header />
+                <Sheet.Content>
+                    <Sheet.Scroller>
+                        <AboutProjectContent />
+                    </Sheet.Scroller>
+                </Sheet.Content>
+            </Sheet.Container>
+        </Sheet>
+    );
 }

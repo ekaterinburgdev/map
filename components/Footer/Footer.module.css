@@ -1,35 +1,35 @@
 .footer [style*='--projects-panel'] {
-  top: -6px;
-  right: auto;
-  bottom: auto;
-  left: 8px;
-  transform-origin: left bottom;
+    top: -6px;
+    right: auto;
+    bottom: auto;
+    left: 8px;
+    transform-origin: left bottom;
 }
 
 .footer [class*='modal__content'] {
-  top: 72px;
-  right: auto;
-  bottom: auto;
-  left: auto;
-  transform-origin: 20px 10px;
+    top: 72px;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    transform-origin: 20px 10px;
 }
 
 @media screen and (width >= 600px) {
-  .footer [style*='--projects-panel'] {
-    top: 8px;
-  }
+    .footer [style*='--projects-panel'] {
+        top: 8px;
+    }
 }
 
 @media screen and (width >= 1024px) {
-  .footer [style*='--projects-panel'] {
-    top: auto;
-    bottom: 8px;
-    left: 8px;
-  }
+    .footer [style*='--projects-panel'] {
+        top: auto;
+        bottom: 8px;
+        left: 8px;
+    }
 
-  .footer [class*='modal__content'] {
-    top: auto;
-    bottom: 0;
-    transform-origin: 20px calc(100% - 10px);
-  }
+    .footer [class*='modal__content'] {
+        top: auto;
+        bottom: 0;
+        transform-origin: 20px calc(100% - 10px);
+    }
 }

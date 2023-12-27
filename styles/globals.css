@@ -3,50 +3,50 @@
 @import './tally-widget.css';
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 :root {
-  --color-text-secondary: 155, 170, 195;
+    --color-text-secondary: 155, 170, 195;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  color: white;
-  font-weight: 400;
-  font-size: 1em;
-  font-family: 'Iset Sans', sans-serif;
-  line-height: 1.4;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-  -webkit-font-feature-settings: 'kern';
-  -moz-font-feature-settings: 'kern=1';
-  -moz-font-feature-settings: 'kern';
-  -ms-font-feature-settings: 'kern' 1;
-  font-feature-settings: 'kern';
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-weight: 400;
+    font-size: 1em;
+    font-family: 'Iset Sans', sans-serif;
+    line-height: 1.4;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: 'kern';
+    -moz-font-feature-settings: 'kern=1';
+    -moz-font-feature-settings: 'kern';
+    -ms-font-feature-settings: 'kern' 1;
+    font-feature-settings: 'kern';
 }
 
 ::selection {
-  background: #b3d4fc;
-  text-shadow: none;
+    background: #b3d4fc;
+    text-shadow: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 button {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 video {
-  width: 100%;
+    width: 100%;
 }

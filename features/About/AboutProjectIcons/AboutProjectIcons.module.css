@@ -1,31 +1,31 @@
 .aboutProjectIcons {
-  position: fixed;
-  top: 8px;
-  right: 8px;
-  z-index: 401;
-  display: flex;
-  gap: 4px;
-  color: white;
-  transition: 0.15s ease;
+    position: fixed;
+    top: 8px;
+    right: 8px;
+    z-index: 401;
+    display: flex;
+    gap: 4px;
+    color: white;
+    transition: 0.15s ease;
 }
 
 .aboutProjectIcons__gh img {
-  vertical-align: middle;
-  height: 100%;
+    vertical-align: middle;
+    height: 100%;
 }
 
 .aboutProjectIcons__gh:hover {
-  filter: contrast(0.75);
+    filter: contrast(0.75);
 }
 
 .aboutProjectIcons__gh:active {
-  filter: contrast(0.7);
+    filter: contrast(0.7);
 }
 
 @media screen and (width >= 1024px) {
-  .aboutProjectIcons {
-    top: auto;
-    right: 8px;
-    bottom: 8px;
-  }
+    .aboutProjectIcons {
+        top: auto;
+        right: 8px;
+        bottom: 8px;
+    }
 }

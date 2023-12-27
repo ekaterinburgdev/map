@@ -1,85 +1,85 @@
 .toggle {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75em;
-  position: relative;
-  cursor: pointer;
-  user-select: none;
-  transition: 0.15s ease;
-  padding: 0.75em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75em;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.15s ease;
+    padding: 0.75em 1em;
 
-  --border-width: 2px;
+    --border-width: 2px;
 
-  &:focus-within {
-    outline: 2px solid white;
-    border-radius: 2px;
-  }
+    &:focus-within {
+        outline: 2px solid white;
+        border-radius: 2px;
+    }
 
-  /* Remove outline on click */
-  &:has(:focus:not(:focus-visible)) {
-    outline: none;
-  }
+    /* Remove outline on click */
+    &:has(:focus:not(:focus-visible)) {
+        outline: none;
+    }
 }
 
 @media (hover) {
-  .toggle:hover {
-    background: #11192d;
-  }
+    .toggle:hover {
+        background: #11192d;
+    }
 }
 
 .toggle:active {
-  background: #06112b;
+    background: #06112b;
 }
 
 .toggle__control {
-  position: relative;
-  height: 24px;
-  width: 40px;
-  border-radius: 24px;
-  box-sizing: border-box;
-  border: #0f182e var(--border-width) solid;
-  background-color: #3a4154;
-  transition: 0.15s ease;
-  font-size: 9px;
-
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: rgb(240, 240, 240);
+    position: relative;
+    height: 24px;
+    width: 40px;
+    border-radius: 24px;
+    box-sizing: border-box;
+    border: #0f182e var(--border-width) solid;
+    background-color: #3a4154;
     transition: 0.15s ease;
-  }
+    font-size: 9px;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(240, 240, 240);
+        transition: 0.15s ease;
+    }
 }
 
 .toggle__background {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
 
-  &:checked ~ .toggle__control {
-    background-color: rgba(0, 180, 0, 0.75);
-  }
+    &:checked ~ .toggle__control {
+        background-color: rgba(0, 180, 0, 0.75);
+    }
 
-  &:checked ~ .toggle__control:after {
-    transform: translateX(calc(100% - 2 * var(--border-width)));
-  }
+    &:checked ~ .toggle__control:after {
+        transform: translateX(calc(100% - 2 * var(--border-width)));
+    }
 
-  &:not(:checked) ~ .toggle__control {
-    background-color: rgba(255, 255, 255, 0.16);
-  }
+    &:not(:checked) ~ .toggle__control {
+        background-color: rgba(255, 255, 255, 0.16);
+    }
 
-  &:not(:checked) ~ .toggle__control:after {
-    transform: translateX(0);
-    background: #9b9ea8;
-  }
+    &:not(:checked) ~ .toggle__control:after {
+        transform: translateX(0);
+        background: #9b9ea8;
+    }
 
-  &:hover ~ .toggle__control:after {
-    background-color: rgb(245, 245, 245);
-  }
+    &:hover ~ .toggle__control:after {
+        background-color: rgb(245, 245, 245);
+    }
 }

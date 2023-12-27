@@ -5,17 +5,17 @@ import { Icon } from 'shared/UI/Icons';
 import styles from 'shared/UI/ButtonLink/ButtonLink.module.css';
 
 type TButtonLinkProps = {
-  text: string;
-  link: string;
-  icon?: IconType;
-  additionalStyles?: string;
+    text: string;
+    link: string;
+    icon?: IconType;
+    additionalStyles?: string;
 };
 
 export function ButtonLink({ text, link, icon, additionalStyles }: TButtonLinkProps) {
-  return (
-    <a className={classNames(styles.buttonLink, additionalStyles)} href={link}>
-      {icon && <Icon type={icon} color="#9baac3" />}
-      {text}
-    </a>
-  );
+    return (
+        <a className={classNames(styles.buttonLink, additionalStyles)} href={link}>
+            {icon && <Icon type={icon} color="#9baac3" />}
+            {text}
+        </a>
+    );
 }
