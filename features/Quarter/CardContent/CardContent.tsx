@@ -5,9 +5,11 @@ import { Info } from 'components/Card/components/Info/Info';
 import { Section } from 'components/Card/components/Section/Section';
 import sectionStyles from 'components/Card/components/Section/Section.module.css';
 import { Sources } from 'components/Card/components/Sources/Sources';
-import { EditObjectButtonLink } from 'components/Card/components/EditObjectButtonLink/EditObjectButtonLink';
+import { EditObjectButtonLink } from 'features/EditObjectButtonLink/EditObjectButtonLink';
 import { Icon } from 'shared/UI/Icons';
 import { IconType } from 'shared/UI/Icons/Icons.types';
+import { SOURCES_BY_TYPE } from 'constants/sources';
+import { SourceType } from 'types/Sources.types';
 import styles from './CardContent.module.css';
 
 type QuarterCardContentProps = {
@@ -46,14 +48,11 @@ export function QuarterCardContent({ placemark }: QuarterCardContentProps) {
             </Section>
 
             <Section>
-                <Sources sources={['ekb_quarter']} />
+                <Sources sources={[SOURCES_BY_TYPE[SourceType.ekb_quarter]]} />
             </Section>
             <Section>
                 <div className={sectionStyles.block_inline}>
-                    <EditObjectButtonLink
-                        text="Дополнить или поправить"
-                        address={placemark?.quarterTitle}
-                    />
+                    <EditObjectButtonLink address={placemark?.quarterTitle} />
                 </div>
             </Section>
         </div>

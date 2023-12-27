@@ -6,10 +6,10 @@ import { setFilter } from 'state/features/dataLayers';
 import { dtp, DTPFiltersParams } from 'features/DTP/dtp';
 
 import { Checkbox } from 'shared/UI/Checkbox/Checkbox';
-import { FilterLoader } from 'shared/UI/Loader/FilterLoader/FilterLoader';
+import { FilterLoader } from 'shared/UI/Loader/FilterLoader';
 import { FilterType } from 'types/Filters.types';
 import { MinMax } from 'shared/UI/RangeHistogram/types';
-import { RangeBaseFilter } from 'components/RangeBaseFilter/RangeBaseFilter';
+import { RangeBaseFilter } from 'shared/UI/RangeHistogram/RangeBaseFilter';
 
 import { DtpParticipantType } from '../dtpParticipantType';
 import { DtpSeverityType } from '../dtpSeverityType';

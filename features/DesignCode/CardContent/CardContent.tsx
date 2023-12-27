@@ -1,13 +1,13 @@
 import { Header } from 'components/Card/components/Header/Header';
 import { Label } from 'shared/UI/Label/Label';
 import { Section } from 'components/Card/components/Section/Section';
-
 import { DESIGN_MAP_HOST } from 'features/DesignCode/designCode';
 import styles from 'styles/CardContent.module.css';
 import { Sources } from 'components/Card/components/Sources/Sources';
-import { DESIGN_CODE_MARKER_COLOR_BY_TYPE } from '../MapData/MapData.constants';
-
+import { SOURCES_BY_TYPE } from 'constants/sources';
+import { SourceType } from 'types/Sources.types';
 import { DesignCodeObject } from '../designCodeObject';
+import { DESIGN_CODE_ITEMS_COLORS } from '../DesignCode.constants';
 
 export function DesignCodeCardContent({ placemark }: { placemark?: DesignCodeObject }) {
     return placemark ? (
@@ -21,9 +21,7 @@ export function DesignCodeCardContent({ placemark }: { placemark?: DesignCodeObj
                 <address className={styles.popup__address}>{placemark.street}</address>
             )}
             <Section>
-                <Label color={DESIGN_CODE_MARKER_COLOR_BY_TYPE[placemark.type]}>
-                    {placemark.type}
-                </Label>
+                <Label color={DESIGN_CODE_ITEMS_COLORS[placemark.type]}>{placemark.type}</Label>
             </Section>
             <Section>
                 {placemark.images.map((image) => {
@@ -44,7 +42,7 @@ export function DesignCodeCardContent({ placemark }: { placemark?: DesignCodeObj
                 })}
             </Section>
             <Section>
-                <Sources sources={['design_objects_map']} />
+                <Sources sources={[SOURCES_BY_TYPE[SourceType.design_objects_map]]} />
             </Section>
         </div>
     ) : null;

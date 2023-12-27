@@ -5,7 +5,7 @@ import { setFilter } from 'state/features/dataLayers';
 import { FilterType } from 'types/Filters.types';
 import { lines } from 'features/Lines/lines';
 import { Checkbox } from 'shared/UI/Checkbox/Checkbox';
-import { FilterLoader } from 'shared/UI/Loader/FilterLoader/FilterLoader';
+import { FilterLoader } from 'shared/UI/Loader/FilterLoader';
 
 import { LineType } from '../lineType';
 import { LINES_CONFIG } from '../Lines.constants';

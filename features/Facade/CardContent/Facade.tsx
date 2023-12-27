@@ -1,4 +1,4 @@
-import DownloadButton from 'components/Card/components/DownloadButton/DownloadButton';
+import { DownloadButton } from 'shared/UI/DownloadButton/DownloadButton';
 import styles from './Facade.module.css';
 
 type Props = {

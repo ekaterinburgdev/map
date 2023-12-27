@@ -1,9 +1,32 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import styled from 'styled-components';
 import { setFilter } from 'state/features/dataLayers';
 import { FilterType } from 'types/Filters.types';
 import { Link } from 'shared/UI/Link/Link';
-import styles from './QuarterFilter.module.css';
+
+const Wrapper = styled.div`
+    font-size: 14px;
+    line-height: 21px;
+
+    p {
+        margin: 16px 0 0 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    ul {
+        list-style-type: '— ';
+        margin: 0;
+        padding: 0;
+        padding-left: 16px;
+    }
+
+    li {
+        padding: 0;
+    }
+`;
 
 export function QuarterFilter() {
     const dispatch = useDispatch();
@@ -18,7 +41,7 @@ export function QuarterFilter() {
     });
 
     return (
-        <div className={styles.wrapper}>
+        <Wrapper>
             <p>
                 Квартальный 🙋 — это человек, который следит за&nbsp;порядком на придомовых
                 территориях, детских площадках, парковках, мусорках, объектах торговли и&nbsp;т. д.
@@ -37,6 +60,6 @@ export function QuarterFilter() {
                     text="Подробнее о квартальных"
                 />
             </p>
-        </div>
+        </Wrapper>
     );
 }

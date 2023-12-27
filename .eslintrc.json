@@ -55,6 +55,7 @@
                     { "from": "./pages", "target": "./shared" },
                     { "from": "./types", "target": "./shared" },
                     { "from": "./state", "target": "./components" },
+                    { "from": "./constants", "target": "./components" },
                     { "from": "./features", "target": "./components" }
                 ]
             }

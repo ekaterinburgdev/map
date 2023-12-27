@@ -1,10 +1,21 @@
+import styled from 'styled-components';
 import { Link } from 'shared/UI/Link/Link';
 
-import styles from './FacadeFilter.module.css';
+const Wrapper = styled.div`
+    font-size: 14px;
+    line-height: 21px;
+
+    p {
+        margin: 16px 0 0 0;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+`;
 
 export function FacadeFilter() {
     return (
-        <div className={styles.wrapper}>
+        <Wrapper>
             <p>
                 Для зданий в&nbsp;первом поясе туристического центра Екатеринбурга разработан
                 специальный дизайн-код фасадов. Это нужно для того, чтобы историческая часть города
@@ -18,6 +29,6 @@ export function FacadeFilter() {
                     text="Стандарт дизайн-кода фасадов в туристском центре"
                 />
             </p>
-        </div>
+        </Wrapper>
     );
 }

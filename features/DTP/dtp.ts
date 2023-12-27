@@ -62,6 +62,14 @@ export type DTPObject = {
     };
 };
 
+enum DTPLight {
+    Light = 'Светлое время суток',
+    DarkLightOn = 'В темное время суток, освещение включено',
+    DarkLightOff = 'В темное время суток, освещение не включено',
+    DarkNoLight = 'В темное время суток, освещение отсутствует',
+    Twilight = 'Сумерки',
+}
+
 export type DTPObjectProperties = {
     vehicles: DTPVehicle[];
     dead_count: number;
@@ -79,14 +87,6 @@ export type DTPObjectProperties = {
     light: DTPLight;
     category: string;
 };
-
-export enum DTPLight {
-    Light = 'Светлое время суток',
-    DarkLightOn = 'В темное время суток, освещение включено',
-    DarkLightOff = 'В темное время суток, освещение не включено',
-    DarkNoLight = 'В темное время суток, освещение отсутствует',
-    Twilight = 'Сумерки',
-}
 
 export type DTPVehicle = {
     brand: string;

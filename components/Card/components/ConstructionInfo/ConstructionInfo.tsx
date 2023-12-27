@@ -1,10 +1,12 @@
 import React, { useMemo } from 'react';
-
 import { getYearNameByValue } from 'shared/helpers/getYearNameByValue';
 import { Info } from 'components/Card/components/Info/Info';
 
-import { YEAR_RE } from './ConstructionInfo.constants';
-import { ConstructionInfoProps } from './ConstructionInfo.types';
+const YEAR_RE = /\d{4}/;
+
+type ConstructionInfoProps = {
+    date: string;
+};
 
 export function ConstructionInfo({ date }: ConstructionInfoProps) {
     const constructionDateInfo = useMemo(() => {
