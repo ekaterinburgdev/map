@@ -1,9 +1,17 @@
 import React, { useMemo } from 'react';
 import classNames from 'classnames';
-
 import { Icon } from 'shared/UI/Icons';
+import { IconType } from '../Icons/Icons.types';
 import styles from './Label.module.css';
-import { LabelProps } from './Label.types';
+
+export type LabelProps = {
+    color: string;
+    backgroundColor?: string;
+    icon?: IconType;
+    onClick?: () => void;
+    right?: string;
+    rightColor?: string;
+};
 
 export function Label({
     color,

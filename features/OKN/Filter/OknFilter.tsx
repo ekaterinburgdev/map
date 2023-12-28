@@ -6,7 +6,7 @@ import { setFilter } from 'state/features/dataLayers';
 import { okn } from 'features/OKN/okn';
 
 import { Checkbox } from 'shared/UI/Checkbox/Checkbox';
-import { FilterLoader } from 'shared/UI/Loader/FilterLoader/FilterLoader';
+import { FilterLoader } from 'shared/UI/Loader/FilterLoader';
 import { Section } from 'components/Card/components/Section/Section';
 import { FilterType } from 'types/Filters.types';
 import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';

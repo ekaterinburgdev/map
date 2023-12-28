@@ -3,7 +3,9 @@ import { Sources } from 'components/Card/components/Sources/Sources';
 import { ConstructionInfo } from 'components/Card/components/ConstructionInfo/ConstructionInfo';
 import { Header } from 'components/Card/components/Header/Header';
 import { Section } from 'components/Card/components/Section/Section';
-import { EditObjectButtonLink } from 'components/Card/components/EditObjectButtonLink/EditObjectButtonLink';
+import { EditObjectButtonLink } from 'features/EditObjectButtonLink/EditObjectButtonLink';
+import { SOURCES_BY_TYPE } from 'constants/sources';
+import { SourceType } from 'types/Sources.types';
 import { OknObject } from '../oknObject';
 import { OKNInfo } from './components/OKNInfo/OKNInfo';
 import styles from './CardContent.module.css';
@@ -64,7 +66,7 @@ export function OKNCardContent({ placemark }: { placemark: OknObject }) {
                     />
                 </Section>
                 <Section>
-                    <Sources sources={['okn']} />
+                    <Sources sources={[SOURCES_BY_TYPE[SourceType.okn]]} />
                 </Section>
                 {placemark?.properties?.address && (
                     <Section>

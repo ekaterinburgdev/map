@@ -1,5 +1,16 @@
 import { OknAreaType, OknObjectSignificanceType } from '../oknConstants';
-import { AreaAction, AreaState, ObjectsAction, ObjectsState } from './OknFilter.types';
+
+export interface AreaAction {
+    type: 'toggle';
+    areaType: OknAreaType;
+}
+export interface ObjectsAction {
+    type: 'toggle';
+    objectsType: OknObjectSignificanceType;
+}
+
+export type AreaState = Record<OknAreaType, boolean>;
+export type ObjectsState = Record<OknObjectSignificanceType, boolean>;
 
 export function areaReducer(state: AreaState, action: AreaAction) {
     switch (action.type) {

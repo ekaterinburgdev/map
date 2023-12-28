@@ -6,7 +6,7 @@ import maplibregl from 'maplibre-gl';
 import MapGl from 'react-map-gl';
 import { MAX_ZOOM, MIN_ZOOM, CENTER_COORDS } from 'constants/map';
 
-import { BuildingSource } from 'features/Building/BuildingSource';
+import { BuildingSource } from 'features/Buildings/BuildingSource';
 import { DesignCodeSource } from 'features/DesignCode/DesignCodeSource';
 import { DtpSource } from 'features/DTP/DtpSource';
 import { LinesSource } from 'features/Lines/LinesSource';

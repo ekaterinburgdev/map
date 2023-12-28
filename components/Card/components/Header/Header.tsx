@@ -1,11 +1,14 @@
 import React, { useMemo } from 'react';
-
 import { IconType } from 'shared/UI/Icons/Icons.types';
 import { useCopyHref } from 'shared/helpers/useCopyHref';
 import { Label } from 'shared/UI/Label/Label';
-
 import styles from './Header.module.css';
-import { HeaderProps } from './Header.types';
+
+export type HeaderProps = {
+    coordinates?: [number, number] | number[];
+    title?: string;
+    description?: string;
+};
 
 const COPY_RESET_TIMEOUT = 2000;
 

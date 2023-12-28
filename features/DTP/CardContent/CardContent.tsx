@@ -2,15 +2,18 @@ import React, { useMemo } from 'react';
 
 import { Section } from 'components/Card/components/Section/Section';
 import { Header } from 'components/Card/components/Header/Header';
-
 import { Info } from 'components/Card/components/Info/Info';
 import { Sources } from 'components/Card/components/Sources/Sources';
-
 import { InfoProps } from 'components/Card/components/Info/Info.types';
-import { DTPCardContentProps } from './CardContent.types';
-
+import { SourceType } from 'types/Sources.types';
+import { SOURCES_BY_TYPE } from 'constants/sources';
+import { DTPObject } from '../dtp';
 import styles from './CardContent.module.css';
 import { Participants } from './components/Participants/Participants';
+
+export type DTPCardContentProps = {
+    placemark: DTPObject;
+};
 
 export function DTPCardContent({ placemark }: DTPCardContentProps) {
     const { title, description } = useMemo(() => {
@@ -110,7 +113,7 @@ export function DTPCardContent({ placemark }: DTPCardContentProps) {
                 </Section>
             )}
             <Section>
-                <Sources sources={['dtp']} />
+                <Sources sources={[SOURCES_BY_TYPE[SourceType.dtp]]} />
             </Section>
         </div>
     ) : null;
