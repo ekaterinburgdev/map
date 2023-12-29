@@ -12,15 +12,16 @@
         "project": "./tsconfig.json"
     },
     "rules": {
+        "react-hooks/exhaustive-deps": "error",
+
         "@next/next/no-img-element": "off",
 
         // TODO: remove this rule
         "@typescript-eslint/no-explicit-any": "off",
         // TODO: remove this rule
         "@typescript-eslint/ban-ts-comment": "off",
-        // TODO: remove this rule
+
         "jsx-a11y/click-events-have-key-events": "off",
-        // TODO: remove this rule
         "jsx-a11y/no-static-element-interactions": "off",
 
         "no-irregular-whitespace": "off",
@@ -56,7 +57,15 @@
                     { "from": "./types", "target": "./shared" },
                     { "from": "./state", "target": "./components" },
                     { "from": "./constants", "target": "./components" },
-                    { "from": "./features", "target": "./components" }
+                    { "from": "./features", "target": "./components" },
+
+                    { "from": "./constants", "target": "./map" },
+                    { "from": "./state", "target": "./map" },
+                    { "from": "./styles", "target": "./map" },
+                    { "from": "./shared", "target": "./map" },
+                    { "from": "./pages", "target": "./map" },
+                    { "from": "./features", "target": "./map" },
+                    { "from": "./components", "target": "./map" }
                 ]
             }
         ]

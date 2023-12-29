@@ -6,4 +6,4 @@ export const VERCEL_PUBLIC_IMAGES_PATH = `${VERCEL_PUBLIC_PATH}images/`;
 
 export const IMAGES_URLS_PATH = `${VERCEL_OUTPUT_PATH}images/`;
 
-export const PLACEMARKS_CACHE_PATH = `${VERCEL_OUTPUT_PATH}placemarks.json`;
+export const PLACEMARKS_CACHE_PATH = `${VERCEL_OUTPUT_PATH}ekb-okn.json`;

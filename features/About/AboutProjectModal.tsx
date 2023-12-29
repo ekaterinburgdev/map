@@ -1,11 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { IconType, SheetModal } from 'sloy-ui';
+import { Icon } from 'sloy-ui';
 import { AboutProjectContent } from 'features/About/AboutProjectContent';
-import { AboutProjectContext } from 'features/About/AboutProjectProvider';
-import { Close } from 'shared/UI/Close';
+import { useIsDesktop } from 'helpers/isDesktop';
 import styles from './AboutProjectModal.module.css';
 
-export function AboutProjectModal() {
-    const { close, isOpened } = useContext(AboutProjectContext);
+export function AboutProjectModal({ close, isOpened }: { close: VoidFunction; isOpened: boolean }) {
+    const isDesktop = useIsDesktop();
 
     useEffect(() => {
         const handleKeyDown = (e) => {
@@ -21,10 +22,20 @@ export function AboutProjectModal() {
 
     if (!isOpened) return null;
 
+    if (!isDesktop) {
+        return (
+            <SheetModal snapPoints={[0.8]} fullHeight isOpen={isOpened} onClose={close}>
+                <AboutProjectContent />
+            </SheetModal>
+        );
+    }
+
     return (
         <>
             <div className={styles.aboutProjectModal} role="dialog" aria-modal="true">
-                <Close close={close} />
+                <div className={styles.aboutProjectModalClose} onClick={close}>
+                    <Icon type={IconType.Close} />
+                </div>
                 <AboutProjectContent />
             </div>
             <div className={styles.backdrop} onClick={close} aria-hidden />

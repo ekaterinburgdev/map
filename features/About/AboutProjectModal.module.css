@@ -111,3 +111,9 @@
     background: rgba(0, 0, 0, 0.6);
     touch-action: none;
 }
+
+.aboutProjectModalClose {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
