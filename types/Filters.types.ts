@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export interface Source {
+interface Source {
     name: string;
     link: string;
     data: string;

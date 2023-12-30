@@ -1,0 +1,116 @@
+[
+    {
+        "name": "Валерия Алексеева",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/65bfbb82-1798-42d2-aa7f-8c206738675f__valeria-a.jpg",
+        "link": "http://alexeevalera.ru",
+        "role": "UX-редактор"
+    },
+    {
+        "name": "Ксения Астахова",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/906bbe24-728c-4ae7-8a4e-8dbfeb8eb516__photo_2023-04-06_19.59.08.jpeg",
+        "link": null,
+        "role": "Backend-разработчик"
+    },
+    {
+        "name": "Антон Ахатов",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/f0fb9e78-375a-4971-a5e8-39a7540cbae2__photo_2022-11-24_00.08.55.jpeg",
+        "link": "https://ahatov.com/",
+        "role": "Frontend-разработчик"
+    },
+    {
+        "name": "Константин Безгодов",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/f362a062-8585-4b06-bbe0-0052de6f219c__photo_2023-04-06_19.48.23.jpeg",
+        "link": null,
+        "role": "Fullstack-разработчик"
+    },
+    {
+        "name": "Анастасия Василенко",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/621ef9bb-6209-4a11-8dcf-ff03e828e96a__photo_2023-04-18_14.24.09.jpeg",
+        "link": null,
+        "role": "Менеджер"
+    },
+    {
+        "name": "Дарья Котельник",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/e83e7dbc-a0f1-4078-9fa9-3065fec818b6__darya-k.jpg",
+        "link": null,
+        "role": "Архитектор и ГИС-аналитик"
+    },
+    {
+        "name": "Анастасия Котова",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/db6c9cf2-1f30-44ba-8a1d-a20706f3f545__anastasia-k.jpg",
+        "link": null,
+        "role": "Бренд-стратег"
+    },
+    {
+        "name": "Александр Кряжев",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/190cf62a-7104-46e1-9e85-14cd36cf2378__kryaazh.jpg",
+        "link": null,
+        "role": "Веб-дизайнер"
+    },
+    {
+        "name": "Артём Мокин",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/9db5a4de-bbcf-4aaf-8ce6-d1ba929bdc3b__artem-m.jpg",
+        "link": "https://mokinnart.ru/",
+        "role": "ux/ui-дизайнер"
+    },
+    {
+        "name": "Паша Омелёхин",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/4b85d8b3-8836-4bc0-9e87-9925955b956e__IMG_3288-crop-color.jpg",
+        "link": "https://t.me/omelekhin/",
+        "role": "Руководитель и куратор"
+    },
+    {
+        "name": "Владислав Парфёнов",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/f4ee5cf7-2704-4aa0-9610-6041f68b3c35__vlad-p.jpg",
+        "link": null,
+        "role": "Крутой хакер"
+    },
+    {
+        "name": "Анастасия Пелевина",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/9711409c-ccbc-4c82-b9ab-446878d25da8__photo_2023-02-05_00.57_1.jpg",
+        "link": null,
+        "role": "Frontend-разработчик"
+    },
+    {
+        "name": "Дарья Петрова",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/00020b69-db2f-4c57-8c74-8495aaf3718b__photo_2023-08-10_10-26-31.jpg",
+        "link": null,
+        "role": "Frontend-разработчик"
+    },
+    {
+        "name": "Григорий Прудников",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/c99f3047-64f7-44ff-9092-ee18987621ac__grigory-p.jpg",
+        "link": null,
+        "role": "Frontend-разработчик"
+    },
+    {
+        "name": "Евгений Рамазанов",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/302afe4e-7dd7-4cbe-8606-112367dddfc8__photo_2022-07-23_16.44.46.jpeg",
+        "link": "https://t.me/overedited",
+        "role": "Продакт менеджер и редактор"
+    },
+    {
+        "name": "Анна Хохлова",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/223adcd4-ad36-4a4a-8b3c-bbeb5c38bfb0__IMG_9804_1_%D0%BC%D0%B8%D0%BD%D0%B8__%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82.jpg",
+        "link": null,
+        "role": "Финансовый аналитик"
+    },
+    {
+        "name": "Александр Чабин",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/ea7be7fa-b064-48fa-b25e-0ce29a35ad87__IMG_155467telegram2.jpg",
+        "link": "https://github.com/sashachabin",
+        "role": "Frontend-разработчик"
+    },
+    {
+        "name": "Дмитрий Шаповалов",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/356f9007-4e1b-4841-ac43-66553f86bf4a__IMG_20230802_071854_287.jpg",
+        "link": null,
+        "role": "Системный аналитик"
+    },
+    {
+        "name": "Ольга Шрейн",
+        "photo": "https://ekaterinburg-design-ekbdev.vercel.app/notion-static/dac3dfa2-ab9f-4340-9774-c17ff6301ae2__photo_2023-04-06_19.54.32.jpeg",
+        "link": null,
+        "role": "Аналитик"
+    }
+]

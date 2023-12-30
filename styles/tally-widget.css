@@ -7,7 +7,6 @@
     bottom: 16px !important;
 }
 
-
 .tally-popup div iframe {
     height: 100%;
     max-height: 100%;
@@ -28,7 +27,9 @@
         box-shadow: none !important;
     }
 
-    .tally-popup, .tally-popup div, .tally-popup div iframe {
+    .tally-popup,
+    .tally-popup div,
+    .tally-popup div iframe {
         border-radius: 8px !important;
     }
 }

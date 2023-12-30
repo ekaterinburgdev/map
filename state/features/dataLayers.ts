@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { getFilterTypeFromHash } from 'helpers/hash';
+import { getFilterTypeFromHash } from 'shared/helpers/hash';
 import { SetFilterParamsPayload, SetFilterPayload, State, ToggleDataPayload } from 'state/state';
 import { FilterType } from 'types/Filters.types';
 

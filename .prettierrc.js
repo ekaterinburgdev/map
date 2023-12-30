@@ -11,7 +11,7 @@ module.exports = {
         {
             files: ['*.json', '*.yaml'],
             options: {
-                tabWidth: 2,
+                tabWidth: 4,
             },
         },
     ],
