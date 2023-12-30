@@ -59,6 +59,12 @@
                     { "from": "./features", "target": "./components" }
                 ]
             }
+        ],
+        "prettier/prettier": [
+            "error",
+            {
+                "endOfLine": "auto"
+            }
         ]
     }
 }

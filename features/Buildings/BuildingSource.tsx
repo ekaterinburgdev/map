@@ -3,21 +3,22 @@ import {
     DataDrivenPropertyValueSpecification,
     ExpressionSpecification,
 } from 'maplibre-gl';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
-import { getLayerStyle } from 'features/Map/helpers/getFeatureState';
-import { colorLuminance } from 'features/Map/helpers/colorLuminance';
 import {
     AGE_FILTERS_DATA,
     FLOOR_FILTERS_DATA,
     WEAR_TEAR_FILTERS_DATA,
 } from 'features/Buildings/Houses.constants';
-import { activeFilterParamsSelector, activeFilterSelector } from 'state/features/selectors';
-import { FilterType } from 'types/Filters.types';
-import { MapItemType } from 'types/Content.types';
+import { colorLuminance } from 'features/Map/helpers/colorLuminance';
+import { getLayerStyle } from 'features/Map/helpers/getFeatureState';
 import useMapObjectState from 'features/Map/helpers/useMapObjectState';
 import { usePopup } from 'features/Map/providers/usePopup';
+import { activeFilterParamsSelector } from 'state/features/selectors';
+import { MapItemType } from 'types/Content.types';
+import { FilterType } from 'types/Filters.types';
 
 const BUILDING_LAYER_ID = 'building';
 
@@ -112,7 +113,8 @@ const healthRangeData = WEAR_TEAR_FILTERS_DATA.map((item) => ({ ...item, value: 
 
 export function BuildingSource() {
     const ekbMap = useMap();
-    const activeFilter = useSelector(activeFilterSelector);
+    const router = useRouter();
+    const activeFilter = (router.query.filter as FilterType) || FilterType.HouseAge;
     const activeFilterParams = useSelector(activeFilterParamsSelector);
     const { openPopup } = usePopup();
 

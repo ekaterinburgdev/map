@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 
-const SOURCE_FILE = path.join(__dirname, '..', 'public', `Facade Design Code 2023 (3).json`);
-const RESULT_FILE = path.join(__dirname, '..', 'public', `ekb-facades.json`);
+const FILE_NAME = 'Facade Design Code 2023 (3)';
+const FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}.json`);
+const NEW_FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}_extracted.json`);
 
-fs.readFile(SOURCE_FILE, 'utf8', (err, data) => {
+fs.readFile(FILE_PATH, 'utf8', (err, data) => {
     if (err) {
         console.error('Error reading file:', err);
         return;
@@ -23,7 +24,7 @@ fs.readFile(SOURCE_FILE, 'utf8', (err, data) => {
         };
     }
 
-    fs.writeFile(RESULT_FILE, JSON.stringify(extracedData, null, 2), 'utf8', (err: any) => {
+    fs.writeFile(NEW_FILE_PATH, JSON.stringify(extracedData, null, 2), 'utf8', (err: any) => {
         if (err) {
             console.error('Error writing file:', err);
         } else {

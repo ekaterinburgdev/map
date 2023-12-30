@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { getFilterTypeFromHash } from 'shared/helpers/hash';
 import { SetFilterParamsPayload, SetFilterPayload, State, ToggleDataPayload } from 'state/state';
 import { FilterType } from 'types/Filters.types';
 
 export const initialState: State['dataLayer'] = {
-    activeFilter: (getFilterTypeFromHash() as FilterType) || Object.values(FilterType)[0],
+    activeFilter:
+        (new URLSearchParams(window.location.search).get('filter') as FilterType) ||
+        Object.values(FilterType)[0],
     activeFilterParams: null,
 };
 

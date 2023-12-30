@@ -1,5 +1,6 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
+import { useRouter } from 'next/router';
 import { FilterType } from 'types/Filters.types';
 
 import styles from './Toggle.module.css';
@@ -13,9 +14,16 @@ export interface ToggleProps {
 }
 
 export function Toggle({ id, label, onClick, type, isActive }: ToggleProps) {
+    const router = useRouter();
+
     const onChange = useCallback(() => {
         onClick(type);
-    }, [type, onClick]);
+        router.push({
+            pathname: '/',
+            query: type === FilterType.HouseAge ? {} : { filter: type },
+            hash: window.location.hash.slice(1),
+        });
+    }, [onClick, type, router]);
 
     return (
         <label className={styles.toggle} htmlFor={id}>
