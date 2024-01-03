@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const FILE_NAME = 'Facade Design Code 2023 (3)';
+const FILE_NAME = ''; // Insert here name of imported file from felt
 const FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}.json`);
 const NEW_FILE_PATH = path.join(__dirname, '..', 'public', `${FILE_NAME}_extracted.json`);
 

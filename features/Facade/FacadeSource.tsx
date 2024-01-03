@@ -1,13 +1,12 @@
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { useMap } from 'react-map-gl';
-import { useSelector } from 'react-redux';
-import { getLayerStyle } from 'features/Map/helpers/getFeatureState';
-import { BUILDING_LAYER_ID } from 'constants/map';
 import { DEFAULT_BULDING_COLOR_NORMAL } from 'constants/colors';
-import { activeFilterSelector } from 'state/features/selectors';
-import { FilterType } from 'types/Filters.types';
-import facades from 'public/ekb-facades.json';
+import { BUILDING_LAYER_ID } from 'constants/map';
+import { getLayerStyle } from 'features/Map/helpers/getFeatureState';
 import useMapObjectState from 'features/Map/helpers/useMapObjectState';
+import facades from 'public/ekb-facades.json';
+import { FilterType } from 'types/Filters.types';
 
 const FACADES_IDS = Object.keys(facades);
 
@@ -51,7 +50,8 @@ function FacadeStyles() {
 }
 
 export function FacadeSource() {
-    const activeFilter = useSelector(activeFilterSelector);
+    const { query } = useRouter();
+    const activeFilter = query.filter;
 
     if (activeFilter !== FilterType.HouseFacades) {
         return null;
