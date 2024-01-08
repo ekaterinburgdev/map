@@ -3811,7 +3811,7 @@
                 "name": "Усадьба купца С. Е. Тупикова",
                 "address": "пр-т Ленина, 31 / ул. 8 Марта, 8",
                 "okn_number": "661720943810005",
-                "date": "XIX - XX вв., 1890-1926 гг.",
+                "date": "XIX–XX вв., 1890–1926 гг.",
                 "type": "Ансамбль",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2723649", "title": "2723649" },
@@ -5504,13 +5504,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.51246197503676, 56.69163745] },
+            "geometry": { "type": "Point", "coordinates": [60.595265, 56.837724] },
             "properties": {
                 "id": 224,
-                "name": "Уличный фасад торгового дома купца А.Н. Захо",
+                "name": "Уличный фасад торгового дома купца А. Н. Захо",
                 "address": "пр-т Ленина, 25",
                 "okn_number": "661710817780005",
-                "date": "1884-1893 гг., 2008-2009 гг.",
+                "date": "1884–1893 гг., 2008–2009 гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2432090", "title": "2432090" },
@@ -6632,11 +6632,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58851205, 56.636390750000004] },
+            "geometry": { "type": "Point", "coordinates": [60.587185, 56.837033] },
             "properties": {
                 "id": 528,
-                "name": "Дом маркшейдера гиттен-фервалтера И.В. Полкова",
-                "address": "пр-т Ленина, 11",
+                "name": "Дом маркшейдера гиттен-фервалтера И. В. Полкова",
+                "address": "пр-т Ленина, 11А",
                 "okn_number": "661711097770065",
                 "date": "1815 г.",
                 "type": "Памятник",
@@ -7064,33 +7064,6 @@
                         "archive": {
                             "id": 2793805,
                             "url": "https://okn-mk.mkrf.ru/maps/show/id/2793805"
-                        }
-                    }
-                ],
-                "isExist": null,
-                "comment": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.51192758368465, 56.6925753] },
-            "properties": {
-                "id": 288,
-                "name": "Дом жилой",
-                "address": "пр-т Ленина, 31",
-                "okn_number": "661710943810015",
-                "date": "1890-1926 гг.",
-                "type": "Памятник",
-                "category": "Регионального значения",
-                "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2723659", "title": "2723659" },
-                "document": [
-                    {
-                        "name": "Решение исполнительного комитета Свердловского областного Совета народных депутатов о взятии под государственную охрану памятников истории и культуры Свердловской области  ",
-                        "number": "454",
-                        "date": "1986-12-04",
-                        "archive": {
-                            "id": 2722888,
-                            "url": "https://okn-mk.mkrf.ru/maps/show/id/2722888"
                         }
                     }
                 ],
@@ -7988,13 +7961,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58851205, 56.636390750000004] },
+            "geometry": { "type": "Point", "coordinates": [60.587405, 56.837114] },
             "properties": {
                 "id": 534,
                 "name": "Усадьба",
                 "address": "пр-т Ленина, 11, ул. Сакко и Ванцетти, 42",
                 "okn_number": "661721097770005",
-                "date": "XIX в., 1815 г., II пол. XIX в.",
+                "date": "XIX в., 1815 г., 2-я половина XIX в.",
                 "type": "Ансамбль",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/3022662", "title": "3022662" },
@@ -8415,11 +8388,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5896311, 56.6374253] },
+            "geometry": { "type": "Point", "coordinates": [60.585000, 56.836061] },
             "properties": {
                 "id": 525,
                 "name": "Здание банка",
-                "address": "пр-т Ленина, 6, литер Б",
+                "address": "пр-т Ленина, 6Б",
                 "okn_number": "661711097750025",
                 "date": "1847 г.",
                 "type": "Памятник",
@@ -8928,11 +8901,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58851205, 56.636390750000004] },
+            "geometry": { "type": "Point", "coordinates": [60.586936, 56.836935] },
             "properties": {
                 "id": 530,
                 "name": "Ограда",
-                "address": "пр-т Ленина, 11",
+                "address": "пр-т Ленина, 11А",
                 "okn_number": "661711097770055",
                 "date": "XIX в.",
                 "type": "Памятник",
@@ -9207,7 +9180,7 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5896311, 56.6374253] },
+            "geometry": { "type": "Point", "coordinates": [60.584707, 56.836103] },
             "properties": {
                 "id": 510,
                 "name": "Ворота",
@@ -9789,11 +9762,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5896311, 56.6374253] },
+            "geometry": { "type": "Point", "coordinates": [60.584450, 56.835989] },
             "properties": {
                 "id": 526,
                 "name": "Здание банка",
-                "address": "пр-т Ленина, 6",
+                "address": "пр-т Ленина, 6А",
                 "okn_number": "661711097750045",
                 "date": "1895 г.",
                 "type": "Памятник",
@@ -10950,13 +10923,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.583380, 56.837907] },
             "properties": {
                 "id": 446,
                 "name": "Корпус Д",
-                "address": "пр-т Ленина, 5",
+                "address": "пр-т Ленина, 5к4",
                 "okn_number": "661711004760055",
-                "date": "1920-1930 гг.",
+                "date": "1920–1930 гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2868605", "title": "2868605" },
@@ -10977,13 +10950,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.582305, 56.836532] },
             "properties": {
                 "id": 444,
                 "name": "Корпус В (3 секции)",
                 "address": "пр-т Ленина, 5",
                 "okn_number": "661711004760035",
-                "date": "1920-1930 гг.",
+                "date": "1920–1930 гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2868623", "title": "2868623" },
@@ -11004,7 +10977,7 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.583526, 56.836683] },
             "properties": {
                 "id": 447,
                 "name": "Корпус-вставка",
@@ -11094,13 +11067,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.584441, 56.836711] },
             "properties": {
                 "id": 442,
                 "name": "Корпус А (4 секции)",
-                "address": "пр-т Ленина, 5",
+                "address": "пр-т Ленина, 5к1",
                 "okn_number": "661711004760015",
-                "date": "1920-1930 гг.",
+                "date": "1920–1930 гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2868655", "title": "2868655" },
@@ -11184,13 +11157,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.584471, 56.837628] },
             "properties": {
                 "id": 443,
                 "name": "Корпус Б (3 секции)",
-                "address": "пр-т Ленина, 5",
+                "address": "пр-т Ленина, 5к3",
                 "okn_number": "661711004760025",
-                "date": "1920-1930 гг.",
+                "date": "1920–1930 гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2868628", "title": "2868628" },
@@ -11211,11 +11184,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5901627, 56.63698615] },
+            "geometry": { "type": "Point", "coordinates": [60.583664, 56.837160] },
             "properties": {
                 "id": 445,
                 "name": "Корпус Г",
-                "address": "пр-т Ленина, 5",
+                "address": "пр-т Ленина, 5к2",
                 "okn_number": "661711004760045",
                 "date": "1920-1930 гг.",
                 "type": "Памятник",
@@ -11364,33 +11337,6 @@
                         "archive": {
                             "id": 2719554,
                             "url": "https://okn-mk.mkrf.ru/maps/show/id/2719554"
-                        }
-                    }
-                ],
-                "isExist": null,
-                "comment": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.51479680311625, 56.69023075] },
-            "properties": {
-                "id": 460,
-                "name": "Особняк",
-                "address": "пр-т Ленина, 18",
-                "okn_number": "661711005000005",
-                "date": "рубеж XIX-XX вв.",
-                "type": "Памятник",
-                "category": "Регионального значения",
-                "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2844288", "title": "2844288" },
-                "document": [
-                    {
-                        "name": "постановление Правительства Свердловской области",
-                        "number": "859-ПП",
-                        "date": "2001-12-28",
-                        "archive": {
-                            "id": 2871282,
-                            "url": "https://okn-mk.mkrf.ru/maps/show/id/2871282"
                         }
                     }
                 ],
@@ -11760,13 +11706,13 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.51192758368465, 56.6925753] },
+            "geometry": { "type": "Point", "coordinates": [60.597727, 56.838514] },
             "properties": {
                 "id": 291,
                 "name": "Ворота",
                 "address": "пр-т Ленина, 31",
                 "okn_number": "661710943810055",
-                "date": "XIX - XX вв.",
+                "date": "XIX–XX вв.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/3016070", "title": "3016070" },
@@ -12601,9 +12547,9 @@
             "properties": {
                 "id": 448,
                 "name": "Спасская церковь",
-                "address": "ул. Бисертская, 12а",
+                "address": "ул. Бисертская, 12А",
                 "okn_number": "661711004770005",
-                "date": "1872-1876 гг., 1878 г., 1880 г., 1990-е гг.",
+                "date": "1872–1876 гг., 1878 г., 1880 г., 1990-е гг.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": "",
@@ -13432,11 +13378,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58851205, 56.636390750000004] },
+            "geometry": { "type": "Point", "coordinates": [60.587459, 56.836983] },
             "properties": {
                 "id": 532,
                 "name": "Ворота",
-                "address": "пр-т Ленина, 11",
+                "address": "пр-т Ленина, 11А",
                 "okn_number": "661711097770025",
                 "date": "1815 г.",
                 "type": "Памятник",
@@ -14625,7 +14571,7 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.58851205, 56.636390750000004] },
+            "geometry": { "type": "Point", "coordinates": [60.587687, 56.837045] },
             "properties": {
                 "id": 531,
                 "name": "Угловой флигель",
@@ -19393,7 +19339,7 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.5896311, 56.6374253] },
+            "geometry": { "type": "Point", "coordinates": [60.585704, 56.835582] },
             "properties": {
                 "id": 511,
                 "name": "Ограда кирпичная",
@@ -20113,11 +20059,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.582221, 56.836672] },
+            "geometry": { "type": "Point", "coordinates": [60.584737, 56.835973] },
             "properties": {
                 "id": 505,
                 "name": "Екатеринбургская контора Государственного банка",
-                "address": "пр-т Ленина, 6",
+                "address": "пр-т Ленина, 6А и 6Б",
                 "okn_number": "661721097750005",
                 "date": "1847 г., 1895 г.",
                 "type": "Ансамбль",
@@ -20960,10 +20906,10 @@
             "geometry": { "type": "Point", "coordinates": [60.58947761531721, 56.8365389] },
             "properties": {
                 "id": 461,
-                "name": "Дом мещанина Д.Х. Иконникова",
-                "address": "пр-т Ленина, 18-а",
+                "name": "Дом мещанина Д. Х. Иконникова",
+                "address": "пр-т Ленина, 18А",
                 "okn_number": "661711005010005",
-                "date": "рубеж XIX-XX вв.",
+                "date": "рубеж XIX–XX вв.",
                 "type": "Памятник",
                 "category": "Регионального значения",
                 "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/4535971", "title": "4535971" },
@@ -21065,11 +21011,11 @@
         },
         {
             "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.587135, 56.837002] },
+            "geometry": { "type": "Point", "coordinates": [60.586859, 56.837005] },
             "properties": {
                 "id": 529,
                 "name": "Территория сада",
-                "address": "пр-т Ленина, 11",
+                "address": "пр-т Ленина, 11А",
                 "okn_number": "661721097770015",
                 "date": "XIX в., 1815 г., II пол. XIX в.",
                 "type": "Ансамбль",
@@ -21382,51 +21328,6 @@
                     }
                 ],
                 "isExist": "",
-                "comment": null
-            }
-        },
-        {
-            "type": "Feature",
-            "geometry": { "type": "Point", "coordinates": [60.51246197503676, 56.69163745] },
-            "properties": {
-                "id": 223,
-                "name": "Дом, построенный в псевдо-готическом стиле",
-                "address": "пр-т Ленина, 25",
-                "okn_number": "661710776290005",
-                "date": "1820-е гг., 1880-е гг., 2008-2009 гг.",
-                "type": "Памятник",
-                "category": "Регионального значения",
-                "img": { "url": "https://okn-mk.mkrf.ru/maps/show/id/2360255", "title": "2360255" },
-                "document": [
-                    {
-                        "name": "постановление Правительства Свердловской области",
-                        "number": "757-ПП",
-                        "date": "2012-07-05",
-                        "archive": {
-                            "id": 2412785,
-                            "url": "https://okn-mk.mkrf.ru/maps/show/id/2412785"
-                        }
-                    },
-                    {
-                        "name": "постановление Правительства Свердловской области (изм. сведений)",
-                        "number": "207-ПП",
-                        "date": "2011-03-10",
-                        "archive": {
-                            "id": 2412777,
-                            "url": "https://okn-mk.mkrf.ru/maps/show/id/2412777"
-                        }
-                    },
-                    {
-                        "name": "решение Свердловского облисполкома",
-                        "number": "16",
-                        "date": "1980-01-11",
-                        "archive": {
-                            "id": 2412606,
-                            "url": "https://okn-mk.mkrf.ru/maps/show/id/2412606"
-                        }
-                    }
-                ],
-                "isExist": null,
                 "comment": null
             }
         },
