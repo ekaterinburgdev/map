@@ -11,7 +11,7 @@ import { OknAreaType } from 'features/OKN/oknConstants';
 import { MapItemType } from 'types/Content.types';
 import { usePopup } from 'features/Map/providers/usePopup';
 import useMapObjectState from 'features/Map/helpers/useMapObjectState';
-import geojson from 'public/ekb-okn.json';
+import geojson from 'public/okn-static/placemarks.json';
 import styles from './OknMarker.module.css';
 
 const LAYERS = {
@@ -46,16 +46,6 @@ const OKN_MARKER_IMAGE_SIZE = 40;
 
 const isOneObject = (coordinates: number[] | number[][]): coordinates is number[] => {
     return typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number';
-};
-
-const getImageSrc = (img: string | { url: string }) => {
-    if (Boolean(img)) {
-        if (typeof img === 'string') {
-            return img;
-        }
-        return img.url;
-    }
-    return null;
 };
 
 export function OknSource() {
@@ -150,7 +140,7 @@ export function OknSource() {
         },
     });
 
-    const items = geojson.features.filter(
+    const items = geojson.filter(
         (item) => activeFilterParams[item.properties.category].value,
     );
 
@@ -179,7 +169,7 @@ export function OknSource() {
             >
                 <Layer {...layerStyle} />
                 {items.map((feature) => {
-                    const imageSrc = getImageSrc(feature.properties.img);
+                    const imageSrc = feature.preview?.s.src;
 
                     if (isOneObject(feature.geometry.coordinates) && imageSrc) {
                         return (
