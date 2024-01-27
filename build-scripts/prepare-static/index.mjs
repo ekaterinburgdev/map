@@ -129,6 +129,10 @@ async function saveMetadata(cachPath, items, images) {
                     ...item,
                     preview: {
                                 id: image.id,
+                                m: {
+                                    ...image.m,
+                                    src: `${VERCEL_PUBLIC_IMAGES_PATH}m_${image.path}`,
+                                },
                                 s: {
                                     ...image.s,
                                     src: `${VERCEL_PUBLIC_IMAGES_PATH}s_${image.path}`,

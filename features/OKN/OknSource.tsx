@@ -140,9 +140,7 @@ export function OknSource() {
         },
     });
 
-    const items = geojson.filter(
-        (item) => activeFilterParams[item.properties.category].value,
-    );
+    const items = geojson.filter((item) => activeFilterParams[item.properties.category].value);
 
     return (
         <>

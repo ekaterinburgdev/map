@@ -43,10 +43,20 @@ export async function resize(items) {
             .toFile(IMAGES_URLS_PATH + prefix + '_' + filename)
             .then(({ width, height }) => ({ width, height }));
 
+    const resizeOne = (filename, maxSize, prefix) =>
+        sharp(IMAGES_URLS_PATH + filename)
+            .resize({
+                fit: sharp.fit.inside,
+                width: maxSize,
+            })
+            .toFile(IMAGES_URLS_PATH + prefix + '_' + filename)
+            .then(({ width, height }) => ({ width, height }));
+
     return Promise.all(
         items.map(async ({ id, path }) => {
+            const m = await resizeOne(path, 800, 'm');
             const s = await resizeAndRoundOne(path, 80, 's');
-            return { id, s, path };
+            return { id, m, s, path };
         }),
     );
 }
