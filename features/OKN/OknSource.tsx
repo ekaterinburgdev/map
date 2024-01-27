@@ -42,7 +42,8 @@ const LAYERS = {
 };
 
 const OKN_MARKER_CLICKABLE_SIZE = 22;
-const OKN_MARKER_IMAGE_SIZE = 40;
+const OKN_MARKER_IMAGE_SIZE = (OKN_MARKER_CLICKABLE_SIZE + 2) * 2;
+// because the main marker larger than the image marker
 
 const isOneObject = (coordinates: number[] | number[][]): coordinates is number[] => {
     return typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number';

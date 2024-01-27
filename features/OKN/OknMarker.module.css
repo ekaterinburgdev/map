@@ -1,20 +1,21 @@
 .marker {
     object-fit: cover;
-    box-shadow: 0 0 0 3px currentColor;
-    border: 1px solid #000;
+    border: 3px solid currentColor;
+    outline: 1px solid #000;
+    outline-offset: -4px;
     border-radius: 100%;
     min-width: 100%;
     min-height: 100%;
     cursor: pointer;
-    transition: all 0.15s;
+    transition: all 0.1s;
     background-color: black;
     position: relative;
     transform-origin: center;
+    display: flex;
 }
 
 .marker:hover,
 .marker.marker_open {
-    box-shadow: 0 0 0 4px currentColor;
     z-index: 9999 !important;
 }
 
