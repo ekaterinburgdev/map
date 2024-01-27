@@ -12,8 +12,7 @@
         "test:js": "next lint",
         "test:types": "tsc --noEmit",
         "devPreinstall": "husky install",
-        "preload-static": "node ./build-scripts/prepare-static/index.mjs",
-        "postinstall": "pnpm preload-static"
+        "sync-previews": "node ./build-scripts/prepare-static/index.mjs"
     },
     "dependencies": {
         "@reduxjs/toolkit": "^2.0.1",
