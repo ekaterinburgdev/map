@@ -1,6 +1,7 @@
 .marker {
     object-fit: cover;
     border: 3px solid currentColor;
+    background: currentColor;
     outline: 1px solid #000;
     outline-offset: -4px;
     border-radius: 100%;
@@ -8,7 +9,6 @@
     min-height: 100%;
     cursor: pointer;
     transition: all 0.1s;
-    background-color: black;
     position: relative;
     transform-origin: center;
     display: flex;

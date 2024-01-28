@@ -41,7 +41,7 @@ const LAYERS = {
     },
 };
 
-const OKN_MARKER_CLICKABLE_SIZE = 22;
+const OKN_MARKER_CLICKABLE_SIZE = 15;
 const OKN_MARKER_IMAGE_SIZE = (OKN_MARKER_CLICKABLE_SIZE + 2) * 2;
 // because the main marker larger than the image marker
 
@@ -87,16 +87,6 @@ export function OknSource() {
         return null;
     }
 
-    const colors = activeItems.map(([category]) => [
-        ['==', ['get', 'category'], category],
-        OBJECTS_CONFIG[category].color,
-    ]);
-
-    const strokeColors = activeItems.map(([category]) => [
-        ['==', ['get', 'category'], category],
-        '#000',
-    ]);
-
     const layerStyle: CircleLayer = {
         id: LAYERS.points.layerId,
         type: 'circle',
@@ -108,11 +98,7 @@ export function OknSource() {
                 active: OKN_MARKER_CLICKABLE_SIZE * 1.3,
             }),
             // @ts-ignore
-            'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
-            'circle-stroke-width': 1,
-            // @ts-ignore
-            'circle-stroke-color': ['case'].concat(...strokeColors).concat(['rgba(0, 0, 0, 0)']),
-            'circle-opacity': 1,
+            'circle-opacity': 0,
         },
     };
 
@@ -168,28 +154,33 @@ export function OknSource() {
             >
                 <Layer {...layerStyle} />
                 {items.map((feature) => {
-                    const imageSrc = feature.preview?.s.src;
+                    if (isOneObject(feature.geometry.coordinates)) {
+                        const props = {
+                            className: classNames(styles.marker, {
+                                [styles.marker_open]: popupId === String(feature.properties.id),
+                            }),
+                            style: {
+                                color: OBJECTS_CONFIG[feature.properties.category].color,
+                                width: OKN_MARKER_IMAGE_SIZE,
+                                height: OKN_MARKER_IMAGE_SIZE,
+                            },
+                        };
 
-                    if (isOneObject(feature.geometry.coordinates) && imageSrc) {
                         return (
                             <Marker
                                 key={feature.properties.id}
                                 latitude={feature.geometry.coordinates[1]}
                                 longitude={feature.geometry.coordinates[0]}
                             >
-                                <img
-                                    className={classNames(styles.marker, {
-                                        [styles.marker_open]:
-                                            popupId === String(feature.properties.id),
-                                    })}
-                                    style={{
-                                        color: OBJECTS_CONFIG[feature.properties.category].color,
-                                    }}
-                                    width={OKN_MARKER_IMAGE_SIZE}
-                                    height={OKN_MARKER_IMAGE_SIZE}
-                                    src={imageSrc}
-                                    alt={feature.properties.name}
-                                />
+                                {feature.preview?.s.src ? (
+                                    <img
+                                        {...props}
+                                        src={feature.preview?.s.src}
+                                        alt={feature.properties.name}
+                                    />
+                                ) : (
+                                    <div {...props} />
+                                )}
                             </Marker>
                         );
                     }
