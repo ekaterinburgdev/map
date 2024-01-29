@@ -7,7 +7,7 @@
         "plugin:jsx-a11y/recommended",
         "plugin:react-hooks/recommended"
     ],
-    "ignorePatterns": ["next.config.js", "scripts/**/*.*js"],
+    "ignorePatterns": ["next.config.js", "scripts/**/*.*js", "build-scripts/**/*.*js"],
     "parserOptions": {
         "project": "./tsconfig.json"
     },

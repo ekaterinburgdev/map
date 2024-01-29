@@ -1,7 +1,8 @@
 import { Source, Layer, useMap } from 'react-map-gl';
 import { useSelector } from 'react-redux';
 import React, { useEffect } from 'react';
-import type { CircleLayer, FillLayer, LineLayer } from 'react-map-gl';
+import { CircleLayer, FillLayer, LineLayer, Marker } from 'react-map-gl';
+import classNames from 'classnames';
 import { activeFilterSelector, activeFilterParamsSelector } from 'state/features/selectors';
 import { AREA_CONFIG, OBJECTS_CONFIG } from 'features/OKN/Okn.constants';
 import { FilterType } from 'types/Filters.types';
@@ -10,6 +11,8 @@ import { OknAreaType } from 'features/OKN/oknConstants';
 import { MapItemType } from 'types/Content.types';
 import { usePopup } from 'features/Map/providers/usePopup';
 import useMapObjectState from 'features/Map/helpers/useMapObjectState';
+import geojson from 'public/okn-static/placemarks.json';
+import styles from './OknMarker.module.css';
 
 const LAYERS = {
     points: {
@@ -38,9 +41,17 @@ const LAYERS = {
     },
 };
 
+const OKN_MARKER_CLICKABLE_SIZE = 15;
+const OKN_MARKER_IMAGE_SIZE = (OKN_MARKER_CLICKABLE_SIZE + 2) * 2;
+// because the main marker larger than the image marker
+
+const isOneObject = (coordinates: number[] | number[][]): coordinates is number[] => {
+    return typeof coordinates[0] === 'number' && typeof coordinates[1] === 'number';
+};
+
 export function OknSource() {
     const ekbMap = useMap();
-    const { openPopup } = usePopup();
+    const { openPopup, popupId } = usePopup();
     const activeFilter = useSelector(activeFilterSelector);
     const activeFilterParams = useSelector(activeFilterParamsSelector);
 
@@ -76,27 +87,18 @@ export function OknSource() {
         return null;
     }
 
-    const colors = activeItems.map(([category]) => [
-        ['==', ['get', 'category'], category],
-        OBJECTS_CONFIG[category].color,
-    ]);
-
-    const strokeColors = activeItems.map(([category]) => [
-        ['==', ['get', 'category'], category],
-        '#000',
-    ]);
-
     const layerStyle: CircleLayer = {
         id: LAYERS.points.layerId,
         type: 'circle',
         source: LAYERS.points.sourceId,
         paint: {
-            'circle-radius': getLayerStyle<number>({ initial: 10, hover: 12, active: 13 }),
+            'circle-radius': getLayerStyle<number>({
+                initial: OKN_MARKER_CLICKABLE_SIZE,
+                hover: OKN_MARKER_CLICKABLE_SIZE * 1.4,
+                active: OKN_MARKER_CLICKABLE_SIZE * 1.7,
+            }),
             // @ts-ignore
-            'circle-color': ['case'].concat(...colors).concat(['rgba(0, 0, 0, 0)']),
-            'circle-stroke-width': 1,
-            // @ts-ignore
-            'circle-stroke-color': ['case'].concat(...strokeColors).concat(['rgba(0, 0, 0, 0)']),
+            'circle-opacity': 0,
         },
     };
 
@@ -125,6 +127,8 @@ export function OknSource() {
         },
     });
 
+    const items = geojson.filter((item) => activeFilterParams[item.properties.category].value);
+
     return (
         <>
             {Object.keys(LAYERS).map(
@@ -149,6 +153,38 @@ export function OknSource() {
                 generateId
             >
                 <Layer {...layerStyle} />
+                {items.map((feature) => {
+                    if (isOneObject(feature.geometry.coordinates)) {
+                        const props = {
+                            className: classNames(styles.marker, {
+                                [styles.marker_open]: popupId === String(feature.properties.id),
+                            }),
+                            style: {
+                                color: OBJECTS_CONFIG[feature.properties.category].color,
+                                width: OKN_MARKER_IMAGE_SIZE,
+                                height: OKN_MARKER_IMAGE_SIZE,
+                            },
+                        };
+
+                        return (
+                            <Marker
+                                key={feature.properties.id}
+                                latitude={feature.geometry.coordinates[1]}
+                                longitude={feature.geometry.coordinates[0]}
+                            >
+                                {feature.preview?.s.src ? (
+                                    <img
+                                        {...props}
+                                        src={feature.preview?.s.src}
+                                        alt={feature.properties.name}
+                                    />
+                                ) : (
+                                    <div {...props} />
+                                )}
+                            </Marker>
+                        );
+                    }
+                })}
             </Source>
         </>
     );

@@ -3,6 +3,7 @@ import { OknObjectSignificanceType } from './oknConstants';
 export interface OknObject {
     properties: OknProperties;
     geometry: OknGeometry;
+    preview?: OknPreview;
 }
 
 export interface OknProperties {
@@ -27,4 +28,15 @@ export interface OknProperties {
 export interface OknGeometry {
     coordinates: [lat: number, lng: number];
     type?: string;
+}
+
+export interface OknPreview {
+    m: PreviewImage;
+    s: PreviewImage;
+}
+
+interface PreviewImage {
+    width: number;
+    height: number;
+    src: string;
 }

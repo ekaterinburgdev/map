@@ -26,7 +26,7 @@ export function OKNCardContent({ placemark }: { placemark: OknObject }) {
 
     return placemark?.properties ? (
         <div className={styles.popup}>
-            {placemark?.properties.img && (
+            {placemark?.properties.img && placemark?.preview && (
                 <a
                     href={placemark?.properties.img.url}
                     target="_blank"
@@ -35,7 +35,7 @@ export function OKNCardContent({ placemark }: { placemark: OknObject }) {
                 >
                     <img
                         key={placemark?.properties.img.title}
-                        src={placemark?.properties.img.url}
+                        src={placemark?.preview.m.src}
                         width={400}
                         height={256}
                         className={styles.popup__image}
