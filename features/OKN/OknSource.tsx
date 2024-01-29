@@ -94,8 +94,8 @@ export function OknSource() {
         paint: {
             'circle-radius': getLayerStyle<number>({
                 initial: OKN_MARKER_CLICKABLE_SIZE,
-                hover: OKN_MARKER_CLICKABLE_SIZE * 1.2,
-                active: OKN_MARKER_CLICKABLE_SIZE * 1.3,
+                hover: OKN_MARKER_CLICKABLE_SIZE * 1.4,
+                active: OKN_MARKER_CLICKABLE_SIZE * 1.7,
             }),
             // @ts-ignore
             'circle-opacity': 0,
