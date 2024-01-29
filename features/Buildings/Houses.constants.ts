@@ -7,11 +7,12 @@ export enum HouseSourceType {
 }
 
 export const AGE_FILTERS_DATA: HistogramDataWithoutValues = [
-    { from: 1723, to: 1860, color: '#ff7461' },
-    { from: 1860, to: 1917, color: '#ffA34e' },
-    { from: 1917, to: 1930, color: '#fee678' },
-    { from: 1930, to: 1940, color: '#85e634' },
-    { from: 1940, to: 1955, color: '#0f9467' },
+    { from: 1723, to: 1861, color: '#ff7461' },
+    { from: 1861, to: 1917, color: '#ffA34e' },
+    { from: 1917, to: 1934, color: '#fee678' },
+    { from: 1934, to: 1941, color: '#85e634' },
+    { from: 1941, to: 1945, color: '#00bb9a' },
+    { from: 1945, to: 1955, color: '#0f9467' },
     { from: 1955, to: 1991, color: '#71b3ff' },
     { from: 1991, to: 2010, color: '#c270ff' },
     { from: 2010, to: new Date().getFullYear(), color: '#f97bcf' },
