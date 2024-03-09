@@ -225,7 +225,7 @@ export const defaultSources: InputSloySource[] = [
     },
     {
         id: 'ekbLinesSource',
-        path: 'https://map.ekaterinburg.city/ekb-color-lines.json',
+        path: '/ekb-color-lines.json',
         type: 'geojson',
         card: { blocks: [] },
         copyright: [],
@@ -253,7 +253,7 @@ export const defaultSources: InputSloySource[] = [
         id: 'ekbPointsSource',
         type: 'geojson',
         copyright: [],
-        path: 'https://map.ekaterinburg.city/ekb-color-points.json',
+        path: '/ekb-color-points.json',
         card: {
             title: 'title',
             blocks: [
@@ -368,7 +368,7 @@ export const defaultSources: InputSloySource[] = [
         type: 'geojson',
         card: { blocks: [] },
         properties: [],
-        path: 'https://map.ekaterinburg.city/ekb-okn-protect.json',
+        path: '/ekb-okn-protect.json',
         copyright: ['okn'],
     },
     {
@@ -376,7 +376,7 @@ export const defaultSources: InputSloySource[] = [
         type: 'geojson',
         card: { blocks: [] },
         properties: [],
-        path: 'https://map.ekaterinburg.city/ekb-okn-security.json',
+        path: '/ekb-okn-security.json',
         copyright: ['okn'],
     },
     {
@@ -384,7 +384,7 @@ export const defaultSources: InputSloySource[] = [
         card: { blocks: [] },
         properties: [],
         id: 'ekbOknObjectZoneSource',
-        path: 'https://map.ekaterinburg.city/ekb-okn-objects.json',
+        path: '/ekb-okn-objects.json',
         copyright: ['okn'],
     },
     {
@@ -401,7 +401,7 @@ export const defaultSources: InputSloySource[] = [
                 { type: 'string[]', id: 'road_conditions' },
             ],
         },
-        path: 'https://map.ekaterinburg.city/ekb-dtp.json',
+        path: '/ekb-dtp.json',
         dataByIdPath: `/api/dtp?id={DATA_BY_ID}`,
         properties: [
             {
@@ -469,7 +469,7 @@ export const defaultSources: InputSloySource[] = [
     {
         id: 'ekbQuarterSource',
         type: 'geojson',
-        path: 'https://map.ekaterinburg.city/quarter_inspectors.json',
+        path: '/ekb-quarters.json',
         copyright: ['ekbQuarter'],
         card: {
             title: 'quarterTitle',
