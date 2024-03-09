@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Button, ButtonSize, ButtonType } from 'shared/UI/Button/Button';
+import { Button, ButtonSize, ButtonType } from 'sloy-ui';
 import { TeamGrid } from './Team/TeamGrid';
 import styles from './AboutProjectModal.module.css';
 import mapService from './map-service.svg';
@@ -167,12 +167,12 @@ export function AboutProjectContent() {
             <footer>
                 <h3 className={styles.h3}>Присоединяйся к нам</h3>
                 <Button
-                    text="Стать частью команды или помочь проекту"
-                    type={ButtonType.YELLOW}
+                    type={ButtonType.ACCENT}
                     size={ButtonSize.LARGE}
-                    onClick={() => {}}
-                    link="https://tally.so#tally-open=wL9Vd1&tally-width=650&tally-overlay=1&tally-emoji-animation=none"
-                />
+                    href="https://tally.so#tally-open=wL9Vd1&tally-width=650&tally-overlay=1&tally-emoji-animation=none"
+                >
+                    Стать частью команды или помочь проекту
+                </Button>
             </footer>
         </article>
     );

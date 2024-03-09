@@ -1,13 +1,17 @@
 import https from 'node:https';
 import fs from 'node:fs';
-import items from '../../public/ekb-okn.json' assert { type: "json" };
+import items from '../../public/ekb-okn.json' assert { type: 'json' };
 import { resize, optimize } from './prepareImages.mjs';
-import { IMAGES_URLS_PATH, PLACEMARKS_CACHE_PATH, VERCEL_PUBLIC_IMAGES_PATH } from './constants.mjs';
+import {
+    IMAGES_URLS_PATH,
+    PLACEMARKS_CACHE_PATH,
+    VERCEL_PUBLIC_IMAGES_PATH,
+} from './constants.mjs';
 
-const start = Date.now()
+const start = Date.now();
 
 async function init() {
-    console.log('Prepare images')
+    console.log('Prepare images');
 
     await clearCachedImages(IMAGES_URLS_PATH);
 
@@ -22,13 +26,13 @@ async function init() {
         .then(log('Optimize images'))
         .then(optimize)
         .catch(console.log);
-    
-    console.log('Save metadata')
-    await saveMetadata(PLACEMARKS_CACHE_PATH, items.features, images)
 
-    console.log(`Finish in ${(Date.now() - start) / 1000} seconds`)
+    console.log('Save metadata');
+    await saveMetadata(PLACEMARKS_CACHE_PATH, items.features, images);
+
+    console.log(`Finish in ${(Date.now() - start) / 1000} seconds`);
 }
-init()
+init();
 
 async function clearCachedImages(path) {
     if (fs.existsSync(path)) {
@@ -40,13 +44,13 @@ async function clearCachedImages(path) {
 
 function getImagesUrls(items) {
     return items.reduce((all, item) => {
-        const img = item.properties.img
+        const img = item.properties.img;
 
         if (Boolean(img)) {
             if (typeof img === 'string') {
-                return all.concat(img)
+                return all.concat(img);
             }
-            return all.concat(img.url)
+            return all.concat(img.url);
         }
         return all;
     }, []);
@@ -113,7 +117,7 @@ async function saveMetadata(cachPath, items, images) {
     }, {});
 
     const updatedItems = items.map((item) => {
-        const img = item.properties.img
+        const img = item.properties.img;
 
         if (Boolean(img)) {
             let guid = null;
@@ -124,26 +128,36 @@ async function saveMetadata(cachPath, items, images) {
             guid = getGUID(img.url);
             const image = imagesById[guid];
 
-            if(image) {
+            if (image) {
                 return {
                     ...item,
-                    preview: {
-                                id: image.id,
-                                m: {
-                                    ...image.m,
-                                    src: `${VERCEL_PUBLIC_IMAGES_PATH}m_${image.path}`,
-                                },
-                                s: {
-                                    ...image.s,
-                                    src: `${VERCEL_PUBLIC_IMAGES_PATH}s_${image.path}`,
-                                },
-                            }
-                }
+                    properties: {
+                        ...item.properties,
+                        preview: {
+                            id: image.id,
+                            m: {
+                                ...image.m,
+                                src: `${VERCEL_PUBLIC_IMAGES_PATH}m_${image.path}`,
+                            },
+                            s: {
+                                ...image.s,
+                                src: `${VERCEL_PUBLIC_IMAGES_PATH}s_${image.path}`,
+                            },
+                        },
+                    },
+                };
             }
         }
 
         return item;
     });
 
-    fs.writeFileSync(cachPath, JSON.stringify(updatedItems));
+    fs.writeFileSync(
+        cachPath,
+        JSON.stringify({
+            type: 'FeatureCollection',
+            name: 'ek-okn',
+            features: updatedItems,
+        }),
+    );
 }

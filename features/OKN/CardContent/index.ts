@@ -1,1 +1,0 @@
-export { OKNCardContent } from './CardContent';

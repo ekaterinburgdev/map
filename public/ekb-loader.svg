@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <style>
+    :root {
+      --stroke-width: 7px;
+      --spin-time: 10s;
+      --displacement: 1.5%;
+      --transition-duration: 0.2s;
+      --transition-timing-function: ease-in-out;
+    }
+
+    .circles {
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      margin: 0 auto;
+      top: 50%;
+      left: 50%;
+      transition: all var(--transition-duration) var(--transition-timing-function);
+      z-index: 100;
+    }
+
+    /* .circles_shadowed .circle.third {
+      -webkit-filter: drop-shadow(0 0 2.5px rgba(0, 180, 0, 0.7));
+      filter: drop-shadow(0 0 2.5px rgba(0, 180, 0, 0.7));
+    } */
+
+    .circle {
+      box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: solid transparent;
+      border-width: var(--stroke-width);
+      border-radius: 1000px;
+      mix-blend-mode: overlay;
+      transition: all var(--transition-duration) var(--transition-timing-function);
+      fill: none;
+    }
+
+    .circle.first {
+      stroke: #00b400;
+      stroke-width: var(--stroke-width);
+      transform-origin: 50% calc(50% - var(--displacement));
+      animation: spin1 var(--spin-time) linear infinite;
+    }
+
+    .circle.second {
+      stroke: #ffd400;
+      stroke-width: var(--stroke-width);
+      transform-origin: 50% calc(50% + var(--displacement));
+      animation: spin2 var(--spin-time) linear infinite;
+    }
+
+    .circle.third {
+      stroke: #00b4ff;
+      stroke-width: var(--stroke-width);
+      transform-origin: calc(50% + var(--displacement)) 50%;
+      animation: spin3 var(--spin-time) linear infinite;
+    }
+
+    @keyframes spin1 {
+      0% {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin2 {
+      0% {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(-360deg);
+      }
+    }
+
+    @keyframes spin3 {
+      0% {
+        transform: rotate(0);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+
+  <g class="circles circles_shadowed">
+    <circle class="circle first" cx="50" cy="50" r="40"></circle>
+    <circle class="circle second" cx="50" cy="50" r="40"></circle>
+    <circle class="circle third" cx="50" cy="50" r="40"></circle>
+  </g>
+</svg>
