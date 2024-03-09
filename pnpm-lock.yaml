@@ -63,8 +63,8 @@ dependencies:
     specifier: 0.32.6
     version: 0.32.6
   sloy-map:
-    specifier: ^0.0.6
-    version: 0.0.6(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
+    specifier: ^0.0.7
+    version: 0.0.7(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
   sloy-ui:
     specifier: 0.0.1-rc.17
     version: 0.0.1-rc.17(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6)
@@ -6751,8 +6751,8 @@ packages:
       is-fullwidth-code-point: 5.0.0
     dev: true
 
-  /sloy-map@0.0.6(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6):
-    resolution: {integrity: sha512-DImYDgxyg5ubXqT5MDFcXxvxQWoJq+DQsCrRGifPumVCZk8NSJtf5Y0DXN2V2ANEKaKAsEFTH3BNZ1Cpm9zHgw==}
+  /sloy-map@0.0.7(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.6):
+    resolution: {integrity: sha512-Wa9dmhnvsIJXqG/tOF2Q9k24xmxJUaFYoZ6crXhCqMzIPTovEeJJ3pgAVhRrbVLyfmKKVcc2zG60rfXb621qEQ==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
