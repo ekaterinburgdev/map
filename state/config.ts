@@ -1057,7 +1057,10 @@ export const defaultLayers: InputSloyLayer[] = [
                 type: 'string',
                 filterVisualizations: ['ekbCrimePointsLayer', 'ekbCrimeHeatmapLayer'],
                 source: 'ekbCrimeLayerSource',
-                sortType: 'count',
+                postfix: "шт.",
+                totalHeader: "count",
+                totalType: "percent",
+                sortType: "count",
             },
         ],
         visualizations: [
