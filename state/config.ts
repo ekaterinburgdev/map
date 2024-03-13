@@ -1053,6 +1053,7 @@ export const defaultLayers: InputSloyLayer[] = [
         description: 'Слой содержит данные о правонарушениях, конфликтах и происшествиях, которые произошли в городе. Подготовлен в 2019 г. на основе сообщений в социальных сетях и новостных ресурсах. Автор датасета: Александр Бурцев, кандидат архитектуры.',
         filters: [
             {
+                title: "Тип происшествия",
                 property: 'exident',
                 type: 'string',
                 filterVisualizations: ['ekbCrimePointsLayer', 'ekbCrimeHeatmapLayer'],
