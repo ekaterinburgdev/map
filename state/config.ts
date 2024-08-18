@@ -635,7 +635,7 @@ export const defaultLayers: InputSloyLayer[] = [
     },
     {
         id: 'ekb-okn',
-        title: 'Объекты культурного наследния',
+        title: 'Объекты культурного наследия',
         filters: [
             {
                 title: 'Объекты ОКН',
