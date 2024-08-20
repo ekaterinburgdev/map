@@ -1,4 +1,4 @@
-import { InputSloySource, InputSloyLayer, ICopyright, getLayerStateStyle } from 'sloy-map';
+import { ICopyright, InputSloyLayer, InputSloySource, getLayerStateStyle } from 'sloy-map';
 import facades from '../public/ekb-facades.json';
 
 const MIN_ZOOM = 7;
@@ -567,6 +567,40 @@ export const defaultSources: InputSloySource[] = [
             },
         ],
     },
+    {
+        id: 'ekbStreetArtSource',
+        type: 'geojson',
+        path: '/ekb-street-art.json',
+        copyright: [],
+        card: {
+            title: 'name',
+            cover: 'img',
+            blocks: [
+                { type: 'value', id: 'description' },
+                { type: 'value', id: 'doc_name' },
+            ],
+        },
+        properties: [
+            {
+                id: 'description',
+                title: 'Описание',
+            },
+            {
+                id: 'doc_name',
+                title: 'Фестиваль',
+                values: {
+                    'Карт Бланш': { color: '#40E0D0' },
+                    ЧО: { color: '#EE82EE' },
+                    Заходи: { color: '#7FFF00' },
+                    'Граффити-арт': { color: '#FF1493' },
+                    PublicArtFestival: { color: '#FFD700' },
+                    Стенограффия: { color: '#FF7F50' },
+                    'Zabroska 2023-2024': { color: '#4169E1' },
+                    Разное: { color: '#00FF7F' },
+                },
+            },
+        ],
+    },
 ];
 
 export const defaultLayers: InputSloyLayer[] = [
@@ -1050,18 +1084,19 @@ export const defaultLayers: InputSloyLayer[] = [
     {
         id: 'ekb-crimes',
         title: 'Происшествия',
-        description: 'Слой содержит данные о правонарушениях, конфликтах и происшествиях, которые произошли в городе. Подготовлен в 2019 г. на основе сообщений в социальных сетях и новостных ресурсах. Автор датасета: Александр Бурцев, кандидат архитектуры.',
+        description:
+            'Слой содержит данные о правонарушениях, конфликтах и происшествиях, которые произошли в городе. Подготовлен в 2019 г. на основе сообщений в социальных сетях и новостных ресурсах. Автор датасета: Александр Бурцев, кандидат архитектуры.',
         filters: [
             {
-                title: "Тип происшествия",
+                title: 'Тип происшествия',
                 property: 'exident',
                 type: 'string',
                 filterVisualizations: ['ekbCrimePointsLayer', 'ekbCrimeHeatmapLayer'],
                 source: 'ekbCrimeLayerSource',
-                postfix: "шт.",
-                totalHeader: "count",
-                totalType: "percent",
-                sortType: "count",
+                postfix: 'шт.',
+                totalHeader: 'count',
+                totalType: 'percent',
+                sortType: 'count',
             },
         ],
         visualizations: [
@@ -1137,6 +1172,46 @@ export const defaultLayers: InputSloyLayer[] = [
                             1,
                             MAX_ZOOM,
                             0,
+                        ],
+                    },
+                },
+            },
+        ],
+    },
+    {
+        id: 'ekb-street-art',
+        title: 'Карта уличного исскуства',
+        filters: [
+            {
+                title: 'Объекты уличного исскуства',
+                type: 'string',
+                filterVisualizations: ['ekbStreetArtLayer'],
+                source: 'ekbStreetArtSource',
+                property: 'doc_name',
+                postfix: 'шт.',
+                totalHeader: 'count',
+                totalType: 'percent',
+            },
+        ],
+        visualizations: [
+            {
+                id: 'ekbStreetArtLayer',
+                source: 'ekbStreetArtSource',
+                property: 'doc_name',
+                openable: true,
+                type: 'map',
+                mapLayerProps: {
+                    type: 'circle',
+                    paint: {
+                        'circle-stroke-width': 1,
+                        'circle-radius': [
+                            'interpolate',
+                            ['linear'],
+                            ['zoom'],
+                            MIN_ZOOM,
+                            1,
+                            MAX_ZOOM,
+                            12,
                         ],
                     },
                 },
