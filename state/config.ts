@@ -1194,27 +1194,35 @@ export const defaultLayers: InputSloyLayer[] = [
             },
         ],
         visualizations: [
+            // {
+            //     id: 'ekbStreetArtLayer',
+            //     source: 'ekbStreetArtSource',
+            //     property: 'doc_name',
+            //     openable: true,
+            //     type: 'map',
+            //     mapLayerProps: {
+            //         type: 'circle',
+            //         paint: {
+            //             'circle-stroke-width': 1,
+            //             'circle-radius': [
+            //                 'interpolate',
+            //                 ['linear'],
+            //                 ['zoom'],
+            //                 MIN_ZOOM,
+            //                 1,
+            //                 MAX_ZOOM,
+            //                 12,
+            //             ],
+            //         },
+            //     },
+            // },
             {
+                type: 'marker-image',
                 id: 'ekbStreetArtLayer',
                 source: 'ekbStreetArtSource',
                 property: 'doc_name',
+                previewPath: 'preview',
                 openable: true,
-                type: 'map',
-                mapLayerProps: {
-                    type: 'circle',
-                    paint: {
-                        'circle-stroke-width': 1,
-                        'circle-radius': [
-                            'interpolate',
-                            ['linear'],
-                            ['zoom'],
-                            MIN_ZOOM,
-                            1,
-                            MAX_ZOOM,
-                            12,
-                        ],
-                    },
-                },
             },
         ],
     },
