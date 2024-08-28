@@ -5,7 +5,7 @@
       "type": "Feature",
       "properties": {
         "name": "Без названия (Овсян)\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Андрей Овсянкин @ovs9n\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_0.jpg",
@@ -23,7 +23,7 @@
       "type": "Feature",
       "properties": {
         "name": "Помню она мечтала уехать к морю",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Владимир Абих @vladimir_abikh\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_1.jpg",
@@ -41,7 +41,7 @@
       "type": "Feature",
       "properties": {
         "name": "Эмодзи",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@a11c1ear\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_2.jpg",
@@ -59,7 +59,7 @@
       "type": "Feature",
       "properties": {
         "name": "Всё возвращается",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алёна Гурьева @zolko_m\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_3.jpg",
@@ -77,7 +77,7 @@
       "type": "Feature",
       "properties": {
         "name": "Теперь они играют нами",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Ася Митрофанова @asulkamit\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_4.jpg",
@@ -95,7 +95,7 @@
       "type": "Feature",
       "properties": {
         "name": "Скованные одной цепью",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Ирина Вилкина @vilcoart\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_5.jpg",
@@ -113,7 +113,7 @@
       "type": "Feature",
       "properties": {
         "name": "Человеку нужен человек",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Мария Ионова @ionova_marusia\nКарт Бланш 2022 г.\nподробнее: https://ekbstreet.art/?p=149",
         "img": "https://static.sloy.app/maps/street-art-static/m_6.jpg",
@@ -131,7 +131,7 @@
       "type": "Feature",
       "properties": {
         "name": "Никита Бигги",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Бигги @biggie_k_ \nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_7.jpg",
@@ -149,7 +149,7 @@
       "type": "Feature",
       "properties": {
         "name": "Smart TV",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@toy.dealer\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_8.jpg",
@@ -167,7 +167,7 @@
       "type": "Feature",
       "properties": {
         "name": "Смайлики",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Anion @anion_vyzyvayet\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_9.jpg",
@@ -185,7 +185,7 @@
       "type": "Feature",
       "properties": {
         "name": "Александра Мельникова",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александра Мельникова @alexandra_melnickova\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_10.jpg",
@@ -203,7 +203,7 @@
       "type": "Feature",
       "properties": {
         "name": "Phone Special Edition",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@ekb3tipa\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_11.jpg",
@@ -221,7 +221,7 @@
       "type": "Feature",
       "properties": {
         "name": "Бочки\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Юрий Аверин @yuriaverin\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_12.jpg",
@@ -239,7 +239,7 @@
       "type": "Feature",
       "properties": {
         "name": "Рождение и взросление",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Jön @boris_in_law\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_13.jpg",
@@ -257,7 +257,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rtue & Nadya O\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Надежда Опалинская @nadya__o & Павел Rtue @rtue\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_14.jpg",
@@ -275,7 +275,7 @@
       "type": "Feature",
       "properties": {
         "name": "Молочная кухня\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Владимир Абих @vladimir_abikh\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_15.jpg",
@@ -293,7 +293,7 @@
       "type": "Feature",
       "properties": {
         "name": "Пионер с ракетным ранцем\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Голубев @proboynick \nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_16.jpg",
@@ -311,7 +311,7 @@
       "type": "Feature",
       "properties": {
         "name": "Просто текст\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Alesha Alesha @thealeshaart\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_17.jpg",
@@ -329,7 +329,7 @@
       "type": "Feature",
       "properties": {
         "name": "Диван в стиле граффити",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Анастасия Дунаева @etolayetdinozavr\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_18.jpg",
@@ -347,7 +347,7 @@
       "type": "Feature",
       "properties": {
         "name": "Алиса, уходи",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@makemakemakemake\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_19.jpg",
@@ -365,7 +365,7 @@
       "type": "Feature",
       "properties": {
         "name": "Автопортрет\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Наталья Денисова @denisova.naa\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=44",
         "img": "https://static.sloy.app/maps/street-art-static/m_20.jpg",
@@ -383,7 +383,7 @@
       "type": "Feature",
       "properties": {
         "name": "Гопник плюс Архангел Михаил",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Надежда Опалинская @nadya__o\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=350",
         "img": "https://static.sloy.app/maps/street-art-static/m_21.jpg",
@@ -401,7 +401,7 @@
       "type": "Feature",
       "properties": {
         "name": "Валентин Бобров",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Валентин Бобров @_5307_\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_22.jpg",
@@ -419,7 +419,7 @@
       "type": "Feature",
       "properties": {
         "name": "Набат",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Астро @ivan_astro_\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_23.jpg",
@@ -437,7 +437,7 @@
       "type": "Feature",
       "properties": {
         "name": "Знаки",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Николай Мамонтов @nemamont\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_24.jpg",
@@ -455,7 +455,7 @@
       "type": "Feature",
       "properties": {
         "name": "Бесконечный стакан",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Сергей Лаушкин @sergeilaushkin\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=112",
         "img": "https://static.sloy.app/maps/street-art-static/m_25.jpg",
@@ -473,7 +473,7 @@
       "type": "Feature",
       "properties": {
         "name": "Набат",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Астро @ivan_astro_\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_26.jpg",
@@ -491,7 +491,7 @@
       "type": "Feature",
       "properties": {
         "name": "Blur\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Миша Гудвин @misha_gudwin\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_27.jpg",
@@ -509,7 +509,7 @@
       "type": "Feature",
       "properties": {
         "name": "Телефонная любовь",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@ol_wri\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_28.jpg",
@@ -527,7 +527,7 @@
       "type": "Feature",
       "properties": {
         "name": "Металическая конструкция",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Матвей Фатеев @ma.tt.hw\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_29.jpg",
@@ -545,7 +545,7 @@
       "type": "Feature",
       "properties": {
         "name": "Иноагент",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Сергей Овсейкин @zukclub\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_30.jpg",
@@ -563,7 +563,7 @@
       "type": "Feature",
       "properties": {
         "name": "Миша Гудвин",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Миша Гудвин @misha_gudwin\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_31.jpg",
@@ -581,7 +581,7 @@
       "type": "Feature",
       "properties": {
         "name": "Search",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Юрий Аверин @yuriaverin\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_32.jpg",
@@ -599,7 +599,7 @@
       "type": "Feature",
       "properties": {
         "name": "Палаточный пейзаж",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Копье\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_33.jpg",
@@ -617,7 +617,7 @@
       "type": "Feature",
       "properties": {
         "name": "Смех и радость мы приносим людям\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Слава ПТРК @slavaptrk\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=678",
         "img": "https://static.sloy.app/maps/street-art-static/m_34.jpg",
@@ -635,7 +635,7 @@
       "type": "Feature",
       "properties": {
         "name": "Мягкий знак\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александра Мельникова @alexandra_melnickova\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=181",
         "img": "https://static.sloy.app/maps/street-art-static/m_35.jpg",
@@ -653,7 +653,7 @@
       "type": "Feature",
       "properties": {
         "name": "Явление «бога» на Уралмаше",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Петр Ноль @rches_null\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=115",
         "img": "https://static.sloy.app/maps/street-art-static/m_36.jpg",
@@ -671,7 +671,7 @@
       "type": "Feature",
       "properties": {
         "name": "В прошлое возьмут не всех",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Наталья Денисова @denisova.naa\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=167",
         "img": "https://static.sloy.app/maps/street-art-static/m_37.jpg",
@@ -689,7 +689,7 @@
       "type": "Feature",
       "properties": {
         "name": "Искусство вне рамок",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Перфоманс с участием нескольких художников, организатор Никита Руфас @nikita_rufas\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_38.jpg",
@@ -707,7 +707,7 @@
       "type": "Feature",
       "properties": {
         "name": "Proboynick",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Голубев @proboynick\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_39.jpg",
@@ -725,7 +725,7 @@
       "type": "Feature",
       "properties": {
         "name": "Молодежь, джентльмен стен",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Абоя Утопа @aboya_utopa\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_40.jpg",
@@ -743,7 +743,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Павел Ртуе @rtue\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_41.jpg",
@@ -761,7 +761,7 @@
       "type": "Feature",
       "properties": {
         "name": "Дима Gred",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Дима Gred @dimagred\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_42.jpg",
@@ -779,7 +779,7 @@
       "type": "Feature",
       "properties": {
         "name": "Абоя Утопа",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Абоя Утопа @aboya_utopa\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_43.jpg",
@@ -797,7 +797,7 @@
       "type": "Feature",
       "properties": {
         "name": "Пустослов ",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Романов @erendaj\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=99",
         "img": "https://static.sloy.app/maps/street-art-static/m_44.jpg",
@@ -815,7 +815,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jön & Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Jön @boris_in_law, Павел Rtue @rtue\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_45.jpg",
@@ -833,7 +833,7 @@
       "type": "Feature",
       "properties": {
         "name": "Надя О",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Надежда Опалинская @nadya__o\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=350",
         "img": "https://static.sloy.app/maps/street-art-static/m_46.jpg",
@@ -851,7 +851,7 @@
       "type": "Feature",
       "properties": {
         "name": "Анкета для друзей",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Антония Лев @antonialev\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=121",
         "img": "https://static.sloy.app/maps/street-art-static/m_47.jpg",
@@ -869,7 +869,7 @@
       "type": "Feature",
       "properties": {
         "name": "Nemamont",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Николай Мамонтов @nemamont\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_48.jpg",
@@ -887,7 +887,7 @@
       "type": "Feature",
       "properties": {
         "name": "Anti-style",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Анастасия Дунаева @etolayetdinozavr\nКарт Бланш 2021 г.\nподробнее: https://ekbstreet.art/?p=102",
         "img": "https://static.sloy.app/maps/street-art-static/m_49.jpg",
@@ -905,7 +905,7 @@
       "type": "Feature",
       "properties": {
         "name": "Anti-style",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Анастасия Дунаева  @etolayetdinozavr & @000aaa999\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_50.jpg",
@@ -923,7 +923,7 @@
       "type": "Feature",
       "properties": {
         "name": "Корень",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Гошан @gosha11811\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_51.jpg",
@@ -941,7 +941,7 @@
       "type": "Feature",
       "properties": {
         "name": "Илья Wince",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Илья Wince @ilia_wince\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_52.jpg",
@@ -959,7 +959,7 @@
       "type": "Feature",
       "properties": {
         "name": "Пшш, парень!",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Гриша Шаров @etosharov\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_53.jpg",
@@ -977,7 +977,7 @@
       "type": "Feature",
       "properties": {
         "name": "Синяя или красная",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Гриша Шаров @etosharov & @oakoak_street_art\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_54.jpg",
@@ -995,7 +995,7 @@
       "type": "Feature",
       "properties": {
         "name": "Абоя Утопа",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Абоя Утопа @aboya_utopa\nКарт Бланш 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_55.jpg",
@@ -1013,7 +1013,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jön & Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Jön @boris_in_law, Павел Rtue @rtue\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_56.jpg",
@@ -1031,7 +1031,7 @@
       "type": "Feature",
       "properties": {
         "name": "Джазовый квартет",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@ancr1me\nКарт Бланш 2019",
         "img": "https://static.sloy.app/maps/street-art-static/m_57.jpg",
@@ -1049,7 +1049,7 @@
       "type": "Feature",
       "properties": {
         "name": "Бэнкси не приедет",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@n888k_com \nКарт Бланш 2019",
         "img": "https://static.sloy.app/maps/street-art-static/m_58.jpg",
@@ -1067,7 +1067,7 @@
       "type": "Feature",
       "properties": {
         "name": "Маленькие люди",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Симонов @ivansimonov_artist\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_59.jpg",
@@ -1085,7 +1085,7 @@
       "type": "Feature",
       "properties": {
         "name": "Бабушка",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Симонов @ivansimonov_artist\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_60.jpg",
@@ -1103,7 +1103,7 @@
       "type": "Feature",
       "properties": {
         "name": "Вперед в лучшее будущее",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Симонов @ivansimonov_artist\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_61.jpg",
@@ -1121,7 +1121,7 @@
       "type": "Feature",
       "properties": {
         "name": "Максим Реванш и Иван Найнти",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Максим Реванш @maxim_revansh и Иван Найнти @ivn_ninety\nКарт Бланш 2019 г.\nподробнее: https://ekbstreet.art/?p=65",
         "img": "https://static.sloy.app/maps/street-art-static/m_62.jpg",
@@ -1139,7 +1139,7 @@
       "type": "Feature",
       "properties": {
         "name": "5/2",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Сальников @sashablot\nКарт Бланш 2019 г.\nподробнее: https://ekbstreet.art/?p=124",
         "img": "https://static.sloy.app/maps/street-art-static/m_63.jpg",
@@ -1157,7 +1157,7 @@
       "type": "Feature",
       "properties": {
         "name": "Арсений Сергеев",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Арсений Сергеев\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_64.jpg",
@@ -1175,7 +1175,7 @@
       "type": "Feature",
       "properties": {
         "name": "124,000 kilometers",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Дёмкин @dyoma21 и Иван Найнти @ivn_ninety\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_65.jpg",
@@ -1193,7 +1193,7 @@
       "type": "Feature",
       "properties": {
         "name": "Хранитель",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Kislow  @kislow\nКарт Бланш 2019 г.\nподробнее: https://ekbstreet.art/?p=93",
         "img": "https://static.sloy.app/maps/street-art-static/m_66.jpg",
@@ -1211,7 +1211,7 @@
       "type": "Feature",
       "properties": {
         "name": "За забором",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Игорь Поносов @igor_ponosov\nКарт Бланш 2019 г.\nподробнее: https://ekbstreet.art/?p=184",
         "img": "https://static.sloy.app/maps/street-art-static/m_67.jpg",
@@ -1229,7 +1229,7 @@
       "type": "Feature",
       "properties": {
         "name": "TNS Crew",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "TNS Crew\nКарт Бланш 2019 г.\nподробнее: https://ekbstreet.art/?p=221",
         "img": "https://static.sloy.app/maps/street-art-static/m_68.jpg",
@@ -1247,7 +1247,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ускользающая красота",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Дёмкин @dyoma21\nКарт Бланш 2018 г.\nподробнее: https://ekbstreet.art/?p=62",
         "img": "https://static.sloy.app/maps/street-art-static/m_69.jpg",
@@ -1265,7 +1265,7 @@
       "type": "Feature",
       "properties": {
         "name": "Противоположные мнения",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Евгений Мулук @evgeny_muluk\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_70.jpg",
@@ -1283,7 +1283,7 @@
       "type": "Feature",
       "properties": {
         "name": "Наблюдение",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Kislow @kislow\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_71.jpg",
@@ -1301,7 +1301,7 @@
       "type": "Feature",
       "properties": {
         "name": "Avant-garde series #97",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Art Abstractov @artabstractov\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_72.jpg",
@@ -1319,7 +1319,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bozik x Максим Реванш",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Дамир Бозик @bozik_art & Максим Реванш @maxim_revansh\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_73.jpg",
@@ -1337,7 +1337,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Павел Rtue @rtue\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_74.jpg",
@@ -1355,7 +1355,7 @@
       "type": "Feature",
       "properties": {
         "name": "Пацаны, вы сожгли свое будущее",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Максим Има @maximima87\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_75.jpg",
@@ -1373,7 +1373,7 @@
       "type": "Feature",
       "properties": {
         "name": "Знак рубля",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Holtov @holtovs\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_76.jpg",
@@ -1391,7 +1391,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ancrime",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Ancrime @ancr1me\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_77.jpg",
@@ -1409,7 +1409,7 @@
       "type": "Feature",
       "properties": {
         "name": "Просто иллюзия",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Гущин @a1eksm.art\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_78.jpg",
@@ -1427,7 +1427,7 @@
       "type": "Feature",
       "properties": {
         "name": "Мурал Урал",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Лена Шубенцева @lenashustreet\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_79.jpg",
@@ -1445,7 +1445,7 @@
       "type": "Feature",
       "properties": {
         "name": "Иллюзия работы",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Гущин @a1eksm.art\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_80.jpg",
@@ -1463,7 +1463,7 @@
       "type": "Feature",
       "properties": {
         "name": "Картинка в стиле граффити",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Слава PTRK @slavaptrk \nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_81.jpg",
@@ -1481,7 +1481,7 @@
       "type": "Feature",
       "properties": {
         "name": "Три топора",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Гущин @a1eksm.art\nКарт Бланш 2018 г.\nподробнее: https://ekbstreet.art/?p=198",
         "img": "https://static.sloy.app/maps/street-art-static/m_82.jpg",
@@ -1499,7 +1499,7 @@
       "type": "Feature",
       "properties": {
         "name": "Природа цвета",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Евгений Мулук @evgeny_muluk и Илья Мозги @ilyamozgi\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_83.jpg",
@@ -1517,7 +1517,7 @@
       "type": "Feature",
       "properties": {
         "name": "Евгений Мулук",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Евгений Мулук @evgeny_muluk\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_84.jpg",
@@ -1535,7 +1535,7 @@
       "type": "Feature",
       "properties": {
         "name": "Богиня любви",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Антония Лев @antonialev\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_85.jpg",
@@ -1553,7 +1553,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kislow x Максим Реванш",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Kislow @kislow & Максим Реванш @maxim_revansh\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_86.jpg",
@@ -1571,7 +1571,7 @@
       "type": "Feature",
       "properties": {
         "name": "Красота",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Симонов @ivansimonov_artist\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_87.jpg",
@@ -1589,7 +1589,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bozik",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Дамир Бозик @bozik_art\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_88.jpg",
@@ -1607,7 +1607,7 @@
       "type": "Feature",
       "properties": {
         "name": "Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Павел Rtue @rtue\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_89.jpg",
@@ -1625,7 +1625,7 @@
       "type": "Feature",
       "properties": {
         "name": "Знал бы, где упаду",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Василий Грино @vasilygrino\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_90.jpg",
@@ -1643,7 +1643,7 @@
       "type": "Feature",
       "properties": {
         "name": "Grino",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Василий Грино @vasilygrino\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_91.jpg",
@@ -1661,7 +1661,7 @@
       "type": "Feature",
       "properties": {
         "name": "Jön",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Jön @boris_in_law\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_92.jpg",
@@ -1679,7 +1679,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ни конца ни края",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Ян Посадский @y.posadsky\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_93.jpg",
@@ -1697,7 +1697,7 @@
       "type": "Feature",
       "properties": {
         "name": "Гул стадиона",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Владимир Абих @vladimir_abikh\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_94.jpg",
@@ -1715,7 +1715,7 @@
       "type": "Feature",
       "properties": {
         "name": "Мне так необходимо, стать для тебя камином",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Илья Мозги @ilyamozgi 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_95.jpg",
@@ -1733,7 +1733,7 @@
       "type": "Feature",
       "properties": {
         "name": "chervi x sad face",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@chervi1 @ilkaif\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_96.jpg",
@@ -1751,7 +1751,7 @@
       "type": "Feature",
       "properties": {
         "name": "Паром Вистула",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Jön @boris_in_law\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_97.jpg",
@@ -1769,7 +1769,7 @@
       "type": "Feature",
       "properties": {
         "name": "Богиня любви",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Антония Лев @antonialev\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_98.jpg",
@@ -1787,7 +1787,7 @@
       "type": "Feature",
       "properties": {
         "name": "Dyoma21",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Дёмкин @dyoma21\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_99.jpg",
@@ -1805,7 +1805,7 @@
       "type": "Feature",
       "properties": {
         "name": "Парашютная вышка",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Бархан @alexeybarhan\n Карт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_100.jpg",
@@ -1823,7 +1823,7 @@
       "type": "Feature",
       "properties": {
         "name": "Выбирает, что поесть",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Slava Moff @moffymoff \nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_101.jpg",
@@ -1841,7 +1841,7 @@
       "type": "Feature",
       "properties": {
         "name": "Медийная личность",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "TNS crew\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_102.jpg",
@@ -1859,7 +1859,7 @@
       "type": "Feature",
       "properties": {
         "name": "Avant-garde series # 91",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Art Abstractov @artabstractov\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_103.jpg",
@@ -1877,7 +1877,7 @@
       "type": "Feature",
       "properties": {
         "name": "Клиповое мышление",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Василий Грино @vasilygrino\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_104.jpg",
@@ -1895,7 +1895,7 @@
       "type": "Feature",
       "properties": {
         "name": "You are not on the lists",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Kislow @kislow и Василий Грино @vasilygrino\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_105.jpg",
@@ -1913,7 +1913,7 @@
       "type": "Feature",
       "properties": {
         "name": "Здрасьте забор покрасьте",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@ancr1me\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_106.jpg",
@@ -1931,7 +1931,7 @@
       "type": "Feature",
       "properties": {
         "name": "Одиночный пикет пенсионера",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@n888k_com \nКарт Бланш 2018",
         "img": "https://static.sloy.app/maps/street-art-static/m_107.jpg",
@@ -1949,7 +1949,7 @@
       "type": "Feature",
       "properties": {
         "name": "Bombing",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@n888k_com\nКарт Бланш 2019",
         "img": "https://static.sloy.app/maps/street-art-static/m_108.jpg",
@@ -1967,7 +1967,7 @@
       "type": "Feature",
       "properties": {
         "name": "Кулисы",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Жунев @zhunev\n Карт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_109.jpg",
@@ -1985,7 +1985,7 @@
       "type": "Feature",
       "properties": {
         "name": "Shaq",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@shaq_inst\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_110.jpg",
@@ -2003,7 +2003,7 @@
       "type": "Feature",
       "properties": {
         "name": "Озеро",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Филипп Козлов @philippenzo\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_111.jpg",
@@ -2021,7 +2021,7 @@
       "type": "Feature",
       "properties": {
         "name": "No system",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Сальников @sashablot\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_112.jpg",
@@ -2039,7 +2039,7 @@
       "type": "Feature",
       "properties": {
         "name": "Радуга",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Миша Гудвин @misha_gudwin\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_113.jpg",
@@ -2057,7 +2057,7 @@
       "type": "Feature",
       "properties": {
         "name": "Рыжий ",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Александр Дёмкин @dyoma21\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_114.jpg",
@@ -2075,7 +2075,7 @@
       "type": "Feature",
       "properties": {
         "name": "Егор Горе",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Егор Горе @_goregor\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_115.jpg",
@@ -2093,7 +2093,7 @@
       "type": "Feature",
       "properties": {
         "name": "Андрей Бергер",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Андрей Бергер @andreyberger\n Карт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_116.jpg",
@@ -2111,7 +2111,7 @@
       "type": "Feature",
       "properties": {
         "name": "Берегись себя",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Иван Серый @ivan_seriy \nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_117.jpg",
@@ -2129,7 +2129,7 @@
       "type": "Feature",
       "properties": {
         "name": "Я хочу быть автоматом",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Номерз @nikita_nomerz\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_118.jpg",
@@ -2147,7 +2147,7 @@
       "type": "Feature",
       "properties": {
         "name": "Уведомление",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Лена Шубенцева @lenashustreet\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_119.jpg",
@@ -2165,7 +2165,7 @@
       "type": "Feature",
       "properties": {
         "name": "Космонавт",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "@sonivius\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_120.jpg",
@@ -2183,7 +2183,7 @@
       "type": "Feature",
       "properties": {
         "name": "Kislow x Rtue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Алексей Kislow @kislow & Павел Rtue @rtue \nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_121.jpg",
@@ -2201,7 +2201,7 @@
       "type": "Feature",
       "properties": {
         "name": "Максим Реванш",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Максим Реванш @maxim_revansh\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_122.jpg",
@@ -2219,7 +2219,7 @@
       "type": "Feature",
       "properties": {
         "name": "Люблю. Жаль нельзя сказать короче",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Стас Багс @StasBags\nКарт Бланш 2019 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_123.jpg",
@@ -2237,7 +2237,7 @@
       "type": "Feature",
       "properties": {
         "name": "Союз уличных художников",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Команда Крепкий Палец @krepki_palez\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_124.jpg",
@@ -2255,7 +2255,7 @@
       "type": "Feature",
       "properties": {
         "name": "Моя точка зрения",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Команда Фрукты Врукты @fruktyvrukty\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_125.jpg",
@@ -2273,7 +2273,7 @@
       "type": "Feature",
       "properties": {
         "name": "Свобода",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Антон Табачников @tabatchikovanton\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_126.jpg",
@@ -2291,7 +2291,7 @@
       "type": "Feature",
       "properties": {
         "name": "Хранитель",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Антон Табачников @tabatchikovanton\nКарт Бланш 2018 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_127.jpg",
@@ -2309,7 +2309,7 @@
       "type": "Feature",
       "properties": {
         "name": "Церковь - автозак духа",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Сергей Овсейкин @zukclub & Тимофей Радя @tima_radya\nКарт Бланш 2020 г",
         "img": "https://static.sloy.app/maps/street-art-static/m_128.jpg",
@@ -2327,7 +2327,7 @@
       "type": "Feature",
       "properties": {
         "name": "Жизнь",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Никита Руфас @nikita_rufas\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_129.jpg",
@@ -2345,7 +2345,7 @@
       "type": "Feature",
       "properties": {
         "name": "Куб",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Покрас Лампас @pokraslampas\nКарт Бланш 2020 г.\nподробнее: https://ekbstreet.art/?p=889",
         "img": "https://static.sloy.app/maps/street-art-static/m_130.jpg",
@@ -2363,7 +2363,7 @@
       "type": "Feature",
       "properties": {
         "name": "Андрей Бергер",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Андрей Бергер @andreyberger\nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_131.jpg",
@@ -2381,7 +2381,7 @@
       "type": "Feature",
       "properties": {
         "name": "Дом, милый дом!",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Владимир Абих @vladimir_abikh \nКарт Бланш 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_132.jpg",
@@ -2399,7 +2399,7 @@
       "type": "Feature",
       "properties": {
         "name": "Carte Blanche",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Сергей Овсейкин @zukclub\nКарт Бланш 2020",
         "img": "https://static.sloy.app/maps/street-art-static/m_133.jpg",
@@ -2417,7 +2417,7 @@
       "type": "Feature",
       "properties": {
         "name": "Akue",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Анатолий Akue @akue1\nКарт Бланш 2020",
         "img": "https://static.sloy.app/maps/street-art-static/m_134.jpg",
@@ -2435,7 +2435,7 @@
       "type": "Feature",
       "properties": {
         "name": "The Stability v2.1\n",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Artøm FFCHW @ffchw.streetart\nКарт Бланш 2021",
         "img": "https://static.sloy.app/maps/street-art-static/m_135.jpg",
@@ -2453,7 +2453,7 @@
       "type": "Feature",
       "properties": {
         "name": "Баланс",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Аня Ярды @annyardy\nКарт Бланш 2018",
         "img": "https://static.sloy.app/maps/street-art-static/m_136.jpg",
@@ -2471,7 +2471,7 @@
       "type": "Feature",
       "properties": {
         "name": "Охота",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Сергей Ермаков @code501\nКарт Бланш 2018 ",
         "img": "https://static.sloy.app/maps/street-art-static/m_137.jpg",
@@ -2489,7 +2489,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ящик пандоры",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "Андрей Овсянкин @ovs9n\nКарт Бланш 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_138.jpg",
@@ -2507,7 +2507,7 @@
       "type": "Feature",
       "properties": {
         "name": "Вы готовы? Мы готовы!",
-        "doc_name": "Карт Бланш",
+        "doc_name": "Карт-бланш",
         "visibility": 1,
         "description": "команда \"Рыжий и Длинный\"\nКарт Бланш 2019",
         "img": "https://static.sloy.app/maps/street-art-static/m_139.jpg",
@@ -2525,7 +2525,7 @@
       "type": "Feature",
       "properties": {
         "name": "Обращение № 133",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Паблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_140.jpg",
@@ -2543,7 +2543,7 @@
       "type": "Feature",
       "properties": {
         "name": "Сердечник",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Сергей Клещев @k.l.e.s.h.c.h.e.v\nПаблик-арт программа \"ЧО\", 2023 г.\nподробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_141.jpg",
@@ -2561,7 +2561,7 @@
       "type": "Feature",
       "properties": {
         "name": "Камень. Сегменты 3",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Валерий Казас\nПаблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_142.jpg",
@@ -2579,7 +2579,7 @@
       "type": "Feature",
       "properties": {
         "name": "Круглая синяя скамейка\n",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "\"Драконпроект\" @drakonoproject \nПаблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_143.jpg",
@@ -2597,7 +2597,7 @@
       "type": "Feature",
       "properties": {
         "name": "Билеты",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Екатерина Гущина\nПаблик-арт программа \"ЧО\", 2023 г.\nподробнее: https://ekbstreet.art/?p=513",
         "img": "https://static.sloy.app/maps/street-art-static/m_144.jpg",
@@ -2615,7 +2615,7 @@
       "type": "Feature",
       "properties": {
         "name": "Уральская азбука",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Паблик-арт программа \"ЧО\", 2023 г.\nподробнее: https://ekbstreet.art/?p=513",
         "img": "https://static.sloy.app/maps/street-art-static/m_145.jpg",
@@ -2633,7 +2633,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ты уникален",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Паблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_146.jpg",
@@ -2651,7 +2651,7 @@
       "type": "Feature",
       "properties": {
         "name": "Этюд неба",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Анна Нистратова @microcalculator\nПаблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_147.jpg",
@@ -2669,7 +2669,7 @@
       "type": "Feature",
       "properties": {
         "name": "Индустриальный младенец",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "арт-группа LKKL\nПаблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_148.jpg",
@@ -2687,7 +2687,7 @@
       "type": "Feature",
       "properties": {
         "name": "Роспись забора\n",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "по эскизам Натальи Пастуховой @hello_pepe\nПаблик-арт программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_149.jpg",
@@ -2705,7 +2705,7 @@
       "type": "Feature",
       "properties": {
         "name": "Городские идолы",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Наталья Пастухова @hello_pepe\nПаблик-арт программа \"ЧО\", 2022 г.\nподробнее: https://ekbstreet.art/?p=171",
         "img": "https://static.sloy.app/maps/street-art-static/m_150.jpg",
@@ -2723,7 +2723,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ступенчатый человек",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Сергей Лаушкин @sergeilaushkin, 2022 г.\nПаблик-арт программа \"ЧО\", 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_151.jpg",
@@ -2741,7 +2741,7 @@
       "type": "Feature",
       "properties": {
         "name": "Призрак Леса",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Алексей Мартинс @alexey_martins \nПаблик-арт программа \"ЧО\", 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_152.jpg",
@@ -2759,7 +2759,7 @@
       "type": "Feature",
       "properties": {
         "name": "ХПО",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Андрей Люблинский @andreylublinsky\nПаблик-арт программа \"ЧО\", 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_153.jpg",
@@ -2777,7 +2777,7 @@
       "type": "Feature",
       "properties": {
         "name": "Эль Небоскреб",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Роман Ермаков @ermakov_roman_\nПаблик-арт программа \"ЧО\", 2021 г.\nподробнее: https://ekbstreet.art/?p=217",
         "img": "https://static.sloy.app/maps/street-art-static/m_154.jpg",
@@ -2795,7 +2795,7 @@
       "type": "Feature",
       "properties": {
         "name": "1702",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Рома Бантик @romabantik\nПаблик-арт программа \"ЧО\", 2021 г.\nподробнее: https://ekbstreet.art/?p=130",
         "img": "https://static.sloy.app/maps/street-art-static/m_155.jpg",
@@ -2813,7 +2813,7 @@
       "type": "Feature",
       "properties": {
         "name": "Трибуна поэта",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Эдуард Кубенский @kubensky_eduard\nПаблик-арт программа \"ЧО\", 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_156.jpg",
@@ -2831,7 +2831,7 @@
       "type": "Feature",
       "properties": {
         "name": "Навсегда",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Галина Белова @gala_belova_ceramics и Рита Хаак @rita_haak\nподробнее: https://ekbstreet.art/?p=210\nПаблик-арт программа \"ЧО\", 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_157.jpg",
@@ -2849,7 +2849,7 @@
       "type": "Feature",
       "properties": {
         "name": "Визмут",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Объединение ГУИ @ho_gui\nПаблик-арт программа \"ЧО\",  2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_158.jpg",
@@ -2867,7 +2867,7 @@
       "type": "Feature",
       "properties": {
         "name": "Портал",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Красил Макар @krasilmakar\nПаблик-арт программа \"ЧО\", 2022 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_159.jpg",
@@ -2885,7 +2885,7 @@
       "type": "Feature",
       "properties": {
         "name": "Точка зрения",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Артем Стефанов @artem_stefanov\nПаблик-арт программа \"ЧО\", 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_160.jpg",
@@ -2903,7 +2903,7 @@
       "type": "Feature",
       "properties": {
         "name": "Поющий камень",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Даниил Гильдерман @daniilgilderman\nПаблик-арт программа \"ЧО\", 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_161.jpg",
@@ -2921,7 +2921,7 @@
       "type": "Feature",
       "properties": {
         "name": "Медведь Гриша",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Андрей Бартенев @andreybartenev\n Паблик-арт программа \"ЧО\", 2020 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_162.jpg",
@@ -2939,7 +2939,7 @@
       "type": "Feature",
       "properties": {
         "name": "Конструктор",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Мастерская \"Как нескучно перейти площадь?\"\nПаблик-арт-программа \"ЧО\", 2023 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_163.jpg",
@@ -2957,7 +2957,7 @@
       "type": "Feature",
       "properties": {
         "name": "ХПО",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Андрей Люблинский @andreylublinsky\nПаблик-арт программа \"ЧО\", 2021 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_164.jpg",
@@ -2975,7 +2975,7 @@
       "type": "Feature",
       "properties": {
         "name": "Уставший забор",
-        "doc_name": "ЧО",
+        "doc_name": "ЧÖ",
         "visibility": 1,
         "description": "Паблик-арт программа \"ЧО\", 2024 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_165.jpg",
@@ -12947,7 +12947,7 @@
       "type": "Feature",
       "properties": {
         "name": "Метаморфозы",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Саша TPI @t3p3i3\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_719.jpg",
@@ -12965,7 +12965,7 @@
       "type": "Feature",
       "properties": {
         "name": "Рукачереп\n",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "@rukacherep\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_720.jpg",
@@ -12983,7 +12983,7 @@
       "type": "Feature",
       "properties": {
         "name": "Зиккурат",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Саша TPI @t3p3i3\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_721.jpg",
@@ -13001,7 +13001,7 @@
       "type": "Feature",
       "properties": {
         "name": "Янчи Каплан",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Янчи Каплан @yanchikaplan\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_722.jpg",
@@ -13019,7 +13019,7 @@
       "type": "Feature",
       "properties": {
         "name": "Янчи Каплан",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Янчи Каплан @yanchikaplan\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_723.jpg",
@@ -13037,7 +13037,7 @@
       "type": "Feature",
       "properties": {
         "name": "Владислав ZIP",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Владислав ZIP @zip_perc\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_724.jpg",
@@ -13055,7 +13055,7 @@
       "type": "Feature",
       "properties": {
         "name": "Grad_916 Без названия\n",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Grad_916 @grad_art916\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_725.jpg",
@@ -13073,7 +13073,7 @@
       "type": "Feature",
       "properties": {
         "name": "За буйки не заплывать",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Grad_916 @grad_art916\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_726.jpg",
@@ -13091,7 +13091,7 @@
       "type": "Feature",
       "properties": {
         "name": "Домашняя работа\n",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Егор Горе @_goregor\nПроект ZABROSHKA, октябрь 2023 г.\nПодробнее: https://ekbstreet.art/?p=551",
         "img": "https://static.sloy.app/maps/street-art-static/m_727.jpg",
@@ -13109,7 +13109,7 @@
       "type": "Feature",
       "properties": {
         "name": "N.28 Солярная",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Диана Disamnia @disamnia\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_728.jpg",
@@ -13127,7 +13127,7 @@
       "type": "Feature",
       "properties": {
         "name": "Ваза с ножками и яблоком",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Гошан @gosha11811\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957 ",
         "img": "https://static.sloy.app/maps/street-art-static/m_729.jpg",
@@ -13145,7 +13145,7 @@
       "type": "Feature",
       "properties": {
         "name": "Гошан 11811",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Гошан @gosha11811\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957 ",
         "img": "https://static.sloy.app/maps/street-art-static/m_730.jpg",
@@ -13163,7 +13163,7 @@
       "type": "Feature",
       "properties": {
         "name": "t3p3i3",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Саша TPI @t3p3i3\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_731.jpg",
@@ -13181,7 +13181,7 @@
       "type": "Feature",
       "properties": {
         "name": "Янчи Каплан",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Янчи Каплан @yanchikaplan\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_732.jpg",
@@ -13199,7 +13199,7 @@
       "type": "Feature",
       "properties": {
         "name": "Мертвый котик",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Grad_916 @grad_art916\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_733.jpg",
@@ -13217,7 +13217,7 @@
       "type": "Feature",
       "properties": {
         "name": "Наследие",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Grad_916 @grad_art916\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_734.jpg",
@@ -13235,7 +13235,7 @@
       "type": "Feature",
       "properties": {
         "name": "Finish him",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Владислав ZIP @zip_perc\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_735.jpg",
@@ -13253,7 +13253,7 @@
       "type": "Feature",
       "properties": {
         "name": "Птицы в клетке",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Сергей Курильченко\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_736.jpg",
@@ -13271,7 +13271,7 @@
       "type": "Feature",
       "properties": {
         "name": "Голод Боуи",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Сергей Курильченко\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_737.jpg",
@@ -13289,7 +13289,7 @@
       "type": "Feature",
       "properties": {
         "name": "Яблочный огрызок",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Егор Горе @_goregor\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_738.jpg",
@@ -13307,7 +13307,7 @@
       "type": "Feature",
       "properties": {
         "name": "Совокупность прошлых жизней",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Екатерина Соболь @katerin.sobol\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_739.jpg",
@@ -13325,7 +13325,7 @@
       "type": "Feature",
       "properties": {
         "name": "Lazarus got no dirt on me",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Atago Zao @atago_zao\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_740.jpg",
@@ -13343,7 +13343,7 @@
       "type": "Feature",
       "properties": {
         "name": "Аутоскопия",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Даша Eyewinker @eyewinker_d\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_741.jpg",
@@ -13361,7 +13361,7 @@
       "type": "Feature",
       "properties": {
         "name": "Некрофилия",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Саша Rukacherep @rukacherep\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_742.jpg",
@@ -13379,7 +13379,7 @@
       "type": "Feature",
       "properties": {
         "name": "Инки",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Рома Инк @roma_ink\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_743.jpg",
@@ -13397,7 +13397,7 @@
       "type": "Feature",
       "properties": {
         "name": "Инки",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Рома Инк @roma_ink\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_744.jpg",
@@ -13415,7 +13415,7 @@
       "type": "Feature",
       "properties": {
         "name": "Mynamestreets",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "@mynamestreets\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_745.jpg",
@@ -13433,7 +13433,7 @@
       "type": "Feature",
       "properties": {
         "name": "Сибирь! ",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Проект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_746.jpg",
@@ -13451,7 +13451,7 @@
       "type": "Feature",
       "properties": {
         "name": "Осень ",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Борис Спи @boris.spi\nПроект Zabroska Реинкарнация, май 2024 г.\nподробнее: https://ekbstreet.art/?p=957",
         "img": "https://static.sloy.app/maps/street-art-static/m_747.jpg",
@@ -13469,7 +13469,7 @@
       "type": "Feature",
       "properties": {
         "name": "Skrep & Kilveinn",
-        "doc_name": "Zabroska 2023-2024",
+        "doc_name": "Zabroshka 2023–2024",
         "visibility": 1,
         "description": "Андрей Скрепка @skrep_one и Юлия Кильвейн @kilveinnnnn, 2024 г.",
         "img": "https://static.sloy.app/maps/street-art-static/m_748.jpg",

@@ -589,13 +589,13 @@ export const defaultSources: InputSloySource[] = [
                 id: 'doc_name',
                 title: 'Фестиваль',
                 values: {
-                    'Карт Бланш': { color: '#00b4ff' },
-                    ЧО: { color: '#ffd400' },
+                    'Карт-бланш': { color: '#00b4ff' },
+                    ЧÖ: { color: '#ffd400' },
                     Заходи: { color: '#5820e4' },
                     'Граффити-арт': { color: '#f758b6' },
                     PublicArtFestival: { color: '#00b400' },
                     Стенограффия: { color: '#86e621' },
-                    'Zabroska 2023-2024': { color: '#e63223' },
+                    'Zabroshka 2023–2024': { color: '#e63223' },
                     Разное: { color: '#ff640a' },
                 },
             },
@@ -1181,6 +1181,12 @@ export const defaultLayers: InputSloyLayer[] = [
     {
         id: 'ekb-street-art',
         title: 'Карта уличного исскуства',
+        description:
+            'Данная карта — это попытка систематизировать всё, что я знаю об уличном искусстве Екатеринбурга. Всего на карте более 700 отметок (к каждой прилагается фото) — это сохранившиеся работы, происхождение которых мне известно (кто автор, год создания, в рамках какого фестиваля или личная инициатива художника). Вы можете использовать эту карту, чтобы, например, спланировать маршрут прогулки по городу, но имейте в виду, что какие-то работы уже исчезли (о чём я не знал) или могут исчезнуть в любой момент',
+        link: {
+            label: 'Алексей Чудинов — StreetArtEkb',
+            href: 'https://ekbstreet.art/',
+        },
         filters: [
             {
                 title: 'Объекты уличного исскуства',
@@ -1195,28 +1201,6 @@ export const defaultLayers: InputSloyLayer[] = [
             },
         ],
         visualizations: [
-            // {
-            //     id: 'ekbStreetArtLayer',
-            //     source: 'ekbStreetArtSource',
-            //     property: 'doc_name',
-            //     openable: true,
-            //     type: 'map',
-            //     mapLayerProps: {
-            //         type: 'circle',
-            //         paint: {
-            //             'circle-stroke-width': 1,
-            //             'circle-radius': [
-            //                 'interpolate',
-            //                 ['linear'],
-            //                 ['zoom'],
-            //                 MIN_ZOOM,
-            //                 1,
-            //                 MAX_ZOOM,
-            //                 12,
-            //             ],
-            //         },
-            //     },
-            // },
             {
                 type: 'marker-image',
                 id: 'ekbStreetArtLayer',
