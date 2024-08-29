@@ -1,4 +1,4 @@
-import { InputSloySource, InputSloyLayer, ICopyright, getLayerStateStyle } from 'sloy-map';
+import { ICopyright, InputSloyLayer, InputSloySource, getLayerStateStyle } from 'sloy-map';
 import facades from '../public/ekb-facades.json';
 
 const MIN_ZOOM = 7;
@@ -567,6 +567,40 @@ export const defaultSources: InputSloySource[] = [
             },
         ],
     },
+    {
+        id: 'ekbStreetArtSource',
+        type: 'geojson',
+        path: '/ekb-street-art.json',
+        copyright: [],
+        card: {
+            title: 'name',
+            cover: 'img',
+            blocks: [
+                { type: 'value', id: 'description' },
+                { type: 'value', id: 'doc_name' },
+            ],
+        },
+        properties: [
+            {
+                id: 'description',
+                title: 'Описание',
+            },
+            {
+                id: 'doc_name',
+                title: 'Фестиваль',
+                values: {
+                    'Карт-бланш': { color: '#00b4ff' },
+                    ЧÖ: { color: '#ffd400' },
+                    Заходи: { color: '#5820e4' },
+                    'Граффити-арт': { color: '#f758b6' },
+                    PublicArtFestival: { color: '#00b400' },
+                    Стенограффия: { color: '#86e621' },
+                    'Zabroshka 2023–2024': { color: '#e63223' },
+                    Разное: { color: '#ff640a' },
+                },
+            },
+        ],
+    },
 ];
 
 export const defaultLayers: InputSloyLayer[] = [
@@ -1050,18 +1084,19 @@ export const defaultLayers: InputSloyLayer[] = [
     {
         id: 'ekb-crimes',
         title: 'Происшествия',
-        description: 'Слой содержит данные о правонарушениях, конфликтах и происшествиях, которые произошли в городе. Подготовлен в 2019 г. на основе сообщений в социальных сетях и новостных ресурсах. Автор датасета: Александр Бурцев, кандидат архитектуры.',
+        description:
+            'Слой содержит данные о правонарушениях, конфликтах и происшествиях, которые произошли в городе. Подготовлен в 2019 г. на основе сообщений в социальных сетях и новостных ресурсах. Автор датасета: Александр Бурцев, кандидат архитектуры.',
         filters: [
             {
-                title: "Тип происшествия",
+                title: 'Тип происшествия',
                 property: 'exident',
                 type: 'string',
                 filterVisualizations: ['ekbCrimePointsLayer', 'ekbCrimeHeatmapLayer'],
                 source: 'ekbCrimeLayerSource',
-                postfix: "шт.",
-                totalHeader: "count",
-                totalType: "percent",
-                sortType: "count",
+                postfix: 'шт.',
+                totalHeader: 'count',
+                totalType: 'percent',
+                sortType: 'count',
             },
         ],
         visualizations: [
@@ -1140,6 +1175,39 @@ export const defaultLayers: InputSloyLayer[] = [
                         ],
                     },
                 },
+            },
+        ],
+    },
+    {
+        id: 'ekb-street-art',
+        title: 'Карта уличного исскуства',
+        description:
+            '«Данная карта — это попытка систематизировать всё, что я знаю об уличном искусстве Екатеринбурга. Всего на карте более 700 отметок (к каждой прилагается фото) — это сохранившиеся работы, происхождение которых мне известно (кто автор, год создания, в рамках какого фестиваля или личная инициатива художника). Вы можете использовать эту карту, чтобы, например, спланировать маршрут прогулки по городу, но имейте в виду, что какие-то работы уже исчезли (о чём я не знал) или могут исчезнуть в любой момент». Дата последнего обновления данных: 27 Августа 2024',
+        link: {
+            label: 'Алексей Чудинов — StreetArtEkb',
+            href: 'https://t.me/streetartekb',
+        },
+        filters: [
+            {
+                title: 'Объекты уличного исскуства',
+                type: 'string',
+                filterVisualizations: ['ekbStreetArtLayer'],
+                source: 'ekbStreetArtSource',
+                property: 'doc_name',
+                postfix: 'шт.',
+                totalHeader: 'count',
+                totalType: 'percent',
+                sortType: 'count',
+            },
+        ],
+        visualizations: [
+            {
+                type: 'marker-image',
+                id: 'ekbStreetArtLayer',
+                source: 'ekbStreetArtSource',
+                property: 'doc_name',
+                previewPath: 'preview',
+                openable: true,
             },
         ],
     },
