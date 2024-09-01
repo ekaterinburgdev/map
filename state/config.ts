@@ -577,7 +577,7 @@ export const defaultSources: InputSloySource[] = [
             cover: 'img',
             blocks: [
                 { type: 'value', id: 'description' },
-                { type: 'value', id: 'doc_name' },
+                { type: 'tag', id: 'doc_name' },
             ],
         },
         properties: [
