@@ -38,7 +38,6 @@ export default function Document() {
             <body>
                 <Main />
                 <NextScript />
-                <script async src="https://tally.so/widgets/embed.js" />
 
                 {/* eslint-disable-next-line react/no-danger */}
                 {process.env.YANDEX_METRIKA && (

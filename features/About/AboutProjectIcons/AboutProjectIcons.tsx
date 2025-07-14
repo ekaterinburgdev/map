@@ -27,7 +27,7 @@ export function AboutProjectIcons() {
                 type={ButtonType.ACCENT}
                 size={ButtonSize.MEDIUM}
                 rounded
-                href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none"
+                href="mailto:mail@ekaterinburg.design"
             >
                 Фидбек
             </Button>

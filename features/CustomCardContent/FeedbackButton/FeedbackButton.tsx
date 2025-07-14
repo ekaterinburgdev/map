@@ -1,7 +1,7 @@
 import { Button, ButtonSize, ButtonType, Icon, IconType } from 'sloy-ui';
 
-const getEditObjectLink = (address: string) =>
-    `https://tally.so#tally-open=w2BoVe&tally-width=650&tally-overlay=1&tally-emoji-animation=none&address=${address}`;
+const getEditObjectLink = () =>
+    `mailto:mail@ekaterinburg.design`;
 
 type Props = {
     address?: string;
@@ -10,7 +10,7 @@ type Props = {
 export function FeedbackButton({ address }: Props) {
     if (!address) return null;
 
-    const href = getEditObjectLink(address);
+    const href = getEditObjectLink();
 
     return (
         <Button

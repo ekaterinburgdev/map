@@ -59,7 +59,7 @@ export function AboutProjectContent() {
                 Мы&nbsp;используем данные из&nbsp;публичных источников. Они не&nbsp;всегда точные,
                 но&nbsp;других нет. Если вы&nbsp;заметили ошибку, пожалуйста,{' '}
                 <a
-                    href="https://tally.so#tally-open=wLzxEG&tally-width=650&tally-overlay=1&tally-emoji-animation=none"
+                    href="mailto:mail@ekaterinburg.design"
                     target="_blank"
                     rel="noreferrer"
                 >
@@ -169,7 +169,7 @@ export function AboutProjectContent() {
                 <Button
                     type={ButtonType.ACCENT}
                     size={ButtonSize.LARGE}
-                    href="https://tally.so#tally-open=wL9Vd1&tally-width=650&tally-overlay=1&tally-emoji-animation=none"
+                    href="mailto:mail@ekaterinburg.design"
                 >
                     Стать частью команды или помочь проекту
                 </Button>
