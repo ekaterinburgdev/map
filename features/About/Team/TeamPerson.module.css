@@ -90,10 +90,6 @@ a.team-person {
 .team-person__role {
     color: #757575;
     line-height: 1.2;
-
-    &::first-letter {
-        text-transform: lowercase;
-    }
 }
 
 @media screen and (width >= 991px) {
