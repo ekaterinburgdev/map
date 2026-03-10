@@ -293,7 +293,7 @@ export const defaultSources: InputSloySource[] = [
         type: 'json',
         coordsProperty: 'coords',
         isCoordsReverse: true,
-        path: 'https://map.ekaterinburg.design/api/map',
+        path: 'https://map.ekaterinburg.design/notion-static/placemarks.json',
         copyright: ['ekbDesignCode'],
         card: {
             title: 'name',
