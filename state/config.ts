@@ -18,7 +18,7 @@ export const defaultMapState = {
         longitude: EKB_VIEW.center[0],
         latitude: EKB_VIEW.center[1],
     },
-    mapStyle: 'https://sloy.io/ekb/style.json',
+    mapStyle: '/style.json',
     minZoom: MIN_ZOOM,
     maxZoom: MAX_ZOOM,
     // maxBounds: [40.721512, 37.51153, 49.609451, 42.222066],
