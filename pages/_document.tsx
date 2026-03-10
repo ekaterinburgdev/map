@@ -32,7 +32,7 @@ export default function Document() {
                 <link rel="manifest" href="/site.webmanifest" />
 
                 <link rel="dns-prefetch" href="https://tiles.baremaps.com/" />
-                <link rel="dns-prefetch" href="https://cartography-zeta.vercel.app/" />
+                <link rel="dns-prefetch" href="https://tiles-map-kohl.vercel.app/" />
             </Head>
 
             <body>
