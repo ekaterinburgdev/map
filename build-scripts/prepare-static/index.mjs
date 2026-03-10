@@ -1,6 +1,6 @@
 import https from 'node:https';
 import fs from 'node:fs';
-import items from '../../public/ekb-okn.json' assert { type: 'json' };
+import items from '../../public/ekb-okn.json' with { type: 'json' };
 import { resize, optimize } from './prepareImages.mjs';
 import {
     IMAGES_URLS_PATH,
