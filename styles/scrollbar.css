@@ -1,0 +1,6 @@
+[class^="Accordion-sc-"],
+[class^="Wrapper-sc-"],
+[class^="AboutProjectModal_about"] {
+    scrollbar-width: thin;
+    scrollbar-color: #455068 #141D34;
+}

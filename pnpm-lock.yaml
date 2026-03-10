@@ -126,9 +126,6 @@ importers:
       postcss-flexbugs-fixes:
         specifier: ^5.0.2
         version: 5.0.2(postcss@8.4.49)
-      postcss-mixins:
-        specifier: ^9.0.4
-        version: 9.0.4(postcss@8.4.49)
       postcss-nesting:
         specifier: ^12.1.5
         version: 12.1.5(postcss@8.4.49)
@@ -1724,10 +1721,6 @@ packages:
   callsites@3.1.0:
     resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
     engines: {node: '>=6'}
-
-  camelcase-css@2.0.1:
-    resolution: {integrity: sha512-QOSvevhslijgYwRx6Rv7zKdMF8lbRmx+uQGx2+vDc+KI/eBnsy9kit5aj23AgGu3pa4t9AgwbnXWqS+iOY+2aA==}
-    engines: {node: '>= 6'}
 
   camelize@1.0.1:
     resolution: {integrity: sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ==}
@@ -3474,12 +3467,6 @@ packages:
     peerDependencies:
       postcss: ^8.4
 
-  postcss-js@4.1.0:
-    resolution: {integrity: sha512-oIAOTqgIo7q2EOwbhb8UalYePMvYoIeRY2YKntdpFQXNosSu3vLrniGgmH9OKs/qAkfoj5oB3le/7mINW1LCfw==}
-    engines: {node: ^12 || ^14 || >= 16}
-    peerDependencies:
-      postcss: ^8.4.21
-
   postcss-lab-function@6.0.19:
     resolution: {integrity: sha512-vwln/mgvFrotJuGV8GFhpAOu9iGf3pvTBr6dLPDmUcqVD5OsQpEFyQMAFTxSxWXGEzBj6ld4pZ/9GDfEpXvo0g==}
     engines: {node: ^14 || ^16 || >=18}
@@ -3491,12 +3478,6 @@ packages:
     engines: {node: ^14 || ^16 || >=18}
     peerDependencies:
       postcss: ^8.4
-
-  postcss-mixins@9.0.4:
-    resolution: {integrity: sha512-XVq5jwQJDRu5M1XGkdpgASqLk37OqkH4JCFDXl/Dn7janOJjCTEKL+36cnRVy7bMtoBzALfO7bV7nTIsFnUWLA==}
-    engines: {node: '>=14.0'}
-    peerDependencies:
-      postcss: ^8.2.14
 
   postcss-nesting@12.1.5:
     resolution: {integrity: sha512-N1NgI1PDCiAGWPTYrwqm8wpjv0bgDmkYHH72pNsqTCv9CObxjxftdYu6AKtGN+pnJa7FQjMm3v4sp8QJbFsYdQ==}
@@ -3553,12 +3534,6 @@ packages:
   postcss-selector-parser@6.1.2:
     resolution: {integrity: sha512-Q8qQfPiZ+THO/3ZrOrO0cJJKfpYCagtMUkXbnEfmgUjwXg6z/WBeOyS9APBBPCTSiDV+s4SwQGu8yFsiMRIudg==}
     engines: {node: '>=4'}
-
-  postcss-simple-vars@7.0.1:
-    resolution: {integrity: sha512-5GLLXaS8qmzHMOjVxqkk1TZPf1jMqesiI7qLhnlyERalG0sMbHIbJqrcnrpmZdKCLglHnRHoEBB61RtGTsj++A==}
-    engines: {node: '>=14.0'}
-    peerDependencies:
-      postcss: ^8.2.1
 
   postcss-value-parser@4.2.0:
     resolution: {integrity: sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ==}
@@ -4138,12 +4113,6 @@ packages:
 
   stylis@4.3.2:
     resolution: {integrity: sha512-bhtUjWd/z6ltJiQwg0dUfxEJ+W+jdqQd8TbWLWyeIJHlnsqmGLRFFd8e5mA0AZi/zx90smXRlN66YMTcaSFifg==}
-
-  sugarss@4.0.1:
-    resolution: {integrity: sha512-WCjS5NfuVJjkQzK10s8WOBY+hhDxxNt/N6ZaGwxFZ+wN3/lKKFSaaKUNecULcTTvE4urLcKaZFQD8vO0mOZujw==}
-    engines: {node: '>=12.0'}
-    peerDependencies:
-      postcss: ^8.3.3
 
   supercluster@8.0.1:
     resolution: {integrity: sha512-IiOea5kJ9iqzD2t7QJq/cREyLHTtSmUT6gQsweojg9WH2sYJqZK9SswTu6jrscO6D1G5v5vYZ9ru/eq85lXeZQ==}
@@ -6511,8 +6480,6 @@ snapshots:
 
   callsites@3.1.0: {}
 
-  camelcase-css@2.0.1: {}
-
   camelize@1.0.1: {}
 
   caniuse-lite@1.0.30001756: {}
@@ -8482,11 +8449,6 @@ snapshots:
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
 
-  postcss-js@4.1.0(postcss@8.4.49):
-    dependencies:
-      camelcase-css: 2.0.1
-      postcss: 8.4.49
-
   postcss-lab-function@6.0.19(postcss@8.4.49):
     dependencies:
       '@csstools/css-color-parser': 2.0.5(@csstools/css-parser-algorithms@2.7.1(@csstools/css-tokenizer@2.4.1))(@csstools/css-tokenizer@2.4.1)
@@ -8500,14 +8462,6 @@ snapshots:
     dependencies:
       postcss: 8.4.49
       postcss-value-parser: 4.2.0
-
-  postcss-mixins@9.0.4(postcss@8.4.49):
-    dependencies:
-      fast-glob: 3.3.3
-      postcss: 8.4.49
-      postcss-js: 4.1.0(postcss@8.4.49)
-      postcss-simple-vars: 7.0.1(postcss@8.4.49)
-      sugarss: 4.0.1(postcss@8.4.49)
 
   postcss-nesting@12.1.5(postcss@8.4.49):
     dependencies:
@@ -8617,10 +8571,6 @@ snapshots:
     dependencies:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
-
-  postcss-simple-vars@7.0.1(postcss@8.4.49):
-    dependencies:
-      postcss: 8.4.49
 
   postcss-value-parser@4.2.0: {}
 
@@ -9359,10 +9309,6 @@ snapshots:
       react: 18.3.1
 
   stylis@4.3.2: {}
-
-  sugarss@4.0.1(postcss@8.4.49):
-    dependencies:
-      postcss: 8.4.49
 
   supercluster@8.0.1:
     dependencies:
