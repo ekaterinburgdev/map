@@ -56,7 +56,6 @@
         "husky": "^8.0.3",
         "lint-staged": "^15.5.2",
         "postcss-flexbugs-fixes": "^5.0.2",
-        "postcss-mixins": "^9.0.4",
         "postcss-nesting": "^12.1.5",
         "postcss-preset-env": "^9.6.0",
         "prettier": "3.6.2"

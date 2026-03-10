@@ -13,12 +13,6 @@
                     "flexbox": "no-2009"
                 }
             }
-        ],
-        [
-            "postcss-mixins",
-            {
-                "mixinsFiles": "styles/**/mixins/*.css"
-            }
         ]
     ]
 }
